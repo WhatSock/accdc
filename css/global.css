@@ -1,0 +1,705 @@
+/*
+CSS styling for WhatSock.com
+Bryan Garaventa, WhatSock
+*/
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+.clearfix {
+display: inline-block;
+}
+* html .clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}
+
+body {
+text-align: center;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 0.93em;
+background-color: #f5f5f5;
+}
+
+a:link, a:visited, a:active, a:hover {
+color: #0000b0;
+}
+
+*:focus {
+outline: #990000 2px inset;
+}
+
+.intro {
+width: 74%;
+margin-left: 20%;
+margin-right: auto;
+}
+
+.content {
+text-align: left;
+}
+
+div.hd {
+text-align: left;
+width: 60%;
+margin: 10px auto 10px 20%;
+clear: both;
+}
+
+h1 {
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+font-size: 1.6em;
+text-align: center;
+outline-style: none;
+margin: 0px 0px 20px 0px;
+padding: 10px 0px;
+font-weight: bold;
+background: url("../img/black_metal_b.jpg") #000 repeat;
+}
+
+h2, h3, h4, h5, h6 {
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+font-size: 1.4em;
+margin: 20px 20px 20px 20%;
+padding: 10px 0px;
+text-align: center;
+width: 55%;
+outline-style: none;
+font-weight: bold;
+background: url("../img/black_metal_b.jpg") #000 repeat;
+}
+
+h1 span, h2 span {
+background-color: #000000;
+color: #f5f5f5;
+-moz-box-shadow: 3px 3px 3px 3px #888;
+-webkit-box-shadow: 3px 3px 3px 3px #888;
+box-shadow: 3px 3px 3px 3px #888;
+}
+
+div.copyright {
+font-size: 0.9em;
+text-align: center;
+}
+
+div.copyright > a {
+margin-left: 20px;
+}
+
+img.closeImg {
+height: 15px;
+width: 46px;
+}
+
+ul, ol, dl {
+margin: 20px auto;
+text-align: left;
+}
+
+li {
+margin: 5px auto;
+}
+
+i {
+font-size: 0.9em;
+}
+
+.tal {
+text-align: left;
+}
+
+.tac {
+text-align: center;
+}
+
+div.announce {
+font-size: 1.1em;
+font-style: italic;
+color: #8fbc8f;
+}
+
+dl.nav {
+border: solid thin black;
+background-color: #d3d3d3;
+width: 74%;
+margin: auto auto auto 20%;
+text-align: left;
+font-size: 0.9em;
+}
+
+dl > dd {
+margin-bottom: 10px;
+}
+
+div.logo img {
+width: 98%;
+border: solid thin black;
+}
+
+div.menuLinks {
+width: 18%;
+text-align: center;
+position: fixed;
+top: 0px;
+left: 0px;
+z-index: 1;
+}
+
+ul.menuList {
+text-align: left;
+list-style: none;
+}
+
+ul.menuList > li {
+text-align: center;
+height: 45px;
+}
+
+.clearLeft, .cl {
+clear: left;
+}
+
+.clearRight, .cr {
+clear: right;
+}
+
+div.topLink {
+padding: 5px;
+border: solid thin black;
+text-align: center;
+position: fixed;
+z-index: 1;
+bottom: 0px;
+right: 0px;
+}
+
+ul.menuList a, li.policy a {
+display: block;
+height: 100%;
+width: 100%;
+font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+font-size: 1.2em;
+background: url("../img/chrome_2.jpg") #fff repeat;
+-moz-box-shadow: 3px 3px 3px 3px #888;
+-webkit-box-shadow: 3px 3px 3px 3px #888;
+box-shadow: 3px 3px 3px 3px #888;
+}
+
+ul.menuList a span, li.policy a span {
+position: relative;
+top: 13px;
+background-color: #000000;
+color: #f5f5f5;
+}
+
+.fl {
+float: left;
+}
+
+.fr {
+float: right;
+}
+
+.vat {
+vertical-align: top;
+}
+
+.hidden {
+display: none;
+visibility: hidden;
+}
+
+.error, .cRed {
+color: red;
+}
+
+abbr, acronym {
+text-decoration: underline;
+}
+
+dt {
+font-weight: bold;
+font-size: 1.2em;
+}
+
+ul.lsn, ol.lsn {
+list-style: none;
+}
+
+.liFl {
+overflow: hidden;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.liFl > li {
+float: left;
+width: 20%;
+}
+
+a.expand, a.collapse {
+margin: auto 10px;
+}
+
+dl.api dt.heading {
+color: #228b22;
+}
+
+div.head, dt.heading + dd {
+font-weight: bold;
+color: #000011;
+font-size: 1.1em;
+}
+
+dl.api dt.heading {
+overflow: hidden;
+}
+
+dl.api dt.heading > span {
+float: left;
+width: 49%;
+}
+
+dl.api dd.detail li, dl.api dd.detail dt, dl.api dd.detail dd {
+font-weight: bold;
+}
+
+dl.api p.heading {
+margin-left: 25%;
+font-size: 1.1em;
+font-weight: bold;
+color: #228b22;
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+}
+
+code {
+margin-left: 10%;
+color: #191970;
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+border: solid thin black;
+}
+
+dl.api ul {
+list-style: none;
+}
+
+div.dynContent {
+border: solid thin black;
+background-color: #d3d3d3;
+color: #009900;
+font-size: 1.1em;
+width: 85%;
+margin: 20px auto;
+float: left;
+}
+
+a.editLink, div.dynContent {
+font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+
+div.demoDynamicEditor {
+border: solid thin black;
+background-color: #ff7f50;
+color: #483d8b;
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+font-size: 0.9em;
+width: 65%;
+z-index: 10;
+text-align: center;
+}
+
+div.dynEditorTop {
+clear: left;
+text-align: center;
+}
+
+div.dynEditorTop1, div.dynEditorTop2 {
+color: #000000;
+float: left;
+width: 20%;
+vertical-align: top;
+text-align: center;
+}
+
+div.dynEditorTop1 {
+color: #2f4f4f;
+font-size: 1.4em;
+width: 79%;
+}
+
+div.dynEditorBody1, div.dynEditorBody2 {
+clear: left;
+width: 80%;
+text-align: left;
+margin-left: 10%;
+}
+
+div.dynEditorBody2 {
+width: 90%;
+text-align: center;
+margin-left: 5%;
+}
+
+div.demoMenuBarDiv {
+background-color: #f5f5f5;
+}
+
+div.demoMenuBar a {
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 1.2em;
+background-color: #f5f5f5;
+color: #000000;
+border: solid thin black;
+}
+
+div.demoMenuBar > div {
+float: left;
+width: 19%;
+vertical-align: top;
+text-align: center;
+overflow: visible;
+}
+
+div.demoSubMenus {
+background-color: #f5f5f5;
+color: #000000;
+margin-top: 0px;
+position: relative;
+z-index: 11;
+}
+
+div.demoSubMenus div, div.demoSubMenus ul, div.demoSubMenus li {
+margin: 1px auto 2px auto;
+}
+
+div.demoMenuBar a:focus, div.demoMenuBar a:hover {
+background-color: #3A5FCD;
+color: #f5f5f5;
+}
+
+ul.demoMenu {
+list-style-type: none;
+padding: 0px;
+margin: 0px;
+}
+
+textarea {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea.editor {
+width: 70%;
+}
+
+div.announceMsg {
+font-size: 0.8em;
+background-color: #f5f5f5;
+color: #4b0000;
+border: solid thin black;
+z-index: 12;
+}
+
+div.demoGoogleMapTypes {
+text-align: center;
+margin: 20px auto;
+}
+
+ul.demoGMT {
+list-style: none;
+width: 100%;
+font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+font-size: 1em;
+overflow: hidden;
+padding: 0px;
+margin: 0px;
+}
+
+ul.demoGMT > li {
+float: left;
+text-align: center;
+vertical-align: top;
+width: 19%;
+display: inline;
+}
+
+ul.demoGMT a, ul.demoGMT label {
+border: solid thin black;
+background-color: #7fffd4;
+color: #191970;
+padding: 5px;
+}
+
+ul.demoGMT select {
+width: 20%;
+}
+
+div.demoGoogleMap {
+text-align: center;
+}
+
+input[type=submit] {
+float: right;
+}
+
+#mcDemo div.desc {
+color: #000011;
+}
+
+#mcContact fieldset {
+text-align: left;
+margin: 30px auto;
+}
+
+#mcContact fieldset label {
+float: left;
+}
+
+#mcContact fieldset.topic label {
+width: 19%;
+}
+
+#mcContact fieldset.details label {
+width: 100%;
+}
+
+#mcContact fieldset > div {
+overflow: hidden;
+}
+
+#mcContact fieldset.contact label {
+width: 49%;
+}
+
+#mcContact fieldset.message label {
+width: 100%;
+}
+
+#mcContact #cufd1, #mcContact #cufc1, #mcContact #cufc2 {
+width: 35%;
+}
+
+#mcContact #cufc3, #mcContact #cufc5, #mcContact #cufc6 {
+width: 35%;
+}
+
+#mcContact #cufc4 {
+width: 20%;
+}
+
+#mcContact #cufm1 {
+width: 50%;
+}
+
+#mcContact #cufm2 {
+width: 90%;
+}
+
+#mcContact #cufs {
+float: right;
+}
+
+.cuConf {
+border: solid thin black;
+color: red;
+background-color: #d3d3d3;
+font-size: 1.3em;
+}
+
+div.auto {
+background-color: #f5f5f5;
+border-collapse: separate;
+border-color: #d4d0c8;
+border-spacing: 2px 2px;
+border-width: medium;
+color: #222;
+font-family: arial, sans-serif;
+font-size: small;
+font-weight: 400;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #222;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+}
+
+div.sugItem:focus {
+outline: #000099 2px inset;
+}
+
+li.active > a {
+color: #f5f5f5;
+background: url("../img/black_metal_s.jpg") #000 repeat;
+box-shadow: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+}
+
+#mcAbout {
+font-size: 1.2em;
+}
+
+.incFS {
+font-size: 1.2em;
+}
+
+div.dndContainer {
+vertical-align: top;
+overflow: hidden;
+height: 550px;
+text-align: center;
+}
+
+div.subDivL, div.subDivR {
+width: 16%;
+margin-top: 2%;
+height: 96%;
+vertical-align: top;
+text-align: center;
+border: solid thin white;
+outline-style: none;
+}
+
+div.dndContainer ul, div.dndContainer ol {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+div.dndContainer li {
+text-align: center;
+margin: 30% auto;
+}
+
+div.subDivL {
+float: left;
+margin-left: 5%;
+}
+
+div.subDivR {
+float: right;
+margin-right: 5%;
+}
+
+div.dndContainer > img.sun {
+margin-top: 32%;
+}
+
+div.dndContainer h3 {
+font-size: 1.2em;
+width: auto;
+color: white;
+border: solid thin white;
+margin: 15px auto;
+background-color: black;
+position: relative;
+z-index: 2;
+}
+
+div.dndContainer + i {
+float: right;
+}
+
+.cuStatus {
+border: solid thin black;
+font-size: 1.3em;
+font-weight: bold;
+background-color: #d3d3d3;
+color: #000099;
+}
+
+.cuStatus > div > div {
+overflow: hidden;
+}
+
+ul.policies {
+list-style: none;
+margin: 0;
+padding: 0;
+width: 74%;
+margin: auto auto auto 20%;
+}
+
+ul.policies li {
+text-align: center;
+float: left;
+width: 19%;
+height: 45px;
+}
+
+.sraCSS {
+position: absolute;
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+clip: rect(1px, 1px, 1px, 1px);
+padding: 0;
+border: 0;
+height: 1px; 
+width: 1px; 
+overflow: hidden;
+z-index: -1000;
+}
+
+.sraShow {
+position: relative;
+clip: auto;
+z-index: 6;
+padding: auto;
+border: solid thin black;
+background-color: #f5f5f5;
+height: 1em; 
+width: 1em;  
+overflow: visible;
+}
+
+div.slides div.carouselCls {
+text-align: center;
+}
+
+div.slides div.lNav, div.slides div.rNav {
+width: 30px;
+height: 400px;
+float: left;
+}
+
+div.slides .navButton {
+padding: 6px 0px;
+background-color: #000;
+color: #f5f5f5;
+cursor: pointer;
+display: block;
+width: 25px;
+clear: both;
+margin-top: 360px;
+}
+
+div.slides div.rNav .navButton {
+float: right;
+}
+
+div.slides .navButton > span {
+position: relative;
+top: 3px;
+}
+
+div.slides div.centerContent {
+width: 640px;
+height: 400px;
+float: left;
+overflow: hidden;
+border: solid thin black;
+}
+
+div.slides div.centerContent img {
+width: 640px;
+height: 400px;
+}

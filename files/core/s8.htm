@@ -1,0 +1,755 @@
+<html>
+<body>
+<div>
+
+<div class="apiDocumentationContentSection">
+
+<div class="hd">
+<h2>
+<span>
+Accessibility
+</span>
+</h2>
+</div>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.sraCSS</span></a></span>  
+</dt>
+<dd>
+<p>
+The ".sraCSS" property contains the inline styling values that render screen reader accessible hidden text.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+screen reader accessible hidden text is visible to screen reader users while remaining invisible to sighted users, which has no affect on visual layout.
+</p>
+<p>
+Values: {
+position: "absolute", clip:" rect(1px 1px 1px 1px)", padding: 0, border: 0, height: "1px", width:"1px", overflow: "hidden", zIndex: -1000
+}
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+// From within an AccDC Object<br />
+$A([<br />
+{<br />
+runAfter: function(dc){<br />
+// Get the element<br />
+var el = $A.getEl('objId');<br />
+// Then make it invisible to sighted users, but keep it visible for screen reader users<br />
+$A.css(el, dc.sraCSS);<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or using the global $A namespace instead<br />
+$A.css(el, $A.sraCSS);<br />
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.sraCSSClear()</span></a></span>  
+</dt>
+<dd>
+<p>
+The ".sraCSSClear()" method clears all CSS styles previously set using sraCSS.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Values cleared: [
+position, clip, padding, height, width, overflow, zIndex
+]
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+// From within an AccDC Object<br />
+$A([<br />
+{<br />
+runAfter: function(dc){<br />
+// Get the element<br />
+var el = $A.getEl('objId');<br />
+dc.sraCSSClear(el);<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or using the global $A namespace instead<br />
+$A.sraCSSClear(el);
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.role</span></a></span>  
+</dt>
+<dd>
+<p>
+The "role" property sets the beginning and ending screen reader accessible hidden boundary text for an AccDC Object.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "role" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+role: 'Menu',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.role = 'Settings Tab';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "role" property should contain a short concise (one to three word) summary of the AccDC Object's purpose.
+</li><li>
+The automatic rendering of the "role" property for screen reader users can be enabled/disabled using the "showHiddenBounds" property.
+</li><li>
+When the "showHiddenBounds" property is set to True, the "role" property value is prepended to the "accStart" and "accEnd" property values.
+</li></ul>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.accStart</span></a></span>  
+</dt>
+<dd>
+<p>
+The "accStart" property sets the beginning screen reader accessible hidden text for an AccDC Object.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "accStart" property value is appended to the "role" property value at runtime;<br />
+The "accStart" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: "Start"
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+accStart: 'Begin',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.accStart = 'Start';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The automatic rendering of the "accStart" property value for screen reader users can be enabled/disabled using the "showHiddenBounds" property.
+</li><li>
+When the "showHiddenBounds" property is set to True, the "accStart" property value is appended to the "role" property value.
+</li></ul>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.accEnd</span></a></span>  
+</dt>
+<dd>
+<p>
+The "accEnd" property sets the ending screen reader accessible hidden text for an AccDC Object.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "accEnd" property value is appended to the "role" property value at runtime;<br />
+The "accEnd" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: "End"
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+accEnd: 'End',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.accEnd = 'End';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The automatic rendering of the "accEnd" property value for screen reader users can be enabled/disabled using the "showHiddenBounds" property.
+</li><li>
+When the "showHiddenBounds" property is set to True, the "accEnd" property value is appended to the "role" property value.
+</li></ul>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.ariaLevel</span></a></span>  
+</dt>
+<dd>
+<p>
+The "ariaLevel" property sets the heading level of an AccDC Object for screen reader users.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Values: 1 through 6 (default=2)
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+ariaLevel: 3,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.ariaLevel = 4;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.showHiddenBounds</span></a></span>  
+</dt>
+<dd>
+<p>
+The "showHiddenBounds" property enables/disables the rendering of screen reader accessible hidden boundary text for screen reader users.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: True
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+showHiddenBounds: false,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.showHiddenBounds = false;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.accClose</span></a></span>  
+</dt>
+<dd>
+<p>
+The "accClose" property sets the Text for the screen reader accessible hidden close link at the end of an AccDC Object.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "accClose" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: "Close"
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+accClose: 'Exit',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.accClose = 'Dismiss';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The automatic rendering of the "accClose" property value for screen reader users can be enabled/disabled using the "showHiddenClose" property.
+</li><li>
+When the "showHiddenClose" property is set to True, the "accClose" property value is prepended to the "role" property value.
+</li><li>
+The "dc.fn.closeLink" property can be used to access the DOM node for the screen reader accessible hidden close link at runtime.
+</li></ul>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.showHiddenClose</span></a></span>  
+</dt>
+<dd>
+<p>
+The "showHiddenClose" property enables/disables rendering of the screen reader accessible hidden close link at the end of an AccDC Object.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: True
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+showHiddenClose: false,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.showHiddenClose = true;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.displayHiddenClose</span></a></span>  
+</dt>
+<dd>
+<p>
+The "displayHiddenClose" property controls whether the screen reader accessible hidden close link will appear in the tab order for keyboard users.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: True
+</p>
+<p>
+When set to True, the hidden Close link will become visible when it receives keyboard focus.
+<i>(This is a U.S. Section-508 requirement)</i><br />
+When set to False, the hidden Close link will not appear in the tab order, though it will still be rendered for screen reader users.
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+displayHiddenClose: false,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.displayHiddenClose = true;
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "showHiddenClose" property must be set to True.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.tabRole</span></a></span>  
+</dt>
+<dd>
+<p>
+The "tabRole" property sets the screen reader accessible hidden role text for an AccDC Tab Control, which is added to the triggering element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "tabRole" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: "Tab"
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+tabRole: 'Map',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.tabRole = 'Wizard Step 1';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "tabRole" property should contain a short concise (one to three word) summary of the AccDC Object's intended functionality.
+</li><li>
+The "tabRole" property value is appended to the text within the triggering element, and is rendered before the "tabState" property value for screen reader users.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "isTab" property must be set to True;
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.tabState</span></a></span>  
+</dt>
+<dd>
+<p>
+The "tabState" property sets the screen reader accessible hidden state text for an AccDC Tab Control, which is added to the triggering element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "tabState" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: "Selected"
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+tabState: 'Open',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.tabState = 'Expanded';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "tabState" property should contain a short concise (one word) summary of the AccDC Object's Active State.
+</li><li>
+The "tabState" property value is appended to the text within the triggering element, and is rendered after the "tabRole" property value for screen reader users.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "isTab" property must be set to True.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.toggleRole</span></a></span>  
+</dt>
+<dd>
+<p>
+The "toggleRole" property sets the screen reader accessible hidden role text for an AccDC Toggle Control, which is added to the triggering element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "toggleRole" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: ""
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+toggleRole: 'Menu',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.toggleRole = 'Checkbox';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "toggleRole" property should contain a short concise (one to three word) summary of the AccDC Object's intended functionality.
+</li><li>
+The "toggleRole" property value is appended to the text within the triggering element, and is rendered before the "toggleState" property value for screen reader users.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "isToggle" property must be set to True.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.toggleState</span></a></span>  
+</dt>
+<dd>
+<p>
+The "toggleState" property sets the screen reader accessible hidden state text for an AccDC Toggle Control, which is added to the triggering element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+The "toggleState" property is rendered using screen reader accessible hidden text via "sraCSS", which is invisible to sighted users and has no affect on visual layout.
+</p>
+<p>
+Default: ""
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+toggleState: 'Open',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.toggleState = 'Checked';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "toggleState" property should contain a short concise (one word) summary of the AccDC Object's active state.
+</li><li>
+The "toggleState" property value is appended to the text within the triggering element, and is rendered after the "toggleRole" property value for screen reader users.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "isToggle" property must be set to True.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.forceFocus</span></a></span>  
+</dt>
+<dd>
+<p>
+The "forceFocus" property determines if focus is automatically moved to the beginning of an AccDC Object when opened.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: False
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+forceFocus: true,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.forceFocus = false;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.returnFocus</span></a></span>  
+</dt>
+<dd>
+<p>
+The "returnFocus" property determines if focus is automatically returned to the triggering element when an AccDC Object is closed.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: True
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+returnFocus: false,<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.returnFocus = true;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.announce</span></a></span> 
+</dt>
+<dd>
+<p>
+The ".announce" property specifies that the textual content of an AccDC Object will automatically be announced to screen reader users when opened.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+announce: true,<br />
+...<br />
+}<br />
+]);
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.announce()</span></a></span> 
+</dt>
+<dd>
+<p>
+The "$A.announce()" method announces the text of any string or DOM node to screen reader users.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+"$A.announce()" is also prototyped to the String object.
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+runAfter: function(dc){<br />
+// Announce the content of a DOM node<br />
+$A.announce(dc.containerDiv);<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+// Announce a string, and return the string literal<br />
+var str = "Hello World".announce();<br />
+// Or<br />
+// Announce the content of a DOM node, and suppress the announcement of repetitive strings<br />
+$A.announce(document.getElementById('lastChatMsg'), true);<br />
+// Or<br />
+// Temporarily override the suppression of repetitive strings<br />
+String.announce.lastMsg = '';<br />
+// Now announce the content of a string<br />
+$A.announce(lastIncomingMsg, true);
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>String.announce.baseDelay</span></a></span>  
+</dt>
+<dd>
+<p>
+The "String.announce.baseDelay" property determines the initial delay in milliseconds when the "$A.announce()" method queues messages to be announced sequentially.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: 2000
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+String.announce.baseDelay = 1500;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>String.announce.charMultiplier</span></a></span>  
+</dt>
+<dd>
+<p>
+The "String.announce.charMultiplier" property determines the delay in milliseconds when a message using "$A.announce()" contains two or more words including punctuation.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: 160
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+String.announce.charMultiplier = 150;
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>String.announce.clear()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "String.announce.clear()" method clears the message stack of all queued message strings waiting to be announced.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+String.announce.clear();
+</code>
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<carousel role="Questionnaire" accStart="Start" accEnd="End" height="130" width="850" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Step" groupName="" showGroup="no" groupPosTop="" btnPText="Back" btnNText="Next" btnPGText="" btnNGText="" isGrouped="no" btnPAccesskey="b" btnNAccesskey="n" btnPGAccesskey="" btnNGAccesskey="" direction="lr" cycle="no" timer="0" animDelay="1000" forward="yes" hiddenMsg="" >
+<slide announce="All fields are required" ><![CDATA[
+<form id="qf1">
+<input type="hidden" name="step" value="1" />
+<div class="legend" id="qf1l">
+Step 1 of 4
+</div>
+<div>
+<div>
+<label id="q1l">
+Why do camels have three eyelids (two with lashes)?
+</label>
+<br />
+<input class="question" aria-labelledby="qf1l q1l" id="q1" name="q1" type="text" />
+</div>
+<div>
+<label id="q2l">
+Who covered the 1932 Olympic games in Los Angeles as a reporter?
+</label>
+<br />
+<label id="q2-1l">
+<input class="question" aria-labelledby="q2l q2-1l" id="q2-1" name="q2" type="radio" value="Bruce Lee" />
+Bruce Lee
+</label>
+<label id="q2-2l">
+<input class="question" aria-labelledby="q2l q2-2l" id="q2-2" name="q2" type="radio" value="George Orwell" />
+George Orwell
+</label>
+<label id="q2-3l">
+<input class="question" aria-labelledby="q2l q2-3l" id="q2-3" name="q2" type="radio" value="Gandhi" />
+Gandhi
+</label>
+</div>
+</div>
+</form>
+]]></slide>
+<slide announce="All fields are required" ><![CDATA[
+<form id="qf2">
+<input type="hidden" name="step" value="2" />
+<div class="legend" id="qf2l">
+Step 2 of 4
+</div>
+<div>
+<div>
+<label id="q3l">
+Who sketched plans for a humanoid robot in the 15th Century?
+</label>
+<br />
+<input class="question" aria-labelledby="qf2l q3l" id="q3" name="q3" type="text" />
+</div>
+<div>
+<label id="q4l">
+In France, it's illegal for a pig to be named "Napolean".
+</label>
+<br />
+<label id="q4-1l">
+<input class="question" aria-labelledby="q4l q4-1l" id="q4-1" name="q4" type="radio" value="True" />
+True
+</label>
+<label id="q4-2l">
+<input class="question" aria-labelledby="q4l q4-2l" id="q4-2" name="q4" type="radio" value="False" />
+False
+</label>
+</div>
+</div>
+</form>
+]]></slide>
+<slide announce="All fields are required" ><![CDATA[
+<form id="qf3">
+<input type="hidden" name="step" value="3" />
+<div class="legend" id="qf3l">
+Step 3 of 4
+</div>
+<div>
+<div>
+<label id="q5l">
+Coca-Cola was intended to be what when Atlanta pharmacist John Pemberton concocted it?
+</label>
+<br />
+<input class="question" aria-labelledby="qf3l q5l" id="q5" name="q5" type="text" />
+</div>
+<div>
+<label id="q6l">
+A pig, allowed to live in Irish farmhouses in olden days, was once known as what?
+</label>
+<br />
+<input class="question" aria-labelledby="q6l" id="q6" name="q6" type="text" />
+</div>
+</div>
+</form>
+]]></slide>
+<slide announce="All fields are required" ><![CDATA[
+<form id="qf4">
+<input type="hidden" name="step" value="4" />
+<div class="legend" id="qf4l">
+Step 4 of 4
+</div>
+<div>
+<div>
+<label id="q7l">
+"Build a man a fire, and he'll be warm for a day. Set a man on fire, and he'll be warm for the rest of his life."
+<br />
+Where is this quote from?
+</label>
+<br />
+<input class="question" aria-labelledby="qf4l q7l" id="q7" name="q7" type="text" />
+</div>
+<div>
+<label id="q8l">
+An egg tastes like chicken.
+</label>
+<label id="q8-1l">
+<input class="question" aria-labelledby="q8l q8-1l" id="q8-1" name="q8" type="radio" value="True" />
+True
+</label>
+<label id="q8-2l">
+<input class="question" aria-labelledby="q8l q8-2l" id="q8-2" name="q8" type="radio" value="False" />
+False
+</label>
+</div>
+<div>
+<label id="q9l">
+Why?
+</label>
+<input class="question" aria-labelledby="q8l q9l" id="q9" name="q9" type="text" />
+</div>
+</div>
+</form>
+]]></slide>
+</carousel>

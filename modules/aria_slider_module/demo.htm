@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ARIA Slider Module</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/aria_slider.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+ARIA Slider Module
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The ARIA Slider Module automatically transforms a DOM node into a slider control that is equally accessible to screen reader and keyboard only users.
+<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/setup.js" target="_blank">setup.js</a> : The setup script that converts the DOM node and configures the ARIA Slider functionality.
+</li></ol>
+<p>
+The packaged file for this demo can be downloaded from <a href="../../AccDC.htm">WhatSock.com</a> under Downloads.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+ARIA Slider Demo
+</h2>
+</div>
+
+<div class="intro tac">
+
+<div class="slider clearfix">
+<div class="min">
+<span>0%</span>
+</div>
+<div class="slide clearfix">
+<div class="nub" id="handle">
+<span>&#8660;</span>
+</div>
+</div>
+<div class="max">
+<span>100%</span>
+</div>
+</div>
+
+<div class="view">
+<img alt="" id="targ" src="img/earth.jpg" />
+</div>
+
+</div>
+
+<div class="intro clearfix">
+
+<div class="slider2 tac clearfix">
+<div class="min2">
+<span>12AM</span>
+</div>
+<div class="slide2 clearfix">
+<div class="nub2" id="handle2">
+<span>&#8657;<br />&#8659;</span>
+</div>
+</div>
+<div class="max2">
+<span>11PM</span>
+</div>
+</div>
+
+<div class="inst tal">
+<p>
+Instructions:
+</p>
+<ul><li>
+Mouse users can drag the slider to open or close the floating window shutter, or adjust the time.
+</li><li>
+Keyboard only users can tab to the slider and:
+<ol><li>
+Press the Left/Right arrow keys to move the slider in increments of 1;
+</li><li>
+Press the End/Home keys to move to the first or last value;
+</li><li>
+Press the PageUp/PageDown keys to move the slider in increments of 10%.
+</li></ol>
+</li><li>
+Users of screen readers that support ARIA can Arrow or Tab to the slider, press Enter or Spacebar to activate it, then use all of the above key commands as well.
+</li><li>
+Users of screen readers that don't support ARIA can Arrow to and activate the link "Open Manual Slider", and use a traditional selector instead to manually move the slider control.
+</li></ul>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

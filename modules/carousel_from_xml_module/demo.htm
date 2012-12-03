@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Carousel From XML Module</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/carousel_module.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+Carousel From XML Module
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The Carousel From XML Module dynamically generates an automatically accessible carousel control from an external XML file, which can be used as a carousel, slideshow, or wizard generator.
+<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/carousel_module.js" target="_blank">carousel_module.js</a> : Adds the setCarousel() function to the window object.
+</li><li>
+<a href="js/setup.js" target="_blank">setup.js</a> : Automatically activates carousel functionality using the setCarousel() function by referencing different XML files.
+</li></ol>
+<p>
+The packaged file for this demo can be downloaded from <a href="../../AccDC.htm">WhatSock.com</a> under Downloads.
+</p>
+</div>
+
+<div class="intro tal">
+<p>
+Features:
+</p>
+<ul class="itemLst"><li>
+Automatic pausing and resuming of rotating slides using the mouse and keyboard focus.
+</li><li>
+Automatically generated ARIA functionality for screen reader users.
+</li><li>
+Universal Escape hotkey to stop auto rotation for all carousels.
+</li><li>
+Customizable event handlers and callbacks to control slide functionality.
+</li><li>
+Encapsulation to allow multiple carousel controls to exist in the DOM without conflict.
+</li><li>
+Asynchronous loading of image files for local caching in advance.
+</li><li>
+Conditional rendering so that only the visible slide exists within the DOM.
+</li><li>
+Full control of content and functionality using XML.
+</li><li>
+Full localization support for use in any language.
+</li><li>
+Full control of layout and appearance using CSS.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+Auto Rotating Carousel
+</h2>
+</div>
+
+<div class="intro viewport">
+
+<div id="carouselId"></div>
+
+</div>
+
+<div class="intro tal">
+<p>
+Rotating Carousel is fully configured and populated using the XML file <a href="files/carousel.xml" target="_blank">carousel.xml</a>.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Static Slideshow
+</h2>
+</div>
+
+<div class="intro viewport">
+
+<div id="slideshowId"></div>
+
+</div>
+
+<div class="intro tal">
+<p>
+Static Slideshow is fully configured and populated using the XML file <a href="files/movies.xml" target="_blank">movies.xml</a>.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Dynamic Wizard
+</h2>
+</div>
+
+<div class="intro viewport">
+
+<button id="wizardId">Generate Fixed Wizard from XML</button>
+
+</div>
+
+<div class="intro tal">
+<p>
+Dynamic Wizard is fully configured and populated using the XML file <a href="files/wizard.xml" target="_blank">wizard.xml</a>; interactive functionality is configured using callbacks and custom handlers declared in <a href="js/setup.js" target="_blank">setup.js</a>.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+XML Syntax
+</h2>
+</div>
+
+<div class="intro tal">
+<p>
+<span role="heading" aria-level="4">Outer XML syntax; required for both grouped and ungrouped carousels.</span><br />
+<code>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;<br />
+&lt;carousel role="REQUIRED: Hidden text role for screen reader users"<br />
+accStart="REQUIRED: Hidden text start keyword for screen reader users"<br />
+accEnd="REQUIRED: Hidden text end keyword for screen reader users"<br />
+height="REQUIRED: Total height of control"<br />
+width="REQUIRED: Total width of control"<br />
+className="Control class name for styling"<br />
+prevTitle="REQUIRED: Title text for the previous button"<br />
+nextTitle="REQUIRED: Title text for the next button"<br />
+slideName="General name for a slide, used with prevTitle and nextTitle for Next Slide and Previous Slide buttons"<br />
+isGrouped="REQUIRED: 'yes' or 'no': Must match the syntax of the XML whether or not group markup is included"<br />
+groupName="General name for a group, used with prevTitle and nextTitle for Next Group and Previous Group buttons"<br />
+showGroup="If 'yes', group names will be displayed above or below the carousel; depends on the value of groupPosTop"<br />
+groupPosTop="If 'yes', group names are displayed above the carousel, if not, then they are displayed below"<br />
+btnPText="Textual value of the Previous Slide button; uses innerHTML to insert"<br />
+btnNText="Textual value of the Next Slide button; uses innerHTML to insert"<br />
+btnPGText="Textual value of the Previous Group button; uses innerHTML to insert"<br />
+btnNGText="Textual value of the Next Group button; uses innerHTML to insert"<br />
+btnPAccesskey="accesskey for the Previous Slide button"<br />
+btnNAccesskey="accesskey for the Next Slide button"<br />
+btnPGAccesskey="accesskey for the Previous Group button"<br />
+btnNGAccesskey="accesskey for the Next Group button"<br />
+direction="REQUIRED: Must be either 'lr' (left to right), or 'tb' (top to bottom)"<br />
+cycle="REQUIRED: 'yes' or 'no' for infinite looping"<br />
+timer="REQUIRED: '0' to disable, or positive integer for automatic rotation in N milliseconds"<br />
+animDelay="REQUIRED: Slide animation length in milliseconds; set to '0' for instant transition"<br />
+forward="REQUIRED: 'yes' or 'no' to set auto rotation to move backwards or forwards"<br />
+hiddenMsg="Hidden text message for screen reader users" &gt;<br />
+... Inner XML markup ...<br />
+&lt;/carousel&gt;
+</code>
+</p>
+<p>
+<span role="heading" aria-level="4">Inner XML markup for slides with no grouping.</span><br />
+<code>
+&lt;slide announce="Text1 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 1 ...<br />
+]]&gt;&lt;/slide&gt;<br />
+&lt;slide announce="Text2 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 2 ...<br />
+]]&gt;&lt;/slide&gt;
+</code>
+</p>
+<p>
+<span role="heading" aria-level="4">Inner XML markup for slides with grouping enabled.</span><br />
+<code>
+&lt;group name="Textual name for group 1" &gt;<br />
+&lt;slide announce="Text1 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 1 ...<br />
+]]&gt;&lt;/slide&gt;<br />
+&lt;slide announce="Text2 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 2 ...<br />
+]]&gt;&lt;/slide&gt;<br />
+&lt;/group&gt;<br />
+&lt;group name="Textual name for group 2" &gt;<br />
+&lt;slide announce="Text3 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 3 ...<br />
+]]&gt;&lt;/slide&gt;<br />
+&lt;slide announce="Text4 to announce to screen reader users" &gt;&lt;![CDATA[<br />
+... HTML markup to display for slide 4 ...<br />
+]]&gt;&lt;/slide&gt;<br />
+&lt;/group&gt;
+</code>
+</p>
+<p>
+Important: All attributes must remain within the XML markup.<br />
+Attributes that are not required may be set to null. E.G. attributeName=""
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Invocation, Callbacks and Handlers
+</h2>
+</div>
+
+<div class="intro tal">
+<p>
+The following invocation methods are available.<br />
+<code>
+// Syntax<br />
+// setCarousel( ContainerObject, XML-FilePath, DefaultLoadPosition, HandlersAndCallback)<br />
+<br />
+// Specify a container object where rendering will occur, an XML file to parse, and set the default position to group 1 slide 1<br />
+// Valid when isGrouped='yes' within the XML setup parameters (default pos must be a string with comma separated values)<br />
+setCarousel(document.getElementById('carouselId'), 'files/carousel.xml', '0,0');<br />
+<br />
+// Specify a container object where rendering will occur, an XML file to parse, and set the default position to slide 1<br />
+// Valid when isGrouped='no' within the XML setup parameters (default pos must be an integer)<br />
+setCarousel(document.getElementById('slideshowId'), 'files/movies.xml', 0);<br />
+<br />
+// Specify a container object where rendering will occur, an XML file to parse, set the default position to slide 1, and declare handlers for advanced functionality<br />
+setCarousel(document.getElementById('containerObj'), 'files/wizard.xml', 0, {<br />
+<br />
+// Run before the Prev button is activated when clicked<br />
+btnPrev: function(ev, cdc){<br />
+// cdc.slideVal = current slide index value<br />
+// cdc.groupVal = current group index value (only when isGrouped='yes' in the XML)<br />
+// Return false to cancel<br />
+},<br />
+<br />
+// Run before the Next button is activated when clicked<br />
+btnNext: function(ev, cdc){<br />
+// cdc.slideVal = current slide index value<br />
+// cdc.groupVal = current group index value (only when isGrouped='yes' in the XML)<br />
+// Return false to cancel<br />
+},<br />
+<br />
+// Run before the Prev Group button is activated when clicked<br />
+btnPrevG: function(ev, cdc){<br />
+// cdc.slideVal = current slide index value<br />
+// cdc.groupVal = current group index value<br />
+// Return false to cancel<br />
+},<br />
+<br />
+// Run before the Next Group button is activated when clicked<br />
+btnNextG: function(ev, cdc){<br />
+// cdc.slideVal = current slide index value<br />
+// cdc.groupVal = current group index value<br />
+// Return false to cancel<br />
+},<br />
+<br />
+// Run after a new slide finishes loading<br />
+complete: function(cdc){<br />
+// cdc.slideVal = current slide index value<br />
+// cdc.groupVal = current group index value (only when isGrouped='yes' in the XML)<br />
+}<br />
+<br />
+});
+</code>
+</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,723 @@
+
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+.clearfix {
+display: inline-block;
+}
+* html .clearfix {
+height: 1%;
+}
+.clearfix {
+display: block;
+}
+
+body {
+text-align: center;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 0.93em;
+background-color: #f5f5f5;
+}
+
+a:link, a:visited, a:active, a:hover {
+color: #0000b0;
+}
+
+.intro {
+width: 74%;
+margin-left: 20%;
+margin-right: auto;
+}
+
+div.announce {
+font-size: 1.1em;
+font-style: italic;
+color: #8fbc8f;
+}
+
+div.hd {
+text-align: left;
+width: 60%;
+margin: 10px auto 10px 20%;
+clear: both;
+}
+
+h1 {
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+font-size: 1.6em;
+color: #87ceeb;
+text-align: center;
+outline-style: none;
+}
+
+h2, h3, h4, h5, h6 {
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+font-size: 1.4em;
+color: #f5f5f5;
+background-color: #000000;
+border: solid thin #000099;
+font-weight: bold;
+margin: 20px 20px 20px 20%;
+padding: 10px 0px;
+text-align: center;
+width: 200px;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+outline-style: none;
+overflow: hidden;
+}
+
+.tal {
+text-align: left;
+}
+
+code {
+margin-left: 10%;
+color: #191970;
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+border: solid thin black;
+}
+
+.form > form {
+background-color: #000000;
+text-align: center;
+padding: 10px;
+}
+
+.form label, .form input {
+background-color: #f5f5f5;
+color: #000000;
+}
+
+.fbDockWrapper, .fbDockWrapperRight, .bb {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 25px;
+line-height: 1.28;
+padding: 0px;
+position: fixed;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+z-index: 300;
+}
+
+.fbDockWrapper {
+background-color: #f5f5f5;
+}
+
+.fbDock {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: auto;
+left: auto;
+line-height: 1.28;
+margin: 0px 15px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+zoom: 100%;
+}
+
+.rNubContainer {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: right;
+text-align-last: auto;
+text-align: left;
+zoom: 100%;
+}
+
+.fbNubGroup {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+padding: 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: left;
+text-align-last: auto;
+text-align: left;
+zoom: 100%;
+}
+
+#fbDockChatTabsWrapper {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 25px;
+left: auto;
+line-height: 1.28;
+padding: 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: left;
+text-align-last: auto;
+text-align: left;
+zoom: 100%;
+}
+
+#fbDockChatTabs {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+margin: auto;
+min-height: 1px;
+min-width: auto;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: left;
+text-align-last: auto;
+text-align: left;
+zoom: 100%;
+}
+
+#fbDockChatTabsWrapper .fbNub, #fbDockChatTabsWrapper .fbDockChatTab, #fbDockChatTabsWrapper .user, #fbDockChatTabsWrapper .active, #fbDockChatTabsWrapper .openToggler {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 25px;
+left: auto;
+line-height: 1.28;
+margin: auto auto auto 4px;
+padding: 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: left;
+text-align-last: auto;
+text-align: left;
+width: 260px;
+z-index: 100;
+}
+
+.fbNubFlyout, .fbDockChatTabFlyout, .uiToggleFlyout {
+bottom: 0px;
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 285px;
+left: auto;
+line-height: 1.28;
+margin: auto;
+max-height: 537px;
+max-width: none;
+min-height: auto;
+min-width: auto;
+padding: 0px;
+position: absolute;
+right: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+width: 100%;
+}
+
+.fbNubFlyoutOuter {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+margin: auto;
+max-height: 537px;
+max-width: none;
+min-height: auto;
+min-width: auto;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.fbNubFlyoutInner {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.fbNubFlyoutTitlebar, .titlebar {
+background-color: #6d84b4;
+border-color: #3d5b99 #3d5b99 #333;
+border-style: solid solid none;
+border-width: 1px 1px medium;
+color: #333;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+zoom: 100%;
+ }
+ 
+.mls, .rfloat {
+color: #333;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+margin: auto auto auto 5px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+float: right;
+text-align-last: auto;
+text-align: left;
+}
+
+.uiTooltip, .close, .button {
+background-image: url("../icons/ZLH-gtXrchd.png");
+background-position-x: -409px;
+background-position-y: -432px;
+background-repeat: no-repeat;
+color: #3b5998;
+cursor: pointer;
+display: inline-block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 25px;
+left: auto;
+line-height: 1.28;
+margin: auto 3px auto auto;
+padding: 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #3b5998;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+top: auto;
+vertical-align: top;
+width: 21px;
+}
+
+.uiTooltipWrap, .top, .center, .centertop {
+color: #3b5998;
+display: none;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: auto;
+left: auto;
+line-height: 1.28;
+margin: auto auto 3px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #3b5998;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.uiTooltipText, .uiTooltipNoWrap {
+background-color: #282828;
+color: #f5f5f5;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: auto;
+left: -50%;
+line-height: 14px;
+padding: 4px 8px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #f5f5f5;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+white-space: nowrap;
+}
+
+.titlebarLabel {
+color: #f5f5f5;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 700;
+height: auto;
+left: auto;
+line-height: 18px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #f5f5f5;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+zoom: 100%;
+}
+
+.titlebarTextWrapper {
+color: #f5f5f5;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 700;
+height: auto;
+left: auto;
+line-height: 18px;
+margin: 3px 7px 4px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #f5f5f5;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.titlebarText {
+color: #f5f5f5;
+display: block;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 700;
+height: auto;
+left: auto;
+line-height: 18px;
+overflow: hidden;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #f5f5f5;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+text-overflow: ellipsis;
+top: auto;
+white-space: nowrap;
+}
+
+.fbNubFlyoutBody, .scrollable {
+background-color: #f5f5f5;
+border-color: #b3b3b3;
+border-style: solid;
+border-width: 0px 1px;
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: 233px;
+width: 260px;
+left: auto;
+line-height: 1.28;
+overflow: auto;
+padding: 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.scrollable:focus {
+outline: 2px red inset;
+}
+
+.scrollable:focus:after {
+content: 'Use the arrow keys to scroll';
+}
+
+.fbNubFlyoutBodyContent {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+width: 242px;
+left: auto;
+line-height: 1.28;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+}
+
+.uiGrid, .conversationContainer {
+color: #333;
+display: table;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+has-layout: true;
+height: 100%;
+left: auto;
+line-height: 1.28;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+width: 100%;
+}
+
+td.vTop {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+padding: 1px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+top: auto;
+vertical-align: top;
+}
+
+.conversation {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: auto;
+left: auto;
+line-height: 1.28;
+padding: 3px 0px 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.mhs, .mbs, .pts, .fbChatConvItem, .fbChatMessageGroup, .small {
+border-top-color: #eee;
+border-top-style: solid;
+border-top-width: 1px;
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-style: normal;
+font-weight: 400;
+height: auto;
+left: auto;
+line-height: 1.28;
+margin: auto 5px 5px;
+padding: 5px 0px 0px;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+zoom: 100%;
+}
+
+.fbChatConvDateBreak {
+color: gray;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size: 0.9em;
+font-style: normal;
+font-weight: 700;
+height: auto;
+left: auto;
+line-height: 1.28;
+margin: auto 5px 5px;
+padding: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: gray;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.profileLink {
+color: #3b5998;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+padding: 0px;
+text-align: left;
+margin-right: 6px;
+}
+
+.messages {
+}
+
+.metaInfoContainer, .fss, .fcg {
+color: gray;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size: 0.9em;
+line-height: 1.28;
+padding: 0px;
+position: absolute;
+right: 0px;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: gray;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+text-align: left;
+top: -6px;
+visibility: hidden;
+}
+
+.fbChatMessage, .fsm, .direction_ltr {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+line-height: 1.28;
+margin: auto auto 3px;
+padding: 0px;
+text-align: left;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+
+.fbNubFlyoutFooter {
+border-bottom-color: #b3b3b3;
+border-bottom-style: solid;
+border-bottom-width: 0px;
+border-collapse: separate;
+border-color: #b3b3b3;
+border-left-color: #b3b3b3;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: #b3b3b3;
+border-right-style: solid;
+border-right-width: 1px;
+border-style: solid;
+border-top-color: #b3b3b3;
+border-top-style: solid;
+border-top-width: 0px;
+border-width: 0px 1px;
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+position: relative;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}
+
+.inputContainer {
+color: #333;
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+position: relative;
+}
+
+.uiTextareaAutogrow, .input {
+height: 25px;
+width: 98%;
+scrollbar-arrow-color: #000000;
+scrollbar-base-color: #333;
+scrollbar-dark-shadow-color: #404040;
+scrollbar-face-color: #d4d0c8;
+scrollbar-highlight-color: #f5f5f5;
+scrollbar-shadow-color: #808080;
+scrollbar3d-light-color: #d4d0c8;
+}

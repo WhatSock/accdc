@@ -1,0 +1,162 @@
+<html>
+<body>
+<div>
+
+<div id="mcDemo">
+
+<div class="hd">
+<h2 class="skip">
+<span>
+Live Demo
+</span>
+</h2>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="hd">
+<h2>
+<span>
+WhatSock.com
+</span>
+</h2>
+</div>
+
+<div class="intro content">
+<div class="desc">
+<p>
+All of WhatSock.com is powered by the AccDC API to maximize speed and efficiency.
+</p>
+<p>
+To see how this is done, view the initial setup script at
+<a href="js/ready.js" target="_blank">js/ready.js</a>,<br />
+which declares all of the tab links on the left as top-level AccDC Objects.<br />
+</p>
+<p>
+View the Live Demo setup file at
+<a href="js/demo.js" target="_blank">js/demo.js</a>,<br />
+to see how all of the below demos are configured as child AccDC Objects, with the Live Demo tab specified as the top-level parent AccDC Object.
+</p>
+</div>
+</div>
+
+<div class="hd">
+<h2>
+<span>
+Dynamic Editor
+</span>
+</h2>
+</div>
+
+<div class="intro content">
+<div class="desc">
+<p>
+Demo 1: An interactive editor dialog rendered as an AccDC Object, including a toolbar and dropdown menus, all of which consist of nested AccDC Objects that are dynamically configured from an external XML file on the server.
+</p>
+<p>
+Click the "Edit Content" link to open the editor AccDC Object.
+</p>
+</div>
+<div class="dynContent">
+I gazed with rapt attention at the object borne to me alas by fortuity or fate... Boundless  bourns, wherein constraints of time did not pertain, becalmed all force of will within enchantments cast unknown therein by lands in sandy waves. The souls of all who passed before the turning of this place of yore from fertileness to waste, whispered  ever nigh across, and through the weathered hulks of lost kingdoms in their wake.
+</div>
+<a class="editLink">Edit Content</a>
+</div>
+
+<div class="hd">
+<h2>
+<span>
+Drag &amp; Drop
+</span>
+</h2>
+</div>
+
+<div class="intro content">
+<div class="desc">
+<p>
+Demo 2: Standard images converted into draggable AccDC Objects that are automatically accessible to screen reader and keyboard only users with customizable drop zones.
+</p>
+<p>
+Click the "Morph" button to convert all of the planet images into draggable AccDC Objects.<br />
+All of the draggable planet AccDC Objects are keyboard accessible when morphed.
+(The sun is also draggable, though it is not configured to be keyboard accessible since there is no drop zone specified.)<br />
+Directions for keyboard access:
+</p>
+<ol><li>
+When the Morph button has focus after being activated, press tab.
+</li><li>
+Press Enter on the planet links to toggle dragging.
+</li><li>
+Keep tabbing until focus is set on a related drop link, and press Enter to start dropping.
+</li><li>
+Press shift+tab to reverse.
+</li></ol>
+<p>
+<input type="button" value="Morph" class="morphBtn" />
+<i id="morphI"></i>
+</p>
+</div>
+<div class="dndContainer">
+<div class="subDivL">
+<h3>Universe</h3><br />
+<ul>
+<li>
+<img alt="Mercury" title="Mercury" src="img/planets/mercury.jpg" height="75" width="75" />
+</li>
+<li>
+<img alt="Earth" title="Earth" src="img/planets/earth.jpg" height="75" width="75" />
+</li>
+<li>
+<img alt="Mars" title="Mars" src="img/planets/mars.jpg" height="75" width="75" />
+</li>
+<li>
+<img alt="Venus" title="Venus" src="img/planets/venus.jpg" height="75" width="75" />
+</li>
+</ul>
+</div>
+<img class="sun" alt="Sun" title="Sun" src="img/planets/sun.jpg" height="150" width="150" />
+<div class="subDivR">
+<h3>Galaxy</h3><br />
+<ol></ol>
+</div>
+</div>
+<i>(Starscape courtesy of the NASA Image Gallery; all rights reserved)</i>
+</div>
+
+<div class="hd">
+<h2>
+<span>
+Google Maps
+</span>
+</h2>
+</div>
+
+<div class="intro content">
+<div class="desc">
+<p>
+Demo 4: A Google map rendered as an embedded, fully encapsulated, keyboard accessible AccDC Object that dynamically opens when the page loads.
+</p>
+</div>
+<form>
+<div class="demoGoogleMapTypes">
+<ul class="demoGMT"><li>
+<a href="#" id="us_sf">San Francisco</a>
+</li><li>
+<a href="#" id="us_ny">New York</a>
+</li><li>
+<a href="#" id="uk_lo">London</a>
+</li><li>
+<a href="#" id="pt_li">Lisbon</a>
+</li><li>
+<a href="#" id="it_ro">Rome</a>
+</li></ul>
+</div>
+<div class="demoGoogleMap"></div>
+</form>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

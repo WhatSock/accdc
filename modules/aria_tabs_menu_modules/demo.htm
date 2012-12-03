@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Accessible ARIA Demos</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/aria_menu_module.js"></script>
+<script type="text/javascript" src="js/aria_tabs_module.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+Accessible ARIA Demos
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The following samples demonstrate recursive JavaScript modules for automatically generating accessible tabs and menus using ARIA.<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/aria_tabs_module.js" target="_blank">aria_tabs_module.js</a> : Automatically generates ARIA tabs using CSS Selectors to identify standard elements in the DOM.
+</li><li>
+<a href="js/aria_menu_module.js" target="_blank">aria_menu_module.js</a> : Automatically generates ARIA menus using CSS Selectors to identify parent/child elements in the DOM.
+</li></ol>
+<p>
+Dynamic functionality is powered by the AccDC API via <a href="js/setup.js" target="_blank">setup.js</a>.<br />
+The packaged file for this demo can be downloaded from <a href="../../AccDC.htm">WhatSock.com</a> under Downloads.
+</p>
+</div>
+
+<div class="intro tal">
+<p>
+<a href="http://lnkd.in/hKZ-qi">
+The ARIA Tab generator now supports semantic configuration via HTML5, optional ARIA and non-ARIA implementations, optional preloading of external tab panels and images, and property overrides.
+</a>
+</p>
+</div>
+
+<div class="hd">
+<h2>
+ARIA Tabs
+</h2>
+</div>
+
+<div class="tabs ARIA clearfix" role="tablist">
+<div id="tab1id" class="tab tab1" role="tab" data-src="files/tabs.html#tab1content" data-role="Surfer Tab" data-defaultopen="true" data-insert="tabInsertId" >
+<span>Surfer</span>
+</div>
+<div id="tab2id" class="tab tab2" role="tab" data-src="files/tabs.html#tab2content" data-role="Grapes Tab" data-insert="tabInsertId">
+<span>Grapes</span>
+</div>
+<div id="tab3id" class="tab tab3" role="tab" data-src="files/tabs.html#tab3content" data-role="Trees Tab" data-insert="tabInsertId">
+<span>Trees</span>
+</div>
+<div id="tab4id" class="tab tab4" role="tab" data-src="files/tabs.html#tab4content" data-role="Sculpture Tab" data-insert="tabInsertId">
+<span>Sculpture</span>
+</div>
+</div>
+
+<div class="content" id="tabInsertId"></div>
+
+<div class="intro tal">
+<p>
+The above tabs consist of standard DIV tags, which are automatically converted into an ARIA Tab List using a CSS Selector.
+</p>
+<p>
+Keystrokes:
+</p>
+<ul><li>
+Using a screen reader, press the TabKey or Arrow to a tab and press Enter to activate.
+</li><li>
+Use the arrow keys to move focus between relative tabs.
+</li><li>
+Press Return or the Spacebar to open a selected tab.
+</li><li>
+Press Tab or Shift+Tab or Escape to move out of the tab selector field.
+</li></ul>
+<p>
+ARIA Tab functionality simulates the software browsing experience within standard Windows applications.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Non-ARIA Tabs
+</h2>
+</div>
+
+<div class="tabs nonARIA clearfix">
+<a href="#" id="xTab1id" class="tab tab1" data-internal="xTab1content" data-role="Golden Tab" data-insert="tabInsertId2">
+<span>Golden</span>
+</a>
+<a href="#" id="xTab2id" class="tab tab2" data-internal="xTab2content" data-role="Village Tab" data-insert="tabInsertId2" data-defaultopen="true">
+<span>Village</span>
+</a>
+<a href="#" id="xTab3id" class="tab tab3" data-internal="xTab3content" data-role="Reflections Tab" data-insert="tabInsertId2">
+<span>Reflections</span>
+</a>
+<a href="#" id="xTab4id" class="tab tab4" data-internal="xTab4content" data-role="Ship Tab" data-insert="tabInsertId2">
+<span>Ship</span>
+</a>
+</div>
+
+<div class="content" id="tabInsertId2"></div>
+
+<div class="intro tal">
+<p>
+The above tabs consist of standard A tags, which are automatically converted into a non-ARIA Tab List using a CSS Selector.
+</p>
+<p>
+Keystrokes:
+</p>
+<ul><li>
+Using a screen reader, press the TabKey or Arrow to a tab and press Enter to activate.
+</li><li>
+Press the TabKey to move focus between relative tabs.
+</li><li>
+Press Return to open a selected tab.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+ARIA Menus
+</h2>
+</div>
+
+<div class="intro tal">
+<p>
+<button class="menu">Options</button>
+<a href="http://lnkd.in/hRXtsg">
+Updated to support scalability, recursive processing, and lazy loading.
+</a>
+</p>
+<p>
+The Options button will open an overlay consisting of standard list markup, which is automatically converted into recursive ARIA menus using CSS Selectors.<br />
+Keystrokes:
+</p>
+<ul><li>
+Using a screen reader, activate the Options button.
+</li><li>
+Use the Up and Down Arrow keys to traverse available menu options.
+</li><li>
+Press the Right Arrow or Enter key to open a submenu, or to activate a menu item.
+</li><li>
+Press the Left Arrow key to close the currently open menu and return to a previously open menu (if present).
+</li><li>
+Press Escape, Tab, or Shift+Tab to close all currently open menus and submenus.
+</li></ul>
+<p>
+ARIA Menu functionality simulates the context menu experience within standard Windows applications.
+</p>
+</div>
+
+</div>
+
+<div class="hiddenStorage">
+
+<div id="xTab1content">
+<img src="img/golden.jpg"
+alt="Under the Golden Gate Bridge looking towards Marin"
+title="Under the Golden Gate Bridge looking towards Marin" />
+<br />
+<i>
+(photography by C. Wallenstein Garaventa)
+</i>
+</div>
+
+<div id="xTab2content">
+<img src="img/village.jpg"
+alt="Sete cidades village on the shore of the green lake, S&#227;o Miguel, Azores"
+title="Sete cidades village on the shore of the green lake, S&#227;o Miguel, Azores" />
+<br />
+<i>
+(photography by C. Wallenstein Garaventa)
+</i>
+</div>
+
+<div id="xTab3content">
+<img src="img/reflections.jpg"
+alt="People and their reflections, walking on the Sutro Bath ruins, San Francisco"
+title="People and their reflections, walking on the Sutro Bath ruins, San Francisco" />
+<br />
+<i>
+(photography by C. Wallenstein Garaventa)
+</i>
+</div>
+
+<div id="xTab4content">
+<img src="img/ship.jpg"
+alt="Golden Gate Bridge with freight ship"
+title="Golden Gate Bridge with freight ship" />
+<br />
+<i>
+(photography by C. Wallenstein Garaventa)
+</i>
+</div>
+
+</div>
+
+</body>
+</html>

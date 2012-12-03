@@ -1,0 +1,100 @@
+
+body {
+text-align: center;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 0.93em;
+background-color: #f5f5f5;
+}
+
+a:link, a:visited, a:active, a:hover {
+color: #0000b0;
+}
+
+.intro {
+width: 74%;
+margin-left: 20%;
+margin-right: auto;
+}
+
+div.announce {
+font-size: 1.1em;
+font-style: italic;
+color: #8fbc8f;
+}
+
+div.hd {
+text-align: left;
+width: 60%;
+margin: 10px auto 10px 20%;
+clear: both;
+}
+
+h1 {
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+font-size: 1.6em;
+color: #87ceeb;
+text-align: center;
+outline-style: none;
+}
+
+h2, h3, h4, h5, h6 {
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+font-size: 1.4em;
+color: #f5f5f5;
+background-color: #000000;
+border: solid thin #000099;
+font-weight: bold;
+margin: 20px 20px 20px 20%;
+padding: 10px 0px;
+text-align: center;
+width: 200px;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+outline-style: none;
+overflow: hidden;
+}
+
+.tal {
+text-align: left;
+}
+
+div.content, #fns {
+color: #191970;
+}
+
+#fnsDil {
+border-bottom: solid thin black;
+width: 50%;
+height: 5px;
+}
+
+i {
+font-size: 0.9em;
+}
+
+sup, .fnIndex {
+font-weight: bold;
+}
+
+.footnote {
+background-color: #add8e6;
+cursor: pointer;
+}
+
+.footnote:focus {
+outline: #5f9ea0 2px inset;
+}
+
+.screenReading {
+position: absolute;
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+clip: rect(1px, 1px, 1px, 1px);
+padding: 0;
+border: 0;
+height: 1px; 
+width: 1px; 
+overflow: hidden;
+z-index: -1000;
+}

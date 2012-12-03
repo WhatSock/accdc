@@ -1,0 +1,76 @@
+
+body {
+text-align: center;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 0.93em;
+background-color: #f5f5f5;
+}
+
+a:link, a:visited, a:active, a:hover {
+color: #0000b0;
+}
+
+.intro {
+width: 74%;
+margin-left: 20%;
+margin-right: auto;
+}
+
+div.announce {
+font-size: 1.1em;
+font-style: italic;
+color: #8fbc8f;
+}
+
+div.hd {
+text-align: left;
+width: 60%;
+margin: 10px auto 10px 20%;
+clear: both;
+}
+
+h1 {
+font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+font-size: 1.6em;
+color: #87ceeb;
+text-align: center;
+outline-style: none;
+}
+
+h2, h3, h4, h5, h6 {
+font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+font-size: 1.4em;
+color: #f5f5f5;
+background-color: #000000;
+border: solid thin #000099;
+font-weight: bold;
+margin: 20px 20px 20px 20%;
+padding: 10px 0px;
+text-align: center;
+width: 200px;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+outline-style: none;
+overflow: hidden;
+}
+
+.tal {
+text-align: left;
+}
+
+code {
+margin-left: 10%;
+color: #191970;
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+border: solid thin black;
+}
+
+a.aLink:after {
+content: '\2192';
+}
+
+a.aLink.open:after {
+content: '\2190';
+}

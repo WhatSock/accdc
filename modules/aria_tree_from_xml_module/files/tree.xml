@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<namespace>
+<ea id="ea" name="Earth" zoom="0" lat="37.77493" lng="-122.41942">
+<af id="af" name="Africa" zoom="2" lat="-8.78320" lng="34.50852">
+<mo id="af-mo" name="Morocco" zoom="4" lat="31.79170" lng="-7.09262">
+<ca id="af-mo-ca" name="Casablanca" zoom="12" lat="33.60538" lng="-7.63195"></ca>
+</mo>
+<eg id="af-eg" name="Egypt" zoom="3" lat="26.82055" lng="30.80250">
+<ca id="af-eg-ca" name="Cairo" zoom="10" lat="30.06474" lng="31.24951"></ca>
+</eg>
+</af>
+<am id="am" name="America (North)" zoom="2" lat="37.09024" lng="-95.71289">
+<us id="am-us" name="United States" zoom="3" lat="37.09024" lng="-95.71289">
+<ca id="am-us-ca" name="California" zoom="5" lat="36.77826" lng="-119.41793">
+<sf id="am-us-ca-sf" name="San Francisco" zoom="10" lat="37.77493" lng="-122.41942"></sf>
+<la id="am-us-ca-la" name="Los Angeles" zoom="10" lat="34.05223" lng="-118.24368"></la>
+</ca>
+<ne id="am-us-ne" name="Nevada" zoom="5" lat="38.80261" lng="-116.41939">
+<lv id="am-us-ne-lv" name="Los Vegas" zoom="10" lat="36.11465" lng="-115.17282"></lv>
+</ne>
+<wa id="am-us-wa" name="Washington" zoom="5" lat="38.89511" lng="-77.03637">
+<se id="am-us-wa-se" name="Seattle" zoom="10" lat="47.60621" lng="-122.33207"></se>
+</wa>
+</us>
+</am>
+<sam id="sam" name="America (South)" zoom="2" lat="-8.78320" lng="-55.49148">
+<br id="sam-br" name="Brazil" zoom="3" lat="-14.23500" lng="-51.92528">
+<rd id="sam-br-rd" name="Rio de Janeiro" zoom="9" lat="-22.90354" lng="-43.20959"></rd>
+</br>
+</sam>
+<an id="an" name="Antarctica" zoom="3" lat="-82.86275" lng="-135.00000">
+<di id="an-di" name="Deception Island" zoom="11" lat="-62.95733" lng="-60.55090"></di>
+</an>
+<as id="as" name="Asia" zoom="2" lat="34.04786" lng="100.61966">
+<ch id="as-ch" name="China" zoom="3" lat="35.86166" lng="104.19540">
+<ho id="as-ch-ho" name="Hong Kong" zoom="10" lat="22.39643" lng="114.10950"></ho>
+</ch>
+<jp id="as-jp" name="Japan" zoom="5" lat="36.20482" lng="138.25292">
+<to id="as-jp-to" name="Tokyo" zoom="10" lat="35.68949" lng="139.69171"></to>
+</jp>
+<ru id="as-ru" name="Russia" zoom="4" lat="61.52401" lng="105.31876">
+<mo id="as-ru-mo" name="Moscow" zoom="10" lat="55.75579" lng="37.61763"></mo>
+</ru>
+</as>
+<au id="au" name="Australia" zoom="4" lat="-29.53280" lng="145.49148">
+<si id="au-si" name="Sidney" zoom="10" lat="-33.86890" lng="151.20709"></si>
+</au>
+<eu id="eu" name="Europe" zoom="4" lat="54.52596" lng="15.25512">
+<fr id="eu-fr" name="France" zoom="6" lat="46.22764" lng="2.21375">
+<pa id="eu-fr-pa" name="Paris" zoom="11" lat="48.85661" lng="2.35222"></pa>
+</fr>
+<it id="eu-it" name="Italy" zoom="5" lat="41.87194" lng="12.56738">
+<ro id="eu-it-ro" name="Rome" zoom="10" lat="41.89052" lng="12.49425"></ro>
+<ve id="eu-it-ve" name="Venice" zoom="13" lat="45.43434" lng="12.33878"></ve>
+</it>
+<no id="eu-no" name="Norway" zoom="5" lat="60.47202" lng="8.46895">
+<os id="eu-no-os" name="Oslo" zoom="11" lat="59.91387" lng="10.75225"></os>
+</no>
+<pt id="eu-pt" name="Portugal" zoom="5" lat="39.39987" lng="-8.22445">
+<az id="eu-pt-az" name="Azores" zoom="6" lat="38.72164" lng="-27.22058">
+<sm id="eu-pt-az-sm" name="Sao Miguel" zoom="7" lat="37.78041" lng="-25.49705">
+<pd id="eu-pt-az-sm-pd" name="Ponta Delgada" zoom="13" lat="37.74943" lng="-25.66489"></pd>
+</sm>
+<te id="eu-pt-az-te" name="Terceira" zoom="8" lat="38.72164" lng="-27.22058">
+<an id="eu-pt-az-te-an" name="Angra" zoom="13" lat="38.72164" lng="-27.22058"></an>
+</te>
+</az>
+<li id="eu-pt-li" name="Lisbon" zoom="11" lat="38.70693" lng="-9.13563"></li>
+</pt>
+<uk id="eu-uk" name="United Kingdom" zoom="5" lat="55.37805" lng="-3.43597">
+<en id="eu-uk-en" name="England" zoom="7" lat="52.01903" lng="-0.77043">
+<lo id="eu-uk-en-lo" name="London" zoom="11" lat="51.50015" lng="-0.12624"></lo>
+</en>
+</uk>
+</eu>
+</ea>
+</namespace>

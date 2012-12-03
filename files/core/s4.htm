@@ -1,0 +1,878 @@
+<html>
+<body>
+<div>
+
+<div class="apiDocumentationContentSection">
+
+<div class="hd">
+<h2>
+<span>
+AJAX
+</span>
+</h2>
+</div>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hLoadData</span></a></span>  <span>(Mode1 Property)</span>
+</dt>
+<dd>
+<p>
+The ".hLoadData" property can be used to send key/value pairs to the server.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+When set as a string, the request is made as a "GET";<br />
+When set as an object{}, the request is made as a "POST".
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hLoadData: {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hLoadData = {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 1;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hLoad()</span></a></span>  <span>(Mode1 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hLoad()" callback is immediately processed after the get/post request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hLoad: function(responseText, textStatus, XMLHttpRequest, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hLoad = function(responseText, textStatus, XMLHttpRequest, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 1;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.content</span></a></span>  <span>(Mode2-6 Property)</span>
+</dt>
+<dd>
+<p>
+The ".content" property specifies the content to be rendered.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hSuccess: function(options, data, textStatus, XMLHttpRequest, dc){<br />
+dc.content = data;<br />
+},<br />
+...<br />
+}<br />
+]);
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+When the "mode" property is set to either 0 or 1, the "source" property must be used to assign content or to provide a resource path.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to either 2 through 6;
+</li><li>
+Depending on the value of the "mode" property, either the "source" or "ajaxOptions.url" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hGetData</span></a></span>  <span>(Mode2 Property)</span>
+</dt>
+<dd>
+<p>
+The "hGetData" property can be used to send key/value pairs to the server during a get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hGetData: serialize(form),<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hGetData = serialize(form);
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 2;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hGetType</span></a></span>  <span>(Mode2 Property)</span>
+</dt>
+<dd>
+<p>
+The "hGetType" property identifies the return Data Type of the get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Supported values:
+</p>
+<ul class="liFl"><li>
+"xml"
+</li><li>
+"html"
+</li><li>
+"script"
+</li><li>
+"json"
+</li><li>
+"jsonp"
+</li><li>
+"text"
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hGetType: 'html',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hGetType = 'xml';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 2;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hGet()</span></a></span>  <span>(Mode2 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hGet()" callback is immediately processed after the get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hGet: function(data, textStatus, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hGet = function(data, textStatus, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 2;
+</li><li>
+The "source" property must include a valid resource path;
+</li><li>
+The ".content" property must be set for the new content to be rendered.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hJSONData</span></a></span>  <span>(Mode3 Property)</span>
+</dt>
+<dd>
+<p>
+The "hJSONData" property can be used to send key/value pairs to the server during a get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hJSONData: {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hJSONData = {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 3;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hJSON()</span></a></span>  <span>(Mode3 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hJSON()" callback is immediately processed after the get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hJSON: function(data, textStatus, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hJSON = function(data, textStatus, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 3;
+</li><li>
+The "source" property must include a valid resource path;
+</li><li>
+The ".content" property must be set for the new content to be rendered.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hScript()</span></a></span>  <span>(Mode4 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hScript()" callback is immediately processed after the get request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hScript: function(data, textStatus, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hScript = function(data, textStatus, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 4;
+</li><li>
+The "source" property must include a valid resource path to an external JS file;
+</li><li>
+The ".content" property must be set for the new content to be rendered.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hPostData</span></a></span>  <span>(Mode5 Property)</span>
+</dt>
+<dd>
+<p>
+The "hPostData" property can be used to send key/value pairs to the server during a post request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hPostData: {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hPostData = {<br />
+firstName: 'Bryan',
+lastName: 'Garaventa'<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 5;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hPostType</span></a></span>  <span>(Mode5 Property)</span>
+</dt>
+<dd>
+<p>
+The "hPostType" property identifies the return Data Type of the post request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Supported values:
+</p>
+<ul class="liFl"><li>
+"xml"
+</li><li>
+"html"
+</li><li>
+"script"
+</li><li>
+"json"
+</li><li>
+"jsonp"
+</li><li>
+"text"
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hPostType: 'text',<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hPostType = 'xml';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 5;
+</li><li>
+The "source" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hPost()</span></a></span>  <span>(Mode5 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hPost()" callback is immediately processed after the post request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hPost: function(data, textStatus, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hPost = function(data, textStatus, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 5;
+</li><li>
+The "source" property must include a valid resource path;
+</li><li>
+The ".content" property must be set for the new content to be rendered.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.ajaxOptions</span></a></span>  <span>(Mode6 Property)</span>
+</dt>
+<dd>
+<p>
+The "ajaxOptions" property can be used to configure an AJAX request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+All available options are designed to mirror the 
+<a target="_blank" href="http://docs.jquery.com/Ajax/jQuery.ajax#options">jQuery AJAX Options</a>
+for convenience.
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+ajaxOptions: {<br />
+url: 'query/playlist.php'<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.ajaxOptions.url = 'load/myPlayer.php';
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+The "source" property is ignored when processing an AJAX request.
+</li></ul>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 6;
+</li><li>
+The "ajaxOptions.url" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hBeforeSend()</span></a></span>  <span>(Mode6 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hBeforeSend()" callback is immediately executed before the AJAX request is initiated.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hBeforeSend: function(options, XMLHttpRequest, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hBeforeSend = function(options, XMLHttpRequest, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 6;
+</li><li>
+The "ajaxOptions.url" property must include a valid resource path;
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hSuccess()</span></a></span>  <span>(Mode6 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hSuccess()" callback is immediately executed after the AJAX request is processed.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hSuccess: function(options, data, textStatus, XMLHttpRequest, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hSuccess = function(options, data, textStatus, XMLHttpRequest, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 6;
+</li><li>
+The "ajaxOptions.url" property must include a valid resource path;
+</li><li>
+The ".content" property must be set for the new content to be rendered.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hComplete()</span></a></span>  <span>(Mode6 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hComplete()" callback is immediately executed after the AJAX request has completed.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hComplete: function(options, XMLHttpRequest, textStatus, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hComplete = function(options, XMLHttpRequest, textStatus, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 6;
+</li><li>
+The "ajaxOptions.url" property must include a valid resource path;
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.hError()</span></a></span>  <span>(Mode6 Handler)</span>
+</dt>
+<dd>
+<p>
+The "hError()" callback is executed when an error is thrown during an AJAX request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+hError: function(options, XMLHttpRequest, textStatus, errorThrown, dc){<br />
+// Do something<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+$A.reg.myObj.hError = function(options, XMLHttpRequest, textStatus, errorThrown, dc){<br />
+// Do something<br />
+};
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to 6;
+</li><li>
+The "ajaxOptions.url" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.request</span></a></span>  <span>(Mode2-6 Property)</span>
+</dt>
+<dd>
+<p>
+The ".request" property contains the last XMLHttpRequest object returned by an AJAX request.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+runAfter: function(dc){<br />
+var XMLHTTPRequest = dc.request;<br />
+},<br />
+...<br />
+}<br />
+]);<br />
+// Or<br />
+var XMLHTTPRequest = $A.reg.myObj.request;
+</code>
+<p class="heading" role="heading" aria-level="4">
+Required:
+</p>
+<ol><li>
+The "mode" property must be set to either 2 through 6;
+</li><li>
+Depending on the value of the "mode" property, either the "source" or "ajaxOptions.url" property must include a valid resource path.
+</li></ol>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.load()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.load()" is a shorthand method for pulling content from an external resource and injecting it into a container element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.load( ( 'div.container' || document.getElementById('myContainer') ), 'files/core/s4.htm', {}, function(responseText, textStatus, XMLHttpRequest){<br />
+// Do something<br />
+});
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.get()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.get()" is a shorthand method for pulling content from an external resource and executing a callback.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.get('files/demo/insert.php', ( '' || {} ), function(data, textStatus){<br />
+// Do something<br />
+}, ( 'GET' || 'POST' ) );
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.getJSON()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.getJSON()" is a shorthand method for pulling JSON data from an external resource and executing a callback.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.getJSON('http://whatsock.com/json_resource', {}, function(data, textStatus){<br />
+// Do something<br />
+});
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.getScript()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.getScript()" is a shorthand method for pulling external JavaScript into the DOM and executing it.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.getScript( ('js/helpers.js' || 'http://whatsock.com/js/helpers.js' ), function(data, textStatus){<br />
+// Do something<br />
+}, (disableAsync = true or false) );<br />
+// Or<br />
+$A.getScript('FilePath.js');
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.post()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.post()" is a shorthand method for posting data to a server and returning a callback.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.post('http://whatsock.com/post_data.php', 'name=Rincewind&occupation=WIZZARD', function(data, textStatus){<br />
+// Do something<br />
+}, ( 'GET' || 'POST' ) );
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.ajax()</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A.ajax()" is a shorthand method for executing an AJAX request and returning a callback.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.ajax( {ajax_options} );
+</code>
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

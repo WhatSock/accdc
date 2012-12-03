@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ARIA Sortable Listbox Module</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/aria_listbox_generator.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+ARIA Sortable Listbox Module Demo
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The ARIA Sortable Listbox Module dynamically converts standard list markup into a keyboard accessible sortable listbox control.
+<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/setup.js" target="_blank">setup.js</a> : The setup script that configures ARIA Listbox and Grab functionality.
+</li></ol>
+<p>
+The packaged file for this demo can be downloaded from <a href="../../AccDC.htm">WhatSock.com</a> under Downloads.
+</p>
+<p>
+<a href="http://lnkd.in/CKfG9x">
+Updated to support scalability, standard functionality, sortability, multiselect, item deletion, and dynamic addition of new option elements at runtime.
+</a>
+</p>
+</div>
+
+<div class="hd">
+<h2>
+ARIA Sortable Listbox Demo
+</h2>
+</div>
+
+<div class="viewport">
+
+<div id="container">
+<form>
+<div>
+<label for="f1" id="f1lbl">
+These are a few of my favorite things:
+</label><br />
+<textarea wrap="soft" id="f1"></textarea>
+</div>
+<div>
+<button title="Add item to list" id="f2">Add</button>
+<button title="Clear list" id="f3">Clear</button>
+<button role="button" aria-pressed="false" title="Enable sort" id="f4">Sort</button>
+</div>
+</form>
+</div>
+
+<div id="list">
+<ol id="things">
+<li>
+<span>Reading a good book in a quiet place</span>
+</li>
+<li>
+<span>Exploring the culture and history of a new country</span>
+</li>
+<li>
+<span>Having cider in a warm London pub with friends on a cold rainy day</span>
+</li>
+<li>
+<span>Walking the quiet empty streets on a clear October night</span>
+</li>
+<li>
+<span>Listening to the sound of rustling autumn leaves</span>
+</li>
+<li>
+<span>Building something new that nobody has heard of before</span>
+</li>
+<li>
+<span>Watching reruns of The Wonder Years</span>
+</li>
+<li>
+<span>Having hot chocolate by the campfire</span>
+</li>
+<li>
+<span>Seeing an awesome concert at the Bridge Show</span>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div class="intro tal">
+<p>
+Instructions:
+</p>
+<ul><li>
+Press Enter on the edit field or activate the Add button to add a new list item;<br />
+Activate Clear to empty the list, or activate Sort to toggle sortability of the list.
+</li><li>
+Using the mouse, click a list item to make a selection,<br />
+then click any other list item to move the selected item to that location.<br />
+</li><li>
+Using the keyboard, use the Up/Down/Home/End keys to navigate listed items.
+</li><li>
+Press the Spacebar to grab the selected item for moving;<br />
+Press the Spacebar again after navigating to another location to move the grabbed item.
+</li><li>
+Press Delete on a selected item to remove it from the list.
+</li><li>
+Press Escape to cancel a previous grab action;<br />
+Press Escape again or press Enter to close the listbox and disable sortability.
+</li></ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Standard Dynamic Control Templates</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/banner_module.js"></script>
+<script type="text/javascript" src="js/modal_module.js"></script>
+<script type="text/javascript" src="js/popup_module.js"></script>
+<script type="text/javascript" src="js/tooltip_module.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+Standard Dynamic Control Templates
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The templates for accessible Lightbox, Banner, Tooltip, and Popup controls provide scalable AccDC Object declarations to automate accessibility for screen reader and keyboard only users.
+<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/setup.js" target="_blank">setup.js</a> : The AccDC Object configuration script.
+</li></ol>
+<p>
+The packaged file for this demo can be downloaded from <a href="../../AccDC.htm">WhatSock.com</a> under Downloads.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Accessible Lightbox
+</h2>
+</div>
+
+<div class="intro tal">
+<button class="lightbox">Open the Accessible Lightbox Demo</button>
+<p>
+Instructions:
+</p>
+<ul><li>
+Press the above button to open the lightbox AccDC Object.
+</li><li>
+The lightbox will load,<br />
+flow control methods will configure the display, handlers, and accessibility markup,<br />
+focus will automatically be moved to the beginning of the new content when opened,<br />
+and focus will return to the triggering element when closed.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+Accessible Banner
+</h2>
+</div>
+
+<div class="intro tal">
+<button class="banner">Reopen the Accessible Banner</button>
+<p>
+Instructions:
+</p>
+<ul><li>
+Close the banner by moving the mouse in and out of the display area.
+</li><li>
+Screen reader and keyboard only users can close the banner using a dynamically generated close link.
+</li><li>
+The above button will reopen the banner AccDC Object.
+</li><li>
+When opened, the textual content within the banner is announced to screen reader users.
+</li><li>
+The element for the banner is placed at the top of the page as the first content to be encountered during navigation.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+Accessible Tooltip
+</h2>
+</div>
+
+<div class="intro tal">
+<a href="#" class="helpIcon"><img
+src="img/help.png"
+alt="What is the greatest secret known to man?"
+title="What is the greatest secret known to man?"
+/></a>
+<p>
+Instructions:
+</p>
+<ul><li>
+Mouse over the above icon to display the extended tooltip AccDC Object.
+</li><li>
+Screen reader and keyboard only users can activate the icon using the Enter key.
+</li><li>
+The extended tooltip object will be inserted inline relative to the triggering element,<br />
+positioned visually using the autoPosition property,<br />
+and its content will be announced to screen reader users.
+</li><li>
+The extended tooltip can be closed by mousing out of the display area,<br />
+or by tabbing to and activating the automatically generated accessible close link.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+Accessible Popup
+</h2>
+</div>
+
+<div class="intro tal">
+<a href="#" class="excerpt">
+Show me the Shakespeare Quote of the Day!
+</a>
+<p>
+Instructions:
+</p>
+<ul><li>
+The popup AccDC Object can be opened by clicking the above link.
+</li><li>
+The popup object will be inserted inline with the triggering element,<br />
+the visual display will be set using the autoPosition property,<br />
+and the popup content will be announced to screen reader users.
+</li><li>
+The popup can be closed by activating the Close icon.
+</li></ul>
+</div>
+
+<div class="hd">
+<h2>
+Tips and Tricks
+</h2>
+</div>
+
+<div class="intro tal">
+<ol><li>
+All of the above demos are included as template AccDC Objects within the file <a href="js/setup.js" target="_blank">setup.js</a>,<br />
+so that the AccDC Object properties can be modified to fit any functionality or layout requirements for similar implementations.
+</li><li>
+All of the above AccDC Object types can be controlled programmatically, such as to open or close an object like so:<br />
+<code>
+// Using the ID property of each AccDC Object, such as 'lightbox'<br />
+$A.reg.lightbox.open();<br />
+// Or using the ID 'popup'<br />
+$A.reg.popup.close();
+</code>
+</li><li>
+Similarly, the functionality of AccDC Objects can be changed on the fly while maintaining the same level of accessibility, like so:<br />
+<code>
+// Change the functionality of the Login lightbox to show a Registration lightbox instead<br />
+// First, change the role for screen reader users<br />
+$A.reg.lightbox.role = 'Register';<br />
+// Change the resource locator to point to another form container<br />
+$A.reg.lightbox.source = 'files/overlays.html #register1';<br />
+// Change the size and width to match the dimensions of the new lightbox<br />
+$A.reg.lightbox.cssObj.height = '400px';<br />
+$A.reg.lightbox.cssObj.width = '750px';<br />
+// Lastly, swap the runAfter function with another function so that event handlers can be properly registered when it opens<br />
+$A.reg.lightbox.runAfter = someOtherFunction;<br />
+// Now open the newly configured lightbox AccDC Object<br />
+$A.reg.lightbox.open();
+</code>
+</li><li>
+Also, the accessible hidden text can be modified for localization in any language by modifying the accStart, accEnd, and accClose properties,<br />
+by directly modifying the AccDC Object declarations within 'setup.js',<br />
+or by dynamically changing the property values at runtime using the object ID as shown above.
+</li></ol>
+</div>
+
+</div>
+</body>
+</html>

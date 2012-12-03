@@ -1,0 +1,316 @@
+<html>
+<body>
+<div>
+
+<div class="apiDocumentationContentSection">
+
+<div class="hd">
+<h2>
+<span>
+Misc
+</span>
+</h2>
+</div>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.getEl()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.getEl()" method returns an element with a matching ID attribute.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+var myEl = $A.getEl('objId');
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.createEl()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.createEl()" method returns a newly created element.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+// Format: $A.createEl(tagName, attributeKey/ValueMap, cssKey/ValueMap, className, domNodeToInsert)<br />
+var myLink = $A.createEl('a', {<br />
+href: 'url',<br />
+target: '_blank'<br />
+}, {<br />
+fontSize: '1.1em',<br />
+backgroundColor: '#f5f5f5'<br />
+}, 'link external', document.createTextNode('Visit here to learn more about stuff!'));<br />
+// Or for a basic element<br />
+var basicElement = $A.createEl('div');
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.getAttr()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.getAttr()" method returns the value of an attribute on a DOM node.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+var myTitle = $A.getAttr(domNode, 'title');
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.remAttr()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.remAttr()" method removes an attribute, or an array of attributes from a DOM node.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.remAttr(domNode, 'title');<br />
+// Or<br />
+$A.remAttr(domNode, [<br />
+'title',<br />
+'id'<br />
+]);
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.setAttr()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.setAttr()" method sets an attribute, or a series of attributes on a DOM node.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.setAttr(domNode, 'title', 'The chocolate moose is not in season');<br />
+// Or<br />
+$A.setAttr(domNode, {<br />
+title: 'The chocolate moose is not in season',<br />
+id: 'myObjId'<br />
+});
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.getText()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.getText()" method returns the textual content of any DOM node.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+var text = $A.getText(domNode);
+</code>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.inArray()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.inArray()" method returns the index value of a matching item within an array or string.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+var pos = $A.inArray('My name is Bryan', 'Bryan');<br />
+// Or<br />
+var pos = $A.inArray([<br />
+'Bryan',<br />
+'Joe'<br />
+], 'Bryan');<br />
+// Then<br />
+if (pos === -1) alert('Not Found');<br />
+else alert('Found');
+</code>
+</dd>
+</dl>
+
+<div class="hd">
+<h2>
+<span>
+Extensions
+</span>
+</h2>
+</div>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.fn.globalDC</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.fn.globalDC" object is merged with every AccDC Object, simulating a prototype where plugins and extensions can be globally added to each instance.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Default: {}
+</p>
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+// Change the default functionality for all AccDC Objects by adding an override<br />
+$A.fn.globalDC.returnFocus = false;<br />
+// Or add a custom method/property to every AccDC Object<br />
+$A.fn.globalDC.myFunction = function(){<br />
+var dc = this; // The current AccDC Object instance<br />
+alert(dc.id);<br />
+return dc; // To preserve method chaining<br />
+};<br />
+</code>
+<p class="heading" role="heading" aria-level="4">
+Important
+</p>
+<ul><li>
+Changes to the "$A.fn.globalDC" object will not automatically be applied to previously instantiated AccDC Objects.
+</li><li>
+Use the "$A.globalDCMerge()" method to manually merge "$A.fn.globalDC" with all previously instantiated AccDC Objects.
+</li></ul>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A.globalDCMerge()</span></a></span>  
+</dt>
+<dd>
+<p>
+The "$A.globalDCMerge()" method manually merges the "$A.fn.globalDC" object with all previously instantiated AccDC Objects.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A.globalDCMerge();
+</code>
+</dd>
+</dl>
+
+<div class="hd">
+<h2>
+<span>
+Namespaces
+</span>
+</h2>
+</div>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>$A</span></a></span>  
+</dt>
+<dd>
+<p>
+"$A" is the global namespace for the AccDC API, which includes internal namespaces that should not be overwritten.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Reserved namespaces:
+</p>
+<ol class="liFl"><li>
+$A.reg
+</li><li>
+$A.fn
+</li></ol>
+<p>
+The "$A" global namespace can be manually reassigned to prevent conflicts.<br />
+<code>
+// Syntax<br />
+// In the head tag...<br />
+&lt;script type="text/javascript"&gt;<br />
+// Set a new global namespace<br />
+AccDCNamespace = "Whatever";<br />
+&lt;/script&gt;<br />
+&lt;script type="text/javascript" src="Acc.DC.API.js"&gt;<br />
+// Then load the AccDC API<br />
+// Now "Whatever" is the global namespace<br />
+&lt;/script&gt;
+</code>
+</p>
+</dd>
+</dl>
+
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>dc</span></a></span> 
+</dt>
+<dd>
+<p>
+"dc" refers to the current instance of any registered AccDC Object, which includes internal namespaces that should not be overwritten.
+</p>
+</dd>
+<dd class="detail hidden">
+<p>
+Reserved namespaces:
+</p>
+<ol class="liFl"><li>
+dc.ajaxOptions
+</li><li>
+dc.drag
+</li><li>
+dc.drop
+</li><li>
+dc.accDD
+</li><li>
+dc.shadow
+</li><li>
+dc.fn
+</li></ol>
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

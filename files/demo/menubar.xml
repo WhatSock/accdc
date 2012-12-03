@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menubar>
+<file text="File"><![CDATA[
+<ul class="demoMenu"><li>
+<a href="#">Open</a>
+</li><li>
+<a href="#">Edit</a>
+</li><li>
+<a href="#">New...</a>
+</li><li>
+<a href="#">Properties</a>
+</li><li>
+<a href="#">Settings</a>
+</li></ul>
+]]></file>
+<edit text="Edit"><![CDATA[
+<ul class="demoMenu"><li>
+<a href="#">Underline</a>
+</li><li>
+<a href="#">Bold</a>
+</li><li>
+<a href="#">Table</a>
+</li><li>
+<a href="#">URL</a>
+</li><li>
+<a href="#">List</a>
+</li><li>
+<a href="#">Undo</a>
+</li></ul>
+]]></edit>
+<view text="View"><![CDATA[
+<ul class="demoMenu"><li>
+<a href="#">Preview</a>
+</li><li>
+<a href="#">Changes</a>
+</li><li>
+<a href="#">Encoding</a>
+</li><li>
+<a href="#">Source</a>
+</li></ul>
+]]></view>
+<tools text="Tools"><![CDATA[
+<ul class="demoMenu"><li>
+<a href="#">Spellcheck</a>
+</li><li>
+<a href="#">Track</a>
+</li><li>
+<a href="#">Merge</a>
+</li><li>
+<a href="#">Format</a>
+</li></ul>
+]]></tools>
+<help text="Help"><![CDATA[
+<ul class="demoMenu"><li>
+<a href="#">Online</a>
+</li><li>
+<a href="#">Shortcuts</a>
+</li><li>
+<a href="#">Accessibility</a>
+</li></ul>
+]]></help>
+</menubar>

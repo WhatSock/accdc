@@ -1,4 +1,4 @@
-The AccDC API
+The Standalone AccDC API
 =====
 
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
@@ -20,3 +20,11 @@ Project home:
 -----
 
 http://whatsock.com
+
+Related projects:
+-----
+
+Standalone AccDC API: https://github.com/accdc/accdc
+AccDC API for jQuery: https://github.com/accdc/accdc-jquery
+Standalone AccDC Bootstrap: https://github.com/accdc/bootstrap
+AccDC Bootstrap for jQuery: https://github.com/accdc/bootstrap-jquery

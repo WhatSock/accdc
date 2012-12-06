@@ -110,7 +110,7 @@
 
 													// Do some cursory data validation and store value if found
 													if (((el.type == 'text' || el.type == 'hidden') && el.value) || (el.type == 'radio'
-														&& $A.query('input[name=' + el.name + '][value=' + el.value + ']:checked', form).length))
+														&& $A.query('input[name="' + el.name + '"][value="' + el.value + '"]:checked', form).length))
 														vals[el.name] = el.value;
 
 													else if (!vals[el.name])

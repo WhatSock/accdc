@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.2 (11/17/2012)
+AccDC API - 2.0.2 (12/05/2012)
 Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the GNU LGPL
 
@@ -4549,7 +4549,7 @@ return;
 // the drag/drop interaction data
 var dd = event.data, results;
 // check the which directive
-if (!("ontouchstart" in window) && dd.which > 0 && event.which != dd.which ) 
+if (event.which != 0 && dd.which > 0 && event.which != dd.which ) 
 return; 
 // check for suppressed selector
 if ( $( event.target ).is( dd.not ) ) 

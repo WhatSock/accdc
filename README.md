@@ -16,6 +16,8 @@ AccDC renders HTML/XHTML valid markup, HTML5, DOM nodes, JavaScript output, XML 
 
 AccDC automates accessibility by managing the processes associated with dynamic content rendering, so that the majority of common accessibility issues are automatically addressed when DOM manipulation occurs. 
 
+AccDC is distributed under the terms of the Open Source Initiative OSI - MIT License.
+
 Project home:
 -----
 

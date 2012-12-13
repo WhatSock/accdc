@@ -1,7 +1,7 @@
 /*
 AccDC API - 2.0.2 (12/05/2012)
 Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
-Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the GNU LGPL
+Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
 (function(window,undefined){var version="2.0.2",document=window.document,accDC={},getEl=function(e){if(document.getElementById){return document.getElementById(e)}else{if(document.all){return document.all[e]}else{return null}}},createEl=function(t){var o=document.createElement(t);if(arguments.length===1){return o}if(arguments[1]){setAttr(o,arguments[1])}if(arguments[2]){css(o,arguments[2])}if(arguments[3]){addClass(o,arguments[3])}if(arguments[4]){o.appendChild(arguments[4])}return o},createText=function(s){return document.createTextNode(s)},createAttr=function(a){return document.createAttribute(a)},getAttr=function(e,n){if(!e){return null}var a;if(e.getAttribute){a=e.getAttribute(n)}if(!a&&e.getAttributeNode){a=e.getAttributeNode(n)}if(!a&&e[n]){a=e[n]}return a},remAttr=function(e,n){if(!e){return false}var a=isArray(n)?n:[n];for(var i=0;i<a.length;i++){if(e.removeAttribute){e.removeAttribute(a[i])}}return false},getText=function(n){if(!n){return""}return n.innerText||n.textContent||pL.find.getText([n])||""},css=function(obj,p,v){if(!obj){return null}if(obj.nodeName&&typeof p==="string"&&!v){return obj.style&&obj.style[p]?obj.style[p]:xGetComputedStyle(obj,p)}var o=isArray(obj)?obj:[obj],check="top left bottom right width height";for(var i=0;i<o.length;i++){if(typeof p==="string"){try{o[i].style[xCamelize(p)]=check.indexOf(p)!==-1&&typeof v==="number"?v+"px":v}catch(ex){
 /*@cc_on

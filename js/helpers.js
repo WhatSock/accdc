@@ -1,7 +1,7 @@
 /*!
 Helper functions for the WhatSock.com website
 Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
-Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the GNU LGPL
+Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
 
 var firstChild = function(e, t){

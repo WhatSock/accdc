@@ -2,10 +2,6 @@
 AccDC API - 2.0.2 (12/05/2012)
 Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
-
-The source code specific to AccDC is located after the comment "AccDC API Core" within this file.
-
-All Open Source components are documented accordingly, and are subject to their respective license agreements.
 */
 (function( window, undefined ) {
 
@@ -278,10 +274,6 @@ config.complete.apply(ele);
 }
 }, 10);
 },
-
-/*
-The following functions are from the X Library, at cross-browser.com
-*/
 
 xOffset = function(c, p){
 var o = {left:0, top:0},

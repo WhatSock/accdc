@@ -1,6 +1,6 @@
 /*!
 AccDC API - 2.0.2 (12/05/2012)
-Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
+Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
 (function( window, undefined ) {

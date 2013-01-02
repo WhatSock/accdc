@@ -2,7 +2,7 @@
 This is the setup script to register all demo related AccDC Object declarations.
 This file is only parsed when the Live Demo tab is opened from the left navigation links.
 View http : // whatsock.com / js / ready.js to see how external scripts are dynamically parsed at runtime.
-Copyright 2010-2012 Bryan Garaventa (WhatSock.com)
+Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
 

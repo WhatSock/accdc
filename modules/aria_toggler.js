@@ -6,9 +6,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 (function(){
 
-	$A.Toggle = function(trigger, state, callback){
-		var t = typeof trigger === 'string' ? $A.getEl(trigger) : trigger, that = this, toggle = function(state){
-			$A.setAttr(t, 'aria-pressed', state ? 'true' : 'false');
+	$A.Toggle = function(trigger, state, callback, isCheckbox){
+		var t = typeof trigger === 'string' ? $A.getEl(trigger) : trigger, that = this,
+			isCheckbox = $A.getAttr(t, 'role') == 'checkbox' ? true : false, toggle = function(state){
+			$A.setAttr(t, isCheckbox ? 'aria-checked' : 'aria-pressed', state ? 'true' : 'false');
 			that.state = state;
 
 			if (callback && typeof callback === 'function')

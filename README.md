@@ -25,26 +25,26 @@ The AccDC Component Library is a collection of accessible control types that aut
 
 The following modules are included:
 
-# Accessible Modal controls.
-# Accessible Banner controls.
-# Accessible Tooltip controls.
-# Accessible Popup controls.
-# ARIA Tab controls.
-# ARIA context sensitive dropdown Menu controls. 
-# ARIA Tree controls. 
-# Screen reader accessible Drag and Drop controls. 
-# Auto Suggestion Search Field controls. 
-# ARIA Listbox controls that support optional sortability, list item deletion, and dynamic addition of list items. 
-# ARIA Footnote controls. 
-# Accessible Live Chat controls. 
-# Horizontal and vertical ARIA Slider controls. 
-# ARIA Date Picker controls. 
-# Accessible Accordion controls. 
-# Accessible Carousel, Slideshow, and Wizard controls. 
-# ARIA Radio Button controls. 
-# ARIA Toggle and Checkbox controls. 
-# Keyboard accessible Scrollable Div controls. 
-# Screen reader accessible Progress Bar controls.  
+* Accessible Modal controls.
+* Accessible Banner controls.
+* Accessible Tooltip controls.
+* Accessible Popup controls.
+* ARIA Tab controls.
+* ARIA context sensitive dropdown Menu controls. 
+* ARIA Tree controls. 
+* Screen reader accessible Drag and Drop controls. 
+* Auto Suggestion Search Field controls. 
+* ARIA Listbox controls that support optional sortability, list item deletion, and dynamic addition of list items. 
+* ARIA Footnote controls. 
+* Accessible Live Chat controls. 
+* Horizontal and vertical ARIA Slider controls. 
+* ARIA Date Picker controls. 
+* Accessible Accordion controls. 
+* Accessible Carousel, Slideshow, and Wizard controls. 
+* ARIA Radio Button controls. 
+* ARIA Toggle and Checkbox controls. 
+* Keyboard accessible Scrollable Div controls. 
+* Screen reader accessible Progress Bar controls.  
 
 Project home:
 -----

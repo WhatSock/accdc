@@ -1,5 +1,5 @@
 /*!
-ARIA Calendar Module R1.0
+ARIA Calendar Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -8,10 +8,12 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 	//   $A.fn.debug = true;
 
-	$A.setCalendar = function(pId, trigger, targ, commentsEnabled, callback){
+	$A.setCalendar = function(pId, trigger, targ, commentsEnabled, callback, config){
+
+		var config = config || {},
 
 		// Control the behavior of date selection clicks
-		var handleClick = callback && typeof callback === 'function' ? callback : function(ev, dc){
+		handleClick = callback && typeof callback === 'function' ? callback : function(ev, dc){
 			targ.value = dc.range.wDays[dc.range.current.wDay].lng + ' ' + dc.range[dc.range.current.month].name + ' '
 				+ dc.range.current.mDay + ', ' + dc.range.current.year;
 			dc.close();
@@ -31,107 +33,113 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						[
 						{
 						id: pId,
-						role: 'Calendar',
+						role: config.role || 'Calendar',
+						accStart: config.accStart || 'Start',
+						accEnd: config.accEnd || 'End',
 						trigger: trigger,
 						bind: 'click',
 						allowReopen: true,
-						showHiddenClose: commentsEnabled ? false : true,
-						tooltipTxt: 'Press Escape to cancel',
-						disabledTxt: 'Disabled',
-						commentedTxt: 'Has Comment',
-						prevTxt: 'Previous',
-						nextTxt: 'Next',
-						monthTxt: 'Month',
-						yearTxt: 'Year',
-						autoPosition: 9,
+						showHiddenClose: commentsEnabled && config.editor && config.editor.show ? false : true,
+						controlType: 'DatePicker',
+						tooltipTxt: config.tooltipTxt || 'Press Escape to cancel',
+						disabledTxt: config.disabledTxt || 'Disabled',
+						commentedTxt: config.commentedTxt || 'Has Comment',
+						prevTxt: config.prevTxt || 'Previous',
+						nextTxt: config.nextTxt || 'Next',
+						monthTxt: config.monthTxt || 'Month',
+						yearTxt: config.yearTxt || 'Year',
+						autoPosition: isNaN(config.autoPosition) ? 9 : config.autoPosition,
+						offsetTop: isNaN(config.offsetTop) ? 0 : config.offsetTop,
+						offsetLeft: isNaN(config.offsetLeft) ? 0 : config.offsetLeft,
+						posAnchor: config.posAnchor,
 						cssObj:
 										{
 										position: 'absolute',
 										zIndex: 1
 										},
-						className: 'calendar',
+						className: config.className || 'calendar',
 						range:
 										{
 										0:
 														{
-														name: 'January',
+														name: config.months && config.months[0] ? config.months[0] : 'January',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										1:
 														{
-														name: 'February',
+														name: config.months && config.months[1] ? config.months[1] : 'February',
 														max: 28,
 														disabled: {},
 														comments: {}
 														},
 										2:
 														{
-														name: 'March',
+														name: config.months && config.months[2] ? config.months[2] : 'March',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										3:
 														{
-														name: 'April',
+														name: config.months && config.months[3] ? config.months[3] : 'April',
 														max: 30,
 														disabled: {},
 														comments: {}
 														},
 										4:
 														{
-														name: 'May',
+														name: config.months && config.months[4] ? config.months[4] : 'May',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										5:
 														{
-														name: 'June',
+														name: config.months && config.months[5] ? config.months[5] : 'June',
 														max: 30,
 														disabled: {},
 														comments: {}
 														},
 										6:
 														{
-														name: 'July',
+														name: config.months && config.months[6] ? config.months[6] : 'July',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										7:
 														{
-														name: 'August',
+														name: config.months && config.months[7] ? config.months[7] : 'August',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										8:
 														{
-														name: 'September',
+														name: config.months && config.months[8] ? config.months[8] : 'September',
 														max: 30,
 														disabled: {},
 														comments: {}
 														},
 										9:
 														{
-														name: 'October',
+														name: config.months && config.months[9] ? config.months[9] : 'October',
 														max: 31,
 														disabled: {},
 														comments: {}
 														},
 										10:
 														{
-														name: 'November',
+														name: config.months && config.months[10] ? config.months[10] : 'November',
 														max: 30,
 														disabled: {},
 														comments: {}
 														},
 										11:
 														{
-														name: 'December',
+														name: config.months && config.months[11] ? config.months[11] : 'December',
 														max: 31,
 														disabled: {},
 														comments: {}
@@ -139,36 +147,36 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										wDays:
 														[
 														{
-														shrt: 'S',
-														lng: 'Sunday'
+														shrt: config.days && config.days[0] ? config.days[0].s : 'S',
+														lng: config.days && config.days[0] ? config.days[0].l : 'Sunday'
 														},
 														{
-														shrt: 'M',
-														lng: 'Monday'
+														shrt: config.days && config.days[1] ? config.days[1].s : 'M',
+														lng: config.days && config.days[1] ? config.days[1].l : 'Monday'
 														},
 														{
-														shrt: 'T',
-														lng: 'Tuesday'
+														shrt: config.days && config.days[2] ? config.days[2].s : 'T',
+														lng: config.days && config.days[2] ? config.days[2].l : 'Tuesday'
 														},
 														{
-														shrt: 'W',
-														lng: 'Wednesday'
+														shrt: config.days && config.days[3] ? config.days[3].s : 'W',
+														lng: config.days && config.days[3] ? config.days[3].l : 'Wednesday'
 														},
 														{
-														shrt: 'T',
-														lng: 'Thursday'
+														shrt: config.days && config.days[4] ? config.days[4].s : 'T',
+														lng: config.days && config.days[4] ? config.days[4].l : 'Thursday'
 														},
 														{
-														shrt: 'F',
-														lng: 'Friday'
+														shrt: config.days && config.days[5] ? config.days[5].s : 'F',
+														lng: config.days && config.days[5] ? config.days[5].l : 'Friday'
 														},
 														{
-														shrt: 'S',
-														lng: 'Saturday'
+														shrt: config.days && config.days[6] ? config.days[6].s : 'S',
+														lng: config.days && config.days[6] ? config.days[6].l : 'Saturday'
 														}
 														],
 										// Change the week day offset for the calendar display
-										wdOffset: 0
+										wdOffset: isNaN(config.wdOffset) ? 0 : config.wdOffset
 										},
 						getWDay: function(dc, d, r){
 							var d = typeof d === 'number' ? d : dc.range.current.wDay, o = dc.range.wdOffset;
@@ -220,6 +228,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							dc.setCurrent(dc);
 						},
 						runBefore: function(dc){
+							if (config.ajax && typeof config.ajax === 'function' && !dc.stopAjax && !dc.ajaxLoading){
+								dc.ajaxLoading = dc.cancel = true;
+								config.ajax.apply(dc, [dc, false]);
+							}
+
 							if (dc.range.current.month === 1)
 								dc.range[1].max = (new Date(dc.range.current.year, 1, 29).getMonth() == 1) ? 29 : 28;
 							dc.baseId = 'b' + $A.genId();
@@ -320,6 +333,12 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								dc.source += '<td class="empty"><span>&nbsp;</span></td>';
 							}
 							dc.source += '</tr></table>';
+
+							// Close other calendar pickers that are currently open
+							$A.find('*', function(dc){
+								if (dc.controlType && dc.controlType == 'DatePicker' && dc.loaded)
+									dc.close();
+							});
 						},
 						runAfter: function(dc){
 							var nMonth = function(){
@@ -390,11 +409,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												if ($A.hasClass(this, 'selected') || (!commentsEnabled && !$A.hasClass(this, 'comment'))){
 													if ($A.inArray(dc.range.current.mDay, dc.range[dc.range.current.month].disabled[dc.range.current.year]
 														|| dc.range[dc.range.current.month].disabled['*'] || []) === -1){
-														handleClick.apply(this,
-																		[
-																		ev,
-																		dc
-																		]);
+														handleClick.apply(this, [ev, dc, targ]);
 													}
 												}
 
@@ -408,17 +423,13 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												if (k == 13){
 													if ($A.inArray(dc.range.current.mDay, dc.range[dc.range.current.month].disabled[dc.range.current.year]
 														|| dc.range[dc.range.current.month].disabled['*'] || []) === -1){
-														handleClick.apply(this,
-																		[
-																		ev,
-																		dc
-																		]);
+														handleClick.apply(this, [ev, dc, targ]);
 													}
 
 													ev.preventDefault();
 												}
 
-												else if (k == 32 && commentsEnabled && !dc.children[1].openEditor){
+												else if (k == 32 && commentsEnabled && config.editor && config.editor.show && !dc.children[1].openEditor){
 													dc.children[1].openEditor = true;
 													dc.children[1].reset();
 													ev.preventDefault();
@@ -621,7 +632,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							dc.range.index = $A.query('td.day', dc.containerDiv);
 							dc.setFocus(dc.range.index[dc.range.current.mDay - 1]);
 
-							if (commentsEnabled)
+							if (commentsEnabled && config.editor && config.editor.show)
 								dc.children[1].open();
 						},
 						tabOut: function(ev, dc){
@@ -629,16 +640,20 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						},
 						runAfterClose: function(dc){
 							if (!dc.reopen){
-								dc.children[0].close();
-								dc.children[1].lock = false;
-								dc.children[1].close();
+								if (commentsEnabled)
+									dc.children[0].close();
+
+								if (commentsEnabled && config.editor && config.editor.show){
+									dc.children[1].lock = false;
+									dc.children[1].close();
+								}
 							}
 
 							else
 								dc.reopen = false;
 
-						// Add an AJAX query to save comments if desired for later retrieval using a database and user authentication
-
+							if (config.ajax && typeof config.ajax === 'function')
+								dc.lock = dc.ajaxLoading = false;
 						}
 						}
 						]);
@@ -649,17 +664,21 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						[
 						{
 						id: pId + 'commentTooltip',
-						role: 'Comment',
+						role: config.comments && config.comments.role || 'Comment',
+						accStart: config.accStart || 'Start',
+						accEnd: config.accEnd || 'End',
 						returnFocus: false,
 						showHiddenClose: false,
 						allowReopen: true,
-						autoPosition: 1,
+						autoPosition: isNaN(config.comments && config.comments.autoPosition) ? 1 : config.comments.autoPosition,
+						offsetTop: isNaN(config.comments && config.comments.offsetTop) ? 0 : config.comments.offsetTop,
+						offsetLeft: isNaN(config.comments && config.comments.offsetLeft) ? 0 : config.comments.offsetLeft,
 						cssObj:
 										{
 										position: 'absolute',
 										zIndex: $A.reg[pId].cssObj.zIndex
 										},
-						className: 'commentTooltip',
+						className: config.comments && config.comments.className || 'commentTooltip',
 						runBefore: function(dc){
 							dc.triggerObj = dc.parent.accDCObj;
 						}
@@ -672,19 +691,25 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						[
 						{
 						id: pId + 'commentAdd',
-						role: 'Edit Comment',
+						role: config.editor && config.editor.role || 'Edit',
+						accStart: config.accStart || 'Start',
+						accEnd: config.accEnd || 'End',
 						returnFocus: false,
 						allowReopen: true,
-						autoPosition: 6,
+						autoPosition: isNaN(config.editor && config.editor.autoPosition) ? 6 : config.editor.autoPosition,
+						offsetTop: isNaN(config.editor && config.editor.offsetTop) ? 0 : config.editor.offsetTop,
+						offsetLeft: isNaN(config.editor && config.editor.offsetLeft) ? 0 : config.editor.offsetLeft,
 						cssObj:
 										{
 										position: 'absolute',
 										zIndex: $A.reg[pId].cssObj.zIndex
 										},
-						className: 'commentAdd',
+						className: config.editor && config.editor.className || 'commentAdd',
 						openEditor: false,
-						source:
-							'<textarea style="visibility: hidden; display: none;" class="commentTa" title="Comment"></textarea><button title="Edit Comment" class="commentBtn">Edit</button>',
+						source: '<textarea style="visibility: hidden; display: none;" class="commentTa" title="'
+							+ $A.reg[pId + 'commentTooltip'].role + '"></textarea><button title="'
+							+ (config.editor && config.editor.role || 'Edit') + ' ' + $A.reg[pId + 'commentTooltip'].role
+								+ '" class="commentBtn">' + (config.editor && config.editor.role || 'Edit') + '</button>',
 						runBefore: function(dc){
 							dc.triggerObj = dc.parent.accDCObj;
 						},
@@ -694,8 +719,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 											role: 'dialog',
 											'aria-label': dc.role
 											});
-
-							$A.setAttr(dc.containerDiv, 'role', 'presentation');
 						},
 						add: function(dc){
 							var comm = trim(dc.textarea.value.replace(/<|>|\n/g, ' '));
@@ -783,7 +806,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								}
 								$A.setAttr(dc.textarea,
 												{
-												title: 'Comment for ' + dc.parent.range.current.mDay + ', '
+												title: dc.parent.range.current.mDay + ', '
 													+ dc.parent.range.wDays[dc.parent.range.current.wDay].lng + ' '
 													+ dc.parent.range[dc.parent.range.current.month].name + ' ' + dc.parent.range.current.year
 												}).focus();
@@ -793,8 +816,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									dc.textarea.value = dc.comments[dc.parent.range.current.year][dc.parent.range.current.mDay];
 								$A.setAttr(dc.commentBtn,
 												{
-												title: 'Save Comment'
-												}).innerHTML = 'Save';
+												title: (config.editor && config.editor.action1 || 'Save') + ' ' + $A.reg[pId + 'commentTooltip'].role
+												}).innerHTML = config.editor && config.editor.action1 || 'Save';
 							}
 
 							else{
@@ -810,8 +833,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								dc.css('left', dc.parent.accDCObj.offsetLeft + dc.parent.accDCObj.offsetWidth - dc.accDCObj.offsetWidth);
 								$A.setAttr(dc.commentBtn,
 												{
-												title: 'Edit Comment'
-												}).innerHTML = 'Edit';
+												title: (config.editor && config.editor.role || 'Edit') + ' ' + $A.reg[pId + 'commentTooltip'].role
+												}).innerHTML = config.editor && config.editor.role || 'Edit';
 							}
 						},
 						runAfter: function(dc){
@@ -863,7 +886,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						runBeforeClose: function(dc){
 							dc.openEditor = false;
 							dc.textarea = null;
-						}
+
+							if (config.ajax && typeof config.ajax === 'function')
+								config.ajax.apply(dc.parent, [dc.parent, true]);
+						},
+						lock: commentsEnabled && config.editor && config.editor.show ? false : true
 						}
 						]);
 	// Form object declaration end

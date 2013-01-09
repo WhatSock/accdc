@@ -1,28 +1,29 @@
-
 $A.bind(window, 'load', function(){
 
-	// Syntax : setCalendar( ID , TriggeringElement , TargetEditField , EnableComments )
+	// Syntax : setCalendar( ID , TriggeringElement , TargetEditField , EnableComments , clickHandler , config )
 
 	// Basic calendar with comment editing disabled
-	$A.setCalendar('BasicCalendar', $A.getEl('dateLnk'), $A.getEl('date'));
+
+	$A.setCalendar('BasicCalendar', $A.getEl('dateLnk'), $A.getEl('date'), false, function(ev, dc, targ){
+		// Return the desired date string
+		targ.value = dc.range.wDays[dc.range.current.wDay].lng + ' ' + dc.range[dc.range.current.month].name + ' '
+			+ dc.range.current.mDay + ', ' + dc.range.current.year;
+		// Then close the date picker
+		dc.close();
+	});
 
 	// Advanced calendar with comment editing enabled
-	$A.setCalendar('AdvancedCalendar', $A.getEl('partyLnk'), $A.getEl('party'), true);
 
-// Programmatically disable an array of dates in the month of December (remove below slashes to enable)
-// $A.reg.AdvancedCalendar.range[11].disabled['*'] = [
-// 25
-// ];
-
-// Programmatically set a global comment for December 25 of every year (remove below slashes to enable)
-// $A.reg.AdvancedCalendar.range[11].comments['*'] = {
-// 25 : 'Merry Christmas!'
-// };
-
-// Programmatically set a comment for December 24 and 25 of 2011 only (remove below slashes to enable)
-// $A.reg.AdvancedCalendar.range[11].comments[2011] = {
-// 24 : 'Happy Christmas Eve!',
-// 25 : 'Merry Christmas!'
-// };
-
+	$A.setCalendar('AdvancedCalendar', $A.getEl('partyLnk'), $A.getEl('party'), true, function(ev, dc, targ){
+		targ.value = dc.range.wDays[dc.range.current.wDay].lng + ' ' + dc.range[dc.range.current.month].name + ' '
+			+ dc.range.current.mDay + ', ' + dc.range.current.year;
+		dc.close();
+	},
+					{
+					// Display the editor
+					editor:
+									{
+									show: true
+									}
+					});
 });

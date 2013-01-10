@@ -1,5 +1,5 @@
 /* !
-ARIA Tabs Module R1.0
+ARIA Tabs Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -100,8 +100,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			tabIds.push(id);
 		});
 
-		if (useARIA)
+		if (useARIA){
+			setClosest(tabs[0], tabIds.join(' '));
 			createARIATabs(selector, context, autoStartId);
+		}
 
 		else
 			checkTabs(selector, context);
@@ -196,5 +198,17 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				});
 			}
 		});
-	}, imgLoaderId = 'i' + $A.genId();
+	}, imgLoaderId = 'i' + $A.genId(), setClosest = function(start, owns){
+		var i = 0;
+
+		while (start){
+			start = start.parentNode;
+
+			if (start && i > 0 && $A.getAttr(start, 'role') == 'tablist'){
+				$A.setAttr(start, 'aria-owns', owns);
+				return;
+			}
+			i++;
+		}
+	};
 })();

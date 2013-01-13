@@ -1,5 +1,5 @@
 /*!
-Accordion From XML Module R1.0
+Accordion From XML Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -46,14 +46,16 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							tabRole: tabRole,
 							tabState: tabState,
 							isToggle: true,
-							showHiddenClose: false,
+							showHiddenBounds: false,
 							className: className,
-							ariaLevel: 3,
+							runDuring: function(dc){
+								$A.setAttr(dc.accDCObj, 'role', 'region');
+							},
 							runAfter: function(dc){
-								$A.query('a.' + openClassName + '.' + dc.triggerObj.className, container, function(){
-									$A.remClass(this, openClassName);
-								});
 								$A.addClass(dc.triggerObj, openClassName);
+							},
+							runAfterClose: function(dc){
+								$A.remClass(dc.triggerObj, openClassName);
 							}
 							});
 

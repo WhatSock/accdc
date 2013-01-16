@@ -1,5 +1,5 @@
 /*!
-ARIA Calendar Module R1.1
+ARIA Calendar Module R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -238,7 +238,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							dc.baseId = 'b' + $A.genId();
 							dc.prevBtnId = dc.baseId + 'p';
 							dc.nextBtnId = dc.baseId + 'n';
-							dc.source = '<table role="dialog" class="calendar" aria-label="' + dc.role
+							dc.source = '<table role="application" class="calendar" aria-label="' + dc.role
 								+ '"><tr role="presentation"><td class="nav" accesskey="1" title="' + dc.prevTxt.replace(/<|>|\"/g, '') + ' '
 								+ dc.yearTxt.replace(/<|>|\"/g, '') + '" role="button" id="' + dc.prevBtnId
 								+ 'Y" tabindex="0"><span>&#8656;</span></td><td title="' + dc.tooltipTxt.replace(/<|>|\"/g, '')
@@ -339,6 +339,13 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								if (dc.controlType && dc.controlType == 'DatePicker' && dc.loaded)
 									dc.close();
 							});
+						},
+						runDuring: function(dc){
+							$A.setAttr(dc.accDCObj,
+											{
+											role: 'dialog',
+											'aria-label': dc.role
+											});
 						},
 						runAfter: function(dc){
 							var nMonth = function(){
@@ -719,6 +726,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 											role: 'dialog',
 											'aria-label': dc.role
 											});
+
+							$A.setAttr(dc.containerDiv, 'role', 'application');
 						},
 						add: function(dc){
 							var comm = trim(dc.textarea.value.replace(/<|>|\n/g, ' '));

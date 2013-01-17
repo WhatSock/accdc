@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ARIA Accordion Module</title>
+
+<meta name="Author" content="Bryan Garaventa" />
+
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script type="text/javascript" src="../../Acc.DC.API.js"></script>
+<script type="text/javascript" src="js/acordion_generator.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+
+</head>
+<body>
+<div>
+
+<div class="hd">
+<h1>
+ARIA Accordion Module
+</h1>
+</div>
+
+<div class="intro announce" id="ph"></div>
+
+<div class="intro tal">
+<p>
+The ARIA Accordion Module dynamically generates an automatically accessible accordion control using semantic HTML markup.
+<br />
+Module files:
+</p>
+<ol><li>
+<a href="js/setup.js" target="_blank">setup.js</a> : Automatically generates an accessible accordion control using the generateAccordion() function.
+</li></ol>
+<p>
+The packaged file for this demo can be downloaded from <a href="http://whatsock.com/">WhatSock.com</a> under Downloads.
+</p>
+</div>
+
+<div class="hd">
+<h2>
+Accordion Demo
+</h2>
+</div>
+
+<div class="intro tal viewport">
+
+<dl id="accordionGroup">
+<dt class="clearfix">
+<div role="link" class="accAccordion" data-src="files/accordion.html#accordion-sect1" data-insert="sect1" data-defaultopen="true" data-role="Accordion" id="accordion1id">
+<span class="icon"></span>
+<span class="lbl">Alternative Rock</span>
+</div>
+</dt>
+<dd id="sect1"></dd>
+<dt class="clearfix">
+<div role="link" class="accAccordion" data-src="files/accordion.html#accordion-sect2" data-insert="sect2" data-role="Accordion" id="accordion2id">
+<span class="icon"></span>
+<span class="lbl">Classical Composers</span>
+</div>
+</dt>
+<dd id="sect2"></dd>
+<dt class="clearfix">
+<div role="link" class="accAccordion" data-src="files/accordion.html#accordion-sect3" data-insert="sect3" data-role="Accordion" id="accordion3id">
+<span class="icon"></span>
+<span class="lbl">Hard Rock</span>
+</div>
+</dt>
+<dd id="sect3"></dd>
+</dl>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-224239-8']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</body>
+</html>

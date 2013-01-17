@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.2 (12/05/2012)
+AccDC API - 2.0.2 (01/17/2013)
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -6431,6 +6431,7 @@ if ((dc.isTab && (dc.tabRole || dc.tabState)) || (dc.isToggle && (dc.toggleRole 
 var ss = createEl('span', null, sraCSS);
 pL(this).append(ss);
 pL(this).data('sra', ss);
+dc.fn.sraCSSObj = ss;
 }
 if (dc.isTab)
 pL(ss).html(dc.loaded ? ('<span>&nbsp;' + dc.tabRole + '&nbsp;' + dc.tabState + '</span>') : ('<span>&nbsp;' + dc.tabRole + '</span>'));

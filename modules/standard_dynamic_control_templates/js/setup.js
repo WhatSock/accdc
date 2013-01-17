@@ -33,6 +33,14 @@ var modalId = $A.setModal(
 						}
 						ev.preventDefault();
 					});
+
+					// Add a background div for the filtered opasity
+					dc.backdrop = $A.createEl('div', null, null, 'modalBackdrop', document.createTextNode(' '));
+					dc.accDCObj.parentNode.insertBefore(dc.backdrop, dc.accDCObj);
+				},
+				runAfterClose: function(dc){
+					if (dc.backdrop)
+						dc.backdrop.parentNode.removeChild(dc.backdrop);
 				}
 				});
 

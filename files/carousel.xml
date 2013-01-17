@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <carousel role="Carousel" accStart="Start" accEnd="End" height="400" width="710" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="" showGroup="" groupPosTop="" btnPText="&#8592;" btnNText="&#8594;" btnPGText="" btnNGText="" isGrouped="no" btnPAccesskey="p" btnNAccesskey="n" btnPGAccesskey="" btnNGAccesskey="" direction="lr" cycle="yes" timer="7000" animDelay="2000" forward="yes" hiddenMsg="Press Escape to stop automatic cycling" >
 <slide announce="Automatically accessible Accordion Control" ><![CDATA[
-<a href="modules/accordion_from_xml_module/demo.htm">
+<a href="modules/aria_accordion_module/demo.htm">
 <img src="img/slides/accordion.jpg" alt="Automatically accessible Accordion Control" title="Automatically accessible Accordion Control" />
 </a>
 ]]></slide>

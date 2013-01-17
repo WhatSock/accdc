@@ -1,5 +1,5 @@
-/* !
-ARIA Tabs Module R1.1
+/*!
+ARIA Tabs Module R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -9,6 +9,16 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 	$A.setTabs = function(selector, overrides, useARIA, context, callback){
 		var tabIds = [], wheel = [], autoStartId = '', context = context || document,
 			tabs = $A.query(selector, context, function(i, o){
+			if ($A.reg[o.id]){
+				var tdc = $A.reg[o.id];
+
+				if (tdc.fn.sraCSSObj)
+					tdc.fn.sraCSSObj.parentNode.removeChild(tdc.fn.sraCSSObj);
+				tdc.returnFocus = false;
+				tdc.close();
+				tdc.returnFocus = true;
+			}
+
 			var id = o.id || $A.genId(), ovrs = {}, isInternal = $A.getAttr(o, 'data-internal');
 			ovrs.id = id;
 			ovrs.role = $A.getAttr(o, 'data-role') || 'Tab';
@@ -25,7 +35,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					return g.parentNode.removeChild(g);
 
 				else
-					return null;
+					return $A.reg[o.id] && $A.reg[o.id].source;
 			})() : (function(){
 				var d = $A.createEl('div'), s = $A.getAttr(o, 'data-src');
 				s = s.replace('#', ' #');

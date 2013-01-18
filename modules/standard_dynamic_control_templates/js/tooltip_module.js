@@ -1,5 +1,5 @@
 /*!
-Tooltip Module R1.0
+Tooltip Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -23,8 +23,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		$A([overrides],
 						{
 						role: 'Tooltip',
-						bind: 'click mouseover',
-						isToggle: true,
+						bind: 'click mouseover focus focusin',
+						returnFocus: false,
+						displayHiddenClose: false,
 						accStart: 'Start',
 						accEnd: 'End',
 						accClose: 'Close',
@@ -38,7 +39,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										},
 						runDuring: function(dc){
 							// Assign a mouseout handler for the triggering element
-							$A.bind(dc.triggerObj, 'mouseout.tooltip', function(ev){
+							$A.bind(dc.triggerObj, 'mouseout.tooltip blur.tooltip', function(ev){
 								dc.close();
 							});
 						},
@@ -48,7 +49,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							dc.close();
 						},
 						runBeforeClose: function(dc){
-							$A.unbind(dc.triggerObj, 'mouseout.tooltip');
+							$A.unbind(dc.triggerObj, '.tooltip');
 						},
 						className: 'tooltip',
 						closeClassName: 'tooltipClose'

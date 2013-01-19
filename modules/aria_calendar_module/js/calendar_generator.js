@@ -1,5 +1,5 @@
 /*!
-ARIA Calendar Module R1.2
+ARIA Calendar Module R1.3
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -352,9 +352,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								var month = dc.range.current.month == 11 ? 0 : dc.range.current.month + 1,
 									year = month > 0 ? dc.range.current.year : dc.range.current.year + 1,
 									day = dc.range.current.mDay > dc.range[month].max ? dc.range[month].max : dc.range.current.mDay;
-								dc.date.setDate(day);
-								dc.date.setMonth(month);
-								dc.date.setFullYear(year);
+								dc.date = new Date(year, month, day);
 								dc.setCurrent(dc);
 								dc.reopen = true;
 								dc.open();
@@ -362,9 +360,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								var month = dc.range.current.month < 1 ? 11 : dc.range.current.month - 1,
 									year = month < 11 ? dc.range.current.year : dc.range.current.year - 1,
 									day = dc.range.current.mDay > dc.range[month].max ? dc.range[month].max : dc.range.current.mDay;
-								dc.date.setDate(day);
-								dc.date.setMonth(month);
-								dc.date.setFullYear(year);
+								dc.date = new Date(year, month, day);
 								dc.setCurrent(dc);
 								dc.reopen = true;
 								dc.open();
@@ -374,9 +370,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								if (month === 1)
 									dc.range[1].max = 28;
 								var day = dc.range.current.mDay > dc.range[month].max ? dc.range[month].max : dc.range.current.mDay;
-								dc.date.setDate(day);
-								dc.date.setMonth(month);
-								dc.date.setFullYear(year);
+								dc.date = new Date(year, month, day);
 								dc.setCurrent(dc);
 								dc.reopen = true;
 								dc.open();
@@ -455,6 +449,18 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 															dc.range.current.wDay = (wd - 1) < 0 ? 6 : wd - 1;
 															dc.setFocus(dc.range.index[dc.range.current.mDay - 1], this);
 														}
+
+														else if (wd != dc.iterS && dc.range.current.mDay == 1 && wd > 0){
+															var month = dc.range.current.month < 1 ? 11 : dc.range.current.month - 1,
+																year = month < 11 ? dc.range.current.year : dc.range.current.year - 1, day = dc.range[month].max;
+
+															if (month === 1)
+																day = (new Date(year, 1, 29).getMonth() == 1) ? 29 : 28;
+															dc.date = new Date(year, month, day);
+															dc.setCurrent(dc);
+															dc.reopen = true;
+															dc.open();
+														}
 													}
 
 													else if (k == 39){
@@ -463,6 +469,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 															dc.range.current.wDay = (wd + 1) > 6 ? 0 : wd + 1;
 															dc.setFocus(dc.range.index[dc.range.current.mDay - 1], this);
 														}
+
+														else if (wd != dc.iterE && dc.range.current.mDay == dc.range[dc.range.current.month].max && wd < 6){
+															var month = dc.range.current.month == 11 ? 0 : dc.range.current.month + 1,
+																year = month > 0 ? dc.range.current.year : dc.range.current.year + 1;
+															dc.date = new Date(year, month, 1);
+															dc.setCurrent(dc);
+															dc.reopen = true;
+															dc.open();
+														}
 													}
 
 													else if (k == 38){
@@ -470,12 +485,38 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 															dc.range.current.mDay -= 7;
 															dc.setFocus(dc.range.index[dc.range.current.mDay - 1], this);
 														}
+
+														else{
+															var month = dc.range.current.month < 1 ? 11 : dc.range.current.month - 1,
+																year = month < 11 ? dc.range.current.year : dc.range.current.year - 1;
+
+															if (month === 1 && (new Date(year, 1, 29).getMonth() == 1))
+																dc.range[month].max = 29;
+
+															else if (month === 1)
+																dc.range[month].max = 28;
+															var day = dc.range[month].max + (dc.range.current.mDay - 7);
+															dc.date = new Date(year, month, day);
+															dc.setCurrent(dc);
+															dc.reopen = true;
+															dc.open();
+														}
 													}
 
 													else if (k == 40){
 														if ((dc.range.current.mDay + 7) <= dc.range[dc.range.current.month].max){
 															dc.range.current.mDay += 7;
 															dc.setFocus(dc.range.index[dc.range.current.mDay - 1], this);
+														}
+
+														else{
+															var month = dc.range.current.month == 11 ? 0 : dc.range.current.month + 1,
+																year = month > 0 ? dc.range.current.year : dc.range.current.year + 1,
+																day = dc.range.current.mDay + 7 - dc.range[dc.range.current.month].max;
+															dc.date = new Date(year, month, day);
+															dc.setCurrent(dc);
+															dc.reopen = true;
+															dc.open();
 														}
 													}
 

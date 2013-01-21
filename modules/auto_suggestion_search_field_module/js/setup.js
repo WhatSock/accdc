@@ -1,4 +1,3 @@
-
 (function(){
 
 	$A.bind(window, 'load', function(ev){
@@ -30,8 +29,9 @@
 						// Create a custom namespace holder
 						tmp:
 										{
-										setFocus: function(){
-											$A.query('div.sugItem[aria-selected=true]', function(){
+										setFocus: function(update){
+											var dc = $A.reg.autoSug;
+											$A.query('div.sugItem', dc.containerDiv, function(){
 												$A.setAttr(this,
 																{
 																'aria-selected': 'false',
@@ -39,7 +39,21 @@
 																});
 											});
 
-											$A.setAttr(autoSug.containerDiv.childNodes[autoSug.tmp.index], 'tabindex', '0').focus();
+											var q = dc.triggerObj, c = dc.containerDiv.childNodes[dc.tmp.index], qv = q.value, cv = $A.getText(c);
+
+											$A.setAttr(c,
+															{
+															tabindex: '0',
+															'aria-selected': 'true'
+															});
+
+											if (update){
+												if (qv != cv)
+													q.value = cv;
+											}
+
+											else
+												c.focus();
 										}
 										},
 						// Run script once before the AccDC Object opens
@@ -99,9 +113,6 @@
 														ev.preventDefault();
 													}
 												}
-											},
-											focus: function(ev){
-												$A.setAttr(this, 'aria-selected', 'true');
 											}
 											});
 							$A.setAttr(dc.containerDiv, 'role', 'listbox');
@@ -148,6 +159,24 @@
 				autoSug.tmp.index = 0;
 				autoSug.tmp.setFocus();
 				ev.preventDefault();
+			}
+
+			else if (autoSug.loaded && k == 40){
+				var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
+					cv = $A.getText(c);
+
+				if (qv == cv && autoSug.tmp.index < (autoSug.tmp.results.length - 1))
+					autoSug.tmp.index++;
+				autoSug.tmp.setFocus(true);
+			}
+
+			else if (autoSug.loaded && k == 38){
+				var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
+					cv = $A.getText(c);
+
+				if (qv == cv && autoSug.tmp.index > 0)
+					autoSug.tmp.index--;
+				autoSug.tmp.setFocus(true);
 			}
 
 			else if ((k >= 65 && k <= 90) || (k >= 48 && k <= 57) || k == 46 || k == 8 || k == 32){

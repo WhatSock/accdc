@@ -1,4 +1,3 @@
-
 (function(){
 	// $A.fn.debug = true;
 
@@ -36,10 +35,15 @@
 							s.open();
 						},
 						runDuring: function(dc){
-							$A.setAttr(dc.containerDiv,
+							$A.setAttr(dc.accDCObj,
 											{
 											role: 'dialog',
 											'aria-label': dc.role
+											});
+
+							$A.setAttr(dc.containerDiv,
+											{
+											role: 'application'
 											});
 						},
 						runAfter: function(dc){

@@ -1,5 +1,5 @@
-/* !
-ARIA Tree From XML Module R1.0
+/*!
+ARIA Tree From XML Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -77,7 +77,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				$A.setAttr(l, 'aria-level', dc.ariaLevel);
 
 				if (dc.ariaLevel === 1){
-					$A.setAttr(l, 'tabindex', '0');
+					$A.setAttr(l,
+									{
+									tabindex: '0',
+									'aria-selected': 'true'
+									});
 				}
 
 				else
@@ -283,7 +287,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				// Add custom bindings using the "handlers" object
 				$A.bind(e, handlers.bind, function(ev){
 					if (handlers.def && typeof handlers.def === 'function')
-						handlers.def.apply(this, [ev, dc]);
+						handlers.def.apply(this,
+										[
+										ev,
+										dc
+										]);
 				});
 			}
 

@@ -43,7 +43,7 @@
 
 											$A.setAttr(c,
 															{
-															tabindex: '0',
+															tabindex: update ? '-1' : '0',
 															'aria-selected': 'true'
 															});
 
@@ -152,57 +152,67 @@
 		};
 
 		// Setup keyboard support
-		$A.bind('#q', 'keyup', function(ev){
-			var k = ev.which || ev.keyCode;
+		$A.bind('#q',
+						{
+						keyup: function(ev){
+							var k = ev.which || ev.keyCode;
 
-			if (autoSug.loaded && (k == 40 && ev.altKey)){
-				autoSug.tmp.index = 0;
-				autoSug.tmp.setFocus();
-				ev.preventDefault();
-			}
+							if (autoSug.loaded && (k == 40 && ev.altKey)){
+								autoSug.tmp.index = 0;
+								autoSug.tmp.setFocus();
+								ev.preventDefault();
+							}
 
-			else if (autoSug.loaded && k == 40){
-				var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
-					cv = $A.getText(c);
+							else if (autoSug.loaded && k == 40){
+								var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
+									cv = $A.getText(c);
 
-				if (qv == cv && autoSug.tmp.index < (autoSug.tmp.results.length - 1))
-					autoSug.tmp.index++;
-				autoSug.tmp.setFocus(true);
-			}
+								if (qv == cv && autoSug.tmp.index < (autoSug.tmp.results.length - 1))
+									autoSug.tmp.index++;
+								autoSug.tmp.setFocus(true);
+							}
 
-			else if (autoSug.loaded && k == 38){
-				var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
-					cv = $A.getText(c);
+							else if (autoSug.loaded && k == 38){
+								var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
+									cv = $A.getText(c);
 
-				if (qv == cv && autoSug.tmp.index > 0)
-					autoSug.tmp.index--;
-				autoSug.tmp.setFocus(true);
-			}
+								if (qv == cv && autoSug.tmp.index > 0)
+									autoSug.tmp.index--;
+								autoSug.tmp.setFocus(true);
+							}
 
-			else if ((k >= 65 && k <= 90) || (k >= 48 && k <= 57) || k == 46 || k == 8 || k == 32){
-				if (query)
-					clearTimeout(query);
-				autoSug.tmp.index = 0;
-				var e = this;
-				query = setTimeout(function(){
-					if (e.value == trackChanges)
-						return true;
+							else if ((k >= 65 && k <= 90) || (k >= 48 && k <= 57) || k == 46 || k == 8 || k == 32){
+								if (query)
+									clearTimeout(query);
+								autoSug.tmp.index = 0;
+								var e = this;
+								query = setTimeout(function(){
+									if (e.value == trackChanges)
+										return true;
 
-					trackChanges = e.value;
+									trackChanges = e.value;
 
-					if (!e.value || (autoSug.tmp.results && ( !autoSug.tmp.results.length || e.value == autoSug.tmp.results[0]))){
-						String.announce.lastMsg = '';
-						autoSug.close();
-					}
+									if (!e.value || (autoSug.tmp.results && (!autoSug.tmp.results.length || e.value == autoSug.tmp.results[0]))){
+										String.announce.lastMsg = '';
+										autoSug.close();
+									}
 
-					else
-						// Perform query and specify the callback function to be executed
-						$A.getScript(
-							'http://whatsock.com/modules/auto_suggestion_search_field_module/search/query.js?max=5&callback=configureSuggestions&q='
-							+ encodeURIComponent(e.value));
-				}, 300);
-			}
-		});
+									else
+										// Perform query and specify the callback function to be executed
+										$A.getScript(
+											'http://whatsock.com/modules/auto_suggestion_search_field_module/search/query.js?max=5&callback=configureSuggestions&q='
+											+ encodeURIComponent(e.value));
+								}, 300);
+							}
+						},
+						'blur focusout': function(ev){
+							var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
+								cv = $A.getText(c);
+
+							if (qv == cv)
+								autoSug.close();
+						}
+						});
 	});
 }
 )();

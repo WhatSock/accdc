@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.2 (01/17/2013)
+AccDC API - 2.0.3 (01/24/2013)
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -5813,23 +5813,57 @@ if (!dc.ranJSOnceBefore){
 dc.ranJSOnceBefore = true;
 if (dc.reverseJSOrder){
 dc.runOnceBefore.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runOnceBefore) dc.fn.proto.runOnceBefore.apply(dc, [dc]);
+if ($A.fn.globalDC.runOnceBefore) $A.fn.globalDC.runOnceBefore.apply(dc, [dc]);
+}
 dc.reverseJSOrderPass = true;
 }
 if (dc.runJSOnceBefore.length){
 for (var j = 0; j < dc.runJSOnceBefore.length; j++) getScript(dc, dc.runJSOnceBefore[j]);
 }
-if (!dc.reverseJSOrder && !dc.reverseJSOrderPass) dc.runOnceBefore.apply(dc, [dc]);
-else dc.reverseJSOrderPass = false;
+if (dc.allowCascade){
+if (dc.fn.proto.runJSOnceBefore && dc.fn.proto.runJSOnceBefore.length){
+for (var j = 0; j < dc.fn.proto.runJSOnceBefore.length; j++) getScript(dc, dc.fn.proto.runJSOnceBefore[j]);
+}
+if ($A.fn.globalDC.runJSOnceBefore && $A.fn.globalDC.runJSOnceBefore.length){
+for (var j = 0; j < $A.fn.globalDC.runJSOnceBefore.length; j++) getScript(dc, $A.fn.globalDC.runJSOnceBefore[j]);
+}
+}
+if (!dc.reverseJSOrder && !dc.reverseJSOrderPass){
+dc.runOnceBefore.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runOnceBefore) dc.fn.proto.runOnceBefore.apply(dc, [dc]);
+if ($A.fn.globalDC.runOnceBefore) $A.fn.globalDC.runOnceBefore.apply(dc, [dc]);
+}
+} else dc.reverseJSOrderPass = false;
 }
 if (dc.reverseJSOrder){
 dc.runBefore.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runBefore) dc.fn.proto.runBefore.apply(dc, [dc]);
+if ($A.fn.globalDC.runBefore) $A.fn.globalDC.runBefore.apply(dc, [dc]);
+}
 dc.reverseJSOrderPass = true;
 }
 if (dc.runJSBefore.length){
 for (var j = 0; j < dc.runJSBefore.length; j++) getScript(dc, dc.runJSBefore[j]);
 }
-if (!dc.reverseJSOrder && !dc.reverseJSOrderPass) dc.runBefore.apply(dc, [dc]);
-else dc.reverseJSOrderPass = false;
+if (dc.allowCascade){
+if (dc.fn.proto.runJSBefore && dc.fn.proto.runJSBefore.length){
+for (var j = 0; j < dc.fn.proto.runJSBefore.length; j++) getScript(dc, dc.fn.proto.runJSBefore[j]);
+}
+if ($A.fn.globalDC.runJSBefore && $A.fn.globalDC.runJSBefore.length){
+for (var j = 0; j < $A.fn.globalDC.runJSBefore.length; j++) getScript(dc, $A.fn.globalDC.runJSBefore[j]);
+}
+}
+if (!dc.reverseJSOrder && !dc.reverseJSOrderPass){
+dc.runBefore.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runBefore) dc.fn.proto.runBefore.apply(dc, [dc]);
+if ($A.fn.globalDC.runBefore) $A.fn.globalDC.runBefore.apply(dc, [dc]);
+}
+} else dc.reverseJSOrderPass = false;
 if (dc.cancel){
 dc.cancel = dc.loading = false;
 return dc;
@@ -5916,6 +5950,10 @@ return wheel[dc.indexVal] = dc;
 parseRemaining = function(dc){
 var dc = wheel[dc.indexVal];
 dc.runDuring.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runDuring) dc.fn.proto.runDuring.apply(dc, [dc]);
+if ($A.fn.globalDC.runDuring) $A.fn.globalDC.runDuring.apply(dc, [dc]);
+}
 if (dc.cancel){
 dc.cancel = dc.loading = false;
 return dc;
@@ -5996,25 +6034,57 @@ if (!dc.ranJSOnceAfter){
 dc.ranJSOnceAfter = true;
 if (dc.reverseJSOrder){
 dc.runOnceAfter.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runOnceAfter) dc.fn.proto.runOnceAfter.apply(dc, [dc]);
+if ($A.fn.globalDC.runOnceAfter) $A.fn.globalDC.runOnceAfter.apply(dc, [dc]);
+}
 dc.reverseJSOrderPass = true;
 }
 if (dc.runJSOnceAfter.length){
 for (var j = 0; j < dc.runJSOnceAfter.length; j++) getScript(dc, dc.runJSOnceAfter[j]);
 }
+if (dc.allowCascade){
+if (dc.fn.proto.runJSOnceAfter && dc.fn.proto.runJSOnceAfter.length){
+for (var j = 0; j < dc.fn.proto.runJSOnceAfter.length; j++) getScript(dc, dc.fn.proto.runJSOnceAfter[j]);
+}
+if ($A.fn.globalDC.runJSOnceAfter && $A.fn.globalDC.runJSOnceAfter.length){
+for (var j = 0; j < $A.fn.globalDC.runJSOnceAfter.length; j++) getScript(dc, $A.fn.globalDC.runJSOnceAfter[j]);
+}
+}
 if (!dc.reverseJSOrder && !dc.reverseJSOrderPass){
 dc.runOnceAfter.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runOnceAfter) dc.fn.proto.runOnceAfter.apply(dc, [dc]);
+if ($A.fn.globalDC.runOnceAfter) $A.fn.globalDC.runOnceAfter.apply(dc, [dc]);
+}
 } else
 dc.reverseJSOrderPass = false;
 }
 if (dc.reverseJSOrder){
 dc.runAfter.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runAfter) dc.fn.proto.runAfter.apply(dc, [dc]);
+if ($A.fn.globalDC.runAfter) $A.fn.globalDC.runAfter.apply(dc, [dc]);
+}
 dc.reverseJSOrderPass = true;
 }
 if (dc.runJSAfter.length){
 for (var j = 0; j < dc.runJSAfter.length; j++) getScript(dc, dc.runJSAfter[j]);
 }
+if (dc.allowCascade){
+if (dc.fn.proto.runJSAfter && dc.fn.proto.runJSAfter.length){
+for (var j = 0; j < dc.fn.proto.runJSAfter.length; j++) getScript(dc, dc.fn.proto.runJSAfter[j]);
+}
+if ($A.fn.globalDC.runJSAfter && $A.fn.globalDC.runJSAfter.length){
+for (var j = 0; j < $A.fn.globalDC.runJSAfter.length; j++) getScript(dc, $A.fn.globalDC.runJSAfter[j]);
+}
+}
 if (!dc.reverseJSOrder && !dc.reverseJSOrderPass){
 dc.runAfter.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runAfter) dc.fn.proto.runAfter.apply(dc, [dc]);
+if ($A.fn.globalDC.runAfter) $A.fn.globalDC.runAfter.apply(dc, [dc]);
+}
 } else
 dc.reverseJSOrderPass = false;
 if ((parseInt(dc.shadow.horizontal) || parseInt(dc.shadow.vertical)) && dc.shadow.color)
@@ -6036,6 +6106,10 @@ return wheel[dc.indexVal] = dc;
 closeAccDCObj = function(dc){
 var dc = wheel[dc.indexVal];
 dc.runBeforeClose.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runBeforeClose) dc.fn.proto.runBeforeClose.apply(dc, [dc]);
+if ($A.fn.globalDC.runBeforeClose) $A.fn.globalDC.runBeforeClose.apply(dc, [dc]);
+}
 if (!dc.loaded || dc.lock) return dc;
 dc.closing = true;
 if (dc.isDraggable)
@@ -6059,6 +6133,10 @@ changeTabs(dc, true);
 dc.fn.triggerObj = dc.triggerObj;
 dc.closing = false;
 dc.runAfterClose.apply(dc, [dc]);
+if (dc.allowCascade){
+if (dc.fn.proto.runAfterClose) dc.fn.proto.runAfterClose.apply(dc, [dc]);
+if ($A.fn.globalDC.runAfterClose) $A.fn.globalDC.runAfterClose.apply(dc, [dc]);
+}
 return wheel[dc.indexVal] = dc;
 },
 
@@ -6448,7 +6526,9 @@ dc.sraCSSClear = sraCSSClear;
 var f = function(){};
 f.prototype = dc;
 return window[(window.AccDCNamespace ? window.AccDCNamespace : '$A')].reg[dc.id] = $A.reg[dc.id] = new f();
-};
+},
+
+svs = ['runJSOnceBefore', 'runOnceBefore', 'runJSBefore', 'runBefore', 'runDuring', 'runJSOnceAfter', 'runOnceAfter', 'runJSAfter', 'runAfter', 'runBeforeClose', 'runAfterClose'];
 
 for (var a = 0; a < accDCObjects.length; a++){
 var dc = {
@@ -6485,6 +6565,7 @@ source: '',
 bind: '',
 displayInline: false,
 
+allowCascade: false,
 reverseJSOrder: false,
 runJSOnceBefore: [ ],
 runOnceBefore: function(dc){ },
@@ -6830,17 +6911,39 @@ return this;
 
 },
 
-aO = accDCObjects[a];
+aO = accDCObjects[a],
+gImport = gImport || {},
+gO = {},
+iO = {};
 
 if (aO.mode == 6) var ajaxOptions = dc.ajaxOptions;
 
+if (typeof aO.allowCascade !== 'boolean')
+aO.allowCascade = gImport.allowCascade;
+if (typeof aO.allowCascade !== 'boolean')
+aO.allowCascade = $A.fn.globalDC.allowCascade || dc.allowCascade;
+
+if (aO.allowCascade){
+for (var s = 0; s < svs.length; s++){
+gO[svs[s]] = $A.fn.globalDC[svs[s]];
+iO[svs[s]] = gImport[svs[s]];
+}
+}
+
 if (!pL.isEmptyObject($A.fn.globalDC)) pL.extend(true, dc, $A.fn.globalDC);
 
-if (gImport && !pL.isEmptyObject(gImport)) pL.extend(true, dc, gImport);
+if (!pL.isEmptyObject(gImport)) pL.extend(true, dc, gImport);
 
 pL.extend(true, dc, aO);
 
 if (aO.mode == 6 && ajaxOptions) pL.extend(dc.ajaxOptions, ajaxOptions);
+
+if (dc.allowCascade){
+for (var s = 0; s < svs.length; s++){
+$A.fn.globalDC[svs[s]] = gO[svs[s]];
+}
+dc.fn.proto = iO;
+}
 
 if (dc.id && dc.role){
 ids.push(dc.id);

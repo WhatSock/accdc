@@ -435,6 +435,57 @@ $A.reg.myObj.runAfterClose = function(dc){<br />
 </dd>
 </dl>
 
+<dl class="intro content api">
+<dt class="heading" role="heading" aria-level="3">
+<span><a class="toggle" role="button" aria-pressed="false" href="#"><small aria-hidden="true">&#9660;</small><span>.allowCascade</span></a></span>  
+</dt>
+<dd>
+<p>
+The "allowCascade" property determines whether stacked script methods will be executed in succession.
+</p>
+</dd>
+<dd class="detail hidden">
+<p class="heading" role="heading" aria-level="4">
+Syntax
+</p>
+<code>
+$A([<br />
+{<br />
+// Enable cascading for one object<br />
+allowCascade: true,<br />
+runAfter: function(dc){<br />
+// Execute the 'runAfter' script after the AccDC Object opens,<br />
+// including the 'runAfter' script within the overrides object if present,<br />
+// as well as the 'runAfter' script within the 'globalDC' object if present.<br />
+},<br />
+...<br />
+}<br />
+], {<br />
+// Or apply cascading to all sibling AccDC Objects using the overrides object<br />
+allowCascade: true<br />
+});<br />
+<br />
+// Or enable cascading for all AccDC Objects<br />
+<br />
+$A.fn.globalDC.allowCascade = true;<br />
+<br />
+// Or turn off cascading for a specific AccDC Object<br />
+<br />
+$A.reg.myObj.allowCascade = false;
+</code>
+<p class="heading" role="heading" aria-level="4">
+Applicable Methods
+</p>
+<ul><li>
+runJSOnceBefore, runOnceBefore, runJSBefore, runBefore, runDuring, runJSOnceAfter, runOnceAfter, runJSAfter, runAfter, runBeforeClose, runAfterClose
+</li><li>
+"allowCascade" is False by default.
+</li><li>
+View the "globalDC" object documented within the Extensions section for additional details regarding prototype declarations.
+</li></ul>
+</dd>
+</dl>
+
 <div class="hd">
 <h2>
 <span>

@@ -1,5 +1,6 @@
 /*
 Scrollable Div Generator R1.0
+Instructions: http://lnkd.in/GBBii7
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */

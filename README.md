@@ -41,6 +41,7 @@ The following modules are included:
 * ARIA Date Picker controls. 
 * Accessible Accordion controls. 
 * Accessible Carousel, Slideshow, and Wizard controls. 
+* Accessible Dynamic Help Tooltips and Form Field Validation.
 * ARIA Radio Button controls. 
 * ARIA Toggle and Checkbox controls. 
 * Keyboard accessible Scrollable Div controls. 

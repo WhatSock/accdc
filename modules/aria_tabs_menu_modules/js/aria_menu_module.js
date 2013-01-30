@@ -1,14 +1,15 @@
-/* !
-ARIA Menu Module R1.0
+/*!
+ARIA Menu Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
 
 (function(window){
+	var track = {};
 
 	$A.setMenu = function(trigger, path, topLvlId, callback, isInternal, context){
 		$A.bind(window, 'load', function(){
-			var track = {}, bfr = isInternal ? $A.getEl(path) : $A.createEl('div'), handler = callback || function(){},
+			var bfr = isInternal ? $A.getEl(path) : $A.createEl('div'), handler = callback || function(){},
 
 			// Declare a recursive function for setting up submenus
 			runAfter = function(dc){
@@ -45,6 +46,16 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									tabOut: dc.tabOut
 									});
 					$A.setAttr(this, 'aria-haspopup', 'true');
+
+					if ($A.reg[dc.id + this.id]){
+						var tdc = $A.reg[dc.id + this.id];
+
+						if (tdc.fn.sraCSSObj)
+							tdc.fn.sraCSSObj.parentNode.removeChild(tdc.fn.sraCSSObj);
+						tdc.returnFocus = false;
+						tdc.close();
+						tdc.returnFocus = true;
+					}
 				});
 				$A(dc, subMenuObjects);
 				$A.query('li.link', dc.containerDiv, function(){
@@ -58,8 +69,18 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				});
 			}, postLoad = function(){
 				$A.query('ul', bfr, function(){
-					track[this.id] = this.parentNode.removeChild(this);
+					track[this.id] = this.parentNode.removeChild(this) || track[this.id];
 				});
+
+				if ($A.reg[topLvlId]){
+					var tdc = $A.reg[topLvlId];
+
+					if (tdc.fn.sraCSSObj)
+						tdc.fn.sraCSSObj.parentNode.removeChild(tdc.fn.sraCSSObj);
+					tdc.returnFocus = false;
+					tdc.close();
+					tdc.returnFocus = true;
+				}
 
 				$A(
 								[

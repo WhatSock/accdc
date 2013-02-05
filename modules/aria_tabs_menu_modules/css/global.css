@@ -108,10 +108,18 @@ background-color: #000000;
 text-align: left;
 }
 
+*:focus {
+outline: #990000 2px inset;
+}
+
+div.hiddenStorage {
+display: none;
+visibility: hidden;
+}
+
 div.menu {
 text-align: center;
-background-color: #d3d3d3;
-border: solid thin black;
+background-color: #000;
 padding: 5px 10px;
 }
 
@@ -123,27 +131,22 @@ margin: 0;
 
 ul.menu > li {
 margin: 3px 0px;
+padding: 3px 6px;
 font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 0.9em;
 background-color: #f5f5f5;
-color: #000000;
-text-decoration: underline;
-}
-
-*:focus {
-outline: #990000 2px inset;
+color: #000;
+text-align: left;
+cursor: pointer;
 }
 
 ul.menu > li:focus {
-background-color: #3A5FCD;
-color: #f5f5f5;
+font-weight: bold;
+color: yellow;
+background-color: #191970;
 }
 
-ul.menu > li.submenu:after {
+ul.menu > li.submenu:before {
 content: '\2192';
-}
-
-div.hiddenStorage {
-display: none;
-visibility: hidden;
+color: red;
 }

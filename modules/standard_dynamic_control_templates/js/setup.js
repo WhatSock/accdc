@@ -12,10 +12,6 @@ var modalId = $A.setModal(
 
 					// Configure form functionality
 
-					// Track the first and last form field to handle circular tabbing
-					dc.firstField = $A.getEl('uname');
-					dc.lastField = $A.getEl('lbCancel');
-
 					$A.bind('#lbForm', 'submit', function(ev){
 						if (!this.uname.value){
 							alert('Woops! You forgot your username...');

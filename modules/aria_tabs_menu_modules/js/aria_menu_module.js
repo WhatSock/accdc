@@ -1,5 +1,5 @@
 /*!
-ARIA Menu Module R1.1
+ARIA Menu Module R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -33,6 +33,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										if (dc.parent)
 											dc.offsetLeft = -(dc.parent.accDCObj.offsetWidth / 2);
 										dc.offsetTop = -dc.triggerObj.offsetHeight;
+									},
+									runDuring: function(dc){
+										$A.setAttr(dc.accDCObj, 'role', 'application');
 									},
 									runAfter: runAfter,
 									cssObj:
@@ -101,6 +104,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 											dc.close();
 									});
 								},
+									runDuring: function(dc){
+										$A.setAttr(dc.accDCObj, 'role', 'application');
+									},
 								runAfter: runAfter,
 								cssObj:
 												{

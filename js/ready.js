@@ -70,7 +70,7 @@ $A(
 
 					// Start carousel if CSS is enabled
 					if (isCSSEnabled())
-						setCarousel($A.getEl('slideCanvas'), 'files/carousel.xml', 0);
+						$A.setCarousel($A.getEl('slideCanvas'), 'files/carousel.xml', 0);
 
 					// Announce "Ready" to screen reader users
 					"Ready".announce();

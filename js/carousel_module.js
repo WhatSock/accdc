@@ -1,15 +1,15 @@
-/* !
-Carousel From XML Module R1.0
+/*!
+Carousel From XML Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
-*/
+	*/
 
 (function(){
 
 	var lNavCls = 'lNav', rNavCls = 'rNav', contentCls = 'centerContent', btnTag = 'button', btnCls = 'navButton',
 		btnSlideCls = 'navSlideButton', btnGroupCls = 'navGroupButton', groupNameCls = 'groupName', ariaLevel = 3;
 
-	window.setCarousel = function(container, path, autoStart, handlers){
+	$A.setCarousel = function(container, path, autoStart, handlers){
 		var xml = null, track = {}, bId = container.id || 'l' + $A.genId(), announce = {}, tmp = $A.createEl('div'),
 			handlers = handlers || {}, paused = loading = false;
 		$A.load(tmp, path, function(data){
@@ -70,18 +70,23 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.setAttr(btnP,
 							{
 							accesskey: vals.btnPAccesskey,
-							title: trim(vals.prevTitle + ' ' + vals.slideName),
-							'aria-label': trim(vals.prevTitle + ' ' + vals.slideName)
-							}).innerHTML = '<span>' + vals.btnPText + '</span>';
+							title: trim(vals.prevTitle + ' ' + vals.slideName)
+							}).innerHTML = '<span aria-hidden="true">' + vals.btnPText + '</span>';
+
+			btnP.appendChild($A.createEl('span', null, $A.sraCSS, null,
+				document.createTextNode(vals.prevTitle + ' ' + vals.slideName)));
 
 			$A.setAttr(btnN,
 							{
 							accesskey: vals.btnNAccesskey,
-							title: trim(vals.nextTitle + ' ' + vals.slideName),
-							'aria-label': trim(vals.nextTitle + ' ' + vals.slideName)
-							}).innerHTML = '<span>' + vals.btnNText + '</span>';
+							title: trim(vals.nextTitle + ' ' + vals.slideName)
+							}).innerHTML = '<span aria-hidden="true">' + vals.btnNText + '</span>';
+
+			btnN.appendChild($A.createEl('span', null, $A.sraCSS, null,
+				document.createTextNode(vals.nextTitle + ' ' + vals.slideName)));
 
 			$A.addClass([container, lDiv, rDiv, cDiv], 'clearfix');
+
 			pDiv.appendChild(lDiv);
 			pDiv.appendChild(cDiv);
 			pDiv.appendChild(rDiv);
@@ -93,17 +98,20 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				$A.setAttr(btnPG,
 								{
 								accesskey: vals.btnPGAccesskey,
-								title: trim(vals.prevTitle + ' ' + vals.groupName),
-								'aria-label': trim(vals.prevTitle + ' ' + vals.groupName)
-								}).innerHTML = '<span>' + vals.btnPGText + '</span>';
+								title: trim(vals.prevTitle + ' ' + vals.groupName)
+								}).innerHTML = '<span aria-hidden="true">' + vals.btnPGText + '</span>';
+
+				btnPG.appendChild($A.createEl('span', null, $A.sraCSS, null,
+					document.createTextNode(vals.prevTitle + ' ' + vals.groupName)));
 
 				$A.setAttr(btnNG,
 								{
 								accesskey: vals.btnNGAccesskey,
-								title: trim(vals.nextTitle + ' ' + vals.groupName),
-								'aria-label': trim(vals.nextTitle + ' ' + vals.groupName)
-								}).innerHTML = '<span>' + vals.btnNGText + '</span>';
+								title: trim(vals.nextTitle + ' ' + vals.groupName)
+								}).innerHTML = '<span aria-hidden="true">' + vals.btnNGText + '</span>';
 
+				btnNG.appendChild($A.createEl('span', null, $A.sraCSS, null,
+					document.createTextNode(vals.nextTitle + ' ' + vals.groupName)));
 				lDiv.appendChild(btnPG);
 				rDiv.appendChild(btnNG);
 			}
@@ -343,6 +351,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 									if (typeof ret === 'boolean' && !ret)
 										return false;
+
 									var id = '';
 
 									if (dc){
@@ -390,6 +399,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 									if (typeof ret === 'boolean' && !ret)
 										return false;
+
 									var id = '';
 
 									if (dc){
@@ -437,6 +447,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 									if (typeof ret === 'boolean' && !ret)
 										return false;
+
 									var id = '', g = dc.cur.groupVal;
 
 									if (g < 1 && !cycle)
@@ -461,6 +472,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 									if (typeof ret === 'boolean' && !ret)
 										return false;
+
 									var id = '', g = dc.cur.groupVal;
 
 									if (g >= (dc.cur.groupMax - 1) && !cycle)
@@ -487,6 +499,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 													}
 												}
 												});
+
 								$A.bind(btnN,
 												{
 												click: function(ev){
@@ -515,6 +528,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 														}
 													}
 													});
+
 									$A.bind(btnNG,
 													{
 													click: function(ev){
@@ -602,7 +616,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		var e = e ? e.firstChild : null;
 
 		while (e){
-			if (e.nodeType === 1 && ( !t || t.toLowerCase() === e.nodeName.toLowerCase()))
+			if (e.nodeType === 1 && (!t || t.toLowerCase() === e.nodeName.toLowerCase()))
 				break;
 
 			e = e.nextSibling;

@@ -29,8 +29,8 @@ color: #0000b0;
 }
 
 .intro {
-width: 74%;
-margin-left: 20%;
+width: 80%;
+margin-left: 10%;
 margin-right: auto;
 }
 
@@ -79,6 +79,13 @@ width: 702px;
 text-align: center;
 }
 
+code {
+margin-left: 10%;
+color: #191970;
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+border: solid thin black;
+}
+
 div.tabs {
 width: 70%;
 margin-left: 15%;
@@ -90,6 +97,7 @@ float: left;
 padding: 15px 0px;
 font-size: 1.4em;
 font-weight: bold;
+cursor: pointer;
 }
 
 div.tab span, a.tab span {
@@ -112,25 +120,40 @@ text-align: left;
 outline: #990000 2px inset;
 }
 
-div.hiddenStorage {
+div.hiddenStorage, .hidden {
 display: none;
 visibility: hidden;
 }
 
-div.menu {
-text-align: center;
-background-color: #000;
-padding: 5px 10px;
+button.menu {
+margin-left: 30px;
 }
 
-ul.menu {
+div.menu {
+text-align: left;
+width: 110px;
+left: 100px;
+top: 3px;
+}
+
+div.menu ol.menu {
 list-style: none;
 padding: 0;
 margin: 0;
+background-color: #000;
+float: left;
+border: solid thin #b00020;
+width: 110px;
 }
 
-ul.menu > li {
-margin: 3px 0px;
+div.menu ol.menu > li {
+margin: 2px 0px;
+padding: 3px 6px;
+position: relative;
+}
+
+div.menu ol.menu a {
+display: block;
 padding: 3px 6px;
 font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 0.9em;
@@ -140,13 +163,60 @@ text-align: left;
 cursor: pointer;
 }
 
-ul.menu > li:focus {
+div.menu ol.menu a:focus {
 font-weight: bold;
 color: yellow;
 background-color: #191970;
 }
 
-ul.menu > li.submenu:before {
-content: '\2192';
+div.menu ol.menu a.submenu:before {
+content: '\2192 ';
+color: red;
+}
+
+a.menu2 {
+padding: 2px 6px;
+}
+
+div.foMenu {
+text-align: center;
+width: 80%;
+}
+
+div.foMenu ul.menu2 {
+list-style: none;
+padding: 0;
+margin: 0;
+background-color: #000;
+float: left;
+border: solid thin #b00020;
+}
+
+div.foMenu ul.menu2 > li {
+margin: 0px 2px;
+padding: 6px 3px;
+float: left;
+width: 90px;
+}
+
+div.foMenu ul.menu2 a {
+display: block;
+padding: 6px 3px;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 0.9em;
+background-color: #f5f5f5;
+color: #000;
+text-align: center;
+cursor: pointer;
+}
+
+div.foMenu ul.menu2 a:focus {
+font-weight: bold;
+color: yellow;
+background-color: #191970;
+}
+
+div.foMenu ul.menu2 a.submenu2:before {
+content: '\2193 ';
 color: red;
 }

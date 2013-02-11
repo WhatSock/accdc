@@ -140,29 +140,115 @@ ARIA Menus
 
 <div class="intro tal">
 <p>
-<button class="menu">Options</button>
-<a href="http://lnkd.in/hRXtsg">
-Updated to support scalability, recursive processing, and lazy loading.
-</a>
+
+<a role="button" class="menu2">Options (Horizontal Flyout)</a>
+
+<button class="menu">Options (Vertical Dropdown)</button>
+
+</p>
+</div>
+
+<div class="intro tal">
+<p>
+View the article
+"<a href="http://lnkd.in/uxin9T">The ARIA Menu generator now supports variable tag structures, horizontal and vertical menu keyboard handling, customizable setting overrides, and graceful degradation.</a>"
+for instructions regarding menu ID mappings.
 </p>
 <p>
-The Options button will open an overlay consisting of standard list markup, which is automatically converted into recursive ARIA menus using CSS Selectors.<br />
 Keystrokes:
 </p>
 <ul><li>
 Using a screen reader, activate the Options button.
 </li><li>
-Use the Up and Down Arrow keys to traverse available menu options.
+Use the Up and Down (vertical) or Left and Right (flyout) arrow keys to traverse available menu options.
 </li><li>
-Press the Right Arrow or Enter key to open a submenu, or to activate a menu item.
+Press the Right (vertical) or Down (flyout) arrow to open a submenu, or press Enter to activate a menu item.
 </li><li>
-Press the Left Arrow key to close the currently open menu and return to a previously open menu (if present).
+Press the Left (vertical) or Up (flyout) arrow to close the currently open menu and return to a previously open menu (if present).
 </li><li>
 Press Escape, Tab, or Shift+Tab to close all currently open menus and submenus.
 </li></ul>
 <p>
-ARIA Menu functionality simulates the context menu experience within standard Windows applications.
+To view the available configuration options when declaring an ARIA Menu control, view the setup JavaScript file:
+"<a href="js/setup.js" target="_blank">setup.js</a>"
 </p>
+</div>
+
+<div class="hd">
+<h2>
+Menu Tag Attributes
+</h2>
+</div>
+
+<div class="intro tal">
+<p>
+The following attributes may be set within the menu tag markup to enhance functionality on a once-per-menu instance basis.
+</p>
+<ul class="lsn"><li>
+data-horizontal="true" or "false" :
+Sets or unsets a horizontal flyout menu where the Left and Right arrow keys will be used to navigate menu item nodes, and Up and Down will be used to close or open submenus.<br />
+Syntax:<br />
+<code>
+&lt;ol id="topLevelMenuID-SubmenuPointer" class="menu" data-horizontal="true"&gt;<br />
+...<br />
+&lt;/ol&gt;<br />
+</code>
+</li><li>
+data-offsetleft :
+Specifies a positive or negative offsetLeft value that will be applied to the menu after it is rendered.<br />
+Syntax:<br />
+<code>
+&lt;ol id="topLevelMenuID-SubmenuPointer" class="menu" data-offsetleft="-30"&gt;<br />
+...<br />
+&lt;/ol&gt;<br />
+</code>
+</li><li>
+data-offsettop :
+Specifies a positive or negative offsetTop value that will be applied to the menu after it is rendered.<br />
+Syntax:<br />
+<code>
+&lt;ol id="topLevelMenuID-SubmenuPointer" class="menu" data-offsettop="20"&gt;<br />
+...<br />
+&lt;/ol&gt;<br />
+</code>
+</li><li>
+data-autoposition :
+Specifies a custom autoPosition value that will control where the menu is visually positioned relative to the triggering element.<br />
+Syntax:<br />
+<code>
+&lt;ol id="topLevelMenuID-SubmenuPointer" class="menu" data-autoposition="9"&gt;<br />
+...<br />
+&lt;/ol&gt;<br />
+</code><br />
+Accepted values:<br />
+<ul class="lsn"><li>
+0: Disabled 
+</li><li>
+1: Above/Center/Left Edge Aligned 
+</li><li>
+2: Above/Right/Right Edge Aligned 
+</li><li>
+3: Level/Right/Right Edge Aligned 
+</li><li>
+4: Below/Right/Right Edge Aligned 
+</li><li>
+5: Below/Center/Left Edge Aligned 
+</li><li>
+6: Below/Left/Left Edge Aligned 
+</li><li>
+7: Level/Left/Left Edge Aligned 
+</li><li>
+8: Above/Left/Left Edge Aligned 
+</li><li>
+9: Level/Center/Left Edge Aligned 
+</li><li>
+10: Above/Center/Right Edge Aligned 
+</li><li>
+11: Level/Center/Right Edge Aligned 
+</li><li>
+12: Below/Center/Right Edge Aligned  
+</li></ul>
+</li></ul>
 </div>
 
 </div>
@@ -211,6 +297,140 @@ title="Golden Gate Bridge with freight ship" />
 
 </div>
 
+<div id="hiddenDivId" class="hidden">
+
+<ul data-autoposition="9" title="Options" class="menu2 clearfix" id="menu-options2">
+<li>
+<a href="#" class="submenu2" id="-profile2">
+Profile
+</a>
+</li>
+<li>
+<a href="#" class="submenu2" id="-settings2">
+Settings
+</a>
+</li>
+<li>
+<a href="#" class="submenu2" id="-account2">
+Account
+</a>
+</li>
+<li>
+<a href="#" class="submenu2" id="-services2">
+Services
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="-properties2">
+Properties...
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="-help2">
+Help...
+</a>
+</li>
+</ul>
+
+<ul title="Profile" class="menu2 clearfix" id="menu-options2-profile2">
+<li>
+<a href="#" class="submenu2" id="-personal2">
+Personal
+</a>
+</li>
+<li>
+<a href="#" class="submenu2" id="-business2">
+Business
+</a>
+</li>
+</ul>
+
+<ul title="Personal" class="menu2 clearfix" id="menu-options2-profile2-personal2">
+<li>
+<a href="#" class="link2" id="-name2">
+Name
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="-interests2">
+Interests
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="-education2">
+Education
+</a>
+</li>
+</ul>
+
+<ul title="Business" class="menu2 clearfix" id="menu-options2-profile2-business2">
+<li>
+<a href="#" class="link2" id="business-name2">
+Name
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="business-contact2">
+Contact
+</a>
+</li>
+</ul>
+
+<ul title="Settings" class="menu2 clearfix" id="menu-options2-settings2">
+<li>
+<a href="#" class="link2" id="settings-search2">
+Search
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="settings-cookies2">
+Cookies
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="settings-layout2">
+Layout
+</a>
+</li>
+</ul>
+
+<ul title="Account" class="menu2 clearfix" id="menu-options2-account2">
+<li>
+<a href="#" class="link2" id="account-username2">
+Username
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="account-password2">
+Password
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="account-email2">
+Email
+</a>
+</li>
+</ul>
+
+<ul title="Services" class="menu2 clearfix" id="menu-options2-services2">
+<li>
+<a href="#" class="link2" id="services-campaigns2">
+Campaigns
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="services-payments2">
+Payments
+</a>
+</li>
+<li>
+<a href="#" class="link2" id="services-billing2">
+Billing
+</a>
+</li>
+</ul>
+
+</div>
 
 <script type="text/javascript">
 var _gaq = _gaq || [];

@@ -1,4 +1,4 @@
-/* !
+/*!
 Progress Bar Announce Method R1.0
 Instructions: http://lnkd.in/dHf3wf
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)

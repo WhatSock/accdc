@@ -1,5 +1,5 @@
 /*!
-ARIA Menu Module R2.0
+ARIA Menu Module R2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -123,7 +123,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			}
 
 			if (dc.iNodes && dc.iNodes.length)
-				$A.unbind(dc.iNodes, 'click keypress keyup');
+				$A.unbind(dc.iNodes, 'click keypress keydown');
 		},
 
 		// Parse menu constructs
@@ -258,7 +258,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									ev.preventDefault();
 								}
 							},
-							keyup: function(ev){
+							keydown: function(ev){
 								var k = ev.which || ev.keyCode;
 
 								// 37 left, 38 up, 39 right, 40 down

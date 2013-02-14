@@ -1,4 +1,4 @@
-/* !
+/*!
 ARIA Radio Generator R1.0
 Instructions: http://lnkd.in/EWzQch
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)

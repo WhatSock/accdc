@@ -1,17 +1,18 @@
 /*!
-ARIA Listbox Generator Module R1.0
+ARIA Listbox Generator Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
 
-(function(window){
+(function(){
 
-	var grabInstruct = 'Press Space to grab', dropInstruct = 'Press Space to drop', grabMsg = 'Grabbed', dropMsg = 'Moved',
-		cancelDrop = 'Grab canceled';
+	$A.Listbox = function(list, config){
 
-	$A.Listbox = function(list, fieldLabel, defaultIndex, callback, isSortable, isMultiselect, allowDelete){
-		var list = typeof list === 'string' ? $A.getEl(list) : list, that = this, track = {}, toggle = {}, max = 0,
-			selected = isMultiselect ? [] : '', select = function(i, f){
+		var config = config || {}, grabInstruct = config.grabInstruct || 'Press Space to grab',
+			dropInstruct = config.dropInstruct || 'Press Space to drop', grabMsg = config.grabMsg || 'Grabbed',
+			dropMsg = config.dropMsg || 'Moved', cancelDrop = config.cancelDrop || 'Grab canceled',
+			list = typeof list === 'string' ? $A.getEl(list) : list, that = this, track = {}, toggle = {}, max = 0,
+			selected = config.isMultiselect ? [] : '', select = function(i, f){
 			if (i != that.index || f)
 				$A.query('#' + list.id + ' > *', function(j, o){
 					$A.setAttr(o,
@@ -36,16 +37,12 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			if (f)
 				that.options[i].focus();
 
-			if (!isMultiselect)
+			if (!config.isMultiselect)
 				selected = that.options[i].id;
 
-			if (callback && typeof callback === 'function')
+			if (config.callback && typeof config.callback === 'function')
 				setTimeout(function(){
-					callback.apply(that,
-									[
-									that.options[i],
-									that.options
-									]);
+					config.callback.apply(that, [that.options[i], that.options]);
 				}, 1);
 		}, updateChecked = function(){
 			selected = [];
@@ -95,13 +92,13 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							'aria-label': getLabel(o)
 							});
 
-			if (isSortable || isMultiselect)
-				$A.setAttr(o, isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
+			if (config.isSortable || config.isMultiselect)
+				$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
 			list.appendChild(o);
 			setOptions(true);
 			setBindings(o);
 		}, rem = function(i, s){
-			list.removeChild(that.options[i]);
+			var r = list.removeChild(that.options[i]);
 			setOptions(true);
 
 			if (that.index > max)
@@ -109,8 +106,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 			if (that.options.length)
 				select(that.index, s ? false : true);
+
+			$A.unbind(r, '.arialistbox');
+			return r;
 		}, activate = function(){
-			if (isSortable){
+			if (config.isSortable){
 				if (grabbed)
 					drop.apply(this);
 
@@ -118,7 +118,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					grab.apply(this);
 			}
 
-			else if (isMultiselect){
+			else if (config.isMultiselect){
 				toggle[this.id] = toggle[this.id] ? false : true;
 				$A.setAttr(this, 'aria-checked', toggle[this.id] ? 'true' : 'false');
 				updateChecked();
@@ -127,18 +127,32 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		}, setBindings = function(o){
 			if (!o)
 				$A.bind(list, 'focusin.arialistbox', function(){
-					if (isSortable)
+					if (config.isSortable)
 						$A.announce(grabbed ? dropInstruct : grabInstruct, true);
 				});
 			$A.bind(o || '#' + list.id + ' > *',
 							{
 							'click.arialistbox': function(ev){
-								if (isMultiselect){
+								if (config.isMultiselect){
 									toggle[this.id] = toggle[this.id] ? false : true;
 									$A.setAttr(this, 'aria-checked', toggle[this.id] ? 'true' : 'false');
 									updateChecked();
 								}
 								select(track[this.id]);
+							},
+							'keypress.arialistbox': function(ev){
+								var k = ev.which || ev.keyCode;
+
+								if (k == 13)
+									$A.trigger(this, 'click');
+
+								else if (k == 27 && grabbed){
+									drop.apply(this, [true]);
+									ev.preventDefault();
+								}
+
+								else if (k == 32)
+									activate.apply(this);
 							},
 							'keydown.arialistbox': function(ev){
 								var k = ev.which || ev.keyCode;
@@ -153,30 +167,19 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										select(that.index + 1, true);
 								}
 
-								else if (k == 13)
-									$A.trigger(this, 'click');
-
-								else if (k == 27 && grabbed){
-									drop.apply(this, [true]);
-									ev.preventDefault();
-								}
-
-								else if (k == 32)
-									activate.apply(this);
-
 								else if (k == 35)
 									select(max, true);
 
 								else if (k == 36)
 									select(0, true);
 
-								else if (k == 46 && allowDelete){
+								else if (k == 46 && config.allowDelete){
 									rem(track[this.id]);
 								}
 							}
 							});
 		}, getLabel = function(o){
-			return(function(){
+			return (function(){
 				var s = '';
 				$A.query('img', o, function(j, p){
 					if (p.alt)
@@ -191,7 +194,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			that.options = $A.query('#' + list.id + ' > *', function(i, o){
 				track[o.id] = i;
 
-				if (isMultiselect)
+				if (config.isMultiselect)
 					toggle[o.id] = false;
 				max = i;
 
@@ -206,20 +209,16 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 				$A.setAttr(o, 'aria-posinset', i + 1);
 
-				if (!s && (isSortable || isMultiselect))
-					$A.setAttr(o, isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
+				if (!s && (config.isSortable || config.isMultiselect))
+					$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
 			});
 			$A.query('#' + list.id + ' > *', function(i, o){
 				$A.setAttr(o, 'aria-setsize', max + 1);
 			});
 		};
 
-		if (!fieldLabel && !$A.getAttr(list, 'aria-labelledby'))
-			alert(
-				'An explicit form field label is required via the fieldLabel argument, or using aria-labelledby on the element with role=listbox.');
-
-		else if (fieldLabel)
-			$A.setAttr(list, 'aria-label', fieldLabel);
+		if (config.label)
+			$A.setAttr(list, 'aria-label', config.label);
 		setOptions();
 		setBindings();
 		that.val = function(i){
@@ -239,6 +238,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		that.activate = activate;
 		that.grabbed = grabbed;
 		that.container = list;
-		that.val(defaultIndex);
+		that.val(config.defaultIndex || 0);
 	};
-})(window);
+})();

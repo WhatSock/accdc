@@ -56,18 +56,26 @@ $A.bind(window, 'load', function(){
 		render.open();
 
 		// Instantiate an ARIA Listbox object
-		lb = new $A.Listbox('things', 'Sort', 0, function(sNode, cNodes){
-			if (lb.grabbed)
-				grabbed = lb.grabbed;
+		lb = new $A.Listbox('things',
+						{
+						label: 'Sort',
+						defaultIndex: 0,
+						callback: function(sNode, cNodes){
+							if (lb.grabbed)
+								grabbed = lb.grabbed;
 
-			if (lb.grabbed && !$A.hasClass($A.getEl(lb.grabbed), 'grabbed'))
-				$A.addClass($A.getEl(lb.grabbed), 'grabbed');
+							if (lb.grabbed && !$A.hasClass($A.getEl(lb.grabbed), 'grabbed'))
+								$A.addClass($A.getEl(lb.grabbed), 'grabbed');
 
-			else
-				$A.query('.grabbed', lb.container, function(i, o){
-					$A.remClass(o, 'grabbed');
-				});
-		}, true, false, true);
+							else
+								$A.query('.grabbed', lb.container, function(i, o){
+									$A.remClass(o, 'grabbed');
+								});
+						},
+						isSortable: true,
+						isMultiselect: false,
+						allowDelete: true
+						});
 
 		// Set additional handlers on all listbox option elements (li tags)
 		setBindings();

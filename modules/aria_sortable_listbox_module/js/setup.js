@@ -21,10 +21,7 @@ $A.bind(window, 'load', function(){
 	var lb = null, sort = false, grabbed = '', setBindings = function(o){
 		$A.bind(o || lb.options,
 						{
-						click: function(ev){
-							lb.activate.apply(this);
-						},
-						keydown: function(ev){
+						keypress: function(ev){
 							var k = ev.which || ev.keyCode;
 
 							if (k == 13 || k == 27){

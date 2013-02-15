@@ -1,5 +1,5 @@
 /*!
-ARIA Listbox Generator Module R1.1
+ARIA Listbox Generator Module R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -10,8 +10,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 		var config = config || {}, grabInstruct = config.grabInstruct || 'Press Space to grab',
 			dropInstruct = config.dropInstruct || 'Press Space to drop', grabMsg = config.grabMsg || 'Grabbed',
-			dropMsg = config.dropMsg || 'Moved', cancelDrop = config.cancelDrop || 'Grab canceled',
-			list = typeof list === 'string' ? $A.getEl(list) : list, that = this, track = {}, toggle = {}, max = 0,
+			dropMsg = config.dropMsg || 'Moved', cancelDrop = config.cancelDrop || 'Grab canceled', isArray = function(v){
+			return v && typeof v === 'object'
+				&& typeof v.length === 'number' && typeof v.splice === 'function' && !(v.propertyIsEnumerable('length'));
+		}, list = typeof list === 'string' ? $A.getEl(list) : list, that = this, track = {}, toggle = {}, max = 0,
 			selected = config.isMultiselect ? [] : '', select = function(i, f){
 			if (i != that.index || f)
 				$A.query('#' + list.id + ' > *', function(j, o){
@@ -23,27 +25,30 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									});
 				});
 
-			$A.setAttr(that.options[i],
-							{
-							tabindex: '0',
-							// 'aria-hidden': 'false',
-							'aria-selected': 'true'
-							});
+			if (that.options[i]){
+				$A.setAttr(that.options[i],
+								{
+								tabindex: '0',
+								// 'aria-hidden': 'false',
+								'aria-selected': 'true'
+								});
 
-			that.options[i].scrollIntoView();
-			that.index = i;
-			that.grabbed = grabbed;
+				that.options[i].scrollIntoView();
 
-			if (f)
-				that.options[i].focus();
+				that.index = i;
+				that.grabbed = grabbed;
 
-			if (!config.isMultiselect)
-				selected = that.options[i].id;
+				if (f)
+					that.options[i].focus();
 
-			if (config.callback && typeof config.callback === 'function')
-				setTimeout(function(){
-					config.callback.apply(that, [that.options[i], that.options]);
-				}, 1);
+				if (!config.isMultiselect)
+					selected = that.options[i].id;
+
+				if (config.callback && typeof config.callback === 'function')
+					setTimeout(function(){
+						config.callback.apply(that, [that.options[i], that.options]);
+					}, 1);
+			}
 		}, updateChecked = function(){
 			selected = [];
 
@@ -79,36 +84,55 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			grabbed = '';
 			select(c ? that.index : track[g], c ? false : true);
 		}, add = function(o){
-			if (!o || o.nodeType !== 1 || !o.id){
-				alert('The new item must be a valid DOM node with a unique ID attribute value');
-				return;
+			if (o){
+				var isA = isArray(o), a = isA ? o : [o];
+
+				for (var b = 0; b < a.length; b++){
+					var o = a[b];
+
+					if (!o || o.nodeType !== 1 || !o.id){
+						alert('The new item must be a valid DOM node with a unique ID attribute value');
+						return;
+					}
+					$A.setAttr(o,
+									{
+									role: 'option',
+									tabindex: '-1',
+									// 'aria-hidden': 'true',
+									'aria-selected': 'false',
+									'aria-label': getLabel(o)
+									});
+
+					if (config.isSortable || config.isMultiselect)
+						$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
+					list.appendChild(o);
+					setBindings(o);
+				}
+				setOptions(true);
 			}
-			$A.setAttr(o,
-							{
-							role: 'option',
-							tabindex: '-1',
-							// 'aria-hidden': 'true',
-							'aria-selected': 'false',
-							'aria-label': getLabel(o)
-							});
-
-			if (config.isSortable || config.isMultiselect)
-				$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
-			list.appendChild(o);
-			setOptions(true);
-			setBindings(o);
 		}, rem = function(i, s){
-			var r = list.removeChild(that.options[i]);
-			setOptions(true);
+			if (that.options.length){
+				var isA = isArray(i), a = isA ? i : [i], ret = [];
 
-			if (that.index > max)
-				that.index = max;
+				for (var b = 0; b < a.length; b++){
+					var r = that.options[a[b]];
+					$A.unbind(r, '.arialistbox');
+					ret.push(list.removeChild(r));
+				}
 
-			if (that.options.length)
-				select(that.index, s ? false : true);
+				setOptions(true);
 
-			$A.unbind(r, '.arialistbox');
-			return r;
+				if (that.index > max)
+					that.index = max;
+
+				if (that.options.length)
+					select(that.index, s ? false : true);
+
+				else
+					selected = '';
+
+				return isA ? ret : ret[0];
+			}
 		}, activate = function(){
 			if (config.isSortable){
 				if (grabbed)
@@ -133,7 +157,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.bind(o || '#' + list.id + ' > *',
 							{
 							'click.arialistbox': function(ev){
-								if (config.isMultiselect){
+								if (config.isSortable)
+									activate.apply(this);
+
+								else if (config.isMultiselect){
 									toggle[this.id] = toggle[this.id] ? false : true;
 									$A.setAttr(this, 'aria-checked', toggle[this.id] ? 'true' : 'false');
 									updateChecked();
@@ -215,6 +242,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.query('#' + list.id + ' > *', function(i, o){
 				$A.setAttr(o, 'aria-setsize', max + 1);
 			});
+
+			if (that.options.length === 1)
+				select(0);
 		};
 
 		if (config.label)
@@ -228,12 +258,30 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			else if (i && typeof i === 'string')
 				select(track[i]);
 
+			else if (i && isArray(i) && config.isMultiselect){
+				var inI = function(id){
+					for (var j = 0; j < i.length; j++){
+						if (i[j] == id)
+							return true;
+					}
+
+					return false;
+				};
+
+				for (var k = 0; k < that.options.length; k++){
+					if ((inI(that.options[k].id) && $A.getAttr(that.options[k], 'aria-checked') != 'true')
+						|| (!inI(that.options[k].id) && $A.getAttr(that.options[k], 'aria-checked') != 'false')
+							|| (!i.length && $A.getAttr(that.options[k], 'aria-checked') != 'false'))
+						activate.apply(that.options[k]);
+				}
+			}
+
 			else
 				return selected;
 		};
 		that.add = add;
 		that.rem = function(i){
-			rem(i && typeof i === 'string' ? track[i] : i, true);
+			return !i ? null : rem(i && typeof i === 'string' ? track[i] : i, true);
 		};
 		that.activate = activate;
 		that.grabbed = grabbed;

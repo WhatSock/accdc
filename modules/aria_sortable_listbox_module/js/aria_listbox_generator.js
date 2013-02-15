@@ -1,5 +1,5 @@
 /*!
-ARIA Listbox Generator Module R1.2
+ARIA Listbox Generator Module R1.2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -157,8 +157,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.bind(o || '#' + list.id + ' > *',
 							{
 							'click.arialistbox': function(ev){
-								if (config.isSortable)
+								if (config.isSortable){
+									select(track[this.id]);
 									activate.apply(this);
+								}
 
 								else if (config.isMultiselect){
 									toggle[this.id] = toggle[this.id] ? false : true;

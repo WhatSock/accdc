@@ -1,5 +1,5 @@
 /*!
-ARIA Slider Module R1.1
+ARIA Slider Module R1.1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -78,7 +78,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									dc.config.sel.value = v.toString();
 							}
 
-							if (config.onDrag && typeof config.onDrag === 'function')
+							if (!s && config.onDrag && typeof config.onDrag === 'function')
 								config.onDrag.apply(this, [ev, dd, dc, v]);
 						},
 						keyDown: function(ev, dc){

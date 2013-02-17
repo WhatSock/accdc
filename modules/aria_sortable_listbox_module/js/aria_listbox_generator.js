@@ -1,5 +1,5 @@
 /*!
-ARIA Listbox Generator Module R1.2.1
+ARIA Listbox Generator Module R1.2.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -208,7 +208,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							}
 							});
 		}, getLabel = function(o){
-			return (function(){
+			return(function(){
 				var s = '';
 				$A.query('img', o, function(j, p){
 					if (p.alt)
@@ -283,7 +283,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		};
 		that.add = add;
 		that.rem = function(i){
-			return !i ? null : rem(i && typeof i === 'string' ? track[i] : i, true);
+			var isA = isArray(i), a = isA ? i : [i], r = [];
+
+			for (var b = 0; b < a.length; b++)
+							r.push(!a[b] ? null : rem(a[b] && typeof a[b] === 'string' ? track[a[b]] : a[b], true));
+			return isA ? r : r[0];
 		};
 		that.activate = activate;
 		that.grabbed = grabbed;

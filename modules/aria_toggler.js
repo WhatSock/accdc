@@ -1,65 +1,74 @@
 /*!
-ARIA Toggle Generator R1.0
-Instructions: http://lnkd.in/JsPZf6
+Toggle Generator R2.0
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
+
+ARIA Toggle and ARIA Checkbox Rules :
+IMG : Use aria-label to set screen reader text.
+INPUT : Use both aria-label and Title to set screen reader text.
+All tags that support innerHTML: Use innerText (whether offscreen or visible) to set screen reader text.
+Image links (A tag with embedded IMG): Use innerText and add alt="" to the IMG tag to set screen reader text. (This is required for iOS support using Voiceover)
 	*/
 
 (function(){
 
-	$A.Toggle = function(trigger, state, callback, isCheckbox){
-		var t = typeof trigger === 'string' ? $A.getEl(trigger) : trigger, that = this,
-			isCheckbox = $A.getAttr(t, 'role') == 'checkbox' ? true : false, toggle = function(state){
-			$A.setAttr(t, isCheckbox ? 'aria-checked' : 'aria-pressed', state ? 'true' : 'false');
-			that.state = state;
+	$A.Toggle = function(trigger, config){
+		var config = config || {}, t = typeof trigger === 'string' ? $A.getEl(trigger) : trigger, that = this,
+			isCheckbox = $A.getAttr(t, 'role') == 'checkbox' ? true : false, sraText = $A.createEl('span', null, $A.sraCSS);
 
-			if (callback && typeof callback === 'function')
-				return callback(t, state);
+		if (!config.noToggle && config.noARIA){
+			if (!config.roleText)
+				config.roleText = 'Toggle';
+
+			if (!config.stateText)
+				config.stateText = 'Pressed';
+
+			t.appendChild(sraText);
+		}
+
+		var toggle = function(state){
+			var cr = true;
+
+			if (config.callback && typeof config.callback === 'function')
+				cr = config.callback.apply(t, [state]);
+
+			if (cr){
+				if (!config.noToggle && config.noARIA)
+					sraText.innerHTML = state
+						? ('&nbsp;' + config.roleText + '&nbsp;' + config.stateText) : '&nbsp;' + config.roleText;
+
+				else if (!config.noToggle)
+					$A.setAttr(t, isCheckbox ? 'aria-checked' : 'aria-pressed', state ? 'true' : 'false');
+				that.state = state;
+			}
 		};
 		var nn = t.nodeName.toLowerCase();
 
 		if (!((nn == 'input' && (t.getAttribute('type') == 'button' || t.getAttribute('type') == 'image'))
 			|| (nn == 'a' && t.hasAttribute('href')) || (nn == 'button')))
 			$A.setAttr(t, 'tabindex', '0');
-		/*
-		Button Label Rules :
-		img tag, aria - label only
-		input tag, both title and aria - label must be set
-		button tag and all other tags that support innerHTML, inner text only
-		A tag containing an IMG tag, only innerHTML content should be used for iOS support
-		*/
-		if (nn == 'input' && !(t.getAttribute('title') && t.getAttribute('aria-label')))
-			alert('The element with id=' + t.id
-				+ ' must include both an informative title attribute, and a matching aria-label attribute as the button label text.');
+		$A.bind(t,
+						{
+						keypress: function(ev){
+							var k = ev.which || ev.keyCode;
 
-		else if (!t.innerHTML && nn != 'input' && !t.getAttribute('aria-label'))
-			alert('The element with id=' + t.id + ' must include an informative aria-label attribute as the button label text.');
+							if (k == 13 || k == 32){
+								ev.preventDefault();
 
-		else if ((nn == 'button' || t.innerHTML) && !(t.innerText || t.textContent) && !t.getAttribute('aria-label'))
-			alert('The element with id=' + t.id
-				+ ' must include informative text between the opening and closing tags as a button label, or include an aria-label attribute for WebKit browser support.');
-		$A.bind(t, 'keydown', function(ev){
-			var ev = ev || window.event, k = ev.which || ev.keyCode;
-
-			if (k == 13 || k == 32){
-				var r = toggle(that.state ? false : true) ? true : false;
-				ev.returnValue = r;
-
-				if (!r && ev.preventDefault)
-					ev.preventDefault();
-			}
-		});
-		$A.bind(t, 'click', function(ev){
-			var ev = ev || window.event;
-			var r = toggle(that.state ? false : true) ? true : false;
-			ev.returnValue = r;
-
-			if (!r && ev.preventDefault)
-				ev.preventDefault();
-		});
+								if (!(t.nodeName.toLowerCase() == 'input' && t.type == 'image' && k == 32))
+									$A.trigger(t, 'click');
+							}
+						},
+						click: function(ev){
+							toggle.apply(t, [that.state ? false : true]) ? true : false;
+							ev.preventDefault();
+						}
+						});
 		that.set = function(state){
-			return toggle(state);
+			toggle.apply(t, [state]);
 		};
-		toggle(state);
+
+		if (!config.noToggle)
+			toggle.apply(t, [config.state ? true : false]);
 	};
 })();

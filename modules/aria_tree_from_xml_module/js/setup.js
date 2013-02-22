@@ -1,4 +1,3 @@
-
 $A.bind(window, 'load', function(){
 
 	// Declare a tmp variable for tracking setTimeout
@@ -10,8 +9,9 @@ $A.bind(window, 'load', function(){
 					title: 'Choose Region',
 					container: 'div.tree',
 					treeTag: 'ul',
+					dividerTag: 'li',
 					treeClass: 'branch',
-					treeItemTag: 'li',
+					treeItemTag: 'a',
 					treeItemClass: 'leaf',
 					topClass: 'TreeView',
 					bind: 'focus',

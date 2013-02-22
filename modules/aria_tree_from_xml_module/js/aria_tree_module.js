@@ -1,50 +1,60 @@
 /*!
-ARIA Tree From XML Module R1.1
+ARIA Tree From XML Module R2.0
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
 
-(function(window){
+(function(){
 
 	$A.setTree = function(config){
 
-		var config = config || {},
-
-		// Set the screen reader accessible hidden text label for the tree
-		treeTitle = config.title, insertionPoint = config.container,
-
-		// Optionally assign custom event handlers for tree items using a bind type and a callback
-		handlers =
-						{
-						// Event type
-						bind: config.bind,
-						def: config.callback
-						}, tree = config.treeTag || 'ul', treeClass = config.treeClass || 'branch', treeitem = config.treeItemTag || 'li',
-			treeitemClass = config.treeItemClass || 'leaf', cur = xmlDoc = null,
+		var config = config || {}, treeTitle = config.title, insertionPoint = config.container, tree = config.treeTag || 'ul',
+			treeClass = config.treeClass || 'branch', dividerTag = config.dividerTag || 'li',
+			treeitem = config.treeItemTag || 'a', treeitemClass = config.treeItemClass || 'leaf',
+			selCls = config.selectClass || 'selected', cur = xmlDoc = null,
 
 		// Function to create initial markup
 		createTree = function(dc){
 			dc.tree =
 							{
 							node: $A.createEl(tree),
-							childNodes: []
+							childNodes: [],
+							ids: []
 							};
 
 			for (var i = 0; i < dc.xmlNodes.length; i++){
-				var n = dc.xmlNodes[i], c = $A.createEl(treeitem), d = $A.createEl('div');
-				$A.setAttr(d, 'id', n.attributes.getNamedItem('id').nodeValue);
+				var n = dc.xmlNodes[i];
 
-				if (n.childNodes.length)
-					$A.addClass(d, treeClass);
+				if (!(n.nodeType !== 1 || n.nodeName == '#text')){
+					var c = $A.createEl(dividerTag), d = $A.createEl(treeitem);
 
-				else
-					$A.addClass(d, treeitemClass);
-				d.innerHTML = n.attributes.getNamedItem('name').nodeValue;
-				$A.setAttr(d, 'aria-label', $A.getText(d));
-				c.appendChild(d);
-				dc.tree.node.appendChild(c);
-				dc.tree.childNodes.push(d);
+					if (d.nodeName.toLowerCase() == 'a')
+						$A.setAttr(d, 'href', '#');
+					$A.setAttr(d, 'id', n.attributes.getNamedItem('id').nodeValue);
+					dc.tree.ids.push(d.id);
+
+					var isBranch = false;
+
+					for (var j = 0; j < n.childNodes.length; j++){
+						if (!(n.childNodes[j].nodeType !== 1 || n.childNodes[j].nodeName == '#text'))
+							isBranch = true;
+					}
+
+					if (isBranch)
+						$A.addClass(d, treeClass);
+
+					else
+						$A.addClass(d, treeitemClass);
+					d.innerHTML = '<span>' + n.attributes.getNamedItem('name').nodeValue + '</span>';
+					$A.setAttr(d, 'aria-label', $A.getText(d));
+					c.appendChild(d);
+					dc.tree.node.appendChild(c);
+					dc.tree.childNodes.push(d);
+				}
 			}
+
+			if (dc.tree.ids.length)
+				$A.setAttr(dc.tree.node, 'aria-owns', dc.tree.ids.join(' '));
 		},
 
 		// Function to assign ARIA attributes and event handlers
@@ -71,41 +81,56 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 			for (var i = 0; i < children.length; i++){
 				var l = children[i];
-				$A.setAttr(l, 'role', 'treeitem');
-				$A.setAttr(l, 'aria-setsize', children.length);
-				$A.setAttr(l, 'aria-posinset', i + 1);
-				$A.setAttr(l, 'aria-level', dc.ariaLevel);
+				$A.setAttr(l,
+								{
+								role: 'treeitem',
+								'aria-setsize': children.length,
+								'aria-posinset': i + 1,
+								'aria-level': dc.ariaLevel
+								});
 
-				if (dc.ariaLevel === 1){
+				if (!i && dc.ariaLevel === 1)
 					$A.setAttr(l,
 									{
 									tabindex: '0',
 									'aria-selected': 'true'
 									});
-				}
 
 				else
-					$A.setAttr(l, 'tabindex', '-1');
+					$A.setAttr(l, {
+tabindex: '-1',
+									'aria-selected': 'false'
+});
 
 				if ($A.hasClass(l, folderClass))
 					$A.setAttr(l, 'aria-expanded', 'false');
 				$A.bind(l,
 								{
-								focus: function(ev){
-									if (cur){
-										$A.setAttr(cur, 'aria-selected', 'false');
-										$A.setAttr(cur, 'tabindex', '-1');
-										$A.remClass(cur, 'selected');
+								focustreeitem: function(ev){
+									$A.query('.' + selCls, dc.top.accDCObj, function(i, o){
+										$A.setAttr(o,
+														{
+														'aria-selected': 'false',
+														tabindex: '-1'
+														});
+
+										$A.remClass(o, selCls);
+									});
+
+									if (cur)
 										dc.triggerObj = cur;
-									}
+
 									cur = this;
-									$A.setAttr(cur, 'tabindex', '0');
-									$A.setAttr(cur, 'aria-selected', 'true');
-									$A.addClass(cur, 'selected');
+									$A.addClass(cur, selCls);
+									$A.setAttr(cur,
+													{
+													tabindex: '0',
+													'aria-selected': 'true'
+													}).focus();
 								},
-								click: function(ev){
-									if (!$A.hasClass(this, 'selected'))
-										$A.trigger(this, 'focus');
+								clicktreeitem: function(ev){
+									if (!$A.hasClass(this, selCls))
+										$A.trigger(this, 'focustreeitem');
 
 									else if ($A.hasClass(this, treeClass) && $A.getAttr(this, 'aria-expanded') == 'false'){
 										$A.setAttr(this, 'aria-expanded', 'true');
@@ -118,11 +143,18 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									}
 									ev.preventDefault();
 								},
+								focus: function(ev){
+									if (!$A.hasClass(this, selCls))
+										$A.trigger(this, 'focustreeitem');
+								},
+								click: function(ev){
+									ev.preventDefault();
+									$A.trigger(this, 'clicktreeitem');
+								},
 								keypress: function(ev){
 									var k = ev.which || ev.keyCode;
 
-									// 13 enter
-									if (k == 13){
+									if (k == 13 || k == 32){
 										$A.trigger(this, 'click');
 										ev.preventDefault();
 									}
@@ -143,7 +175,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 															cn = $A.reg[cn[cn.length - 1].id].tree.childNodes;
 
 											if (cn[cn.length - 1] != this)
-												$A.trigger(cn[cn.length - 1], 'focus');
+												$A.trigger(cn[cn.length - 1], 'focustreeitem');
 										}
 
 										else if (k == 36){
@@ -151,7 +183,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 											while (pdc.parent)
 															pdc = pdc.parent;
-											$A.trigger(pdc.tree.childNodes[0], 'focus');
+											$A.trigger(pdc.tree.childNodes[0], 'focustreeitem');
 										}
 
 										else if (k == 37){
@@ -167,7 +199,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												}
 
 												if (go)
-													$A.trigger(go, 'focus');
+													$A.trigger(go, 'focustreeitem');
 											}
 
 											else if ($A.hasClass(this, treeClass) && $A.getAttr(this, 'aria-expanded') == 'true'){
@@ -179,11 +211,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										else if (k == 39){
 											if ($A.hasClass(this, treeClass) && $A.getAttr(this, 'aria-expanded') == 'true'){
 												var n = $A.reg[this.id].tree.childNodes[0];
-												$A.trigger(n, 'focus');
+												$A.trigger(n, 'focustreeitem');
 											}
 
 											else
-												$A.trigger(this, 'click');
+												$A.trigger(this, 'clicktreeitem');
 										}
 
 										else if (k == 38){
@@ -198,7 +230,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												}
 
 												if (go)
-													$A.trigger(go, 'focus');
+													$A.trigger(go, 'focustreeitem');
 											}
 
 											else if (this != children[0]){
@@ -210,7 +242,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												}
 
 												if (t)
-													$A.trigger(t, 'focus');
+													$A.trigger(t, 'focustreeitem');
 											}
 										}
 
@@ -219,14 +251,14 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												var go = $A.reg[this.id].tree.childNodes[0];
 
 												if (go)
-													$A.trigger(go, 'focus');
+													$A.trigger(go, 'focustreeitem');
 											}
 
 											else{
 												var i = $A.inArray(this, children);
 
 												if (i < (children.length - 1))
-													$A.trigger(children[i + 1], 'focus');
+													$A.trigger(children[i + 1], 'focustreeitem');
 
 												else{
 													var id = dc.id, pdc = dc.parent, go = null;
@@ -242,7 +274,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 														}
 
 														if (go){
-															$A.trigger(go, 'focus');
+															$A.trigger(go, 'focustreeitem');
 															break;
 														}
 														id = pdc.id;
@@ -272,8 +304,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									{
 									id: e.id,
 									role: $A.getText(e),
-									trigger: e,
-									bind: 'custom',
 									isStatic: e.parentNode,
 									append: true,
 									runBefore: function(dc){
@@ -284,16 +314,12 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									runAfter: runAfter,
 									ariaLevel: dc.ariaLevel + 1
 									});
-				// Add custom bindings using the "handlers" object
-				$A.bind(e, handlers.bind, function(ev){
-					if (handlers.def && typeof handlers.def === 'function')
-						handlers.def.apply(this,
-										[
-										ev,
-										dc
-										]);
-				});
 			}
+
+			if (config.bind && config.callback && typeof config.callback === 'function')
+				$A.bind(dc.tree.childNodes, config.bind, function(ev){
+					config.callback.apply(this, [ev, dc]);
+				});
 
 // Then register all newly formed AccDC Objects to set recursive functionality
 // Parameters : dc = this as the parent AccDC Object, subTreeObjects = array, overrides = method and property overrides for all AccDC Objects being registered
@@ -328,7 +354,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										dataType: 'text'
 										},
 						hSuccess: function(options, data, textStatus, xhRequest, dc){
-							xmlDoc = str2xml(data);
+							xmlDoc = dc.xmlDocument = str2xml(data);
 							dc.xmlTop = xmlDoc.documentElement;
 							dc.xmlNodes = $A.query(dc.xmlTop.nodeName + ' > *', xmlDoc);
 							createTree(dc);
@@ -364,4 +390,4 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		}
 		return doc;
 	};
-})(window);
+})();

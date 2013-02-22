@@ -67,67 +67,126 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 border: solid thin black;
 }
 
-div.TreeView {
+div.viewport {
+height: 402px;
+overflow: hidden;
 text-align: left;
-padding: 5px 10px;
+}
+
+div.viewport > * {
+float: left;
+}
+
+#container {
+height: 400px;
+width: 250px;
+overflow: auto;
+border: solid thin black;
+}
+
+#map {
+height: 400px;
+width: 58%;
 margin-left: 10px;
+}
+
+*:focus {
+outline: #990000 2px inset;
+}
+
+div.TreeView {
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+margin-left: 10px;
+}
+
+div.tree > div.TreeView {
+margin-left: 0px;
 }
 
 div.TreeView ul {
 list-style: none;
 padding: 0;
 margin: 0;
-border: solid thin black;
 }
 
 div.TreeView ul > li {
-margin: 3px 0px;
+margin: 5px 0px;
 }
 
-div.TreeView ul > li > div {
-font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-background-color: #f5f5f5;
-color: #000000;
-text-decoration: underline;
+div.TreeView ul > li > a > span {
+display: block;
+width: 110px;
 }
 
-div.TreeView ul > li > div.selected {
-background-color: #3A5FCD;
-color: #f5f5f5;
+div.TreeView ul > li > a {
+cursor: pointer;
+display: inline-block;
+text-decoration: none;
+font: bold 12px/12px HelveticaNeue, Arial;
+padding: 4px 8px;
+color: #555;
+border: 1px solid #dedede;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
 }
 
-div.TreeView ul > li > div.branch:after {
+div.TreeView ul > li > a.branch {
+background: #bdbdbd;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cacaca', endColorstr='#aeaeae'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#cacaca), to(#aeaeae)); /* WebKit */
+background: -moz-linear-gradient(top, #cacaca, #aeaeae);
+border-color: #b5b5b5 #a1a1a1 #8f8f8f;
+color: #555;
+text-shadow: 0 1px 0 #d4d4d4;
+-webkit-box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7;
+-moz-box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7;
+box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7; 
+}
+
+div.TreeView ul > li > a.branch[aria-selected="true"] {
+background: #c2c2c2;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcbc', endColorstr='#c2c2c2'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbc), to(#c2c2c2)); /* WebKit */
+background: -moz-linear-gradient(top, #bcbcbc, #c2c2c2);
+border-color: #989898 #8e8e8e #878787;
+text-shadow: 0 1px 0 #dadada;
+-webkit-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+-moz-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc; 
+}
+
+div.TreeView ul > li > a[aria-expanded="false"]:before {
 color: red;
 content: '+';
 }
 
-div.TreeView ul > li > div[aria-expanded=true]:after {
+div.TreeView ul > li > a[aria-expanded="true"]:before {
 color: blue;
 content: '-';
 }
 
-div.viewport {
-height: 402px;
-overflow: hidden;
+div.TreeView ul > li > a.leaf {
+background: #f5f5f5;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f0f0f0'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f0f0f0)); /* WebKit */
+background: -moz-linear-gradient(top, #f9f9f9, #f0f0f0);
+border-color: #dedede #d8d8d8 #d3d3d3;
+color: #555;
+text-shadow: 0 1px 0 #fff;
+-webkit-box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+-moz-box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
 }
 
-#container {
-background-color: #d3d3d3;
-float: left;
-height: 400px;
-width: 30%;
-overflow: auto;
-border: solid thin black;
-}
-
-#map {
-background-color: #d3d3d3;
-float: right;
-height: 400px;
-width: 65%;
-border: solid thin black;
-}
-
-*:focus {
-outline: #990000 2px inset;
+div.TreeView ul > li > a.leaf[aria-selected="true"] {
+background: #f4f4f4;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#f8f8f8'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#f8f8f8)); /* WebKit */
+background: -moz-linear-gradient(top, #efefef, #f8f8f8);
+border-color: #c7c7c7 #c3c3c3 #bebebe;
+text-shadow: 0 1px 0 #fdfdfd;
+-webkit-box-shadow: 0 1px 1px #ebebeb, inset 0 1px 0 #f3f3f3;
+-moz-box-shadow: 0 1px 1px #ebebeb, inset 0 1px 0 #f3f3f3;
+box-shadow: 0 1px 1px #ebebeb, inset 0 1px 0 #f3f3f3;
 }

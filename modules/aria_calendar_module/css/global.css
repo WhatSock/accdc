@@ -163,6 +163,18 @@ text-shadow: 0 1px 0 #d4d4d4;
 box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7;  
 }
 
+td.disabled.selected {
+background: #c2c2c2;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcbc', endColorstr='#c2c2c2'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbc), to(#c2c2c2)); /* WebKit */
+background: -moz-linear-gradient(top, #bcbcbc, #c2c2c2);
+border-color: #989898 #8e8e8e #878787;
+text-shadow: 0 1px 0 #dadada;
+-webkit-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+-moz-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;  
+}
+
 td.comment > span {
 border: solid thin orange;
 }

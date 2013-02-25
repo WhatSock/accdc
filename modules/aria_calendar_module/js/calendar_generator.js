@@ -1,5 +1,5 @@
 /*!
-ARIA Calendar Module R1.3
+ARIA Calendar Module R1.3.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -682,6 +682,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 							if (commentsEnabled && config.editor && config.editor.show)
 								dc.children[1].open();
+
+							$A.bind(window, 'resize.datepicker', function(ev){
+								dc.setPosition();
+							});
 						},
 						tabOut: function(ev, dc){
 							dc.close();
@@ -702,6 +706,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 							if (config.ajax && typeof config.ajax === 'function')
 								dc.lock = dc.ajaxLoading = false;
+
+							$A.unbind(window, 'resize.datepicker');
 						}
 						}
 						]);
@@ -929,6 +935,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							});
 							dc.reset();
 							dc.lock = true;
+
+							$A.bind(window, 'resize.dateeditor', function(ev){
+								dc.setPosition();
+							});
 						},
 						tabOut: function(ev, dc){
 							dc.parent.close();
@@ -936,6 +946,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						runBeforeClose: function(dc){
 							dc.openEditor = false;
 							dc.textarea = null;
+
+							$A.unbind(window, 'resize.dateeditor');
 
 							if (config.ajax && typeof config.ajax === 'function')
 								config.ajax.apply(dc.parent, [dc.parent, true]);

@@ -69,21 +69,16 @@ Accessible Banner
 </div>
 
 <div class="intro tal">
-<button class="banner">Reopen the Accessible Banner</button>
+
+<button onclick="$A.reg[bannerId].open();" class="reloadBtn"> Load Banner </button>
+
 <p>
-Instructions:
+The banner is loaded from an external page using it's ID.
 </p>
-<ul><li>
-Close the banner by moving the mouse in and out of the display area.
-</li><li>
-Screen reader and keyboard only users can close the banner using a dynamically generated close link.
-</li><li>
-The above button will reopen the banner AccDC Object.
-</li><li>
-When opened, the textual content within the banner is announced to screen reader users.
-</li><li>
-The element for the banner is placed at the top of the page as the first content to be encountered during navigation.
-</li></ul>
+<p><pre>
+Activate the Load button to render the banner content.
+Activate the Submit button to close the banner.
+</pre></p>
 </div>
 
 <div class="hd">

@@ -184,18 +184,12 @@ $A(
 								if (links[this.id]){
 									links[this.id] = false;
 									$A.addClass($A.query('dd.detail', getClosest(this, 'dl'))[0], 'hidden');
-									$A.query('small', this, function(){
-										this.innerHTML = '&#9660;';
-									});
 									$A.setAttr(this, 'aria-pressed', 'false');
 								}
 
 								else{
 									links[this.id] = true;
 									$A.remClass($A.query('dd.detail', getClosest(this, 'dl'))[0], 'hidden');
-									$A.query('small', this, function(){
-										this.innerHTML = '&#9650;';
-									});
 									$A.setAttr(this, 'aria-pressed', 'true');
 								}
 								// For AT users, set focus back to the triggering element
@@ -217,9 +211,6 @@ $A(
 
 							for (link in links)
 											links[link] = true;
-							$A.query('dt.heading a small', function(){
-								this.innerHTML = '&#9650;';
-							});
 							"Expanded".announce();
 							ev.preventDefault();
 						});
@@ -237,9 +228,6 @@ $A(
 
 							for (link in links)
 											links[link] = false;
-							$A.query('dt.heading a small', function(){
-								this.innerHTML = '&#9660;';
-							});
 							"Collapsed".announce();
 							ev.preventDefault();
 						});

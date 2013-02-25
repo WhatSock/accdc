@@ -1,7 +1,5 @@
-/*
-CSS styling for WhatSock.com
-Bryan Garaventa, WhatSock
-*/
+@import url("http://fonts.googleapis.com/css?family=Alfa+Slab+One");
+@import url("http://fonts.googleapis.com/css?family=Boogaloo");
 
 .clearfix:after {
 visibility: hidden;
@@ -46,42 +44,47 @@ margin-right: auto;
 text-align: left;
 }
 
+h1, h2, h3, h4, h5, h6 {
+font-size:100%;
+font-weight:normal;
+}
+
 div.hd {
-text-align: left;
-width: 60%;
-margin: 10px auto 10px 20%;
 clear: both;
+padding: 20px 30px 10px 30px;
+margin: 20px 20px 20px 20%;
+position: relative;
+display: block;
+text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+text-align: center;
 }
 
 h1 {
-font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
 font-size: 1.6em;
-text-align: center;
 outline-style: none;
-margin: 0px 0px 20px 0px;
-padding: 10px 0px;
-font-weight: bold;
-background: url("../img/black_metal_b.jpg") #000 repeat;
+font-family: 'Alfa Slab One', 'Arial Narrow', Arial, sans-serif;
+position: relative;
+font-weight: 400;
+color: #483d8b;
+text-shadow: 1px 1px 1px rgba(112,128,144,0.8);
+padding: 0px 0px 5px 0px;
+}
+
+h1 span {
+text-shadow: 0px 1px 1px rgba(112,128,144,0.8);
 }
 
 h2, h3, h4, h5, h6 {
-font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
 font-size: 1.4em;
-margin: 20px 20px 20px 20%;
-padding: 10px 0px;
-text-align: center;
-width: 55%;
 outline-style: none;
-font-weight: bold;
-background: url("../img/black_metal_b.jpg") #000 repeat;
+font-family: 'Boogaloo', 'Arial Narrow', Arial, sans-serif;
+font-style: italic;
+color: #483d8b;
+text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
-h1 span, h2 span {
-background-color: #000000;
-color: #f5f5f5;
--moz-box-shadow: 3px 3px 3px 3px #888;
--webkit-box-shadow: 3px 3px 3px 3px #888;
-box-shadow: 3px 3px 3px 3px #888;
+h2 span {
+text-shadow: 0px 1px 1px rgba(112,128,144,0.8);
 }
 
 div.copyright {
@@ -153,13 +156,14 @@ z-index: 1;
 }
 
 ul.menuList {
-text-align: left;
 list-style: none;
+padding: 0;
+margin: 0;
 }
 
 ul.menuList > li {
 text-align: center;
-height: 45px;
+margin: 10px 0;
 }
 
 .clearLeft, .cl {
@@ -172,7 +176,6 @@ clear: right;
 
 div.topLink {
 padding: 5px;
-border: solid thin black;
 text-align: center;
 position: fixed;
 z-index: 1;
@@ -181,22 +184,31 @@ right: 0px;
 }
 
 ul.menuList a, li.policy a {
-display: block;
-height: 100%;
-width: 100%;
-font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
-font-size: 1.2em;
-background: url("../img/chrome_2.jpg") #fff repeat;
--moz-box-shadow: 3px 3px 3px 3px #888;
--webkit-box-shadow: 3px 3px 3px 3px #888;
-box-shadow: 3px 3px 3px 3px #888;
+display: inline-block;
+text-decoration: none;
+font: bold 12px/12px HelveticaNeue, Arial;
+padding: 8px 11px;
+color: #555;
+border: 1px solid #dedede;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+text-align: center;
+background: #bdbdbd;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cacaca', endColorstr='#aeaeae'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#cacaca), to(#aeaeae)); /* WebKit */
+background: -moz-linear-gradient(top, #cacaca, #aeaeae);
+border-color: #b5b5b5 #a1a1a1 #8f8f8f;
+color: #555;
+text-shadow: 0 1px 0 #d4d4d4;
+-webkit-box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7;
+-moz-box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7;
+box-shadow: 0 1px 1px #c9c9c9, inset 0 1px 0 #d7d7d7; 
 }
 
 ul.menuList a span, li.policy a span {
-position: relative;
-top: 13px;
-background-color: #000000;
-color: #f5f5f5;
+display: block;
+width: 100px;
 }
 
 .fl {
@@ -246,7 +258,32 @@ width: 20%;
 }
 
 a.expand, a.collapse {
-margin: auto 10px;
+display: inline-block;
+text-decoration: none;
+font: bold 12px/12px HelveticaNeue, Arial;
+padding: 8px 11px;
+color: #555;
+border: 1px solid #dedede;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+margin: auto 50px;
+text-align: center;
+background: #a5b8c6;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#becbd6', endColorstr='#88a1b4'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#becbd6), to(#88a1b4)); /* WebKit */
+background: -moz-linear-gradient(top, #becbd6, #88a1b4);
+border-color: #a2afb8 #8696a1 #6f818f;
+color: #515f6a;
+text-shadow: 0 1px 0 #c4d0d9;
+-webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0;
+-moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0;
+box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0; 
+}
+
+a.expand span.lbl, a.collapse span.lbl {
+display: block;
+width: 100px;
 }
 
 dl.api dt.heading {
@@ -263,9 +300,42 @@ dl.api dt.heading {
 overflow: hidden;
 }
 
-dl.api dt.heading > span {
+dl.api dt.heading a.toggle {
+display: inline-block;
+text-decoration: none;
+font: bold 12px/12px HelveticaNeue, Arial;
+padding: 8px 11px;
+color: #555;
+border: 1px solid #dedede;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
 float: left;
-width: 49%;
+text-align: center;
+background: #a5b8c6;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#becbd6', endColorstr='#88a1b4'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#becbd6), to(#88a1b4)); /* WebKit */
+background: -moz-linear-gradient(top, #becbd6, #88a1b4);
+border-color: #a2afb8 #8696a1 #6f818f;
+color: #515f6a;
+text-shadow: 0 1px 0 #c4d0d9;
+-webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0;
+-moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0;
+box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0; 
+}
+
+dl.api dt.heading a.toggle[aria-pressed="true"] {
+background: #adbfcb;
+border-color: #8996a0 #798791 #6c7a85;
+text-shadow: 0 1px 0 #ced9e0;
+-webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #c2cfd8;
+-moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #c2cfd8;
+box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #c2cfd8; 
+}
+
+dl.api dt.heading a.toggle span {
+display: block;
+width: 250px;
 }
 
 dl.api dd.detail li, dl.api dd.detail dt, dl.api dd.detail dd {
@@ -538,11 +608,15 @@ outline: #000099 2px inset;
 }
 
 li.active > a {
-color: #f5f5f5;
-background: url("../img/black_metal_s.jpg") #000 repeat;
-box-shadow: none;
--webkit-box-shadow: none;
--moz-box-shadow: none;
+background: #c2c2c2;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcbc', endColorstr='#c2c2c2'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbc), to(#c2c2c2)); /* WebKit */
+background: -moz-linear-gradient(top, #bcbcbc, #c2c2c2);
+border-color: #989898 #8e8e8e #878787;
+text-shadow: 0 1px 0 #dadada;
+-webkit-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+-moz-box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc;
+box-shadow: 0 1px 1px #cdcdcd, inset 0 1px 0 #ccc; 
 }
 
 #mcAbout {
@@ -595,7 +669,7 @@ div.dndContainer > img.sun {
 margin-top: 32%;
 }
 
-div.dndContainer h3 {
+div.dndContainer .h3 {
 font-size: 1.2em;
 width: auto;
 color: white;
@@ -626,15 +700,14 @@ ul.policies {
 list-style: none;
 margin: 0;
 padding: 0;
-width: 74%;
-margin: auto auto auto 20%;
+width: 80%;
+margin: 20px auto auto 10%;
 }
 
 ul.policies li {
 text-align: center;
 float: left;
 width: 19%;
-height: 45px;
 }
 
 .sraCSS {
@@ -657,7 +730,7 @@ padding: auto;
 border: solid thin black;
 background-color: #f5f5f5;
 height: 1em; 
-width: 1em;  
+width: 1em; 
 overflow: visible;
 }
 

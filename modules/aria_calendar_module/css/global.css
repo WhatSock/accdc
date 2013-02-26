@@ -220,21 +220,33 @@ text-align: left;
 }
 
 div.commentAdd {
-background-color: #000;
-color: #f5f5f5;
+background-color: #778899;
+padding: 5px;
+border: solid 2px black;
 font-size: 0.8em;
 }
 
 div.commentAdd button {
-background-color: #000;
-color: #f5f5f5;
-border: solid thin #f5f5f5;
+font: bold 12px/12px HelveticaNeue, Arial;
+padding: 8px 11px;
+border: 1px solid #dedede;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+background: #525252;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#434343'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#5e5e5e), to(#434343)); /* WebKit */
+background: -moz-linear-gradient(top, #5e5e5e, #434343);
+border-color: #4c4c4c #313131 #1f1f1f;
+color: #fff;
+text-shadow: 0 1px 0 #2e2e2e;
+-webkit-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+-moz-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;  
 }
 
 div.commentAdd textarea {
-width: 250px;
-background-color: #f5f5f5;
-color: #000;
+width: 270px;
 overflow: auto;
 height: 25px;
 word-wrap: break-word;

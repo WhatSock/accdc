@@ -1,5 +1,5 @@
 /*!
-ARIA Calendar Module R1.3.2
+ARIA Calendar Module R1.3.3
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -230,11 +230,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						runBefore: function(dc){
 							if (config.ajax && typeof config.ajax === 'function' && !dc.stopAjax && !dc.ajaxLoading){
 								dc.ajaxLoading = dc.cancel = true;
-								config.ajax.apply(dc,
-												[
-												dc,
-												false
-												]);
+								config.ajax.apply(dc, [dc, false]);
 							}
 
 							if (dc.range.current.month === 1)
@@ -414,12 +410,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												if ($A.hasClass(this, 'selected') || (!commentsEnabled && !$A.hasClass(this, 'comment'))){
 													if ($A.inArray(dc.range.current.mDay, dc.range[dc.range.current.month].disabled[dc.range.current.year]
 														|| dc.range[dc.range.current.month].disabled['*'] || []) === -1){
-														handleClick.apply(this,
-																		[
-																		ev,
-																		dc,
-																		targ
-																		]);
+														handleClick.apply(this, [ev, dc, targ]);
 													}
 												}
 
@@ -433,12 +424,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												if (k == 13){
 													if ($A.inArray(dc.range.current.mDay, dc.range[dc.range.current.month].disabled[dc.range.current.year]
 														|| dc.range[dc.range.current.month].disabled['*'] || []) === -1){
-														handleClick.apply(this,
-																		[
-																		ev,
-																		dc,
-																		targ
-																		]);
+														handleClick.apply(this, [ev, dc, targ]);
 													}
 
 													ev.preventDefault();
@@ -952,6 +938,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 							$A.bind(window, 'resize.dateeditor', function(ev){
 								dc.setPosition();
+								dc.reset();
 							});
 						},
 						tabOut: function(ev, dc){
@@ -964,11 +951,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							$A.unbind(window, 'resize.dateeditor');
 
 							if (config.ajax && typeof config.ajax === 'function')
-								config.ajax.apply(dc.parent,
-												[
-												dc.parent,
-												true
-												]);
+								config.ajax.apply(dc.parent, [dc.parent, true]);
 						},
 						lock: commentsEnabled && config.editor && config.editor.show ? false : true
 						}

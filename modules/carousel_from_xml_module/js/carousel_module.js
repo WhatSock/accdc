@@ -1,17 +1,22 @@
 /*!
-Carousel From XML Module R1.1
+Carousel From XML Module R2.0
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
 
 (function(){
+	$A.setCarousel = function(container, path, autoStart, config){
 
-	var lNavCls = 'lNav', rNavCls = 'rNav', contentCls = 'centerContent', btnTag = 'button', btnCls = 'navButton',
-		btnSlideCls = 'navSlideButton', btnGroupCls = 'navGroupButton', groupNameCls = 'groupName', ariaLevel = 3;
+		// config variables
+		var config = config || {}, lNavCls = config.lNavCls || 'lNav', rNavCls = config.rNavCls || 'rNav',
+			contentCls = config.contentCls || 'centerContent', btnTag = config.btnTag || 'button',
+			btnCls = config.btnCls || 'navButton', btnSlideCls = config.btnSlideCls || 'navSlideButton',
+			btnGroupCls = config.btnGroupCls || 'navGroupButton', groupNameCls = config.groupNameCls || 'groupName',
+			ariaLevel = config.ariaLevel || 3,
 
-	$A.setCarousel = function(container, path, autoStart, handlers){
-		var xml = null, track = {}, bId = container.id || 'l' + $A.genId(), announce = {}, tmp = $A.createEl('div'),
-			handlers = handlers || {}, paused = loading = false;
+		// Internal variables
+		xml = null, track = {}, bId = container.id || 'l' + $A.genId(), announce = {}, tmp = $A.createEl('div'),
+			handlers = config.handlers || {}, paused = loading = false;
 		$A.load(tmp, path, function(data){
 			xml = str2xml(data);
 			var attrs =
@@ -49,11 +54,17 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				}
 			});
 			var lDiv = $A.createEl('div', null, null, lNavCls), rDiv = $A.createEl('div', null, null, rNavCls),
-				cDiv = $A.createEl('div', null, null, contentCls), btnAttrs = btnTag != 'button' ?
-							{
-							tabindex: 0,
-							role: 'button'
-							} : null, btnP = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnSlideCls),
+				cDiv = $A.createEl('div', null, null, contentCls), btnAttrs = {};
+
+			if (btnTag == 'a')
+				btnAttrs.href = '#';
+
+			if (btnTag != 'a' && btnTag != 'button')
+				btnAttrs.tabindex = '0';
+
+			if (btnTag != 'button')
+				btnAttrs.role = 'button';
+			var btnP = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnSlideCls),
 				btnN = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnSlideCls),
 				btnPG = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnGroupCls),
 				btnNG = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnGroupCls), pDiv = $A.createEl('div', null,

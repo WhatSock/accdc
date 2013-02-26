@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<carousel role="Carousel" accStart="Start" accEnd="End" height="170" width="230" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="Group" showGroup="yes" groupPosTop="yes" btnPText="&#8592;" btnNText="&#8594;" btnPGText="&#8656;" btnNGText="&#8658;" isGrouped="yes" btnPAccesskey="1" btnNAccesskey="2" btnPGAccesskey="3" btnNGAccesskey="4" direction="lr" cycle="yes" timer="5000" animDelay="2000" forward="yes" hiddenMsg="Press Escape to stop automatic cycling" >
+<carousel role="Carousel" accStart="Start" accEnd="End" height="170" width="255" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="Group" showGroup="yes" groupPosTop="yes" btnPText="&#8592;" btnNText="&#8594;" btnPGText="&#8656;" btnNGText="&#8658;" isGrouped="yes" btnPAccesskey="1" btnNAccesskey="2" btnPGAccesskey="3" btnNGAccesskey="4" direction="lr" cycle="yes" timer="5000" animDelay="2000" forward="yes" hiddenMsg="Press Escape to stop automatic cycling" >
 <group name="Alternative Rock" >
 <slide announce="Emiliana Torrini - Love in the Time of Science" ><![CDATA[
 <img src="img/music/ar_et_lts.jpg" alt="Emiliana Torrini - Love in the Time of Science" title="Emiliana Torrini - Love in the Time of Science" />

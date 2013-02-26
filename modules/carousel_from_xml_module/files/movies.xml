@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<carousel role="Slideshow" accStart="Start" accEnd="End" height="480" width="330" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="" showGroup="no" groupPosTop="" btnPText="&#8593;" btnNText="&#8595;" btnPGText="" btnNGText="" isGrouped="no" btnPAccesskey="p" btnNAccesskey="f" btnPGAccesskey="" btnNGAccesskey="" direction="tb" cycle="no" timer="0" animDelay="2000" forward="yes" hiddenMsg="" >
+<carousel role="Slideshow" accStart="Start" accEnd="End" height="480" width="350" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="" showGroup="no" groupPosTop="" btnPText="&#8593;" btnNText="&#8595;" btnPGText="" btnNGText="" isGrouped="no" btnPAccesskey="p" btnNAccesskey="f" btnPGAccesskey="" btnNGAccesskey="" direction="tb" cycle="no" timer="0" animDelay="2000" forward="yes" hiddenMsg="" >
 <slide announce="The Crow" ><![CDATA[
 <img src="img/movies/the_crow.gif" alt="The Crow" title="The Crow" />
 ]]></slide>

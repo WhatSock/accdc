@@ -1,58 +1,66 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <carousel role="Carousel" accStart="Start" accEnd="End" height="400" width="750" className="carouselCls" prevTitle="Previous" nextTitle="Next" slideName="Slide" groupName="" showGroup="" groupPosTop="" btnPText="&#8592;" btnNText="&#8594;" btnPGText="" btnNGText="" isGrouped="no" btnPAccesskey="p" btnNAccesskey="n" btnPGAccesskey="" btnNGAccesskey="" direction="lr" cycle="yes" timer="7000" animDelay="2000" forward="yes" hiddenMsg="Press Escape to stop automatic cycling" >
-<slide announce="Automatically accessible Accordion Control" ><![CDATA[
-<a href="modules/aria_accordion_module/demo.htm">
-<img src="img/slides/accordion.jpg" alt="Automatically accessible Accordion Control" title="Automatically accessible Accordion Control" />
-</a>
+<slide announce="A scalable ARIA Date Picker control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/aria_date_picker.jpg"
+alt="A scalable ARIA Date Picker control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable ARIA Date Picker control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Auto Suggest Search Field" ><![CDATA[
-<a href="modules/auto_suggestion_search_field_module/demo.htm">
-<img src="img/slides/auto_suggest.jpg" alt="Automatically accessible Auto Suggest Search Field" title="Automatically accessible Auto Suggest Search Field" />
-</a>
+<slide announce="A scalable ARIA Flyout Menu control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/aria_flyout_menus.jpg"
+alt="A scalable ARIA Flyout Menu control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable ARIA Flyout Menu control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Calendar Picker Control" ><![CDATA[
-<a href="modules/aria_calendar_module/demo.htm">
-<img src="img/slides/calendar.jpg" alt="Automatically accessible Calendar Picker Control" title="Automatically accessible Calendar Picker Control" />
-</a>
+<slide announce="A scalable ARIA Tree control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/aria_tree.jpg"
+alt="A scalable ARIA Tree control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable ARIA Tree control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Carousel and Wizard Generator" ><![CDATA[
-<a href="modules/carousel_from_xml_module/demo.htm">
-<img src="img/slides/carousel.jpg" alt="Automatically accessible Carousel and Wizard Generator" title="Automatically accessible Carousel and Wizard Generator" />
-</a>
+<slide announce="A scalable Banner control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/banner.jpg"
+alt="A scalable Banner control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable Banner control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Live Chat Control" ><![CDATA[
-<a href="modules/accessible_chat_dialog_module/demo.htm">
-<img src="img/slides/chat.jpg" alt="Automatically accessible Live Chat Control" title="Automatically accessible Live Chat Control" />
-</a>
+<slide announce="A scalable Carousel control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/carousel.jpg"
+alt="A scalable Carousel control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable Carousel control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Drag and Drop Control" ><![CDATA[
-<a href="modules/css_drag_drop_module/demo.htm">
-<img src="img/slides/dnd.jpg" alt="Automatically accessible Drag and Drop Control" title="Automatically accessible Drag and Drop Control" />
-</a>
+<slide announce="A scalable ARIA Slider control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/horizontal_aria_slider.jpg"
+alt="A scalable ARIA Slider control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable ARIA Slider control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Footnote Generator" ><![CDATA[
-<a href="modules/aria_footnote_generator_module/demo.htm">
-<img src="img/slides/footnotes.jpg" alt="Automatically accessible Footnote Generator" title="Automatically accessible Footnote Generator" />
-</a>
+<slide announce="Scalable Inline Error and Dynamic Help Tooltip controls that are fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/inline_error_handling.jpg"
+alt="Scalable Inline Error and Dynamic Help Tooltip controls that are fully accessible to both screen reader and keyboard only users"
+title="Scalable Inline Error and Dynamic Help Tooltip controls that are fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Slider Control" ><![CDATA[
-<a href="modules/aria_slider_module/demo.htm">
-<img src="img/slides/slider.jpg" alt="Automatically accessible Slider Control" title="Automatically accessible Slider Control" />
-</a>
+<slide announce="A scalable ARIA Listbox control that is fully accessible to both screen reader and keyboard only users" ><![CDATA[
+<img
+src="img/slides/multiselect_aria_listbox.jpg"
+alt="A scalable ARIA Listbox control that is fully accessible to both screen reader and keyboard only users"
+title="A scalable ARIA Listbox control that is fully accessible to both screen reader and keyboard only users"
+/>
 ]]></slide>
-<slide announce="Automatically accessible Sortable Listbox Control" ><![CDATA[
-<a href="modules/aria_sortable_listbox_module/demo.htm">
-<img src="img/slides/sort.jpg" alt="Automatically accessible Sortable Listbox Control" title="Automatically accessible Sortable Listbox Control" />
-</a>
-]]></slide>
-<slide announce="Automatically accessible Tab and Menu controls" ><![CDATA[
-<a href="modules/aria_tabs_menu_modules/demo.htm">
-<img src="img/slides/tabs.jpg" alt="Automatically accessible Tab and Menu controls" title="Automatically accessible Tab and Menu controls" />
-</a>
-]]></slide>
-<slide announce="Automatically accessible Tree Control Generator" ><![CDATA[
-<a href="modules/aria_tree_from_xml_module/demo.htm">
-<img src="img/slides/tree.jpg" alt="Automatically accessible Tree Control Generator" title="Automatically accessible Tree Control Generator" />
-</a>
+<slide announce="A scalable Scrollable Div control that is fully accessible to keyboard only users" ><![CDATA[
+<img
+src="img/slides/scrollable_div.jpg"
+alt="A scalable Scrollable Div control that is fully accessible to keyboard only users"
+title="A scalable Scrollable Div control that is fully accessible to keyboard only users"
+/>
 ]]></slide>
 </carousel>

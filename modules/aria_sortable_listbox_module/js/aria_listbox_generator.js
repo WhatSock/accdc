@@ -1,5 +1,5 @@
 /*!
-ARIA Listbox Generator Module R1.2.3
+ARIA Listbox Generator Module R2.0
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -13,10 +13,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			dropMsg = config.dropMsg || 'Moved', cancelDrop = config.cancelDrop || 'Grab canceled', isArray = function(v){
 			return v && typeof v === 'object'
 				&& typeof v.length === 'number' && typeof v.splice === 'function' && !(v.propertyIsEnumerable('length'));
-		}, list = typeof list === 'string' ? $A.getEl(list) : list, that = this, track = {}, toggle = {}, max = 0,
-			selected = config.isMultiselect ? [] : '', select = function(i, f){
+		}, list = typeof list === 'string' ? $A.getEl(list) : list, that = this;
+		that.index = isNaN(config.defaultIndex) ? 0 : config.defaultIndex;
+		var track = {}, toggle = {}, max = 0, selected = config.isMultiselect ? [] : '', select = function(i, f){
 			if (i != that.index || f)
-				$A.query('#' + list.id + ' > *', function(j, o){
+				$A.query('#' + list.id + ' > li > a', function(j, o){
 					$A.setAttr(o,
 									{
 									tabindex: '-1',
@@ -46,7 +47,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 				if (config.callback && typeof config.callback === 'function')
 					setTimeout(function(){
-						config.callback.apply(that, [that.options[i], that.options]);
+						config.callback.apply(that,
+										[
+										that.options[i],
+										that.options
+										]);
 					}, 1);
 			}
 		}, updateChecked = function(){
@@ -57,7 +62,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					selected.push(id);
 			}
 		}, grabbed = '', grab = function(){
-			$A.query('#' + list.id + ' > *', function(i, o){
+			$A.query('#' + list.id + ' > li > a', function(i, o){
 				$A.remAttr(o, 'aria-grabbed');
 				$A.setAttr(o, 'aria-dropeffect', 'move');
 			});
@@ -67,13 +72,13 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			select(track[grabbed]);
 			$A.announce(grabMsg);
 		}, drop = function(c){
-			$A.query('#' + list.id + ' > *', function(i, o){
+			$A.query('#' + list.id + ' > li > a', function(i, o){
 				$A.remAttr(o, 'aria-dropeffect');
 				$A.setAttr(o, 'aria-grabbed', 'false');
 			});
 
 			if (!c){
-				list.insertBefore(that.options[track[grabbed]], that.options[that.index]);
+				list.insertBefore(that.options[track[grabbed]].parentNode, that.options[that.index].parentNode);
 				setOptions(true);
 				$A.announce(dropMsg);
 			}
@@ -84,14 +89,17 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			grabbed = '';
 			select(c ? that.index : track[g], c ? false : true);
 		}, add = function(o){
+			if (!that.options.length)
+				that.empty = true;
+
 			if (o){
 				var isA = isArray(o), a = isA ? o : [o];
 
 				for (var b = 0; b < a.length; b++){
-					var o = a[b];
+					var o = a[b], li = $A.createEl('li');
 
 					if (!o || o.nodeType !== 1 || !o.id){
-						alert('The new item must be a valid DOM node with a unique ID attribute value');
+						// alert('The new item must be a valid DOM node with a unique ID attribute value');
 						return;
 					}
 					$A.setAttr(o,
@@ -105,7 +113,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 					if (config.isSortable || config.isMultiselect)
 						$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
-					list.appendChild(o);
+
+					li.appendChild(o);
+					list.appendChild(li);
+
 					setBindings(o);
 				}
 				setOptions(true);
@@ -117,7 +128,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				for (var b = 0; b < a.length; b++){
 					var r = that.options[a[b]];
 					$A.unbind(r, '.arialistbox');
-					ret.push(list.removeChild(r));
+					var pn = r.parentNode;
+					ret.push(pn.removeChild(r));
+					list.removeChild(pn);
 				}
 
 				setOptions(true);
@@ -153,7 +166,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					if (config.isSortable)
 						$A.announce(grabbed ? dropInstruct : grabInstruct, true);
 				});
-			$A.bind(o || '#' + list.id + ' > *',
+			$A.bind(o || '#' + list.id + ' > li > a',
 							{
 							'click.arialistbox': function(ev){
 								if (config.isSortable){
@@ -219,7 +232,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			track = [];
 			toggle = [];
 			max = 0;
-			that.options = $A.query('#' + list.id + ' > *', function(i, o){
+			var ids = [];
+			that.options = $A.query('#' + list.id + ' > li > a', function(i, o){
 				track[o.id] = i;
 
 				if (config.isMultiselect)
@@ -239,13 +253,21 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 				if (!s && (config.isSortable || config.isMultiselect))
 					$A.setAttr(o, config.isSortable ? 'aria-grabbed' : 'aria-checked', 'false');
+
+				if (o.id)
+					ids.push(o.id);
 			});
-			$A.query('#' + list.id + ' > *', function(i, o){
+
+			if (ids.length)
+				$A.setAttr(list, 'aria-owns', ids.join(' '));
+
+			$A.query('#' + list.id + ' > li > a', function(i, o){
 				$A.setAttr(o, 'aria-setsize', max + 1);
 			});
 
-			if (that.options.length === 1)
+			if (that.options.length === 1 || (that.empty && that.options.length > 0))
 				select(0);
+			that.empty = false;
 		};
 
 		if (config.label)
@@ -291,6 +313,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		that.activate = activate;
 		that.grabbed = grabbed;
 		that.container = list;
-		that.val(config.defaultIndex || 0);
+		that.val(that.index);
 	};
 })();

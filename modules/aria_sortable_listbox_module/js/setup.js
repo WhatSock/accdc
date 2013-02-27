@@ -38,8 +38,13 @@ $A.bind(window, 'load', function(){
 						});
 	}, enableSort = function(s){
 		var list = $A.getEl('things');
-		$A.setAttr(list, 'role', 'listbox');
-		$A.query('#' + list.id + ' > *', function(i, o){
+		$A.setAttr(list,
+						{
+						role: 'listbox'
+						});
+
+		$A.addClass(list, 'listbox');
+		$A.query('#' + list.id + ' > li > a', function(i, o){
 			$A.setAttr(o,
 							{
 							id: list.id + '-' + i,
@@ -70,11 +75,10 @@ $A.bind(window, 'load', function(){
 								});
 						},
 						isSortable: true,
-						isMultiselect: false,
 						allowDelete: true
 						});
 
-		// Set additional handlers on all listbox option elements (li tags)
+		// Set additional handlers on all listbox option elements (A tags)
 		setBindings();
 
 		// Set focus to the first listbox option
@@ -87,7 +91,7 @@ $A.bind(window, 'load', function(){
 						x.push(list.attributes[n].name);
 		$A.remAttr(list, x);
 		list.id = id;
-		$A.query('#' + list.id + ' > *', function(i, o){
+		$A.query('#' + list.id + ' > li > a', function(i, o){
 			var a = [];
 
 			for (n in o.attributes)
@@ -118,25 +122,23 @@ $A.bind(window, 'load', function(){
 		else
 			$A.remClass(o, 'pressed');
 	}, add = function(){
-		var f1 = $A.getEl('f1'), f1str = f1.value.replace(/<|>/g, ''), li = $A.createEl('li');
+		var f1 = $A.getEl('f1'), f1str = f1.value.replace(/<|>/g, ''), aTag = $A.createEl('a');
 
 		if (!f1str)
 			return;
 
-		li.appendChild($A.createEl('span', null, null, null, document.createTextNode(f1str)));
+		aTag.appendChild($A.createEl('span', null, null, null, document.createTextNode(f1str)));
 
 		if (sort){
-			li.id = lb.container.id + '-' + lb.options.length;
-			lb.add(li);
+			aTag.id = lb.container.id + '-' + lb.options.length;
+			lb.add(aTag);
 			lb.val(lb.options.length - 1);
-			// Set additional handlers on the new LI tag
-			setBindings(li);
+			// Set additional handlers on the new listbox item
+			setBindings(aTag);
 		}
 
-		else{
-			$A.getEl('things').appendChild(li);
-			li.scrollIntoView();
-		}
+		else
+			$A.getEl('things').appendChild($A.createEl('li', null, null, null, aTag));
 		f1.value = '';
 		f1.focus();
 		$A.announce(f1str + ' has been added');

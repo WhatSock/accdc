@@ -1,5 +1,5 @@
 /*!
-Carousel From XML Module R2.0
+Carousel From XML Module R2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -70,7 +70,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				btnNG = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnGroupCls), pDiv = $A.createEl('div', null,
 							{
 							position: 'relative'
-							}), bDiv = $A.createEl('div', null,
+							}, 'clearfix'), bDiv = $A.createEl('div', null,
 							{
 							position: 'relative',
 							overflow: 'hidden',
@@ -95,8 +95,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 			btnN.appendChild($A.createEl('span', null, $A.sraCSS, null,
 				document.createTextNode(vals.nextTitle + ' ' + vals.slideName)));
-
-			$A.addClass([container, lDiv, rDiv, cDiv], 'clearfix');
 
 			pDiv.appendChild(lDiv);
 			pDiv.appendChild(cDiv);

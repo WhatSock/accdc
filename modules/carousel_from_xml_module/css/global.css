@@ -98,10 +98,22 @@ text-align: center;
 }
 
 #carouselId div.lNav, #carouselId div.rNav {
+position: absolute;
 height: 158px;
-position: relative;
-float: left;
 padding: 6px;
+}
+
+#carouselId div.centerContent {
+position: absolute;
+left: 50px;
+width: 165px;
+height: 170px;
+overflow: hidden;
+border: solid thin black;
+}
+
+#carouselId div.rNav {
+left: 227px;
 }
 
 #carouselId .navButton {
@@ -140,14 +152,6 @@ margin-top: 80px;
 margin-top: 10px;
 }
 
-#carouselId div.centerContent {
-width: 165px;
-height: 170px;
-float: left;
-overflow: hidden;
-border: solid thin black;
-}
-
 #carouselId div.groupName {
 position: absolute;
 z-index: 1;
@@ -174,10 +178,22 @@ text-align: center;
 }
 
 #slideshowId div.lNav, #slideshowId div.rNav {
+position: absolute;
 height: 468px;
-position: relative;
-float: left;
 padding: 6px;
+}
+
+#slideshowId div.centerContent {
+position: absolute;
+left: 50px;
+width: 265px;
+height: 480px;
+overflow: hidden;
+border: solid thin black;
+}
+
+#slideshowId div.rNav {
+left: 327px;
 }
 
 #slideshowId .navButton {
@@ -212,14 +228,6 @@ box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #ced8e0;
 margin-top: 438px;
 }
 
-#slideshowId div.centerContent {
-width: 265px;
-height: 480px;
-float: left;
-overflow: hidden;
-border: solid thin black;
-}
-
 /*
 Styling for the Dynamic Wizard
 */
@@ -233,11 +241,21 @@ text-align: left;
 }
 
 div.wizardCls div.lNav, div.wizardCls div.rNav {
-text-align: center;
+position: absolute;
 height: 130px;
-float: left;
-position: relative;
 padding: 6px;
+}
+
+div.wizardCls div.centerContent {
+position: absolute;
+left: 60px;
+width: 695px;
+height: 130px;
+overflow: hidden;
+}
+
+div.wizardCls div.rNav {
+left: 765px;
 }
 
 div.wizardCls .navButton {
@@ -266,13 +284,6 @@ text-shadow: 0 1px 0 #b6e6f9;
 -webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
 -moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
 box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;  
-}
-
-div.wizardCls div.centerContent {
-width: 695px;
-height: 130px;
-float: left;
-overflow: hidden;
 }
 
 div.wizardCls form {

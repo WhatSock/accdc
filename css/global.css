@@ -734,6 +734,11 @@ width: 1em;
 overflow: visible;
 }
 
+div.slides {
+display: block;
+height: 400px;
+}
+
 div.slides div.carouselCls {
 text-align: center;
 }

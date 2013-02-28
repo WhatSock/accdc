@@ -1,5 +1,5 @@
 /*!
-Carousel From XML Module R2.1
+Carousel From XML Module R2.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -70,7 +70,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				btnNG = $A.createEl(btnTag, btnAttrs, null, btnCls + ' ' + btnGroupCls), pDiv = $A.createEl('div', null,
 							{
 							position: 'relative'
-							}, 'clearfix'), bDiv = $A.createEl('div', null,
+							}, 'parentDivCls'), bDiv = $A.createEl('div', null,
 							{
 							position: 'relative',
 							overflow: 'hidden',
@@ -500,10 +500,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												click: function(ev){
 													dc.pSlide.apply(this, [ev, dc]);
 												},
-												keydown: function(ev){
+												keypress: function(ev){
 													var k = ev.which || ev.keyCode;
 
-													if (k == 13){
+													if (k == 13 || k == 32){
+														ev.preventDefault();
 														dc.pSlide.apply(this, [ev, dc]);
 													}
 												}
@@ -514,10 +515,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 												click: function(ev){
 													dc.nSlide.apply(this, [ev, dc]);
 												},
-												keydown: function(ev){
+												keypress: function(ev){
 													var k = ev.which || ev.keyCode;
 
-													if (k == 13){
+													if (k == 13 || k == 32){
+														ev.preventDefault();
 														dc.nSlide.apply(this, [ev, dc]);
 													}
 												}
@@ -529,10 +531,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 													click: function(ev){
 														dc.pGroup.apply(this, [ev, dc]);
 													},
-													keydown: function(ev){
+													keypress: function(ev){
 														var k = ev.which || ev.keyCode;
 
-														if (k == 13){
+														if (k == 13 || k == 32){
+															ev.preventDefault();
 															dc.pGroup.apply(this, [ev, dc]);
 														}
 													}
@@ -543,10 +546,11 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 													click: function(ev){
 														dc.nGroup.apply(this, [ev, dc]);
 													},
-													keydown: function(ev){
+													keypress: function(ev){
 														var k = ev.which || ev.keyCode;
 
-														if (k == 13){
+														if (k == 13 || k == 32){
+															ev.preventDefault();
 															dc.nGroup.apply(this, [ev, dc]);
 														}
 													}
@@ -554,12 +558,13 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								}
 
 								if (vals.timer > 0){
-									$A.bind('body', 'keydown.' + bId, function(ev){
+									$A.bind('body', 'keypress.' + bId, function(ev){
 										var k = ev.which || ev.keyCode;
 
-										if (k == 27){
+										if (k == 27 && !paused){
 											paused = true;
 											vals.timer = 0;
+											ev.preventDefault();
 										}
 									});
 									firstChild(dc.accDCObj).appendChild($A.createEl('div', null, dc.sraCSS, null,

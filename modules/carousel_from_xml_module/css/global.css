@@ -93,6 +93,11 @@ text-align: center;
 Styling for the Auto Rotating Carousel
 */
 
+#carouselId {
+display: block;
+height: 170px;
+}
+
 #carouselId div.carouselCls {
 text-align: center;
 }
@@ -173,6 +178,11 @@ text-shadow: 0px 1px 1px rgba(112,128,144,0.8);
 Styling for the Static Slideshow
 */
 
+#slideshowId {
+display: block;
+height: 480px;
+}
+
 #slideshowId div.carouselCls {
 text-align: center;
 }
@@ -233,6 +243,8 @@ Styling for the Dynamic Wizard
 */
 
 div.wizardCls {
+display: block;
+height: 130px;
 background-color: #778899;
 }
 
@@ -242,7 +254,7 @@ text-align: left;
 
 div.wizardCls div.lNav, div.wizardCls div.rNav {
 position: absolute;
-height: 130px;
+height: 118px;
 padding: 6px;
 }
 

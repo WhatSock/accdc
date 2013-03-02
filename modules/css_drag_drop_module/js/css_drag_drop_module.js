@@ -1,5 +1,5 @@
 /*!
-CSS Drag and Drop Module R1.0
+CSS Drag and Drop Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -30,6 +30,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							showHiddenBounds: false,
 							// Prevent the AccDC Object from being closed by screen reader users
 							showHiddenClose: false,
+// Save a reference to the original object
+original: obj,
 							// Enable draggability
 							isDraggable: true,
 							// Configure additional drag options
@@ -49,10 +51,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 											// Apply hidden drag and drop link styles
 											dragLinkStyle: ddCSS,
 											dropLinkStyle: ddCSS,
+
+dragClassName: config.dragClassName || '',
+dropClassName: config.dropClassName || '',
+
 											// Optionally set a custom insertion point where drop links will be inserted into the DOM
 											dropAnchor: config.dropAnchor || '',
 											// Set the drop animation time length
 											duration: config.duration || 1000
+
 											},
 							// Set drag and drop event handlers
 							onDragStart: config.on.dragStart,

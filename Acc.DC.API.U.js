@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.3 (01/24/2013)
+AccDC API - 2.0.3 (03/02/2013)
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -5634,7 +5634,7 @@ String.announce.lastMsg = String.announce.alertMsgs[0];
 String.announce.placeHolder.innerHTML = String.announce.alertMsgs[0];
 }
 String.announce.alertTO = setTimeout(function(){
-String.announce.placeHolder.innerHTML = '';
+//String.announce.placeHolder.innerHTML = '';
 String.announce.alertMsgs.shift();
 if (String.announce.alertMsgs.length >= 1)
 announce(String.announce.alertMsgs[0], true);
@@ -5664,9 +5664,9 @@ return iCount;
 $A.bind(window, 'load', function(){
 if (!String.announce.placeHolder){
 String.announce.placeHolder = createEl('span', {
-role: 'status',
-'aria-live': 'polite',
-'aria-relevant': 'all'
+//role: 'status',
+'aria-live': 'polite'
+//'aria-relevant': 'all'
 }, sraCSS);
 pL('body').append(String.announce.placeHolder);
 }

@@ -1,5 +1,5 @@
 /*!
-Carousel From XML Module R2.2
+Carousel From XML Module R2.2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -498,6 +498,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								$A.bind(btnP,
 												{
 												click: function(ev){
+													ev.preventDefault();
 													dc.pSlide.apply(this, [ev, dc]);
 												},
 												keypress: function(ev){
@@ -513,6 +514,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								$A.bind(btnN,
 												{
 												click: function(ev){
+													ev.preventDefault();
 													dc.nSlide.apply(this, [ev, dc]);
 												},
 												keypress: function(ev){
@@ -529,6 +531,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									$A.bind(btnPG,
 													{
 													click: function(ev){
+														ev.preventDefault();
 														dc.pGroup.apply(this, [ev, dc]);
 													},
 													keypress: function(ev){
@@ -544,6 +547,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									$A.bind(btnNG,
 													{
 													click: function(ev){
+														ev.preventDefault();
 														dc.nGroup.apply(this, [ev, dc]);
 													},
 													keypress: function(ev){

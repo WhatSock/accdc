@@ -60,12 +60,12 @@ overflow: hidden;
 text-align: left;
 }
 
-div.content, #fns {
+div.content, #footnotes {
 color: #191970;
 }
 
-#fnsDil {
-border-bottom: solid thin black;
+#footnotesDil {
+border-bottom: solid 4px black;
 width: 50%;
 height: 5px;
 }
@@ -74,27 +74,18 @@ i {
 font-size: 0.9em;
 }
 
-sup, .fnIndex {
-font-weight: bold;
+.accFootnote {
+color: #515f6a;
+text-shadow: 0 1px 0 #c4d0d9;
 }
 
-.footnote {
-background-color: #add8e6;
-cursor: pointer;
-}
-
-.footnote:focus {
-outline: #5f9ea0 2px inset;
-}
-
-.screenReading {
-position: absolute;
-clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-clip: rect(1px, 1px, 1px, 1px);
-padding: 0;
-border: 0;
-height: 1px; 
-width: 1px; 
-overflow: hidden;
-z-index: -1000;
+.accFootnote a, .footnote a {
+text-decoration: none;
+font-size: 0.8em;
+background: #fecc5f;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feda71', endColorstr='#febb4a'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#feda71), to(#febb4a)); /* WebKit */
+background: -moz-linear-gradient(top, #feda71, #febb4a);
+color: #996633;
+text-shadow: 0 1px 0 #fedd9b;
 }

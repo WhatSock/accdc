@@ -1,5 +1,5 @@
 /*!
-Form Field Validator R1.0
+Form Field Validator R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -59,11 +59,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							focusin: function(ev){
 								if (f.helpText){
 									var dc = $A.reg[id];
-									track[id] = f.validate.apply(this,
-													[
-													ev,
-													dc
-													]);
+									track[id] = f.validate.apply(this, [ev, dc]);
 
 									if (!track[id]){
 										if (f.togglePassed)
@@ -76,11 +72,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							},
 							focusout: function(ev){
 								var dc = $A.reg[id];
-								track[id] = f.validate.apply(this,
-												[
-												ev,
-												dc
-												]);
+								track[id] = f.validate.apply(this, [ev, dc]);
 
 								if (f.helpText){
 									dc.close();
@@ -120,11 +112,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					if (str !== this.value){
 						str = this.value;
 						var dc = $A.reg[this.id];
-						track[this.id] = f.validate.apply(this,
-										[
-										ev,
-										dc
-										]);
+						track[this.id] = f.validate.apply(this, [ev, dc]);
 
 						if (f.togglePassed){
 							if (!track[this.id])
@@ -144,11 +132,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.query(rFields, function(i, o){
 				var t = o.id;
 
-				track[t] = fields[t].validate.apply(o,
-								[
-								ev,
-								$A.reg[t]
-								]);
+				track[t] = fields[t].validate.apply(o, [ev, $A.reg[t]]);
 
 				if (!track[t])
 					v.push(t);
@@ -163,12 +147,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				ev.preventDefault();
 			}
 
-			else
-				return typeof submitFN === 'function' ? submitFN.apply(this,
-								[
-								ev,
-								rFields
-								]) : true;
+			else if (submitFn && typeof submitFn === 'function')
+				submitFn.apply(this, [ev, rFields]);
 		});
 	};
 })();

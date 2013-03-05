@@ -1,5 +1,5 @@
 /*!
-Modal Module R1.0
+Modal Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -40,24 +40,50 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						accClose: 'Close',
 						// Fix the visual positioning to the middle center of the viewport
 						autoFix: 9,
-						// Configure inline styling
+						allowCascade: true,
+
 						// Run script while the AccDC Object loads
 						runDuring: function(dc){
 							$A.query('body > *', function(){
 								$A.setAttr(this, 'aria-hidden', 'true');
 							});
 							$A.addClass(dc.containerDiv, 'containerDiv');
-							// Assign a temporary top level focusIn handler to check for circular tabbing
-							$A.bind('body', 'focusin.modal', function(ev){
+							dc.firstField = $A.query('*[data-first="true"]', dc.containerDiv)[0];
+							dc.lastField = $A.query('*[data-last="true"]', dc.containerDiv)[0];
+						},
+
+						// Run script after the AccDC Object finishes loading
+						runAfter: function(dc){
+							$A.bind(window, 'resize.accmodal', function(ev){
+								if (dc.autoFix)
+									dc.applyFix();
+
+								else if (dc.autoPosition)
+									dc.setPosition();
+							});
+							$A.bind('body', 'focusin.accmodal', function(ev){
 								if (dc.tempFocus)
 									dc.tempFocus = null;
 
 								else if (dc.lastField)
 									dc.lastField.focus();
 							});
-							dc.firstField = $A.query('*[data-first="true"]', dc.containerDiv)[0];
-							dc.lastField = $A.query('*[data-last="true"]', dc.containerDiv)[0];
 						},
+
+						// Run script before the AccDC Object closes
+						runBeforeClose: function(dc){
+							$A.query('body > *', function(){
+								$A.setAttr(this, 'aria-hidden', 'false');
+								$A.remAttr(this, 'aria-hidden');
+							});
+						},
+
+						// Run script after the AccDC Object finishes closing
+						runAfterClose: function(dc){
+							$A.unbind(window, '.accmodal');
+							$A.unbind('body', '.accmodal');
+						},
+
 						// Set a localized focusIn handler on the AccDC Object to control circular tabbing
 						focusIn: function(ev, dc){
 // dc.tempFocus will bubble up to the body focusIn handler to verify if focus is still within the AccDC Object or not
@@ -75,15 +101,6 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							// If Escape is pressed, close the modal
 							if (k == 27)
 								dc.close();
-						},
-						// Run script before the AccDC Object closes
-						runBeforeClose: function(dc){
-							$A.query('body > *', function(){
-								$A.setAttr(this, 'aria-hidden', 'false');
-								$A.remAttr(this, 'aria-hidden');
-							});
-							// Remove the temporary focusIn handler from the body tag
-							$A.unbind('body', '.modal');
 						},
 // Set the className for the close link, must match the className for any other close links in the rendered content
 // AccDC Object close functionality is automatically configured

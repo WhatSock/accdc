@@ -37,10 +37,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										{
 										position: 'absolute'
 										},
+						allowCascade: true,
 						runDuring: function(dc){
 							// Assign a mouseout handler for the triggering element
 							$A.bind(dc.triggerObj, 'mouseout.tooltip blur.tooltip', function(ev){
 								dc.close();
+							});
+							$A.bind(window, 'resize.tooltip', function(ev){
+								if (dc.autoPosition)
+									dc.setPosition();
 							});
 						},
 						announce: true,
@@ -48,8 +53,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						mouseOut: function(ev, dc){
 							dc.close();
 						},
-						runBeforeClose: function(dc){
+						runAfterClose: function(dc){
 							$A.unbind(dc.triggerObj, '.tooltip');
+							$A.unbind(window, '.tooltip');
 						},
 						className: 'tooltip',
 						closeClassName: 'tooltipClose'

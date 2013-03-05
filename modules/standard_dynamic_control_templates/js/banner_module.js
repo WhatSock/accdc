@@ -1,5 +1,5 @@
 /*!
-Banner Module R1.0
+Banner Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -28,6 +28,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 						accClose: 'Close',
 						// Fix positioning to the bottom middle of the viewport
 						autoFix: 5,
+						allowCascade: true,
 						runDuring: function(dc){
 							// Set a resize event so that auto positioning will be recalculated automatically
 							$A.bind(window, 'resize.banner', function(){
@@ -35,7 +36,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							});
 						},
 						announce: true,
-						runBeforeClose: function(dc){
+						runAfterClose: function(dc){
 							// Remove dynamically added resize event
 							$A.unbind(window, '.banner');
 						},

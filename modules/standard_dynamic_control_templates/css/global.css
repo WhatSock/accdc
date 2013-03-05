@@ -122,6 +122,14 @@ font-size: 1.5em;
 text-align: left;
 }
 
+div.popup > a.popupClose {
+position: relative;
+z-index: 2;
+color: #191970;
+background-color: #f5f5f5;
+font-size: 0.7em;
+}
+
 #popup1 > div {
 width: 49%;
 float: left;

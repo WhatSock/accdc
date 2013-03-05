@@ -1,5 +1,5 @@
 /*!
-Popup Module R1.0
+Popup Module R1.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -34,6 +34,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 										{
 										position: 'absolute'
 										},
+						allowCascade: true,
 						runDuring: function(dc){
 							// Set a resize event so that auto positioning will be recalculated automatically
 							$A.bind(window, 'resize.popup', function(){
@@ -41,7 +42,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 							});
 						},
 						announce: true,
-						runBeforeClose: function(dc){
+						runAfterClose: function(dc){
 							// Remove dynamically added resize event
 							$A.unbind(window, '.popup');
 						},

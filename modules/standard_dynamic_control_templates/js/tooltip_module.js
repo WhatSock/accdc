@@ -1,5 +1,5 @@
 /*!
-Tooltip Module R1.1
+Tooltip Module R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -23,7 +23,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 		$A([overrides],
 						{
 						role: 'Tooltip',
-						bind: 'click mouseover focus focusin',
+						bind: 'mouseover click focus',
 						returnFocus: false,
 						displayHiddenClose: false,
 						accStart: 'Start',

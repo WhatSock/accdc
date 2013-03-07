@@ -1,5 +1,5 @@
 /*!
-Scrollable Div Generator R1.1
+Scrollable Div Generator R1.2
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -33,111 +33,71 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			track.top = o.scrollTop;
 
 			if (isHorizontal){
-				track.inc = track.p.w * (increment || 0.3);
-				track.pInc = track.p.w * (pageIncrement || 0.9);
+				track.inc = parseInt(track.p.w * (increment || 0.3));
+				track.pInc = parseInt(track.p.w * (pageIncrement || 0.9));
 			}
 
 			else{
-				track.inc = track.p.h * 0.3;
-				track.pInc = track.p.h * 0.9;
+				track.inc = parseInt(track.p.h * 0.3);
+				track.pInc = parseInt(track.p.h * 0.9);
 			}
-			track.mh = track.n.h - track.p.h;
-			track.mw = track.n.w - track.p.w;
 		}, scroll = function(dir){
 			// Left arrow
-			if (dir == 1){
-				if (track.left < track.inc)
-					track.left = 0;
+			if (isHorizontal && dir == 1)
+				track.left -= track.inc;
 
-				else
-					track.left -= track.inc;
 			// Up arrow
-			}
+			else if (!isHorizontal && dir == 2)
+				track.top -= track.inc;
 
-			else if (dir == 2){
-				if (track.top < track.inc)
-					track.top = 0;
-
-				else
-					track.top -= track.inc;
 			// Right arrow
-			}
+			else if (isHorizontal && dir == 3)
+				track.left += track.inc;
 
-			else if (dir == 3){
-				if (track.left >= (track.n.w - track.p.w) || (track.left + track.inc) > track.mw)
-					track.left = track.mw;
-
-				else
-					track.left += track.inc;
 			// Down arrow
-			}
+			else if (!isHorizontal && dir == 4)
+				track.top += track.inc;
 
-			else if (dir == 4){
-				if (track.top >= (track.n.h - track.p.h) || (track.top + track.inc) > track.mh)
-					track.top = track.mh;
+			// PageUp
+			else if (dir == 5){
+				if (isHorizontal)
+					track.left -= track.pInc;
 
 				else
-					track.top += track.inc;
-			// PageUp
+					track.top -= track.pInc;
 			}
 
-			else if (dir == 5){
-				if (isHorizontal){
-					if (track.left < track.pInc)
-						track.left = 0;
-
-					else
-						track.left -= track.pInc;
-				}
-
-				else{
-					if (track.top < track.pInc)
-						track.top = 0;
-
-					else
-						track.top -= track.pInc;
-				}
 			// PageDown
-			}
-
 			else if (dir == 6){
-				if (isHorizontal){
-					if (track.left >= (track.n.w - track.p.w) || (track.left + track.pInc) > track.mw)
-						track.left = track.mw;
+				if (isHorizontal)
+					track.left += track.pInc;
 
-					else
-						track.left += track.pInc;
-				}
-
-				else{
-					if (track.top >= (track.n.h - track.p.h) || (track.top + track.pInc) > track.mh)
-						track.top = track.mh;
-
-					else
-						track.top += track.pInc;
-				}
-			// Home
+				else
+					track.top += track.pInc;
 			}
 
+			// Home
 			else if (dir == 7){
 				if (isHorizontal)
 					track.left = 0;
 
 				else
 					track.top = 0;
-			// End
 			}
 
+			// End
 			else if (dir == 8){
 				if (isHorizontal)
-					track.left = track.mw;
+					track.left = track.n.w;
 
 				else
-					track.top = track.mh;
+					track.top = track.n.h;
 			}
-			o.scrollTop = track.top;
-			o.scrollLeft = track.left;
-			update();
+
+			o.scrollTop = parseInt(track.top);
+			o.scrollLeft = parseInt(track.left);
+			track.top = o.scrollTop;
+			track.left = o.scrollLeft;
 		};
 		$A.setAttr(o, 'tabindex', '0');
 		$A.bind(o, 'keydown', function(ev){

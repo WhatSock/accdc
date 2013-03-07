@@ -1,5 +1,5 @@
 /*!
-ARIA Listbox Generator Module R2.0
+ARIA Listbox Generator Module R2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 	*/
@@ -47,11 +47,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 
 				if (config.callback && typeof config.callback === 'function')
 					setTimeout(function(){
-						config.callback.apply(that,
-										[
-										that.options[i],
-										that.options
-										]);
+						config.callback.apply(that, [that.options[i], that.options]);
 					}, 1);
 			}
 		}, updateChecked = function(){
@@ -93,7 +89,10 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 				that.empty = true;
 
 			if (o){
-				var isA = isArray(o), a = isA ? o : [o];
+				if (grabbed)
+					drop.apply(this, [true]);
+
+				var isA = isArray(o), a = isA ? o : [o], pLength = that.options.length;
 
 				for (var b = 0; b < a.length; b++){
 					var o = a[b], li = $A.createEl('li');
@@ -120,9 +119,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					setBindings(o);
 				}
 				setOptions(true);
+
+				if (pLength < that.options.length)
+					select(pLength);
 			}
 		}, rem = function(i, s){
 			if (that.options.length){
+				if (grabbed)
+					drop.apply(this, [true]);
+
 				var isA = isArray(i), a = isA ? i : [i], ret = [];
 
 				for (var b = 0; b < a.length; b++){
@@ -133,15 +138,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 					list.removeChild(pn);
 				}
 
-				setOptions(true);
+				selected = config.isMultiselect ? [] : '';
+
+				setOptions();
 
 				if (that.index > max)
 					that.index = max;
 
-				selected = config.isMultiselect ? [] : '';
-
 				if (that.options.length)
-					select(that.index, s ? false : true);
+					select(that.options[that.index] ? that.index : 0, s ? false : true);
 
 				return isA ? ret : ret[0];
 			}
@@ -169,6 +174,8 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			$A.bind(o || '#' + list.id + ' > li > a',
 							{
 							'click.arialistbox': function(ev){
+								ev.preventDefault();
+
 								if (config.isSortable){
 									select(track[this.id]);
 									activate.apply(this);
@@ -192,35 +199,46 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 									ev.preventDefault();
 								}
 
-								else if (k == 32)
+								else if (k == 32){
 									activate.apply(this);
+									ev.preventDefault();
+								}
 							},
 							'keydown.arialistbox': function(ev){
 								var k = ev.which || ev.keyCode;
 
 								if (k == 38){
+									ev.preventDefault();
+
 									if (that.index > 0)
 										select(that.index - 1, true);
 								}
 
 								else if (k == 40){
+									ev.preventDefault();
+
 									if (that.index < max)
 										select(that.index + 1, true);
 								}
 
-								else if (k == 35)
+								else if (k == 35){
+									ev.preventDefault();
 									select(max, true);
+								}
 
-								else if (k == 36)
+								else if (k == 36){
+									ev.preventDefault();
 									select(0, true);
+								}
 
 								else if (k == 46 && config.allowDelete){
+									ev.preventDefault();
 									rem(track[this.id]);
 								}
 							}
 							});
 		}, getLabel = function(o){
-			return (function(){
+			return(function(){
 				var s = '';
 				$A.query('img', o, function(j, p){
 					if (p.alt)

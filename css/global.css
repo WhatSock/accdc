@@ -737,10 +737,14 @@ overflow: visible;
 div.slides {
 display: block;
 height: 400px;
+margin-bottom: 10px;
 }
 
 div.slides div.carouselCls {
 text-align: center;
+-webkit-box-shadow: 0 10px 6px -6px #777;
+-moz-box-shadow: 0 10px 6px -6px #777;
+box-shadow: 0 10px 6px -6px #777;
 }
 
 div.slides div.lNav, div.slides div.rNav {

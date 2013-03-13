@@ -1,5 +1,5 @@
 /*!
-Scrollable Div Generator R1.2
+Scrollable Div Generator R1.3
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -100,7 +100,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			track.left = o.scrollLeft;
 		};
 		$A.setAttr(o, 'tabindex', '0');
-		$A.bind(o, 'keydown', function(ev){
+		$A.bind(o, 'keydown.scrollable', function(ev){
 			var k = ev.which || ev.keyCode;
 
 			if (k >= 33 && k <= 40){
@@ -130,7 +130,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			}
 		});
 
-		$A.bind(window, 'resize', update);
+		$A.bind(window, 'resize.scrollable', update);
 		update();
 	};
 

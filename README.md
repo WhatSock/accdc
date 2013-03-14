@@ -1,4 +1,4 @@
-The Standalone AccDC API R2.0.3 (03/03/2013)
+The Standalone AccDC API R2.0.3 (03/13/2013)
 =====
 
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.

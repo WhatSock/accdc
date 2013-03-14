@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.3 (03/03/2013)
+AccDC API - 2.0.3 (03/13/2013)
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -229,15 +229,15 @@ zIndex: -1000
 },
 
 sraCSSClear = function(o){
-if (o && o.style){
-o.style.position = '';
-o.style.clip = 'auto';
-o.style.padding = '';
-o.style.height = '';
-o.style.width = '';
-o.style.overflow = '';
-o.style.zIndex = '';
-}
+css(o, {
+position: '',
+clip: 'auto',
+padding: '',
+height: '',
+width: '',
+overflow: '',
+zIndex: ''
+});
 return o;
 },
 

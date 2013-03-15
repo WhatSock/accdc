@@ -1,5 +1,5 @@
 /*!
-Accordion Generator Module R2.0
+Accordion Generator Module R2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -9,14 +9,15 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 	$A.generateAccordion = function(selector, overrides, context, callback){
 		var accordionIds = [], wheel = [], context = context || document,
 			accordions = $A.query(selector, context, function(i, o){
-if ($A.reg[o.id]){
-var tdc = $A.reg[o.id];
-if (tdc.fn.sraCSSObj)
-tdc.fn.sraCSSObj.parentNode.removeChild(tdc.fn.sraCSSObj);
-tdc.returnFocus = false;
-tdc.close();
-tdc.returnFocus = true;
-}
+			if ($A.reg[o.id]){
+				var tdc = $A.reg[o.id];
+
+				if (tdc.fn.sraCSSObj)
+					tdc.fn.sraCSSObj.parentNode.removeChild(tdc.fn.sraCSSObj);
+				tdc.returnFocus = false;
+				tdc.close();
+				tdc.returnFocus = true;
+			}
 
 			var id = o.id || $A.genId(), ovrs = {}, isInternal = $A.getAttr(o, 'data-internal');
 			ovrs.id = id;
@@ -72,7 +73,8 @@ tdc.returnFocus = true;
 			ovrs.tabRole = overrides.accordionRole || 'Accordion';
 			ovrs.tabState = overrides.accordionState || 'Expanded';
 			ovrs.toggleClass = overrides.toggleClass || 'open';
-			ovrs.isToggle = true;
+			ovrs.isToggle = typeof overrides.isToggle === 'boolean' ? overrides.isToggle : true;
+			ovrs.allowCascade = true;
 			ovrs.runDuring = function(dc){
 				$A.setAttr(dc.accDCObj, 'role', 'region');
 			};

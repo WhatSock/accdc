@@ -1,5 +1,5 @@
 /*!
-AccDC API - 2.0.3 (03/13/2013)
+AccDC API - 2.0.3 (03/19/2013)
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -5400,10 +5400,10 @@ genId: function(id){
 return now(id || 'AccDC');
 },
 
-announce: function(str, noRepeat){
+announce: function(str, noRepeat, aggr){
 if (typeof str !== 'string')
 str = getText(str);
-return window.String.prototype.announce.apply(str, [str, null, noRepeat]);
+return window.String.prototype.announce.apply(str, [str, null, noRepeat, aggr]);
 },
 
 query: function(sel, con, call){
@@ -5620,7 +5620,7 @@ pos.left += dc.offsetLeft;
 css(dc.accDCObj, pos);
 };
 
-window.String.prototype.announce = function announce(strm, loop, noRep){
+window.String.prototype.announce = function announce(strm, loop, noRep, aggr){
 if (strm && strm.nodeName && strm.nodeType === 1) strm = getText(strm);
 var obj = strm || this,
 str = strm ? strm : this.toString();
@@ -5628,16 +5628,18 @@ if (typeof str !== 'string') return obj;
 if (!loop) String.announce.alertMsgs.push(str);
 if ((String.announce.alertMsgs.length == 1 || loop)){
 var timeLength = String.announce.baseDelay + (String.announce.iterate(String.announce.alertMsgs[0], /\s|\,|\.|\:|\;|\!|\(|\)|\/|\?|\@|\#|\$|\%|\^|\&|\*|\\|\-|\_|\+|\=/g) * String.announce.charMultiplier);
-if (noRep && String.announce.lastMsg == String.announce.alertMsgs[0]){}
-else {
+if (!(noRep && String.announce.lastMsg == String.announce.alertMsgs[0])){
 String.announce.lastMsg = String.announce.alertMsgs[0];
+if (aggr)
+String.announce.placeHolder2.innerHTML = String.announce.alertMsgs[0];
+else
 String.announce.placeHolder.innerHTML = String.announce.alertMsgs[0];
 }
 String.announce.alertTO = setTimeout(function(){
-String.announce.placeHolder.innerHTML = '';
+String.announce.placeHolder.innerHTML = String.announce.placeHolder2.innerHTML = '';
 String.announce.alertMsgs.shift();
 if (String.announce.alertMsgs.length >= 1)
-announce(String.announce.alertMsgs[0], true);
+announce(String.announce.alertMsgs[0], true, noRep, aggr);
 }, timeLength);
 }
 return obj;
@@ -5647,7 +5649,7 @@ window.String.announce = {
 alertMsgs: [],
 clear: function(){
 if (this.alertTO) clearTimeout(this.alertTO);
-this.alertMsgs.length = 0;
+this.alertMsgs = [];
 },
 baseDelay: 1000,
 charMultiplier: 10,
@@ -5664,11 +5666,13 @@ return iCount;
 $A.bind(window, 'load', function(){
 if (!String.announce.placeHolder){
 String.announce.placeHolder = createEl('span', {
-//role: 'status',
 'aria-live': 'polite'
-//'aria-relevant': 'all'
 }, sraCSS);
 pL('body').append(String.announce.placeHolder);
+String.announce.placeHolder2 = createEl('span', {
+role: 'alert'
+}, sraCSS);
+pL('body').append(String.announce.placeHolder2);
 }
 });
 

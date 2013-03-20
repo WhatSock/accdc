@@ -1,5 +1,5 @@
 /*!
-ARIA Tabs Module R1.2
+ARIA Tabs Module R1.3
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -7,7 +7,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 (function(){
 
 	$A.setTabs = function(selector, overrides, useARIA, context, callback){
-		var tabIds = [], wheel = [], autoStartId = '', context = context || document,
+		var tabIds = [], wheel = [], autoStartId = '', overrides = overrides || {}, context = context || document,
 			tabs = $A.query(selector, context, function(i, o){
 			if ($A.reg[o.id]){
 				var tdc = $A.reg[o.id];
@@ -77,6 +77,7 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 			ovrs.tabRole = useARIA ? '' : (overrides.tabRole || 'Tab');
 			ovrs.tabState = useARIA ? '' : (overrides.tabState || 'Selected');
 			ovrs.toggleClass = overrides.toggleClass || 'active';
+			ovrs.allowCascade = true;
 			ovrs.runAfter = function(dc){
 				$A.query(selector, context, function(j, p){
 					$A.remClass(p, dc.toggleClass);

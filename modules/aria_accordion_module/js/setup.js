@@ -4,6 +4,10 @@ $A.bind(window, 'load', function(){
 					{
 					accordionRole: 'Accordion',
 					accordionState: 'Expanded',
-					toggleClass: 'open'
-					}, $A.getEl('accordionGroup'), function(dc){});
+					toggleClass: 'open',
+								preload: true,
+								preloadImages: true
+					}, $A.getEl('accordionGroup'), function(dc){
+// Optional callback
+});
 });

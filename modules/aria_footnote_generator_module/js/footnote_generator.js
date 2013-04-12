@@ -1,5 +1,5 @@
 /*!
-ARIA Footnote Generator Module R2.0
+ARIA Footnote Generator Module R2.1
 Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
 Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
@@ -48,11 +48,9 @@ Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under t
 								href: '#',
 								title: backText + ' ' + pair[fnId].name,
 								'aria-label': backText + ' ' + pair[fnId].name
-								}, null, null, $A.createEl('span',
-								{
-								'aria-hidden': 'true'
-								}, null, null, document.createTextNode(fnChar)));
+								});
 
+				a2.innerHTML = '<span aria-hidden="true">' + fnChar + '</span>';
 				pair[fnId].fn = a2;
 				pair[fnId].targ.appendChild(a2);
 				$A.bind(a2, 'click', function(ev){

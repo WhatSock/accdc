@@ -1,4 +1,4 @@
-The Standalone AccDC API R2.0.3 (03/19/2013)
+The Standalone AccDC API R2.0.3 (04/12/2013)
 =====
 
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
@@ -16,36 +16,11 @@ AccDC renders HTML/XHTML valid markup, HTML5, DOM nodes, JavaScript output, XML 
 
 AccDC automates accessibility by managing the processes associated with dynamic content rendering, so that the majority of common accessibility issues are automatically addressed when DOM manipulation occurs. 
 
-AccDC is distributed under the terms of the Open Source Initiative OSI - MIT License.
+For specific coding guidance, visit: http://whatsock.com/tsg
 
-AccDC Component Library
------
+Distributed under the terms of the Open Source Initiative OSI - MIT License.
 
-The AccDC Component Library is a collection of accessible control types that automate the structural and functional accessibility of each control according to relevant accessibility best practices. The controls can be populated with any type of content, and can be styled to fit any type of user interface layout, in any language, without negatively impacting accessibility. The controls tap into the accessibility features of the AccDC API to render content in an accessible manner, then apply supporting markup and scripting to automatically ensure accessibility for screen reader and keyboard only users. This makes it possible for developers to add fully customizable components, that look and feel exactly as they desire, while ensuring functional accessibility at the same time without the risk of coding misinterpretation by those who are unfamiliar with ATs. 
-
-The following modules are included:
-
-* Accessible Modal controls.
-* Accessible Banner controls.
-* Accessible Tooltip controls.
-* Accessible Popup controls.
-* ARIA Tab controls.
-* ARIA context sensitive dropdown Menu controls. 
-* ARIA Tree controls. 
-* Screen reader accessible Drag and Drop controls. 
-* Auto Suggestion Search Field controls. 
-* ARIA Listbox controls that support optional sortability, list item deletion, and dynamic addition of list items. 
-* ARIA Footnote controls. 
-* Accessible Live Chat controls. 
-* Horizontal and vertical ARIA Slider controls. 
-* ARIA Date Picker controls. 
-* Accessible Accordion controls. 
-* Accessible Carousel, Slideshow, and Wizard controls. 
-* Accessible Dynamic Help Tooltips and Form Field Validation.
-* ARIA Radio Button controls. 
-* ARIA Toggle and Checkbox controls. 
-* Keyboard accessible Scrollable Div controls. 
-* Screen reader accessible Progress Bar controls.  
+Developed and maintained by: Bryan Garaventa
 
 Project home:
 -----
@@ -55,6 +30,7 @@ http://whatsock.com
 Related projects:
 -----
 
+AccDC Technical Style Guide: https://github.com/accdc/tsg
 Standalone AccDC API: https://github.com/accdc/accdc
 AccDC API for jQuery: https://github.com/accdc/accdc-jquery
 Standalone AccDC Bootstrap: https://github.com/accdc/bootstrap

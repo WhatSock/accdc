@@ -163,26 +163,26 @@ cursor: pointer;
 text-decoration: none;
 font: bold 12px/12px HelveticaNeue, Arial;
 border: 1px solid #dedede;
-background: #92dbf6;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abe4f8', endColorstr='#6fcef3'); /* IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#abe4f8), to(#6fcef3)); /* WebKit */
-background: -moz-linear-gradient(top, #abe4f8, #6fcef3);
-border-color: #8dc5da #76b7cf #63abc7;
-color: #42788e;
-text-shadow: 0 1px 0 #b6e6f9;
--webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
--moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;  
+background: #525252;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#434343'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#5e5e5e), to(#434343)); /* WebKit */
+background: -moz-linear-gradient(top, #5e5e5e, #434343);
+border-color: #4c4c4c #313131 #1f1f1f;
+color: #fff;
+text-shadow: 0 1px 0 #2e2e2e;
+-webkit-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+-moz-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;        
 }
 
 div.menu ol.menu a:focus {
-outline-style: none;
-background: #92dbf6;
-border-color: #7caec0 #68a3ba #5a9cb5;
-text-shadow: 0 1px 0 #bee9fa;
--webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;
--moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;
-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;  
+outline: 2px red inset;
+background: #5a5a5a;
+border-color: #2c2c2c #1c1c1c #101010;
+text-shadow: 0 1px 0 #363636;
+-webkit-box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
+-moz-box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
+box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
 }
 
 div.menu ol.menu a.submenu:before {
@@ -226,26 +226,26 @@ cursor: pointer;
 text-decoration: none;
 font: bold 12px/12px HelveticaNeue, Arial;
 border: 1px solid #dedede;
-background: #92dbf6;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#abe4f8', endColorstr='#6fcef3'); /* IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#abe4f8), to(#6fcef3)); /* WebKit */
-background: -moz-linear-gradient(top, #abe4f8, #6fcef3);
-border-color: #8dc5da #76b7cf #63abc7;
-color: #42788e;
-text-shadow: 0 1px 0 #b6e6f9;
--webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
--moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;    
+background: #525252;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#434343'); /* IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#5e5e5e), to(#434343)); /* WebKit */
+background: -moz-linear-gradient(top, #5e5e5e, #434343);
+border-color: #4c4c4c #313131 #1f1f1f;
+color: #fff;
+text-shadow: 0 1px 0 #2e2e2e;
+-webkit-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+-moz-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;    
 }
 
 div.foMenu ul.menu2 a:focus {
-outline-style: none;
-background: #92dbf6;
-border-color: #7caec0 #68a3ba #5a9cb5;
-text-shadow: 0 1px 0 #bee9fa;
--webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;
--moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;
-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #ade4f8;    
+outline: 2px red inset;
+background: #5a5a5a;
+border-color: #2c2c2c #1c1c1c #101010;
+text-shadow: 0 1px 0 #363636;
+-webkit-box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
+-moz-box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
+box-shadow: 0 1px 1px #b1b1b1, inset 0 1px 0 #838383;
 }
 
 div.foMenu ul.menu2 a.submenu2:before {

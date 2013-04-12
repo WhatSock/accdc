@@ -95,9 +95,12 @@ width: 22%;
 
 div.calendar {
 text-align: center;
-background-color: #778899;
+background-color: #E4E7EB;
 padding: 5px;
-border: solid thin black;
+border: solid 1px #777;
+-webkit-box-shadow: 0 10px 6px -6px #777;
+-moz-box-shadow: 0 10px 6px -6px #777;
+box-shadow: 0 10px 6px -6px #777;
 }
 
 table.calendar {
@@ -122,7 +125,7 @@ th.week {
 
 td.nav, td.day {
 cursor: pointer;
-font: bold 12px/12px HelveticaNeue, Arial;
+font: bold 16px/16px HelveticaNeue, Arial;
 border: 1px solid #dedede;
 background: #525252;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#434343'); /* IE */

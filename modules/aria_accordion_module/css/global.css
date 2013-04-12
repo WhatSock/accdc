@@ -85,6 +85,10 @@ font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucid
 border: solid thin black;
 }
 
+dt {
+margin-top: 15px;
+}
+
 .accAccordion {
 font-size: 1.2em;
 float: left;

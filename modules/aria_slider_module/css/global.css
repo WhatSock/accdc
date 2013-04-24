@@ -83,7 +83,9 @@ text-align: center;
 }
 
 code {
-margin-left: 10%;
+display: block;
+padding: 5px;
+margin: 10px 0 10px 10%;
 color: #191970;
 font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 border: solid thin black;

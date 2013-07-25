@@ -3,7 +3,7 @@ The Standalone AccDC API R2.0.3 (04/12/2013)
 
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
 
-AccDC was awarded the "Above and Beyond Accessibility Award" from the United States Department of Labor, and was presented at the Developing with Accessibility Event, hosted by the Federal Communications Commission in Washington DC in 2012.
+Supported by the Royal Society of Arts, AccDC was awarded the "Above and Beyond Accessibility Award" from the United States Department of Labor, and was presented at the Developing with Accessibility Event, hosted by the Federal Communications Commission in Washington DC in 2012.
 
 How it works
 -----

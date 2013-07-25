@@ -827,3 +827,13 @@ text-shadow: 0 1px 0 #b6e6f9;
 -moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
 box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;    
 }
+
+p.honors > * {
+float: left;
+margin: 10px;
+width: 220px;
+}
+
+p.honors img {
+width: 100%;
+}

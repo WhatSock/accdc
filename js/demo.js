@@ -142,7 +142,7 @@ $A($A.reg.mcDemo,
 										// Add Menu Bar menu links as parsed from the XML DOM and append them to the content property
 										$A.query('menubar > *', dc.xmlDoc, function(){
 											dc.content += '<div><a class="demoMenu-' + this.nodeName + '">'
-												+ this.attributes.getNamedItem('text').nodeValue + '</a></div>';
+												+ this.attributes.getNamedItem('text').value + '</a></div>';
 										});
 										dc.content += '</div>';
 									},
@@ -156,7 +156,7 @@ $A($A.reg.mcDemo,
 											menuObjects.push(
 															{
 															id: 'demoMenu' + i,
-															role: this.attributes.getNamedItem('text').nodeValue,
+															role: this.attributes.getNamedItem('text').value,
 															source: this.childNodes[0].nodeValue,
 															trigger: 'a.demoMenu-' + this.nodeName
 															});
@@ -258,147 +258,6 @@ $A($A.reg.mcDemo,
 					container.appendChild(document.createTextNode($A.query('textarea.editor', dc.containerDiv)[0].value.replace(/<|>/g,
 						'')));
 				}
-				},
-
-				// Keyboard Accessible Google Maps
-				{
-				id: 'demoGoogleMap',
-				role: 'Map',
-				// Set heading level for screen reader users
-				ariaLevel: 3,
-				// CSS Selector to designate a container object as the target zone
-				isStatic: 'div.demoGoogleMap',
-				autoStart: true,
-				// Switch the execution order so that the external API callback will be called after the configuration process
-				reverseJSOrder: true,
-				// Do not include a hidden Close link for screen reader users
-				showHiddenClose: false,
-				cssObj:
-								{
-								width: '100%',
-								height: '460px'
-								},
-				// Create a custom namespace to handle all map related functionality
-				google:
-								{
-								LatLng:
-												{
-												us_sf:
-																{
-																lat: 37.7793,
-																lng: -122.4192
-																},
-												us_ny:
-																{
-																lat: 43,
-																lng: -75
-																},
-												uk_lo:
-																{
-																lat: 51.50806,
-																lng: -0.12472
-																},
-												pt_li:
-																{
-																lat: 38.7138111,
-																lng: -9.1393861
-																},
-												it_ro:
-																{
-																lat: 41.9,
-																lng: 12.5
-																}
-												},
-								options:
-												{
-												zoom: 10
-												},
-								getMapTypeId: function(id){
-									switch (id){
-										case google.maps.MapTypeId.ROADMAP: return 'ROADMAP';
-
-										case google.maps.MapTypeId.SATELLITE: return 'SATELLITE';
-
-										case google.maps.MapTypeId.HYBRID: return 'HYBRID';
-
-										case google.maps.MapTypeId.TERRAIN: return 'TERRAIN';
-									}
-								},
-								init: function(dc){
-									dc.google.loc = dc.google.LatLng.us_sf.loc;
-									dc.google.options.center = dc.google.loc;
-									dc.google.options.mapTypeId = google.maps.MapTypeId.HYBRID;
-									dc.google.map = new google.maps.Map(dc.google.container, dc.google.options);
-
-									google.maps.event.addListener(dc.google.map, 'zoom_changed', function(){
-									// Map to GEOCoding API
-									});
-									google.maps.event.addListener(dc.google.map, 'maptypeid_changed', function(){
-									// Map to GEOCoding API
-									});
-								}
-								},
-				// Run script before the AccDC Object is rendered
-				runBefore: function(dc){
-
-					// Create and save a dynamic ID attribute value
-					dc.sourceId = 'gmp' + $A.genId();
-					dc.source = $A.createEl('div');
-					dc.source.appendChild($A.createEl('div',
-									{
-									id: dc.sourceId
-									}));
-				},
-				runAfter: function(dc){
-					dc.google.container = $A.getEl(dc.sourceId);
-					$A.css(dc.google.container,
-									{
-									width: dc.accDCObj.offsetWidth,
-									height: dc.accDCObj.offsetHeight
-									});
-
-					// Set locale LatLng and click handlers
-					window.setupMap = function(){
-						$A.query('ul.demoGMT a', function(){
-							var id = this.id;
-							dc.google.LatLng[id].loc = new google.maps.LatLng(dc.google.LatLng[id].lat, dc.google.LatLng[id].lng);
-							$A.bind(this, 'click', function(ev){
-								dc.google.loc = dc.google.LatLng[this.id].loc;
-								dc.google.map.setCenter(dc.google.loc);
-								dc.google.map.panTo(dc.google.loc);
-								dc.google.map.setZoom(dc.google.options.zoom);
-								ev.preventDefault();
-							});
-						});
-						dc.google.init(dc);
-						$A.trigger('#us_sf', 'click');
-
-						// Enable keyboard accessibility for map controls
-						setTimeout(function(){
-							$A.query(
-								'div[title="Show street map"], div[title="Show street map with terrain"], div[title="Show satellite imagery"], div[title="Zoom in to show 45 degree view"], div[title="Show imagery with street names"], div[title="Pan up"], div[title="Pan down"], div[title="Pan left"], div[title="Pan right"], div[title="Return to the last result"], div[title="Zoom in"], div[title="Zoom out"], img[title="Rotate map 90 degrees"]',
-								dc.containerDiv, function(i, o){
-								$A.setAttr(o,
-												{
-												role: 'button',
-												tabindex: '0',
-												'aria-label': o.title
-												});
-
-								$A.bind(o, 'keydown', function(ev){
-									if (ev.which == 13){
-										ev.preventDefault();
-										$A.trigger(o, 'click');
-									}
-								});
-							});
-						}, 3000);
-					};
-				},
-				runJSAfter: [
-
-				// Now that all functions have been previously configured, load the Google Maps API using the specified callback
-				'http://maps.google.com/maps/api/js?sensor=false&callback=setupMap']
 				}
 
 				// End of AccDC Object array
@@ -598,7 +457,11 @@ function dropIntoTheSun(dc){
 										},
 										complete: function(cb){
 											// Stick the planet behind the sun and resize it, including both the wrapper and the image
-											$A.css([dc.accDCObj, planet],
+											$A.css(
+															[
+															dc.accDCObj,
+															planet
+															],
 															{
 															zIndex: 1,
 															height: '20px',

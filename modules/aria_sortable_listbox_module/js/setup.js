@@ -87,15 +87,21 @@ $A.bind(window, 'load', function(){
 	}, disableSort = function(s){
 		var id = 'things', list = $A.getEl(id), x = [];
 
-		for (var n in list.attributes)
-						x.push(list.attributes[n].name);
+		for (var n in list.attributes){
+			if (list.attributes[n] && list.attributes[n].value)
+				x.push(list.attributes[n].name);
+		}
+
 		$A.remAttr(list, x);
 		list.id = id;
 		$A.query('#' + list.id + ' > li > a', function(i, o){
 			var a = [];
 
-			for (n in o.attributes)
-							a.push(o.attributes[n].name);
+			for (n in o.attributes){
+				if (o.attributes[n] && o.attributes[n].value)
+					a.push(o.attributes[n].name);
+			}
+
 			$A.remAttr(o, a);
 		});
 		var render = $A.reg.render;

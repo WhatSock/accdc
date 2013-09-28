@@ -56,18 +56,6 @@ $A(
 
 					createHeaderNav();
 
-					// Use the query selector to assign additional events
-					$A.query('a.subLnk', function(){
-						// Enable keyboard functionality
-						$A.setAttr(this, 'href', '#');
-						$A.bind(this, 'click', function(ev){
-							var txt = this.innerText || this.textContent;
-							// Trigger the equivalent tab when clicked
-							$A.trigger('ul.menuList a:contains(' + txt + ')', 'click');
-							ev.preventDefault();
-						});
-					});
-
 					// Start carousel if CSS is enabled
 					if (isCSSEnabled())
 						$A.setCarousel($A.getEl('slideCanvas'), 'files/carousel.xml', 0);
@@ -408,5 +396,14 @@ $A(
 				}
 				}, true);
 
-// Check for updates
-$A.getScript('http://whatsock.com/js/updates.js');
+$A.bind(window, 'load', function(){
+	var verNode = $A.getEl('AccDCCurrentVerS1');
+
+	if (verNode && $A.version){
+		verNode.innerHTML = ('Currently running AccDC API version: ' + $A.version).announce();
+	}
+
+	if (window.navigator.onLine)
+		// Check for updates
+		$A.getScript('http://api.whatsock.com/accdc-updates.js');
+});

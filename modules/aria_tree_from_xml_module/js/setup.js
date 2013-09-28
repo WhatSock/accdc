@@ -18,9 +18,9 @@ $A.bind(window, 'load', function(){
 					callback: function(ev, dc){
 						if (tmp)
 							clearTimeout(tmp);
-						var i = $A.inArray(this, dc.tree.childNodes), lat = dc.xmlNodes[i].attributes.getNamedItem('lat').nodeValue,
-							lng = dc.xmlNodes[i].attributes.getNamedItem('lng').nodeValue,
-							zoom = dc.xmlNodes[i].attributes.getNamedItem('zoom').nodeValue;
+						var i = $A.inArray(this, dc.tree.childNodes), lat = dc.xmlNodes[i].attributes.getNamedItem('lat').value,
+							lng = dc.xmlNodes[i].attributes.getNamedItem('lng').value,
+							zoom = dc.xmlNodes[i].attributes.getNamedItem('zoom').value;
 						// Use setTimeout to prevent process stacking when using the arrow keys to navigate
 						tmp = setTimeout(function(){
 							// Call the 'set' method in the Google Map AccDC Object using its "id" property

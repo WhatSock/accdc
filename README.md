@@ -1,4 +1,4 @@
-AccDC API - 2.0.3 Standalone (09/07/2013)
+AccDC API - 3.0 Standalone (09/23/2013)
 =====
 
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
@@ -32,8 +32,11 @@ http://whatsock.com
 Related projects:
 -----
 
-AccDC Technical Style Guide: https://github.com/accdc/tsg
 Standalone AccDC API: https://github.com/accdc/accdc
 AccDC API for jQuery: https://github.com/accdc/accdc-jquery
+AccDC API for Dojo: https://github.com/accdc/accdc-dojo
 Standalone AccDC Bootstrap: https://github.com/accdc/bootstrap
 AccDC Bootstrap for jQuery: https://github.com/accdc/bootstrap-jquery
+AccDC Bootstrap for Dojo: https://github.com/accdc/bootstrap-dojo
+Standalone and jQuery AccDC Technical Style Guide: https://github.com/accdc/tsg
+AccDC Technical Style Guide for Dojo: https://github.com/accdc/tsg-dojo

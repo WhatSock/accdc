@@ -79,21 +79,11 @@ $A(
 				// Run script after the AccDC Object opens
 				runAfter: function(dc){
 					dc.google.container = $A.getEl(dc.sourceId);
-					// Sync inline style height and width values with the AccDC Object
-					$A.bind(window, 'resize', function(ev){
-						$A.css(dc.google.container,
-										{
-										width: dc.accDCObj.offsetWidth,
-										height: dc.accDCObj.offsetHeight
-										});
-					});
 
-					$A.trigger(window, 'resize');
 					// Create a callback function
 					window.setupMap = function(){
 						dc.google.init(dc);
 					};
-
 
 					// Enable keyboard accessibility for map controls
 					setTimeout(function(){
@@ -115,6 +105,18 @@ $A(
 							});
 						});
 					}, 3000);
+
+					// Sync inline style height and width values with the AccDC Object
+					var resize = function(ev){
+						$A.css(dc.google.container,
+										{
+										width: dc.accDCObj.offsetWidth,
+										height: dc.accDCObj.offsetHeight
+										});
+					};
+
+					$A.bind(window, 'resize', resize);
+					resize();
 				},
 
 				// Run external API script after the AccDC Object opens

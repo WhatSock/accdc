@@ -400,7 +400,7 @@ $A.bind(window, 'load', function(){
 	var verNode = $A.getEl('AccDCCurrentVerS1');
 
 	if (verNode && $A.version){
-		verNode.innerHTML = ('Currently running AccDC API version: ' + $A.version).announce();
+		verNode.innerHTML = ('Currently running AccDC API for Standalone, version: ' + $A.version).announce();
 	}
 
 	if (window.navigator.onLine)

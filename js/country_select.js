@@ -207,8 +207,9 @@
 							}
 						},
 						'blur focusout': function(ev){
-							var q = autoSug.triggerObj, c = autoSug.containerDiv.childNodes[autoSug.tmp.index], qv = q.value,
-								cv = $A.getText(c);
+							var q = autoSug.triggerObj, c = autoSug.containerDiv && autoSug.containerDiv.childNodes
+								&& autoSug.containerDiv.childNodes.length ? autoSug.containerDiv.childNodes[autoSug.tmp.index] : null,
+								qv = q && q.value ? q.value : '', cv = c && c.nodeType ? $A.getText(c) : '';
 
 							if (qv == cv)
 								autoSug.close();

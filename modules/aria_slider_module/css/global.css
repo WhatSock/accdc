@@ -135,6 +135,7 @@ padding: 1px;
 .slide {
 height: 28px;
 width: 346px;
+position: relative; /* Important: The parentNode of the draggable nub must be relatively positioned. */
 }
 
 .slide > div.nub {
@@ -145,7 +146,7 @@ color: #f5f5f5;
 cursor: pointer;
 }
 
-.slide > div.nub:focus {
+*:focus {
 outline: red 2px inset;
 }
 
@@ -182,6 +183,7 @@ padding: 1px;
 .slide2 {
 height: 398px;
 width: 38px;
+position: relative; /* Important: The parentNode of the draggable nub must be relatively positioned. */
 }
 
 .slide2 > div.nub2 {
@@ -190,10 +192,6 @@ height: 46px;
 background-color: #000;
 color: #f5f5f5;
 cursor: pointer;
-}
-
-.slide2 > div.nub:focus {
-outline: red 2px inset;
 }
 
 .inst {

@@ -59,7 +59,7 @@
 						// Run script once before the AccDC Object opens
 						runOnceBefore: function(dc){
 							dc.triggerObj = $A.getEl('cufc5');
-							dc.targetObj = dc.triggerObj.parentNode;
+						// dc.targetObj = dc.triggerObj.parentNode;
 						},
 						// Run script before the AccDC Object opens, every time
 						runBefore: function(dc){

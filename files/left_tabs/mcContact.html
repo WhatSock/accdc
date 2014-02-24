@@ -1,81 +1,106 @@
 <html>
-<body>
-<div>
+	<body>
+	 
+		<div id="mcContact">
 
-<div id="mcContact">
-<div class="hd">
-<h2>
-<span>
-Contact Us
-</span>
-</h2>
-</div>
 
-<div class="intro content">
-<p>
-<i>(<span class="cRed">*</span> = Required Field)</i>
-</p>
+			 
 
-<form id="contactUsFrm">
-<input type="hidden" name="Topic" value="AccDC" />
-<fieldset class="contact">
-<legend role="heading" aria-level="3">Contact:</legend>
-<div>
-<label for="cufc1">
-<span class="cRed">*</span>
-Name:
-<input aria-required="true" class="required" id="cufc1" type="text" name="Name" value="" />
-</label>
-<label for="cufc2">
-<span class="cRed">*</span>
-Email:
-<input aria-required="true" class="required" id="cufc2" type="text" name="Email" value="" />
-</label>
-</div>
-<div>
-<label for="cufc3">
-Phone:
-<input id="cufc3" type="text" name="Phone" value="" />
-</label>
-<label for="cufc4">
-Extension:
-<input id="cufc4" type="text" name="Ext" value="" />
-</label>
-</div>
-<div>
-<label for="cufc5">
-Country:
-<input role="combobox" aria-autocomplete="list" id="cufc5" type="text" name="Country" value="" />
-</label>
-<label for="cufc6">
-City/Province:
-<input id="cufc6" type="text" name="City_Province" value="" />
-</label>
-</div>
-</fieldset>
-<fieldset class="message">
-<legend role="heading" aria-level="3">Message:</legend>
-<div>
-<label for="cufm1">
-<span class="cRed">*</span>
-Subject:
-<input aria-required="true" class="required" id="cufm1" type="text" name="Subject" value="" />
-</label>
-</div>
-<div role="application">
-<label for="cufm2">
-<span class="cRed">*</span>
-Body:
-<textarea aria-required="true" style="width: 70%;" class="required" id="cufm2" name="Body" ></textarea>
-</label>
-</div>
-</fieldset>
-<input id="cufs" type="submit" value="Send" />
-</form>
+			<style type="text/css">
+			
+				#mcContact form {
+				  overflow: hidden;
+				  width: 46%;
+				  margin: auto; }
+				#mcContact fieldset.contact label, #mcContact fieldset.message label {
+				  width: 31%;
+				  padding-right: 2%;
+				  text-align: right; }
+				#mcContact input, #mcContact textarea {
+				  margin-bottom: 2%;
+				  display: block; }
+				#mcContact textarea {
+				  height: 10rem !important;
+				  float: left; }
+				#mcContact fieldset {
+				  overflow: hidden; }
+				#mcContact div.formLeft, #mcContact div.formRight {
+				  width: 50%;
+				  float: left; }
+				#mcContact #cufd1, #mcContact #cufc1, #mcContact #cufc2, #mcContact #cufc4, #mcContact #cufm1, #mcContact #cufm2 {
+				  width: 35%; }
+				#mcContact div[role="listbox"] {
+				  background-color: red; }
+				  
+			</style>
 
-</div>
-</div>
+		 
 
-</div>
-</body>
+
+			 
+
+
+
+			<div class="hd">
+				<h2><span>Contact Us</span></h2>
+			</div>
+
+			<div class="intro content">
+				<p><i>(<span class="cRed">*</span> = Required Field)</i></p>
+			</div>
+
+			<form id="contactUsFrm">
+
+				<input type="hidden" value="AccDC" name="Topic">
+
+				<fieldset class="contact">
+
+					<legend aria-level="3" role="heading">Contact:</legend>
+					
+					<div class="formLeft">
+						<label for="cufc1"><span class="cRed">*</span>Name:</label>
+						<input type="text" value="" name="Name" id="cufc1" class="required" aria-required="true">
+
+						<label for="cufc2"><span class="cRed">*</span>Email:</label>
+						<input type="text" value="" name="Email" id="cufc2" class="required" aria-required="true">
+
+						<label for="cufc3">Phone:</label>
+						<input type="text" value="" name="Phone" id="cufc3">
+					</div>
+
+					<div class="formRight">
+						<label for="cufc4">Extension:</label>
+						<input type="text" value="" name="Ext" id="cufc4">
+
+						<label for="cufc5">Country:</label>
+						<input type="text" value="" name="Country" id="cufc5" aria-autocomplete="list" role="combobox">
+
+						<label for="cufc6">City/Province:</label>
+						<input type="text" value="" name="City_Province" id="cufc6">
+					</div>
+
+				</fieldset>
+
+
+				<fieldset class="message">
+
+					<legend aria-level="3" role="heading">Message:</legend>
+				
+					<label for="cufm1"><span class="cRed">*</span>Subject:</label>
+					<input type="text" value="" name="Subject" id="cufm1" class="required" aria-required="true">
+
+					<div role="application">
+						<label for="cufm2"><span class="cRed">*</span>Body:</label>
+						<textarea name="Body" id="cufm2" class="required" aria-required="true"></textarea>
+					</div>
+
+				</fieldset>
+
+				<input type="submit" value="Send" id="cufs">
+
+			</form>
+
+		</div><!-- #mcContact -->
+
+	</body>
 </html>

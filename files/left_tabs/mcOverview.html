@@ -8,12 +8,14 @@
 
 <div class="intro content">
 <p>
-AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
+The AccDC API is a JavaScript based Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
 </p>
-</div>
-
-<div class="intro content">
-<div class="slides" id="slideCanvas"></div>
+<p>
+The <a href="http://whatsock.com/tsg">AccDC Technical Style Guide</a> is designed to provide reliable and consistent interaction designs that are accessible to the highest percentage of people possible, and to establish a baseline for Functional Accessibility that can be utilized, built upon, studied, and tested against.
+</p>
+<p>
+<a href="http://whatsock.com/bootstrap">AccDC Bootstrap</a> is an HTML parser that renders advanced, accessible interactive controls using semantic HTML markup.
+</p>
 </div>
 
 <div class="intro content">
@@ -51,21 +53,6 @@ Powered by MooTools:
 http://whatsock.com/mootools/
 </a>
 </li></ul>
-<p>
-<b>
-For specific coding guidance, view the
-<a href="http://whatsock.com/tsg">
-AccDC Technical Style Guide
-</a>
-</b>
-</p>
-<p>
-<a href="http://whatsock.com/donate">
-<span>
-Please consider contributing to this project by donating.
-</span>
-</a>
-</p>
 </div>
 
 <div class="hd">
@@ -83,18 +70,6 @@ AccDC is a free development resource for international businesses, organizations
 <p>
 "Accessible Innovation" refers to the creation of new technologies that include Accessibility as a core platform feature of development.
 </p>
-<p>
-AccDC functions as a rendering engine, which acts as a conduit for the accessible processing of dynamic content.
-</p>
-<p>
-Developers can now build fully functional, scalable, feature rich, accessible user interface components that are encapsulated as AccDC Objects, which can then be freely distributed to empower the creation of accessible controls, widgets, features, and applications within all future web technologies.
-</p>
-<p>
-The AccDC Component Library is provided as a collection of customizable functionality templates that can be easily adapted to fit the design and implementation requirements of any application, and are accessible for screen reader and keyboard only users.
-</p>
-<p>
-AccDC can be used within mobile browsers such as the iPhone, iPad, and Android devices for cross platform compatibility, and can also be used within the web browser components of desktop applications for enterprise distribution.
-</p>
 </div>
 
 <div class="hd">
@@ -107,63 +82,61 @@ How It Works
 
 <div class="intro content">
 <p>
-AccDC generates independent JavaScript objects, called AccDC Objects, that include customizable properties and methods which are used to control the functionality, content, and behavior of each AccDC Object at runtime.
+At its core, AccDC is a JavaScript based API that manages dynamic content objects, called AccDC Objects, by automating accessible rendering processes for Rich Internet Applications.
 </p>
 <p>
-This makes it possible to render any type of user interface component, including wizards, carousels, dialogs, toolbars, tooltips, popups, lightboxes, menus, banners, tab controls, drag and drop controls, toggles, sliders, calendar pickers, or any other type of fully functional accessible user interface component.
+This works by acting as a standalone interface, or as a scaled down plugin for jQuery, Dojo, or MooTools, that extends the functionality of each by tying into their respective rendering processes.
 </p>
 <p>
-AccDC includes integrated ARIA support to enhance intuitive page structuring for screen reader users, as well as a recursive Announce method that
-can be used to send textual messages to be dynamically announced for screen reader users. Additional ARIA attributes may be dynamically added to enhance advanced controls using AccDC's in-built Flow Control methods.
+This normalization makes it possible to share UI components built using AccDC Objects between jQuery, Dojo, and MooTools, without requiring modification, since all such functionality ties into the same AccDC API commands.
 </p>
 <p>
-AccDC renders HTML/XHTML valid markup, HTML5, DOM nodes, JavaScript output, XML node content, JSON object data, and content from remote API callbacks.
+The AccDC API manages all of the following rendering processes separately within each AccDC Object instance:
+</p>
+<ul><li>
+Script flow control for sequential processing
+</li><li>
+Rendering of HTML markup, DOM nodes, or content from AJAX queries
+</li><li>
+Parent, child, and sibling relationship mapping
+</li><li>
+Auto-positioning of layered content relative to specific DOM nodes
+</li><li>
+CSS styling overrides for full visual customization
+</li><li>
+Content overrides for full language customization
+</li><li>
+Handler overrides for full event customization
+</li><li>
+Rendering overrides for full behavior customization
+</li><li>
+Global and sibling overrides for property and method prototyping
+</li><li>
+Load latency for full programmatic configuration before rendering
+</li></ul>
+<p>
+Additionally, the AccDC API automates all of the following accessibility features for rendered dynamic content through AccDC Objects:
+</p>
+<ul><li>
+Configurable beginning and ending boundary information for screen reader users
+</li><li>
+Configurable ARIA heading structures for screen reader users
+</li><li>
+Configurable dynamic Close link for screen reader and keyboard only users
+</li><li>
+Configurable DOM insertion to manage reading order for screen reader users
+</li><li>
+Configurable auto-focus positioning for screen reader and keyboard only users
+</li><li>
+Configurable role and state information for screen reader users
+</li><li>
+Invokable or automatic announcement of text or DOM node content for screen reader users
+</li></ul>
+<p>
+View the <a href="#" id="tab4sub">Core API</a> tab for a comprehensive listing of AccDC API properties and methods.
 </p>
 <p>
-AccDC automates accessibility by managing the processes associated with dynamic content rendering, so that the majority of common accessibility issues are automatically addressed when DOM manipulation occurs.
-</p>
-<p>
-Since AccDC Objects consist of object literal declarations, they can be redistributed as fully functional encapsulated components that include in-built accessibility for screen reader and keyboard only users, so that accessible user interface components will propagate across various web technologies.
-</p>
-<p>
-When AccDC Objects are opened in the DOM, the specified content is surrounded by a framework of supporting Divs that convey important role and state information for screen reader users. Based on the customizations within the AccDC Object, the content is then inserted into the DOM in an accessible location, supporting accessibility markup is added, display styling is set, behavioral settings are applied, and Flow Control methods are executed.
-</p>
-<p>
-Additionally, AccDC Objects can be interfaced with other AccDC Objects to perform complex tasks, or nested within one another to preserve parent/child relationships.
-</p>
-<p>
-AccDC is a closed system, and functions as a standalone API, or may be used in conjunction with any library or framework without conflict.
-</p>
-<p>
-Since the <a href="http://idpf.org/epub/30/spec/epub30-contentdocs.html#app-epubReadingSystem" target="_blank">EPUB3</a> specification supports the use of JavaScript, AccDC may also be included within EPUB3 compliant eBook publications to automate accessible dynamic behaviors within browser based eBook readers.
-</p>
-</div>
-
-<div class="hd">
-<h2>
-<span>
-AccDC Bootstrap
-</span>
-</h2>
-</div>
-
-<div class="intro content">
-<p>
-AccDC Bootstrap is an HTML parser that renders advanced, accessible interactive controls using semantic HTML markup.
-</p>
-<p>
-Bootstrapping refers to the use of semantic HTML markup to configure advanced controls, which are then magically converted into dynamic interactive components when the content finishes loading.
-</p>
-<p>
-This allows developers to include complex functionality that is fully configurable across thousands of web pages, without having to program individual components using JavaScript. 
-</p>
-<p>
-AccDC Bootstrap is designed to automatically enforce accessibility, while making it possible to populate individual components with any type of content, in any language, using any visual styling.  
-</p>
-<p>
-<a href="http://whatsock.com/bootstrap">
-Curious? Try out AccDC Bootstrap!
-</a>
+To learn how to set up AccDC within a working code environment, view the <a href="http://whatsock.com/tsg">AccDC Technical Style Guide</a>.
 </p>
 </div>
 
@@ -320,14 +293,6 @@ Demos
 </div>
 
 <div class="intro content">
-<p>
-<b>
-For specific coding guidance, view the
-<a href="http://whatsock.com/tsg">
-AccDC Technical Style Guide
-</a>
-</b>
-</p>
 <ul><li>
 <a href="modules/standard_dynamic_control_templates/demo.htm">
 Accessible Modal, Banner, Tooltip, and Popup controls.

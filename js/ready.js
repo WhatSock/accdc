@@ -1,7 +1,5 @@
 /* !
 Setup script to register all top - level AccDC Object declarations.
-Copyright 2010-2013 Bryan Garaventa (WhatSock.com)
-Part of AccDC, a Cross-Browser JavaScript accessibility API, distributed under the terms of the Open Source Initiative OSI - MIT License
 */
 
 // Enable AccDC API debugging mode.
@@ -56,34 +54,16 @@ $A(
 
 					createHeaderNav();
 
-					// Start carousel if CSS is enabled
-					if (isCSSEnabled())
-						$A.setCarousel($A.getEl('slideCanvas'), 'files/carousel.xml', 0);
+					$A.bind('#tab4sub', 'click', function(ev){
+						$A.trigger('#tab4', 'click');
+						ev.preventDefault();
+					});
 
 					// Announce "Ready" to screen reader users
 					"Ready".announce();
 
 					if (!dc.forceFocus)
 						dc.forceFocus = true;
-				},
-				runBeforeClose: function(dc){
-
-					// Cancel the carousel
-					if ($A.reg.slideCanvas)
-						$A.reg.slideCanvas.close();
-				}
-				},
-
-				// Automatic Accessibility Framework tab
-				{
-				id: 'mcAccessibility',
-				role: 'Automatic Accessibility',
-				trigger: '#tab2',
-				source: 'files/left_tabs/mcAccessibility.html #mcAccessibility',
-				runAfter: function(dc){
-
-					createHeaderNav();
-					"Ready".announce();
 				}
 				},
 
@@ -377,7 +357,7 @@ $A(
 				tabState: '',
 				mode: 1,
 				showHiddenClose: false,
-				// showHiddenBounds : false,
+				showHiddenBounds: false,
 				// Move focus to the beginning of the new content when rendered
 				forceFocus: true,
 				runBefore: function(dc){

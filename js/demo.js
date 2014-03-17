@@ -298,22 +298,8 @@ $A.bind('input.morphBtn', 'click', function(ev){
 						// Run script after rendering completes
 						runAfter: function(dc){
 
-							// Set initial drag and drop options
-							dc.dropTarget = 'div.subDivR';
-							// Limit dragging to the bounds of a specific container
-							dc.drag.confineTo = 'div.dndContainer';
-
-							// Enable keyboard accessibility for the drag and drop action
-							dc.accDD.on = true;
-							// Optionally set the element where keyboard accessible drop links will appear in the DOM
-							dc.accDD.dropAnchor = 'div.dndContainer ol';
-
-							// Set the drop animation duration in milliseconds
-							dc.accDD.duration = 3000;
-							// Now set initial event bindings
-							dc.setDrag();
-							// Set additional styling for the drag / drop links to allow for color contrast differences
-							dc.accDD.dragLinkStyle = dc.accDD.dropLinkStyle =
+							// Set additional styling for the drag links to allow for color contrast differences
+							dc.accDD.dragLinkStyle =
 											{
 											color: 'white',
 											backgroundColor: 'black',
@@ -332,6 +318,17 @@ $A.bind('input.morphBtn', 'click', function(ev){
 
 							// Save references to the relevant list objects to prevent unnecessary queries later
 							var lists = $A.query('div.dndContainer ul, div.dndContainer ol');
+
+							// Set initial drag and drop options
+							dc.dropTarget = 'div.subDivR';
+							// Limit dragging to the bounds of a specific container
+							dc.drag.confineTo = 'div.dndContainer';
+							// Enable keyboard accessibility for the drag and drop action
+							dc.accDD.on = true;
+							// Set the drop animation duration in milliseconds
+							dc.accDD.duration = 3000;
+							// Set a point to return keyboard focus to after dragging has begun to ensure keyboard accessibility
+							dc.accDD.returnFocusTo = 'div.subDivL ul';
 
 							// Configure the drag / drop event handlers
 
@@ -355,17 +352,17 @@ $A.bind('input.morphBtn', 'click', function(ev){
 									dc.css(dc.clearCSS);
 
 									if (dc.inUniverse){
-										dc.dropTarget = 'div.subDivL';
 										dc.inUniverse = false;
-										dc.accDD.dropAnchor = 'div.dndContainer ul';
+										dc.dropTarget = 'div.subDivL';
+										dc.accDD.returnFocusTo = 'div.subDivR ol';
 										// Move the dragged element into the galaxy list
 										lists[1].appendChild(dc.accDCObj.parentNode);
 									}
 
 									else{
-										dc.dropTarget = 'div.subDivR';
 										dc.inUniverse = true;
-										dc.accDD.dropAnchor = 'div.dndContainer ol';
+										dc.dropTarget = 'div.subDivR';
+										dc.accDD.returnFocusTo = 'div.subDivL ul';
 										// Move the dragged element into the Universe list
 										lists[0].appendChild(dc.accDCObj.parentNode);
 									}
@@ -381,6 +378,9 @@ $A.bind('input.morphBtn', 'click', function(ev){
 
 								dc.dropped = false;
 							};
+
+							// Now set initial event bindings
+							dc.setDrag();
 
 							// Expand parent li tag to account for position absolute
 							$A.css(dc.accDCObj.parentNode,

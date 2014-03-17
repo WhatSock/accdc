@@ -57,7 +57,7 @@ CSS Drag and Drop Demo
 
 <div class="viewport">
 
-<div class="dragTarget">
+<div data-label="Bookshelf" class="dragTarget">
 <div class="hd">
 <h3 tabindex="-1" accesskey="1">
 Bookshelf
@@ -103,7 +103,7 @@ Bookshelf
 </ul>
 </div>
 
-<div class="dropTarget">
+<div data-label="Reading List" class="dropTarget">
 <div class="hd">
 <h3 tabindex="-1" accesskey="2">
 Reading List
@@ -123,13 +123,7 @@ Activate the "Set Drag&amp;Drop" button to morph all book images into draggable 
 </li><li>
 Using the mouse, drag and drop each book that you would like to read into the Reading List section, or visa versa to remove them from the Reading List.
 </li><li>
-Using the keyboard, arrow or tab between each draggable book, and press the Enter or Spacebar keys to toggle dragging.
-</li><li>
-Tab to the Reading List section, or jump to the Reading List heading using screen reader quick navigation commands, then drop each item currently being dragged by pressing the Enter or Spacebar key on relevant drop links.
-</li><li>
-Do the same for the books in the Reading List section, then press shift+tab to navigate to the drop links at the beginning of the Bookshelf section, or use screen reader navigation commands to jump to the Bookshelf section heading where the new drop links are located.
-</li><li>
-Alternatively, use the hotkeys associated with each of the Bookshelf and Reading List headings to jump between each section.
+Using the keyboard, arrow or tab between each draggable book, and press the Enter or Spacebar keys to initiate dragging.
 </li></ul>
 <p>
 The CSS Drag and Drop Module automatically synchronizes mouse and keyboard activity for drag and drop functionality.

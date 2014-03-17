@@ -1,4 +1,3 @@
-
 // Enable AccDC debugging mode to ensure that morphed AccDC Objects are rendered properly
 // $A.fn.debug = true;
 
@@ -51,8 +50,6 @@ $A.bind(window, 'load', function(ev){
 
 						// Set the current zone
 						dc.tmp.zone = divs[0];
-						// Set a custom target zone where drop links will appear
-						dc.accDD.dropAnchor = 'div.dropTarget ol';
 					},
 					// Run script after the AccDC Object opens
 					runAfter: function(dc){
@@ -63,11 +60,8 @@ $A.bind(window, 'load', function(ev){
 										clear: 'both'
 										}, null, document.createTextNode(' ')));
 
-						// Relocate  the image Alt text to prevent redundant text for screen reader users
-						var img = firstChild(dc.containerDiv, 'img');
-						$A.setAttr(dc.containerDiv, 'title', dc.role);
-						$A.remAttr(img, 'title');
-						$A.setAttr(img, 'alt', '');
+						// Set initial container to return focus to after dropping completes
+						dc.accDD.returnFocusTo = 'div.dragTarget';
 					},
 					// Configure drag and drop event handlers
 					on:
@@ -88,15 +82,15 @@ $A.bind(window, 'load', function(ev){
 											if (this == divs[1]){
 												// Specify a new drop zone
 												dc.dropTarget = 'div.dragTarget';
-												// Specify a new drop anchor for inserting drag and drop links
-												dc.accDD.dropAnchor = 'div.dragTarget ul';
+												// Specify a container to move focus to after dropping completes
+												dc.accDD.returnFocusTo = 'div.dragTarget';
 												// Move the dropped node accordingly
 												lists[1].appendChild(dc.accDCObj.parentNode);
 											}
 
 											else{
 												dc.dropTarget = 'div.dropTarget';
-												dc.accDD.dropAnchor = 'div.dropTarget ol';
+												dc.accDD.returnFocusTo = 'div.dropTarget';
 												lists[0].appendChild(dc.accDCObj.parentNode);
 											}
 											// Reassign drag and drop event bindings using the newly configured settings
@@ -114,7 +108,7 @@ $A.bind(window, 'load', function(ev){
 					confineTo: 'div.viewport',
 					// Set the drop animation time length for keyboard users
 					duration: 2000,
-					// Set additional styling for the hidden drag and drop links
+					// Set additional styling for the hidden drag links
 					ddCSS:
 									{
 									color: 'white',

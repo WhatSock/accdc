@@ -501,25 +501,24 @@ on (Boolean) Default: false
 Enable or disable drag and drop support for keyboard access.
 </dd>
 <dt>
-dragText (String) Default: 'Drag'
+dragText (String) Default: 'Move'
 </dt>
 <dd>
 The action text that will be prepended to the AccDC Object's "role" property within a hidden drag link.<br />
 (The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
 </dd>
 <dt>
-dropText (String) Default: 'Drop'
+toText (String) Default: 'to'
 </dt>
 <dd>
-The action text that will be prepended to the AccDC Object's "role" property within a hidden drop link.<br />
-(The hidden drop link becomes temporarily visible to keyboard only users when tabbing through active elements.)
+The action text that will be appended to the AccDC Object's "role" property within a hidden drag link.<br />
+(The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
 </dd>
 <dt>
 actionText (String) Default: 'Dragging'
 </dt>
 <dd>
-The active state text that will be prepended to the AccDC Object's "role" property within a hidden drag link.<br />
-(The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
+The active state text that will be announced to screen reader users during a drag and drop action.<br />
 </dd>
 <dt>
 dragClassName (String) Default: ''
@@ -528,35 +527,16 @@ dragClassName (String) Default: ''
 Optional class(s) that will be added to the hidden drag link when rendered for keyboard only users.
 </dd>
 <dt>
-dropClassName (String) Default: ''
-</dt>
-<dd>
-Optional class(s) that will be added to the hidden drop link when rendered for keyboard only users.
-</dd>
-<dt>
 dragLinkStyle (Object) Default: {}
 </dt>
 <dd>
 Optional CSS values to be added to the hidden drag link when rendered for keyboard only users.
 </dd>
 <dt>
-dropLinkStyle (Object) Default: {}
+returnFocusTo (String) Default: accDCObj
 </dt>
 <dd>
-Optional CSS values to be added to the hidden drop link when rendered for keyboard only users.
-</dd>
-<dt>
-dropAnchor (String) Default: ''
-</dt>
-<dd>
-CSS Selector or DOM node that specifies an optional strategic insertion point where drop links will be inserted into the DOM.
-</dd>
-<dt>
-dropAnchors (Array) Default: null || []
-</dt>
-<dd>
-Array of DOM nodes where drop links will be strategically inserted into the DOM.<br />
-(Automatically populated at runtime)
+CSS Selector or DOM node that specifies an optional strategic focus point where programmatic focus will return after a drop action completes.
 </dd>
 <dt>
 duration (Number) Default: 500
@@ -573,13 +553,13 @@ $A([<br />
 {<br />
 accDD: {<br />
 on: true,<br />
-dropAnchor: 'div.dropZone ol.drop'<br />
+returnFocusTo: 'div.dropZone ol.drop'<br />
 },<br />
 ...<br />
 }<br />
 ]);<br />
 // Or<br />
-$A.reg.myObj.accDD.dropLinkStyle = {<br />
+$A.reg.myObj.accDD.dragLinkStyle = {<br />
 backgroundColor: 'black',<br />
 color: 'white',<br />
 fontSize: '0.8em'<br />
@@ -592,6 +572,11 @@ Required:
 The "isDraggable" property must be set to True.
 </li><li>
 The "dropTarget" property must specify one or more drop zones.
+</li><li>
+The data-label attribute must be set on all dropTarget containers that match the "dropTarget" property, in order to set unique textual names for each drop zone for screen reader and keyboard only users.<br />
+<code>
+&lt;div data-label="Trash Bin" id="dropZone1"&gt;&lt;/div&gt;
+</code>
 </li></ol>
 </dd>
 </dl>

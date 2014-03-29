@@ -39,7 +39,10 @@ $A.bind(window, 'load', function(){
 					runAfterClose: function(dc){
 						if (dc.backdrop)
 							dc.backdrop.parentNode.removeChild(dc.backdrop);
-					}
+					},
+
+					// Announce the dialog content for screen reader users when first rendered
+					announce: true
 					});
 
 	// Set a banner to be loaded, and save a public reference to the ID

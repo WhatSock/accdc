@@ -264,7 +264,6 @@ $A(
 									}
 									]);
 				},
-				runJSAfter: ['js/country_select.js'],
 				runAfter: function(dc){
 
 					createHeaderNav();

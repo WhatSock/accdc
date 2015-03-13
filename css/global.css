@@ -803,19 +803,19 @@ width: 640px;
 height: 400px;
 }
 
-.button {
-display: inline-block;
-text-decoration: none;
-font: bold 12px/12px HelveticaNeue, Arial;
-padding: 8px 11px;
-color: #555;
-border: 1px solid #dedede;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+.leftBtns {
+text-align: center;
 }
 
-.button.blue {
+.leftBtns .button {
+display: inline-block;
+text-decoration: none;
+font: bold 17px/17px HelveticaNeue, Arial;
+padding: 4px 10px;
+border: 1px solid #dedede;
+}
+
+.leftBtns .button.blue {
 background: #92dbf6;
 filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#abe4f8', endColorstr='#6fcef3'); /*  IE */
 background: -webkit-gradient(linear, left top, left bottom, from(#abe4f8), to(#6fcef3)); /*  WebKit */
@@ -826,6 +826,19 @@ text-shadow: 0 1px 0 #b6e6f9;
 -webkit-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
 -moz-box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;
 box-shadow: 0 1px 1px #d6d6d6, inset 0 1px 0 #c0ebfa;    
+}
+
+.leftBtns .button.black {
+background: #525252;
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#434343'); /*  IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#5e5e5e), to(#434343)); /*  WebKit */
+background: -moz-linear-gradient(top,  #5e5e5e, #434343);
+border-color: #4c4c4c #313131 #1f1f1f;
+color: #FFD801;
+text-shadow: 0 1px 0 #2e2e2e;
+-webkit-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+-moz-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
+box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;    
 }
 
 p.honors > * {

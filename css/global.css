@@ -34,7 +34,7 @@ outline: #990000 2px inset;
 }
 
 .intro {
-width: 74%;
+width: 70%;
 margin-left: 20%;
 margin-right: auto;
 }
@@ -877,4 +877,13 @@ font-size: 1.2em;
 b.csun {
 font-size: 1.2em;
 color: red;
+}
+
+.gAd {
+position: fixed;
+z-index: 100;
+width: 120px;
+height: 240px;
+top: 0px;
+right: 0px;
 }

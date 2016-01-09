@@ -1,697 +1,924 @@
 <html>
-<body>
-<div>
+	<body>
+		<div>
 
-<div class="apiDocumentationContentSection">
+			<div class="apiDocumentationContentSection">
+				<article>
 
-<div class="hd">
-<h2>
-<span>
-Events
-</span>
-</h2>
-</div>
+				<div class="hd">
+					<h3><span>Events</span></h3>
+				</div>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseOver()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseOver()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseOver: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseOver = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseOver()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseOver()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseOver: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseOver = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseOut()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseOut()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseOut: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseOut = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseOut()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseOut()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseOut: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseOut = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>resize()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "resize()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-resize: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.resize = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>resize()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "resize()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							resize: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.resize = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>scroll()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "scroll()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-scroll: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.scroll = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>scroll()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "scroll()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							scroll: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.scroll = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>click()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "click()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-click: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.click = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>click()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "click()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							click: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.click = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>dblClick()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "dblClick()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-dblClick: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.dblClick = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>dblClick()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "dblClick()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							dblClick: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.dblClick = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseDown()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseDown()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseDown: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseDown = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseDown()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseDown()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseDown: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseDown = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseUp()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseUp()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseUp: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseUp = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseUp()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseUp()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseUp: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseUp = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseMove()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseMove()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseMove: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseMove = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseMove()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseMove()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseMove: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseMove = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseEnter()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseEnter()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseEnter: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseEnter = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseEnter()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseEnter()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseEnter: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseEnter = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseLeave()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "mouseLeave()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mouseLeave: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.mouseLeave = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>mouseLeave()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "mouseLeave()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							mouseLeave: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.mouseLeave = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyDown()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "keyDown()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-keyDown: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.keyDown = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyDown()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "keyDown()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							keyDown: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.keyDown = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyPress()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "keyPress()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-keyPress: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.keyPress = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyPress()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "keyPress()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							keyPress: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.keyPress = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyUp()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "keyUp()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-keyUp: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.keyUp = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>keyUp()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "keyUp()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							keyUp: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.keyUp = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>error()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "error()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-error: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.error = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>error()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "error()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							error: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.error = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>focusIn()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "focusIn()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-focusIn: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.focusIn = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>focusIn()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "focusIn()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							focusIn: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.focusIn = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>focusOut()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "focusOut()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-focusOut: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.focusOut = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>focusOut()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "focusOut()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							focusOut: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.focusOut = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>tabOut()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "tabOut()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-tabOut: function(ev, dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.tabOut = function(ev, dc){<br />
-// Do something<br />
-};
-</code>
-<p class="heading" role="heading" aria-level="4">
-Required:
-</p>
-<ol><li>
-Both the "showHiddenClose" and "displayHiddenClose" properties (in the Automatic Accessibility Framework section) must be set to True.
-</li></ol>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>tabOut()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "tabOut()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							tabOut: function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.tabOut = function(ev, dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Required:
+						</p>
+						<ol>
+							<li>
+								Both the "showHiddenClose" and "displayHiddenClose" properties (in the Automatic Accessibility Framework section) must be set to True.
+							</li>
+						</ol>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>timeout()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "timeout()" handler provides an event callback for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-timeout: function(dc){<br />
-// Do something<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.timeout = function(dc){<br />
-// Do something<br />
-};
-</code>
-<p class="heading" role="heading" aria-level="4">
-Required:
-</p>
-<ol><li>
-The "timeoutVal" property must be set to a value greater than 0.
-</li></ol>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>timeout()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "timeout()" handler provides an event callback for an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							timeout: function(dc){
+							<br />
+							// Do something
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.timeout = function(dc){
+							<br />
+							// Do something
+							<br />
+							};
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Required:
+						</p>
+						<ol>
+							<li>
+								The "timeoutVal" property must be set to a value greater than 0.
+							</li>
+						</ol>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>timeoutVal</span></a></span> 
-</dt>
-<dd>
-<p>
-The "timeoutVal" property determines the number of milliseconds to wait before firing The "Timeout()" handler.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Default: 0 (disabled)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-timeoutVal: 1000*60,<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.timeoutVal = 3000;
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>timeoutVal</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "timeoutVal" property determines the number of milliseconds to wait before firing The "Timeout()" handler.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Default: 0 (disabled)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							timeoutVal: 1000*60,
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.timeoutVal = 3000;
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.bind()</span></a></span>  
-</dt>
-<dd>
-<p>
-"$A.bind()" is a shorthand method for adding events to any DOM node.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A.bind('form.mailingAddress', 'submit', function(ev){<br />
-// Do something<br />
-});<br />
-// Or<br />
-$A.bind(document.getElementById('helpDiv'), 'click mouseover', function(ev){<br />
-// Do something<br />
-});
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.bind()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							"$A.bind()" is a shorthand method for adding events to any DOM node.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A.bind('form.mailingAddress', 'submit', function(ev){
+							<br />
+							// Do something
+							<br />
+							});
+							<br />
+							// Or
+							<br />
+							$A.bind(document.getElementById('helpDiv'), 'click mouseover', function(ev){
+							<br />
+							// Do something
+							<br />
+							});
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.unbind()</span></a></span>  
-</dt>
-<dd>
-<p>
-"$A.unbind()" is a shorthand method for removing events from any DOM node.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A.unbind('form.mailingAddress', 'submit');<br />
-// Or<br />
-$A.unbind(document.getElementById('helpDiv'), 'click mouseover');
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.unbind()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							"$A.unbind()" is a shorthand method for removing events from any DOM node.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A.unbind('form.mailingAddress', 'submit');
+							<br />
+							// Or
+							<br />
+							$A.unbind(document.getElementById('helpDiv'), 'click mouseover');
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.trigger()</span></a></span>  
-</dt>
-<dd>
-<p>
-"$A.trigger()" is a shorthand method for triggering previously bound events on any DOM node.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A.trigger('form.mailingAddress', 'submit');<br />
-// Or<br />
-$A.trigger(document.getElementById('helpDiv'), 'click');
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.trigger()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							"$A.trigger()" is a shorthand method for triggering previously bound events on any DOM node.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A.trigger('form.mailingAddress', 'submit');
+							<br />
+							// Or
+							<br />
+							$A.trigger(document.getElementById('helpDiv'), 'click');
+						</code>
+					</dd>
+				</dl>
+				</article>
+			</div>
 
-</div>
-
-</div>
-</body>
+		</div>
+	</body>
 </html>

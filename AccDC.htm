@@ -1,234 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>AccDC - Accelerated Dynamic Content</title>
-<meta http-equiv="Content-Language" content="en" />
-<meta name="description" content="The AccDC API is a JavaScript based Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users." />
-<meta name="keywords" content="interface designs, user interface automation, internet application design, user interface components, application user interface design, dynamic content management, interface designers, rich interface application, dynamic content management system, interface designing, rich internet app, rich internet apps, user interface design web, application ui, ria development, rich internet application design, ui web design, web design user interface, ui interface design, ui designing, automation ui, accessible rich internet application, rich user interface design" />
-<meta name="Author" content="Bryan Garaventa" />
-<link rel="stylesheet" type="text/css" href="css/global.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>AccDC - Accelerated Dynamic Content</title>
+	<meta name="description" content="The AccDC API is a JavaScript based Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users." />
+	<meta name="keywords" content="interface designs, user interface automation, internet application design, user interface components, application user interface design, dynamic content management, interface designers, rich interface application, dynamic content management system, interface designing, rich internet app, rich internet apps, user interface design web, application ui, ria development, rich internet application design, ui web design, web design user interface, ui interface design, ui designing, automation ui, accessible rich internet application, rich user interface design" />
+	<meta name="Author" content="Bryan Garaventa" />
+	<link rel="stylesheet" type="text/css" href="css/global.css" />
 
-<script type="text/javascript" src="Acc.DC.API.js"></script>
-<script type="text/javascript" src="js/css_drag_drop_module_for_standalone_dojo_and_mootools.min.js"></script>
-<script type="text/javascript" src="js/helpers.js"></script>
-<script type="text/javascript" src="js/ready.js"></script>
+	<script type="text/javascript" src="Acc.DC.API.js"></script>
+	<script type="text/javascript" src="js/css_drag_drop_module_for_standalone_dojo_and_mootools.min.js"></script>
+	<script type="text/javascript" src="js/helpers.js"></script>
+	<script type="text/javascript" src="js/ready.js"></script>
 
 </head>
 <body>
-<div>
+	
+	
+<div id="container">
 
-<div class="menuLinks" role="navigation" aria-label="left">
-<div class="logo">
-<img title="WhatSock : Changing the world one step at a time" alt="WhatSock : Changing the world one step at a time" src="img/whatsock_logo.jpg" />
-</div>
-<ul class="menuList">
-<li>
-<a id="tab1" role="button" aria-pressed="false" title="Overview">
-<span>
-Overview
-</span>
-</a>
-</li>
-<li>
-<a id="tab3" role="button" aria-pressed="false" title="Live Demo">
-<span>
-Live Demo
-</span>
-</a>
-</li>
-<li>
-<a id="tab4" role="button" aria-pressed="false" title="Core API Documentation">
-<span>
-Core API
-</span>
-</a>
-</li>
-<li>
-<a id="tab5" role="button" aria-pressed="false" title="Contact Us">
-<span>
-Contact Us
-</span>
-</a>
-</li>
-</ul>
-<div class="leftBtns">
-<a class="button black" href="http://whatsock.com/csun/2015" role="button">
-<span>
-CSUN 2015
-</span>
-</a>
-</div>
-<ul class="lsn">
-<li>
-<a href="http://whatsock.com/tsg">
-AccDC Technical Style Guide
-</a>
-</li>
-<li>
-<a href="http://whatsock.com/bootstrap">
-AccDC Bootstrap
-</a>
-</li>
-<li>
-<a href="http://whatsock.com/training">
-The Accessibility Tree Training Guide
-</a>
-</li>
-<li>
-<a href="http://whatsock.com/training/matrices">
-The ARIA Role Conformance Matrices
-</a>
-</li>
-<li>
-<a href="http://whatsock.com/training/matrices/visual-aria.htm">
-The Visual ARIA Bookmarklet
-</a>
-</li>
-<li>
-<a href="http://www.linkedin.com/groups/Accessible-Innovators-4512178">
-Accessibility Innovators on LinkedIn
-</a>
-</li>
-</ul>
-</div>
+	<header>
+		<h1><strong>AccDC</strong> Accelerated Dynamic Content</h1>
+		<p class="baseline version">AccDC <abbr title="Application Programming Interface">API</abbr> for standalone, version: <span id="AccDCCurrentVerS1"></span></p>
+		<p class="logo"><img alt="WhatSock : Changing the world one step at a time" src="img/whatsock.SVG" /></p>
+	
+		<nav>
+			<h2>Main navigation <a id="skipLink" href="#wrapper">(Jump to main content)</a></h2>
+			<ul class="menuList">
+				<li class="active"><button id="tab1" aria-pressed="false">Overview</button></li>
+				<li><button id="tab3" aria-pressed="false">Live Demo</button></li>
+				<li><button id="tab4" aria-pressed="false">Core API</button></li>
+				<li><a href="http://whatsock.com/tsg/">Technical Style Guide</a></li>
+				<li><a href="http://whatsock.com/bootstrap/">AccDC Bootstrap</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div id="wrapper">
+		
+	 <div id="mContent">
+	  <div id="mcOverview">
+		<main>
+			<article>
+				<h2>Overview</h2>
+				<div class="intro content">
+					<p>AccDC is a free development resource for international businesses, organizations, 
+						and academic institutions wishing to incorporate Accessible Innovation within future web technologies.</p>
+					<p>"Accessible Innovation" refers to the creation of new technologies that include Accessibility as a core 
+						platform feature of development.</p>
+				</div>
+				
+				<p>The AccDC API is a JavaScript based Dynamic Content Management System that automates the 
+					rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.</p>
+				<p>The <a href="http://whatsock.com/tsg">AccDC Technical Style Guide</a> is designed to provide reliable 
+					and consistent interaction designs that are accessible to the highest percentage of people possible, 
+					and to establish a baseline for Functional Accessibility that can be utilized, built upon, 
+					studied, and tested against.</p>
+				<p><a href="http://whatsock.com/bootstrap">AccDC Bootstrap</a> is an HTML parser that renders advanced, 
+					accessible interactive controls using semantic HTML markup.</p>
+				<p>AccDC API Mirrors:</p>
+				<ul>
+					<li><a href="http://whatsock.com/">Powered by AccDC Standalone</a></li>
+					<li><a href="http://whatsock.com/jquery/">Powered by jQuery</a></li>
+					<li><a href="http://whatsock.com/dojo/">Powered by Dojo</a></li>
+					<li><a href="http://whatsock.com/mootools/">Powered by MooTools</a></li>
+				</ul>
+			</article>
+		</main>
+		
+		<aside>
+			<h2>Transversal content</h2>
+			<section class="honors">
+				<h3>The "Above and Beyond Accessibility Award" <a href="http://thersa.org" target="_blank">
+					<img src="img/rsa_fellowship_logo.jpg" alt="Supported by the Royal Society of Arts" title="Supported by the Royal Society of Arts" /></a></h3>
+					<p>AccDC was awarded the <strong>"Above and Beyond Accessibility Award"</strong> from the United States Department of Labor, 
+						and was presented at the Developing with Accessibility Event, hosted by the Federal Communications 
+						Commission in Washington DC in 2012.</p>
+			</section>
+			<section class="at-guide">
+				<h3><a href="http://whatsock.com/training">The Accessibility Tree Guide</a></h3>
+				<p>A Training Guide, if you want to learn how to be totally 
+					awesome. <a href="http://whatsock.com/training">Check it out!</a>.</p>
+			</section>
+		</aside>
+		
+		</div></div>
+	</div>
 
-<div class="hd">
-<h1>
-<span>
-AccDC : Accelerated Dynamic Content
-</span>
-</h1>
-</div>
+	<p class="topLink"><a href="#"><img src="img/up.png" title="Back to Top" alt="Back to Top" /></a></p>
 
-<div class="intro content" id="AccDCCurrentVer">
-<span id="AccDCCurrentVerS1"></span>
-<span id="AccDCCurrentVerS2"></span>
-</div>
+<footer>
+	<ul class="policies">
+		<li><button id="tab5" aria-pressed="false">Contact us</button></li>
+		<li><button id="tab6" aria-pressed="false">About</button></li>
+		<li><button id="tab7" aria-pressed="false">Legal</button></li>
+		<li><button id="tab8" aria-pressed="false">Terms</button></li>
+		<li><button id="tab9" aria-pressed="false">Privacy</button></li>
+	</ul>
+	<p class="copyright">&copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> WhatSock, LLC. All rights reserved.</p>
+</footer>
 
-<div id="mContent">
-
-<div id="mcOverview">
-
-<div class="intro announce" id="ph"></div>
-
-<div class="intro content">
-<p>
-AccDC is a free development resource for international businesses, organizations, and academic institutions wishing to incorporate Accessible Innovation within future web technologies.
-</p>
-<p>
-"Accessible Innovation" refers to the creation of new technologies that include Accessibility as a core platform feature of development.
-</p>
-</div>
-
-<div class="intro content">
-<p class="honors clearfix">
-<a href="http://thersa.org" target="_blank"><img
-src="img/rsa_fellowship_logo.jpg"
-alt="Supported by the Royal Society of Arts"
-title="Supported by the Royal Society of Arts"
-/></a>
-<span>
-AccDC was awarded the "Above and Beyond Accessibility Award" from the United States Department of Labor, and was presented at the Developing with Accessibility Event, hosted by the Federal Communications Commission in Washington DC in 2012.
-</span>
-</p>
-</div>
-
-<div class="intro clearfix">
-<div class="at-guide">
-<a href="http://whatsock.com/training">
-Check out The Accessibility Tree: A Training Guide, if you want to learn how to be totally awesome.
-</a>
-</div>
-</div>
-
-<div class="intro content">
-<p>
-The AccDC API is a JavaScript based Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
-</p>
-<p>
-The <a href="http://whatsock.com/tsg">AccDC Technical Style Guide</a> is designed to provide reliable and consistent interaction designs that are accessible to the highest percentage of people possible, and to establish a baseline for Functional Accessibility that can be utilized, built upon, studied, and tested against.
-</p>
-<p>
-<a href="http://whatsock.com/bootstrap">AccDC Bootstrap</a> is an HTML parser that renders advanced, accessible interactive controls using semantic HTML markup.
-</p>
-</div>
-
-<div class="intro content">
-<p>
-AccDC API Mirrors:
-</p>
-<ul><li>
-Powered by AccDC Standalone:
-<a href="http://whatsock.com/">
-http://whatsock.com/
-</a>
-</li><li>
-Powered by jQuery:
-<a href="http://whatsock.com/jquery/">
-http://whatsock.com/jquery/
-</a>
-</li><li>
-Powered by Dojo:
-<a href="http://whatsock.com/dojo/">
-http://whatsock.com/dojo/
-</a>
-</li><li>
-Powered by MooTools:
-<a href="http://whatsock.com/mootools/">
-http://whatsock.com/mootools/
-</a>
-</li></ul>
-</div>
-
-</div>
-
-</div>
-
-<div class="topLink">
-<a href="#"><img src="img/up.png" title="Back to Top" alt="Back to Top" /></a>
-</div>
-
-<div role="navigation" aria-label="bottom">
-<ul class="policies clearfix">
-<li class="policy">
-<a id="tab6" role="button" aria-pressed="false" title="About Us">
-<span>
-About
-</span>
-</a>
-</li>
-<li class="policy">
-<a id="tab7" role="button" aria-pressed="false" title="Legal-FTC Guides Disclosures">
-<span>
-Legal
-</span>
-</a>
-</li>
-<li class="policy">
-<a id="tab8" role="button" aria-pressed="false" title="Terms of Use">
-<span>
-Terms
-</span>
-</a>
-</li>
-<li class="policy">
-<a id="tab9" role="button" aria-pressed="false" title="Privacy Policy">
-<span>
-Privacy
-</span>
-</a>
-</li>
-</ul>
-</div>
-
-
-<div class="copyright">
-<span>
-&copy;<script type="text/javascript">document.write(new Date().getFullYear());</script> WhatSock, LLC;
-All rights reserved.
-</span>
-</div>
 
 </div>
 </body>

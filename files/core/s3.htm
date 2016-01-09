@@ -1,350 +1,427 @@
 <html>
-<body>
-<div>
+	<body>
+		<div>
 
-<div class="apiDocumentationContentSection">
+			<div class="apiDocumentationContentSection">
+			
+			 <article>
+				<div class="hd">
+					<h3><span>Behavior</span></h3>
+				</div>
 
-<div class="hd">
-<h2>
-<span>
-Behavior
-</span>
-</h2>
-</div>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.open()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".open()" method manually opens an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A.reg.myObj.open();
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.open()</span></a></span>  
-</dt>
-<dd>
-<p>
-The ".open()" method manually opens an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A.reg.myObj.open();
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.close()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".close()" method manually closes an AccDC Object.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							runAfter: function(dc){
+							<br />
+							dc.close();
+							<br />
+							},
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.close();
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.close()</span></a></span>  
-</dt>
-<dd>
-<p>
-The ".close()" method manually closes an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-runAfter: function(dc){<br />
-dc.close();<br />
-},<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.close();
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.allowMultiple</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".allowMultiple" property determines if an AccDC Object will automatically be closed when another AccDC Object is opened.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: True or False (default)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							allowMultiple: true,
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.allowMultiple = false;
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								The "allowMultiple" property only affects AccDC Objects declared in the same array when passed to "$A()" for registration.
+							</li>
+						</ul>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.allowMultiple</span></a></span> 
-</dt>
-<dd>
-<p>
-The ".allowMultiple" property determines if an AccDC Object will automatically be closed when another AccDC Object is opened.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: True or False (default)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-allowMultiple: true,<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.allowMultiple = false;
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-The "allowMultiple" property only affects AccDC Objects declared in the same array when passed to "$A()" for registration.
-</li></ul>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.allowReopen</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".allowReopen" property determines whether an AccDC Object can be repeatedly opened.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: True or False (default)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							allowReopen: true,
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.allowReopen = false;
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								The "allowReopen" property cannot be used in conjunction with the "isToggle" property.
+							</li>
+						</ul>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.allowReopen</span></a></span> 
-</dt>
-<dd>
-<p>
-The ".allowReopen" property determines whether an AccDC Object can be repeatedly opened.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: True or False (default)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-allowReopen: true,<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.allowReopen = false;
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-The "allowReopen" property cannot be used in conjunction with the "isToggle" property.
-</li></ul>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isToggle</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".isToggle" property specifies that an AccDC Object will toggle between open or closed when activated.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: True or False (default)
+							<br />
+							Optional screen reader accessible hidden text that conveys dynamically updating Role and State information  is automatically added to each triggering element when "isToggle" is set to True.
+							<br />
+							(View the Automatic Accessibility Framework section for details regarding related AccDC Toggle Control properties.)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							isToggle: true;
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								View the "toggleRole" and "toggleState" properties in the Automatic Accessibility Framework section to see how screen reader accessible hidden text is used to aid navigation for screen reader users.
+							</li>
+						</ul>
+						<p class="heading" role="heading" aria-level="4">
+							Required:
+						</p>
+						<ol>
+							<li>
+								The triggering element must be an object that supports innerHTML, such as an A tag or BUTTON tag to ensure proper functionality;
+							</li>
+							<li>
+								The "isToggle" property cannot be used in conjunction with the "allowReopen" property;
+							</li>
+						</ol>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isToggle</span></a></span> 
-</dt>
-<dd>
-<p>
-The ".isToggle" property specifies that an AccDC Object will toggle between open or closed when activated.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: True or False (default)<br />
-Optional screen reader accessible hidden text that conveys dynamically updating Role and State information  is automatically added to each triggering element when "isToggle" is set to True.<br />
-(View the Automatic Accessibility Framework section for details regarding related AccDC Toggle Control properties.)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-isToggle: true;<br />
-...<br />
-}<br />
-]);<br />
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-View the "toggleRole" and "toggleState" properties in the Automatic Accessibility Framework section to see how screen reader accessible hidden text is used to aid navigation for screen reader users.
-</li></ul>
-<p class="heading" role="heading" aria-level="4">
-Required:
-</p>
-<ol><li>
-The triggering element must be an object that supports innerHTML, such as an A tag or BUTTON tag to ensure proper functionality;
-</li><li>
-The "isToggle" property cannot be used in conjunction with the "allowReopen" property;
-</li></ol>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isStatic</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "isStatic" property specifies a container element where an AccDC Object will be inserted.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: CSS Selector or DOM node
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							isStatic: 'div.container',
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A.reg.myObj.isStatic = DOMNode;
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								When "isStatic" is changed at runtime, the change will take affect the next time the AccDC Object opens.
+							</li>
+							<li>
+								The "append" or "prepend" properties can be optionally set to append or prepend AccDC Objects to container elements instead of overwriting content.
+								<br />
+								<code>
+									append: true,
+									<br/>
+									// or
+									<br />
+									prepend: true,
+								</code>
+							</li>
+						</ul>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isStatic</span></a></span>  
-</dt>
-<dd>
-<p>
-The "isStatic" property specifies a container element where an AccDC Object will be inserted.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: CSS Selector or DOM node
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-isStatic: 'div.container',<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A.reg.myObj.isStatic = DOMNode;
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-When "isStatic" is changed at runtime, the change will take affect the next time the AccDC Object opens.
-</li><li>
-The "append" or "prepend" properties can be optionally set to append or prepend AccDC Objects to container elements instead of overwriting content.<br />
-<code>
-append: true,<br/>
-// or<br />
-prepend: true,
-</code>
-</li></ul>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isTab</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "isTab" property specifies whether an AccDC Object is a tab control.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: True or False (default)
+							<br />
+							Optional screen reader accessible hidden text that conveys dynamically updating Role and State information is automatically added to each triggering element when "isTab" is set to True.
+							<br />
+							(View the Automatic Accessibility Framework section for details regarding related AccDC Tab Control properties.)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							isTab: true,
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+							<br />
+							// Or
+							<br />
+							$A([
+							<br />
+							{
+							...
+							},
+							{
+							...
+							},
+							{
+							...
+							}
+							<br />
+							], {
+							<br />
+							isTab: true,
+							<br />
+							...
+							<br />
+							});
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								View the "tabRole" and "tabState" properties in the Automatic Accessibility Framework section to see how screen reader accessible hidden text is used to aid navigation for screen reader users.
+							</li>
+						</ul>
+						<p class="heading" role="heading" aria-level="4">
+							Required:
+						</p>
+						<ol>
+							<li>
+								The triggering element must be an object that supports innerHTML, such as an A tag or BUTTON tag to ensure proper functionality;
+							</li>
+						</ol>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.isTab</span></a></span> 
-</dt>
-<dd>
-<p>
-The "isTab" property specifies whether an AccDC Object is a tab control.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: True or False (default)<br />
-Optional screen reader accessible hidden text that conveys dynamically updating Role and State information is automatically added to each triggering element when "isTab" is set to True.<br />
-(View the Automatic Accessibility Framework section for details regarding related AccDC Tab Control properties.)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-isTab: true,<br />
-...<br />
-}<br />
-]);<br />
-// Or<br />
-$A([<br />
-{
-...
-},
-{
-...
-},
-{
-...
-}<br />
-], {<br />
-isTab: true,<br />
-...<br />
-});
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-View the "tabRole" and "tabState" properties in the Automatic Accessibility Framework section to see how screen reader accessible hidden text is used to aid navigation for screen reader users.
-</li></ul>
-<p class="heading" role="heading" aria-level="4">
-Required:
-</p>
-<ol><li>
-The triggering element must be an object that supports innerHTML, such as an A tag or BUTTON tag to ensure proper functionality;
-</li></ol>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.autoStart</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "autoStart" property specifies that an AccDC Object will automatically open when registered.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p>
+							Values: True or False (default)
+						</p>
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A([
+							<br />
+							{
+							<br />
+							autoStart: true,
+							<br />
+							...
+							<br />
+							}
+							<br />
+							]);
+						</code>
+						<p class="heading" role="heading" aria-level="4">
+							Important
+						</p>
+						<ul>
+							<li>
+								When an AccDC Object opens, all other AccDC Objects declared in the same "$A()" array will be closed;
+							</li>
+							<li>
+								Set the "allowMultiple" property to prevent associated AccDC Objects from closing automatically when others are opened.
+							</li>
+						</ul>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.autoStart</span></a></span> 
-</dt>
-<dd>
-<p>
-The "autoStart" property specifies that an AccDC Object will automatically open when registered.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Values: True or False (default)
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-autoStart: true,<br />
-...<br />
-}<br />
-]);
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-When an AccDC Object opens, all other AccDC Objects declared in the same "$A()" array will be closed;
-</li><li>
-Set the "allowMultiple" property to prevent associated AccDC Objects from closing automatically when others are opened.
-</li></ul>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.genId()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The "$A.genId()" method generates a unique ID timestamp.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							var myId = 'myId' + $A.genId();
+						</code>
+					</dd>
+				</dl>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.genId()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "$A.genId()" method generates a unique ID timestamp.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-var myId = 'myId' + $A.genId();
-</code>
-</dd>
-</dl>
+				<dl class="intro content api">
+					<dt class="heading" role="heading" aria-level="3">
+						<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.setFocus()</span></a></span>
+					</dt>
+					<dd>
+						<p>
+							The ".$A.setFocus()" method manually sets keyboard focus on any non-focusable DOM node.
+						</p>
+					</dd>
+					<dd class="detail hidden">
+						<p class="heading" role="heading" aria-level="4">
+							Syntax
+						</p>
+						<code>
+							$A.setFocus(document.getElementById('myDiv'));
+							<br />
+						</code>
+					</dd>
+				</dl>
+				</article>
+			</div>
 
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.setFocus()</span></a></span>  
-</dt>
-<dd>
-<p>
-The ".$A.setFocus()" method manually sets keyboard focus on any non-focusable DOM node.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A.setFocus(document.getElementById('myDiv'));<br />
-</code>
-</dd>
-</dl>
-
-</div>
-
-</div>
-</body>
+		</div>
+	</body>
 </html>

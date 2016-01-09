@@ -2,51 +2,13 @@
 	<body>
 	 
 		<div id="mcContact">
-
-
-			 
-
-			<style type="text/css">
-			
-				#mcContact form {
-				  overflow: hidden;
-				  width: 46%;
-				  margin: auto; }
-				#mcContact fieldset.contact label, #mcContact fieldset.message label {
-				  width: 31%;
-				  padding-right: 2%;
-				  text-align: right; }
-				#mcContact input, #mcContact textarea {
-				  margin-bottom: 2%;
-				  display: block; }
-				#mcContact textarea {
-				  height: 10rem !important;
-				  float: left; }
-				#mcContact fieldset {
-				  overflow: hidden; }
-				#mcContact div.formLeft, #mcContact div.formRight {
-				  width: 50%;
-				  float: left; }
-				#mcContact #cufd1, #mcContact #cufc1, #mcContact #cufc2, #mcContact #cufc4, #mcContact #cufm1, #mcContact #cufm2 {
-				  width: 35%; }
-				#mcContact div[role="listbox"] {
-				  background-color: red; }
-				  
-			</style>
-
-		 
-
-
-			 
-
-
-
+			<main>
 			<div class="hd">
 				<h2><span>Contact Us</span></h2>
 			</div>
 
 			<div class="intro content">
-				<p><i>(<span class="cRed">*</span> = Required Field)</i></p>
+				<p class="mandatory-info"><em>(<span class="cRed">*</span> = Required Field)</em></p>
 			</div>
 
 			<form id="contactUsFrm">
@@ -55,28 +17,28 @@
 
 				<fieldset class="contact">
 
-					<legend aria-level="3" role="heading">Contact:</legend>
+					<legend aria-level="3" role="heading">Contact</legend>
 					
 					<div class="formLeft">
-						<label for="cufc1"><span class="cRed">*</span>Name:</label>
-						<input type="text" value="" name="Name" id="cufc1" class="required" aria-required="true">
+						<p><label for="cufc1"><span class="cRed">*</span>Name:</label>
+							<input type="text" value="" name="Name" id="cufc1" class="required" aria-required="true"></p>
 
-						<label for="cufc2"><span class="cRed">*</span>Email:</label>
-						<input type="text" value="" name="Email" id="cufc2" class="required" aria-required="true">
+						<p><label for="cufc2"><span class="cRed">*</span>Email:</label>
+							<input type="text" value="" name="Email" id="cufc2" class="required" aria-required="true"></p>
 
-						<label for="cufc3">Phone:</label>
-						<input type="text" value="" name="Phone" id="cufc3">
+						<p><label for="cufc3">Phone:</label>
+							<input type="text" value="" name="Phone" id="cufc3"></p>
 					</div>
 
 					<div class="formRight">
-						<label for="cufc4">Extension:</label>
-						<input type="text" value="" name="Ext" id="cufc4">
+						<p><label for="cufc4">Extension:</label>
+							<input type="text" value="" name="Ext" id="cufc4"></p>
 
-						<label for="cufc5">Country:</label>
-						<input type="text" value="" name="Country" id="cufc5">
+						<p><label for="cufc5">Country:</label>
+							<input type="text" value="" name="Country" id="cufc5"></p>
 
-						<label for="cufc6">City/Province:</label>
-						<input type="text" value="" name="City_Province" id="cufc6">
+						<p><label for="cufc6">City/Province:</label>
+							<input type="text" value="" name="City_Province" id="cufc6"></p>
 					</div>
 
 				</fieldset>
@@ -84,22 +46,55 @@
 
 				<fieldset class="message">
 
-					<legend aria-level="3" role="heading">Message:</legend>
+					<legend aria-level="3" role="heading">Message</legend>
 				
-					<label for="cufm1"><span class="cRed">*</span>Subject:</label>
-					<input type="text" value="" name="Subject" id="cufm1" class="required" aria-required="true">
+					<p><label for="cufm1"><span class="cRed">*</span>Subject:</label>
+						<input type="text" value="" name="Subject" id="cufm1" class="required" aria-required="true"></p>
 
 					<div role="application">
-						<label for="cufm2"><span class="cRed">*</span>Body:</label>
-						<textarea name="Body" id="cufm2" class="required" aria-required="true"></textarea>
+						<p><label for="cufm2"><span class="cRed">*</span>Body:</label>
+							<textarea rows="5" cols="50" name="Body" id="cufm2" class="required" aria-required="true"></textarea></p>
 					</div>
 
 				</fieldset>
 
-				<input type="submit" value="Send" id="cufs">
+				<p class="buttons-bar"><input type="submit" value="Send" id="cufs" /> <input type="reset" value="Cancel" /></p>
 
 			</form>
-
+			</main>
+		
+				<aside>
+					<h2>Transversal content</h2>
+					<section class="honors">
+						<h3>The "Above and Beyond Accessibility Award" <a href="http://thersa.org" target="_blank">
+							<img src="img/rsa_fellowship_logo.jpg" alt="Supported by the Royal Society of Arts" title="Supported by the Royal Society of Arts" /></a></h3>
+							<p>AccDC was awarded the <strong>"Above and Beyond Accessibility Award"</strong> from the United States Department of Labor, 
+								and was presented at the Developing with Accessibility Event, hosted by the Federal Communications 
+								Commission in Washington DC in 2012.</p>
+					</section>
+					<section class="at-guide">
+						<h3><a href="http://whatsock.com/training">The Accessibility Tree Training Guide</a></h3>
+						<p>A Training Guide, if you want to learn how to be totally 
+							awesome. <a href="http://whatsock.com/training">Check it out!</a></p>
+					</section>
+					<section class="links-list">
+						<h3>Other WhatSock Projects</h3>
+						<ul class="ln">
+							<li><a href="http://whatsock.com/training">The Accessibility Tree Training Guide</a></li>
+							<li><a href="http://whatsock.com/training/matrices">The ARIA Role Conformance Matrices</a> 
+								Helps to specifically quantify how accessibility is tied into the usage of ARIA roles, and how associated roles are hierarchically mapped. </li>
+							<li><a href="http://whatsock.com/training/matrices/visual-aria.htm">The Visual ARIA Bookmarklet</a> 
+								It allows any sighted person to physically see the use of ARIA upon any public website, including all landmark and region roles, 
+								structural roles, live regions, etc.</li>
+						</ul>
+						
+						<h3>Events and groups</h3>
+						<ul class="ln">
+							<li><a href="http://www.linkedin.com/groups/Accessible-Innovators-4512178">Accessibility Innovators on LinkedIn</a></li>
+							<li><a href="http://whatsock.com/csun/2015/">CSUN 2015</a></li>
+						</ul>
+					</section>
+				</aside>
 		</div><!-- #mcContact -->
 
 	</body>

@@ -46,7 +46,8 @@ var firstChild = function(e, t){
 	}
 	return pairs.join('&');
 }, hds = {}, createHeaderNav = function(){
-	var ph = $A.getEl('ph'), hs = $A.query('div.hd > h2');
+	
+	var ph = $A.getEl('ph'), hs = $A.query('div.hd > h3');
 	hds = {};
 
 	for (var i = 0; i < hs.length; i++){
@@ -71,6 +72,7 @@ var firstChild = function(e, t){
 				ph.appendChild($A.createEl('span', null, null, null, document.createTextNode(' | ')));
 		}
 	}
+	
 }, elastic = function(obj, maxheight){
 	if (!obj || obj.nodeName.toLowerCase() !== 'textarea')
 		return obj;

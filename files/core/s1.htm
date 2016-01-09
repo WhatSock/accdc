@@ -1,595 +1,813 @@
 <html>
-<body>
-<div>
+	<body>
+		<div>
+			<div class="apiDocumentationContentSection">
 
-<div class="apiDocumentationContentSection">
+					<article>
+						<div class="hd">
+							<h2 class="skip"><span>Core API</span></h2>
+						</div>
+						
+						<div class="intro announce" id="ph"></div>
+		
+						<div class="intro announce" id="ph2">
+							<a role="button" href="#" class="expand"> <span class="lbl">Expand All</span> </a>
+							&nbsp;|&nbsp;
+							<a role="button" href="#" class="collapse"> <span class="lbl">Collapse All</span> </a>
+						</div>
+		
+						<div class="hd">
+							<h3><span>Getting Started</span></h3>
+						</div>
+		
+						<div class="intro content">
+							<p>Getting started is easy. Simply include AccDC like so:</p>
+							<p>
+								<code>&lt;script type="text/javascript" src="Acc.DC.API.js"&gt;
+									<br />
+									// Initialize AccDC
+									<br />
+									&lt;/script&gt;
+								</code>
+								<br />
+							</p>
+						</div>
+		
+						<div class="hd">
+							<h3><span>Core</span></h3>
+						</div>
+		
+						<div class="intro head">
+							<p><strong>Important:</strong></p>
+							<ol>
+								<li>
+									When declaring AccDC Objects, the "id" and "role" properties are required to be set for every object.
+									<br />
+									("id" must be unique, "role" does not) E.G.
+									<br />
+									<code>
+										// Shell of an AccDC Object declaration
+										<br />
+										{
+										<br />
+										id: 'myObj',
+										<br />
+										role: 'Test Object',
+										<br />
+										...
+										<br />
+										}
+									</code>
+								</li>
+								<li>
+									Any registered AccDC Object can be accessed through the "$A.reg" object using its "id". E.G.
+									<br />
+									<code>
+										var dc = $A.reg.myObj;
+										<br />
+										// or
+										<br />
+										var dc = $A.reg['myObj'];
+									</code>
+								</li>
+								<li>
+									The "dc" object, when returned as an argument to AccDC Object methods, is synonymous with "this", and refers to the current AccDC Object instance.
+								</li>
+								<li>
+									Tip: To see where dynamic insertion is used to insert AccDC Objects into the DOM, or which screen reader accessible hidden text is being rendered, disable CSS in your browser.
+									<br />
+									This will show you the hierarchy of rendered elements, and is useful when testing localization for hidden content.
+								</li>
+							</ol>
+						</div>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A()</span></a></span>
+							</dt>
+							<dd>
+								<p>The "$A()" function registers an array of AccDC Object declarations.</p>
+							</dd>
+							<dd class="detail hidden">
+								<p class="heading" role="heading" aria-level="4">
+									Parameters:
+								</p>
+								<ol>
+									<li>
+										AccDCObject: Optional:
+										An AccDC Object instance to declare as the parent object for all subsequently registered AccDC Objects in the second argument.
+										<br />
+										(To assign top-level status instead, simply pass an array of AccDC Object declarations as the first parameter.)
+									</li>
+									<li>
+										AccDC Object Mappings[]: Required:
+										An array of AccDC Object declarations to register.
+									</li>
+									<li>
+										Overrides{}: Optional:
+										Key/value map that will be merged with all AccDC Object declarations
+									</li>
+									<li>
+										Wait: Optional:
+										Default=False:
+										True or False to delay processing until the DOM has fully loaded
+									</li>
+									<li>
+										DisableAsync: Optional:
+										Default=False:
+										True or False to prevent asynchronous loading of AccDC Objects.
+									</li>
+								</ol>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Register an array of top-level AccDC Objects
+									<br />
+									$A([
+									<br />
+									// Object1
+									<br />
+									{
+									<br />
+									...
+									<br />
+									},
+									<br />
+									// Object2
+									<br />
+									{
+									<br />
+									...
+									<br />
+									},
+									<br />
+									// Object3
+									<br />
+									{
+									<br />
+									...
+									<br />
+									}
+									<br />
+									],
+									<br />
+									// Pass a key/value map to be merged with all AccDC Objects when registered
+									<br />
+									{
+									<br />
+									...
+									<br />
+									});
+									<br />
+									// Now register an array of child AccDC Objects with dc as the parent AccDC Object
+									<br />
+									$A(dc, [
+									<br />
+									// Object1
+									<br />
+									{
+									<br />
+									...
+									<br />
+									},
+									<br />
+									// Object2
+									<br />
+									{
+									<br />
+									...
+									<br />
+									}
+									<br />
+									// End array, pass no overrides, and delay processing until the DOM has fully loaded.
+									<br />
+									], null, true);
+								</code>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.morph()</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "$A.morph()" method converts any DOM node into an AccDC Object at runtime.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p class="heading" role="heading" aria-level="4">
+									Parameters:
+								</p>
+								<ol>
+									<li>
+										AccDC Object to be registered as the parent: Optional
+									</li>
+									<li>
+										DOM node to convert.: Required
+									</li>
+									<li>
+										AccDC Object Declaration{}: Required
+									</li>
+								</ol>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Convert a DOM node into a top-level AccDC Object
+									<br />
+									var DOMNode = document.getElementById('cartGraphic');
+									<br />
+									$A.morph(DOMNode, {
+									<br />
+									id: 'myObj',
+									<br />
+									role: 'Obj Role',
+									<br />
+									...
+									<br />
+									});
+									<br />
+									// Or convert a DOM node into a child AccDC Object with "dc" as the registered parent AccDC Object
+									<br />
+									var DOMNode = document.getElementById('cartGraphic');
+									<br />
+									$A.morph(dc, DOMNode, {
+									<br />
+									id: 'myObj',
+									<br />
+									role: 'Obj Role',
+									<br />
+									...
+									<br />
+									});
+								</code>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.destroy()</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "$A.destroy()" method destroys an AccDC Object and removes it from memory.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p class="heading" role="heading" aria-level="4">
+									Parameters:
+								</p>
+								<ol>
+									<li>
+										id : The ID of the AccDC Object to destroy
+									</li>
+									<li>
+										preserveData : True or False (default)
+										<br />
+										False = Destroy the AccDC Object including embedded DOM nodes.
+										<br />
+										True = Convert the AccDC Object into a standard DOM node.
+									</li>
+								</ol>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Destroy the AccDC Object with id="myObj", and convert it into a standard DOM node
+									<br />
+									$A.destroy('myObj', true);
+									<br />
+									// Or just destroy it...
+									<br />
+									$A.destroy('myObj');
+								</code>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.id</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "id" property is the object reference for all registered AccDC Objects.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p>
+									The "id" property must be unique for every AccDC Object.
+								</p>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Assign a unique ID
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									id: 'OverviewTab',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+								</code>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.trigger</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "trigger" property is a CSS Selector or DOM node that assigns triggering element(s) for an AccDC Object.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Assign a triggering element using a CSS Selector
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									trigger: 'a.helpLink',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Assign a triggering element using a DOM node
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									trigger: document.getElementById('helpLnk2'),
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+								</code>
+								<p class="heading" role="heading" aria-level="4">
+									Important
+								</p>
+								<ul>
+									<li>
+										Use the "setTrigger()" or "unsetTrigger()" methods specified in the Traversal and Manipulation section to set or unset triggering elements at runtime.
+									</li>
+									<li>
+										When the "trigger" property is a Form, "returnFocus" will look for the first Input with type="submit" within the Form when returning focus to the triggering element.
+									</li>
+									<li>
+										When the "trigger" property specifies an A tag that does not contain an href attribute, href="#" is automatically added to the A tag to ensure keyboard accessibility.
+									</li>
+								</ul>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.bind</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "bind" property assigns one or more event binders to the triggering element.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p>
+									Supported binders:
+								</p>
+								<ul class="liFl">
+									<li>
+										blur
+									</li>
+									<li>
+										focus
+									</li>
+									<li>
+										focusin
+									</li>
+									<li>
+										focusout
+									</li>
+									<li>
+										load
+									</li>
+									<li>
+										resize
+									</li>
+									<li>
+										scroll
+									</li>
+									<li>
+										unload
+									</li>
+									<li>
+										click
+									</li>
+									<li>
+										dblclick
+									</li>
+									<li>
+										mousedown
+									</li>
+									<li>
+										mouseup
+									</li>
+									<li>
+										mousemove
+									</li>
+									<li>
+										mouseover
+									</li>
+									<li>
+										mouseout
+									</li>
+									<li>
+										mouseenter
+									</li>
+									<li>
+										mouseleave
+									</li>
+									<li>
+										change
+									</li>
+									<li>
+										select
+									</li>
+									<li>
+										submit
+									</li>
+									<li>
+										keydown
+									</li>
+									<li>
+										keypress
+									</li>
+									<li>
+										keyup
+									</li>
+									<li>
+										error
+									</li>
+									<li>
+										<i>(Custom)</i>
+									</li>
+								</ul>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Assign event bindings for the triggering element(s)
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									bind: 'click',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Assign multiple event bindings
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									bind: 'click focus mouseover',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+								</code>
+								<p class="heading" role="heading" aria-level="4">
+									Important
+								</p>
+								<ul>
+									<li>
+										To ensure that all AccDC Objects are equally accessible to screen reader and keyboard only users, keyboard event handlers should always be included whenever possible;
+										<br />
+										Specifically: 'click'
+									</li>
+									<li>
+										Use the "setTrigger()" method specified in the Traversal and Manipulation section to set new triggering elements at runtime.
+									</li>
+								</ul>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.mode</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									The "mode" property specifies the fetch method for pulling content into an AccDC Object.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p>
+									Supports:
+								</p>
+								<ul class="liFl">
+									<li>
+										DOM Nodes
+									</li>
+									<li>
+										Text
+									</li>
+									<li>
+										HTML
+									</li>
+									<li>
+										XHTML
+									</li>
+									<li>
+										XML
+									</li>
+									<li>
+										Script Objects
+									</li>
+									<li>
+										JSON
+									</li>
+									<li>
+										JSONP
+									</li>
+								</ul>
+								<p class="heading" role="heading" aria-level="4">
+									Options
+								</p>
+								<ol class="lsn">
+									<li>
+										0 : Source Code (default):
+										A literal HTML string or a DOM node
+									</li>
+									<li>
+										1 : Load:
+										Load content from an external resource and insert it within the AccDC Object
+									</li>
+									<li>
+										2 : Get:
+										Load content from an external resource using an HTTP GET Request
+									</li>
+									<li>
+										3 : GetJSON:
+										Load JSON-encoded data from an external resource using a GET HTTP Request
+									</li>
+									<li>
+										4 : GetScript:
+										Load JavaScript from an external resource using a GET HTTP Request and execute it
+									</li>
+									<li>
+										5 : Post:
+										Load content from an external resource using an HTTP POST Request
+									</li>
+									<li>
+										6 : AJAX:
+										Perform an asynchronous HTTP (AJAX) Request
+									</li>
+								</ol>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									$A([
+									<br />
+									{
+									<br />
+									mode: 1,
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Set the mode property at runtime
+									<br />
+									$A.reg.myObjId.mode = 4;
+									<br />
+									// Set the mode property before an AccDC Object is opened
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									runBefore: function(dc){
+									<br />
+									dc.mode = 1;
+									<br />
+									// or
+									<br />
+									this.mode = 1;
+									<br />
+									},
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+								</code>
+								<p class="heading" role="heading" aria-level="4">
+									Important
+								</p>
+								<ul>
+									<li>
+										The "mode" property works in conjunction with the "source" property and the callback functions listed within the Mode Handlers section;
+										<br />
+										<i>(The "mode" property determines the method, the "source" property specifies the resource, and the Mode Handler provides the callback.)</i>
+									</li>
+									<li>
+										<p>
+											Mode Value Differentials:
+										</p>
+										<ol>
+											<li>
+												When mode=0, only the value of the "source" property is rendered;
+											</li>
+											<li>
+												When mode=1, the value of the "source" property is used as a resource locator, and the "hLoad()" function is called as the Mode Handler;
+											</li>
+											<li>
+												When mode=either 2 through 5, the value of the "source" property is used as a resource locator, and the value of the "content" property (which must be set within the relevant Mode Handler) is rendered;
+											</li>
+											<li>
+												When mode=6, the value of the "ajaxOptions.url" property is used as a resource locator, and the value of the "content" property (which must be set within the "hSuccess()" Mode Handler) is rendered.
+											</li>
+										</ol>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.source</span></a></span>
+								<span>(Mode0-5 Property)</span>
+							</dt>
+							<dd>
+								<p>
+									The "source" property is a string or DOM node that specifies either literal content or a resource locator specifying where content will be pulled into an AccDC Object.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p>
+									Accepted value types:
+								</p>
+								<ol>
+									<li>
+										A String or DOM node representing literal source code to render;
+									</li>
+									<li>
+										A relative or absolute file path as a resource locator.
+									</li>
+								</ol>
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Set the source with mode=0: literal source
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									source: '&lt;div class="error"&gt;Error: Your password must be 8 characters in length.&lt;/div&gt;',
+									<br />
+									// Or
+									<br />
+									source: document.getElementById('dialogContent'),
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Set the source with mode=1: resource locator
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									source: 'files/analytics.php',
+									<br />
+									// Or by specifying a CSS Selector in the string to pull in a sub-section
+									<br />
+									source: 'files/help.php #ContextSensitiveHelp',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Set the source with mode=2-5: resource locator
+									<br />
+									$A([
+									<br />
+									{
+									<br />
+									source: 'generate/isbn.php',
+									<br />
+									// Or
+									<br />
+									source: 'http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?',
+									<br />
+									// Or
+									<br />
+									source: 'http://whatsock.com/js/demo.js',
+									<br />
+									...
+									<br />
+									}
+									<br />
+									]);
+									<br />
+									// Dynamically set the source at runtime
+									<br />
+									$A.reg.myId.source = 'files/core/s1.htm';
+								</code>
+								<p class="heading" role="heading" aria-level="4">
+									Important
+								</p>
+								<ul>
+									<li>
+										When "$A.reg[]" is used to dynamically change the "source" property at runtime, the change will take affect the next time the AccDC Object opens.
+									</li>
+								</ul>
+							</dd>
+						</dl>
+		
+						<dl class="intro content api">
+							<dt class="heading" role="heading" aria-level="3">
+								<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.query()</span></a></span>
+							</dt>
+							<dd>
+								<p>
+									"$A.query()" is a shorthand method for returning an array of DOM nodes using a CSS Selector, or executing a callback on each returned object.
+								</p>
+							</dd>
+							<dd class="detail hidden">
+								<p class="heading" role="heading" aria-level="4">
+									Syntax
+								</p>
+								<code>
+									// Format: .query(Selector, Root, Callback)
+									<br />
+									// Get an array of all links in a list
+									<br />
+									var links = $A.query('ul.menuList a');
+									<br />
+									// Or the same using a root node
+									<br />
+									var links = $A.query('ul.menuList a', document.getElementById('rootDiv'));
+									<br />
+									// Or execute a callback on all matched nodes
+									<br />
+									$A.query('ul.menuList a', function(index, value){
+									<br />
+									alert(this.href);
+									<br />
+									});
+									<br />
+									// Or the same using a root node
+									<br />
+									$A.query('ul.menuList a', document.getElementById('rootDiv'), function(index, value){
+									<br />
+									alert(this.href);
+									<br />
+									});
+								</code>
+							</dd>
+						</dl>
+					
+					</article>
+			</div>
 
-<div class="hd">
-<h2 class="skip">
-<span>
-Core API
-</span>
-</h2>
-</div>
-
-<div class="intro announce" id="ph"></div>
-
-<div class="intro announce" id="ph2">
-<a role="button" href="#" class="expand">
-<span class="lbl">Expand All</span>
-</a>
-&nbsp;|&nbsp;
-<a role="button" href="#" class="collapse">
-<span class="lbl">Collapse All</span>
-</a>
-</div>
-
-<div class="hd">
-<h2>
-<span>
-Getting Started
-</span>
-</h2>
-</div>
-
-<div class="intro content">
-<p>
-Getting started is easy. Simply include AccDC like so:<br />
-</p>
-<p>
-<code>
-&lt;script type="text/javascript" src="Acc.DC.API.js"&gt;<br />
-// Initialize AccDC<br />
-&lt;/script&gt;
-</code><br />
-</p>
-</div>
-
-<div class="hd">
-<h2>
-<span>
-Core
-</span>
-</h2>
-</div>
-
-<div class="intro head">
-<b>Important:</b><br />
-<ol><li>
-When declaring AccDC Objects, the "id" and "role" properties are required to be set for every object.<br />
-("id" must be unique, "role" does not) E.G.<br />
-<code>
-// Shell of an AccDC Object declaration<br />
-{<br />
-id: 'myObj',<br />
-role: 'Test Object',<br />
-...<br />
-}
-</code>
-</li><li>
-Any registered AccDC Object can be accessed through the "$A.reg" object using its "id". E.G.<br />
-<code>
-var dc = $A.reg.myObj;<br />
-// or<br />
-var dc = $A.reg['myObj'];
-</code>
-</li><li>
-The "dc" object, when returned as an argument to AccDC Object methods, is synonymous with "this", and refers to the current AccDC Object instance.
-</li><li>
-Tip: To see where dynamic insertion is used to insert AccDC Objects into the DOM, or which screen reader accessible hidden text is being rendered, disable CSS in your browser.<br />
-This will show you the hierarchy of rendered elements, and is useful when testing localization for hidden content.
-</li></ol>
-</div>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A()</span></a></span>  
-</dt>
-<dd>
-<p>
-The "$A()" function registers an array of AccDC Object declarations.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Parameters:
-</p>
-<ol><li>
-AccDCObject: Optional:
-An AccDC Object instance to declare as the parent object for all subsequently registered AccDC Objects in the second argument.<br />
-(To assign top-level status instead, simply pass an array of AccDC Object declarations as the first parameter.)
-</li><li>
-AccDC Object Mappings[]: Required:
-An array of AccDC Object declarations to register.
-</li><li>
-Overrides{}: Optional:
-Key/value map that will be merged with all AccDC Object declarations
-</li><li>
-Wait: Optional:
-Default=False:  
-True or False to delay processing until the DOM has fully loaded
-</li><li>
-DisableAsync: Optional:
-Default=False: 
-True or False to prevent asynchronous loading of AccDC Objects.
-</li></ol>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Register an array of top-level AccDC Objects<br />
-$A([<br />
-// Object1 <br />
-{<br />
-...<br />
-},<br />
-// Object2 <br />
-{<br />
-...<br />
-},<br />
-// Object3 <br />
-{<br />
-...<br />
-}<br />
-],<br />
-// Pass a key/value map to be merged with all AccDC Objects when registered<br />
-{<br />
-...<br />
-});<br />
-// Now register an array of child AccDC Objects with dc as the parent AccDC Object<br />
-$A(dc, [<br />
-// Object1 <br />
-{<br />
-...<br />
-},<br />
-// Object2 <br />
-{<br />
-...<br />
-}<br />
-// End array, pass no overrides, and delay processing until the DOM has fully loaded.<br />
-], null, true);
-</code>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.morph()</span></a></span> 
-</dt>
-<dd>
-<p>
-The "$A.morph()" method converts any DOM node into an AccDC Object at runtime.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Parameters:
-</p>
-<ol><li>
-AccDC Object to be registered as the parent: Optional
-</li><li>
-DOM node to convert.: Required
-</li><li>
-AccDC Object Declaration{}: Required
-</li></ol>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Convert a DOM node into a top-level AccDC Object<br />
-var DOMNode = document.getElementById('cartGraphic');<br />
-$A.morph(DOMNode, {<br />
-id: 'myObj',<br />
-role: 'Obj Role',<br />
-...<br />
-});<br />
-// Or convert a DOM node into a child AccDC Object with "dc" as the registered parent AccDC Object<br />
-var DOMNode = document.getElementById('cartGraphic');<br />
-$A.morph(dc, DOMNode, {<br />
-id: 'myObj',<br />
-role: 'Obj Role',<br />
-...<br />
-});
-</code>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.destroy()</span></a></span> 
-</dt>
-<dd>
-<p>
-The "$A.destroy()" method destroys an AccDC Object and removes it from memory.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Parameters:
-</p>
-<ol><li>
-id : The ID of the AccDC Object to destroy
-</li><li>
-preserveData : True or False (default)<br />
-False = Destroy the AccDC Object including embedded DOM nodes.<br />
-True = Convert the AccDC Object into a standard DOM node.
-</li></ol>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Destroy the AccDC Object with id="myObj", and convert it into a standard DOM node<br />
-$A.destroy('myObj', true);<br />
-// Or just destroy it...<br />
-$A.destroy('myObj');
-</code>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.id</span></a></span>  
-</dt>
-<dd>
-<p>
-The "id" property is the object reference for all registered AccDC Objects.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-The "id" property must be unique for every AccDC Object.
-</p>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Assign a unique ID<br />
-$A([<br />
-{<br />
-id: 'OverviewTab',<br />
-...<br />
-}<br />
-]);
-</code>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.trigger</span></a></span> 
-</dt>
-<dd>
-<p>
-The "trigger" property is a CSS Selector or DOM node that assigns triggering element(s) for an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Assign a triggering element using a CSS Selector<br />
-$A([<br />
-{<br />
-trigger: 'a.helpLink',<br />
-...<br />
-}<br />
-]);<br />
-// Assign a triggering element using a DOM node<br />
-$A([<br />
-{<br />
-trigger: document.getElementById('helpLnk2'),<br />
-...<br />
-}<br />
-]);
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-Use the "setTrigger()" or "unsetTrigger()" methods specified in the Traversal and Manipulation section to set or unset triggering elements at runtime.
-</li><li>
-When the "trigger" property is a Form, "returnFocus" will look for the first Input with type="submit" within the Form when returning focus to the triggering element.
-</li><li>
-When the "trigger" property specifies an A tag that does not contain an href attribute, href="#" is automatically added to the A tag to ensure keyboard accessibility.
-</li></ul>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.bind</span></a></span>  
-</dt>
-<dd>
-<p>
-The "bind" property assigns one or more event binders to the triggering element.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Supported binders:
-</p>
-<ul class="liFl"><li>
-blur
-</li><li>
-focus
-</li><li>
-focusin
-</li><li>
-focusout
-</li><li>
-load
-</li><li>
-resize
-</li><li>
-scroll
-</li><li>
-unload
-</li><li>
-click
-</li><li>
-dblclick
-</li><li>
-mousedown
-</li><li>
-mouseup
-</li><li>
-mousemove
-</li><li>
-mouseover
-</li><li>
-mouseout
-</li><li>
-mouseenter
-</li><li>
-mouseleave
-</li><li>
-change
-</li><li>
-select
-</li><li>
-submit
-</li><li>
-keydown
-</li><li>
-keypress
-</li><li>
-keyup
-</li><li>
-error
-</li><li>
-<i>(Custom)</i>
-</li></ul>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Assign event bindings for the triggering element(s)<br />
-$A([<br />
-{<br />
-bind: 'click',<br />
-...<br />
-}<br />
-]);<br />
-// Assign multiple event bindings<br />
-$A([<br />
-{<br />
-bind: 'click focus mouseover',<br />
-...<br />
-}<br />
-]);
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-To ensure that all AccDC Objects are equally accessible to screen reader and keyboard only users, keyboard event handlers should always be included whenever possible;<br />
-Specifically: 'click'
-</li><li>
-Use the "setTrigger()" method specified in the Traversal and Manipulation section to set new triggering elements at runtime.
-</li></ul>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.mode</span></a></span> 
-</dt>
-<dd>
-<p>
-The "mode" property specifies the fetch method for pulling content into an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Supports:
-</p>
-<ul class="liFl"><li>
-DOM Nodes
-</li><li>
-Text
-</li><li>
-HTML
-</li><li>
-XHTML
-</li><li>
-XML
-</li><li>
-Script Objects
-</li><li>
-JSON
-</li><li>
-JSONP
-</li></ul>
-<p class="heading" role="heading" aria-level="4">
-Options
-</p>
-<ol class="lsn"><li>
-0 : Source Code (default):
-A literal HTML string or a DOM node
-</li><li>
-1 : Load:
-Load content from an external resource and insert it within the AccDC Object
-</li><li>
-2 : Get:
-Load content from an external resource using an HTTP GET Request
-</li><li>
-3 : GetJSON:
-Load JSON-encoded data from an external resource using a GET HTTP Request
-</li><li>
-4 : GetScript:
-Load JavaScript from an external resource using a GET HTTP Request and execute it
-</li><li>
-5 : Post:
-Load content from an external resource using an HTTP POST Request
-</li><li>
-6 : AJAX:
-Perform an asynchronous HTTP (AJAX) Request
-</li></ol>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-$A([<br />
-{<br />
-mode: 1,<br />
-...<br />
-}<br />
-]);<br />
-// Set the mode property at runtime<br />
-$A.reg.myObjId.mode = 4;<br />
-// Set the mode property before an AccDC Object is opened<br />
-$A([<br />
-{<br />
-runBefore: function(dc){<br />
-dc.mode = 1;<br />
-// or<br />
-this.mode = 1;<br />
-},<br />
-...<br />
-}<br />
-]);
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-The "mode" property works in conjunction with the "source" property and the callback functions listed within the Mode Handlers section;<br />
-<i>(The "mode" property determines the method, the "source" property specifies the resource, and the Mode Handler provides the callback.)</i>
-</li><li>
-<p>
-Mode Value Differentials:
-</p>
-<ol><li>
-When mode=0, only the value of the "source" property is rendered;
-</li><li>
-When mode=1, the value of the "source" property is used as a resource locator, and the "hLoad()" function is called as the Mode Handler;
-</li><li>
-When mode=either 2 through 5, the value of the "source" property is used as a resource locator, and the value of the "content" property (which must be set within the relevant Mode Handler) is rendered;
-</li><li>
-When mode=6, the value of the "ajaxOptions.url" property is used as a resource locator, and the value of the "content" property (which must be set within the "hSuccess()" Mode Handler) is rendered.
-</li></ol>
-</li></ul>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>.source</span></a></span> 
-<span>(Mode0-5 Property)</span>
-</dt>
-<dd>
-<p>
-The "source" property is a string or DOM node that specifies either literal content or a resource locator specifying where content will be pulled into an AccDC Object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p>
-Accepted value types:
-</p>
-<ol><li>
-A String or DOM node representing literal source code to render;
-</li><li>
-A relative or absolute file path as a resource locator.
-</li></ol>
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Set the source with mode=0: literal source<br />
-$A([<br />
-{<br />
-source: '&lt;div class="error"&gt;Error: Your password must be 8 characters in length.&lt;/div&gt;',<br />
-// Or<br />
-source: document.getElementById('dialogContent'),<br />
-...<br />
-}<br />
-]);<br />
-// Set the source with mode=1: resource locator<br />
-$A([<br />
-{<br />
-source: 'files/analytics.php',<br />
-// Or by specifying a CSS Selector in the string to pull in a sub-section<br />
-source: 'files/help.php #ContextSensitiveHelp',<br />
-...<br />
-}<br />
-]);<br />
-// Set the source with mode=2-5: resource locator<br />
-$A([<br />
-{<br />
-source: 'generate/isbn.php',<br />
-// Or<br />
-source: 'http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?',<br />
-// Or<br />
-source: 'http://whatsock.com/js/demo.js',<br />
-...<br />
-}<br />
-]);<br />
-// Dynamically set the source at runtime<br />
-$A.reg.myId.source = 'files/core/s1.htm';
-</code>
-<p class="heading" role="heading" aria-level="4">
-Important
-</p>
-<ul><li>
-When "$A.reg[]" is used to dynamically change the "source" property at runtime, the change will take affect the next time the AccDC Object opens.
-</li></ul>
-</dd>
-</dl>
-
-<dl class="intro content api">
-<dt class="heading" role="heading" aria-level="3">
-<span><a class="toggle" role="button" aria-pressed="false" href="#"><span>$A.query()</span></a></span>  
-</dt>
-<dd>
-<p>
-"$A.query()" is a shorthand method for returning an array of DOM nodes using a CSS Selector, or executing a callback on each returned object.
-</p>
-</dd>
-<dd class="detail hidden">
-<p class="heading" role="heading" aria-level="4">
-Syntax
-</p>
-<code>
-// Format: .query(Selector, Root, Callback)<br />
-// Get an array of all links in a list<br />
-var links = $A.query('ul.menuList a');<br />
-// Or the same using a root node<br />
-var links = $A.query('ul.menuList a', document.getElementById('rootDiv'));<br />
-// Or execute a callback on all matched nodes<br />
-$A.query('ul.menuList a', function(index, value){<br />
-alert(this.href);<br />
-});<br />
-// Or the same using a root node<br />
-$A.query('ul.menuList a', document.getElementById('rootDiv'), function(index, value){<br />
-alert(this.href);<br />
-});
-</code>
-</dd>
-</dl>
-
-</div>
-
-</div>
-</body>
+		</div>
+	</body>
 </html>

@@ -35,8 +35,8 @@ $A(
 				forceFocus: false,
 				// Run script only once before the Overview tab is first opened
 				runOnceBefore: function(dc){
-					$A.bind('a[role=button]', 'click', function(ev){
-						$A.query('a[aria-pressed=true]', function(){
+					$A.bind('nav button, footer button', 'click', function(ev){
+						$A.query('nav button, footer button', function(){
 							$A.setAttr(this, 'aria-pressed', 'false');
 						});
 						$A.setAttr(this, 'aria-pressed', 'true');
@@ -45,8 +45,14 @@ $A(
 					$A.setAttr(dc.triggerObj, 'aria-pressed', 'true');
 
 					// Setup Back To Top link functionality
-					$A.bind('div.topLink a', 'click', function(ev){
+					$A.bind('p.topLink a', 'click', function(ev){
 						$A.setFocus($A.query('h1')[0]);
+						ev.preventDefault();
+					});
+
+					// Setup skip link functionality
+					$A.bind('#skipLink', 'click', function(ev){
+						$A.setFocus($A.getEl('wrapper'));
 						ev.preventDefault();
 					});
 				},
@@ -55,7 +61,7 @@ $A(
 					createHeaderNav();
 
 					$A.bind('#tab4sub', 'click', function(ev){
-						$A.trigger('#tab4', 'click');
+						$A.trigger($A.getEl('tab4'), 'click');
 						ev.preventDefault();
 					});
 
@@ -246,7 +252,7 @@ $A(
 													{
 													width: '70%',
 													zIndex: 100,
-													position: 'fixed'
+													position: 'static'
 													},
 									className: 'cuStatus',
 									runAfter: function(dc){
@@ -282,8 +288,9 @@ $A(
 
 						if (errList.length){
 							var status = $A.reg.cuStatus;
-							status.source = '<div id="sMsg" class="cRed">Error: Missing Required Fields<br /><ol class="liFl"><li>'
-								+ errList.join('</li><li>') + '</li></ol></div><div><button id="okBtn" class="fr">OK</button></div>';
+							status.source
+								= '<div id="sMsg" class="cRed"><p><strong>Error: Missing Required Fields</strong></p><ol class="liFl"><li>'
+								+ errList.join('</li><li>') + '</li></ol></div><p><button id="okBtn" class="fr">OK</button></p>';
 							status.open();
 						}
 
@@ -379,10 +386,10 @@ $A.bind(window, 'load', function(){
 	var verNode = $A.getEl('AccDCCurrentVerS1');
 
 	if (verNode && $A.version){
-		verNode.innerHTML = ('Currently running AccDC API for Standalone, version: ' + $A.version).announce();
+		verNode.innerHTML = ($A.version).announce();
 	}
 
 	if (window.navigator.onLine)
 		// Check for updates
-		$A.getScript('http://api.whatsock.com/accdc-updates.js');
+		$A.getScript('http://api.whatsock.com/accdc-jquery-updates.js');
 });

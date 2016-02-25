@@ -255,17 +255,36 @@ $A(
 													position: 'static'
 													},
 									className: 'cuStatus',
+									showHiddenBounds: false,
+									runDuring: function(dc){
+										$A.setAttr(dc.accDCObj,
+														{
+														role: 'alertdialog',
+														'aria-label': 'Status',
+														'aria-describedby': dc.containerDivId
+														});
+									},
 									runAfter: function(dc){
 										$A.getEl('okBtn').focus();
-										$A.bind('#okBtn', 'click', function(ev){
-											var lis = $A.query('#sMsg ol li');
+										$A.bind('#okBtn',
+														{
+														click: function(ev){
+															var lis = $A.query('#sMsg ol li');
 
-											if (lis.length)
-												$A.getEl('contactUsFrm')[lis[0].innerText || lis[0].textContent].focus();
-											dc.close();
-											ev.preventDefault();
-										});
-										$A.announce($A.getEl('sMsg'));
+															if (lis.length)
+																$A.getEl('contactUsFrm')[lis[0].innerText || lis[0].textContent].focus();
+															dc.close();
+															ev.preventDefault();
+														},
+														keydown: function(ev){
+															var k = ev.which || ev.keyCode;
+
+															if (k == 13 || k == 32){
+																$A.trigger(this, 'click');
+															}
+															ev.preventDefault();
+														}
+														});
 									}
 									}
 									]);

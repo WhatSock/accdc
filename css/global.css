@@ -104,21 +104,25 @@ body {
 }
 
 h1 {
-	font: normal 8vw/1.2 antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: normal 1em/1.2 antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform: capitalize;
+	text-align: left;
 	color: #B8B7AB;
-	padding: 80px 5% 0 5%;
+	padding: 0 2.5% 0 75px;
+	margin-left: 2.5%;
 }
 	h1 strong {
 		display: block;
 		position: relative;
 		top: 0.2em;
-		font: normal 250% antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font: normal 235%/1.05 antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #63B7C2;
+		margin-bottom: 0.5rem;
 	}
 
 h2 {
 	font: normal 2.5em/1.3 antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
 	color: #2E3135;
 	margin: 0 0 0.5em 0;
 }
@@ -128,6 +132,7 @@ h2 {
 
 h3 {
 	font: normal 1.8em/1.3 antonregular, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
 	color: #2E3135;
 	margin: 1.5em 0 0.5em;
 }
@@ -143,13 +148,14 @@ p, li, dt, dd {font-size: 0.9em; line-height: 1.45;}
 
 li li {font-size: 100%;}
 
-a, a:link, a:visited {
-	text-decoration: none;
+a, a:link {
 	color: #000;
-	background: #F2D3A1;
+	background: #FCE7C7;
 }
+
+a:visited {color: #404040; background: transparent;}
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 	background: transparent;
 }
 
@@ -187,11 +193,9 @@ code {
 
 header {
 	position: relative;
-	text-align: center;
 	color: #FFF;
 	background: #2E3135;
 	background-image: linear-gradient(rgba(0,0,0,.5), transparent);
-	padding: 2rem 0 0;
 }
 
 main, div.apiDocumentationContentSection {
@@ -201,14 +205,17 @@ main, div.apiDocumentationContentSection {
 
 aside {color: #000; background: #E1E1E1; padding: 2rem 5%;}
 
-p.baseline {font-size: 0.75em; margin-top: 1.5em;}
+p.baseline {
+	font-size: 0.75em;
+	padding-left: 2.5%;
+	margin: 1.5em 0 0 75px;
+}
 p.logo {
     position: absolute;
-    top: 2rem;
-    left: 50%;
-    width: 100px;
-	height: 100px;
-    margin-left: -50px;
+	top: 0.5rem;
+	left: 2.5%;
+	width: 60px;
+	height: 60px;
 }
 	
 	p.logo a {background: transparent;}
@@ -313,7 +320,7 @@ input[type=submit]:focus {background: #F60;}
 /* -------------------------------- NAVIGATION ------------------------------- */
 /* --------------------------------------------------------------------------- */
 
-nav {text-align: center; margin-top: 2rem;}
+nav {text-align: center; margin-top: 1rem;}
 nav h2, aside h2 {
 	position: absolute;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -331,8 +338,9 @@ nav li {list-style-type: none;}
 nav button, nav a, nav a:link, nav a:visited  {
 	display: block;
 	width: 100%;
-	font: bold 1.2em Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: normal 1.2em open_sansbold, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
+	text-decoration: none;
 	color: #FFF;
 	background: #444A51;
 	padding: 0.5em 0;
@@ -440,13 +448,20 @@ p.topLink {text-align: center; margin: 1rem 0;}
 
 /* Contextual menu */
 
-#ph {margin-bottom: 2rem;}
+#ph {
+	margin-bottom: 2rem;
+}
 	
 	#ph a {
 		display: inline-block;
+		font: 1em open_sansbold, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		text-decoration: none;
+		background: transparent;
 		padding: 0.2em 0.5em;
 		margin-bottom: 0.3em;
 	}
+	#ph a:hover,#ph a:focus {color: #FFF; background: #2E3135;}
+	#ph span {color: #999;}
 
 .heading {
 	text-transform: uppercase;
@@ -760,8 +775,10 @@ div.demo-block {
 	}
 	
 	header {width: 20%; text-align: left; padding: 2rem 5%;}
-	h1 {font-size: 3vw; padding: 120px 0 0;}
-	p.logo {width: 150px; height: 150px;  left: 15%; margin: 0;}
+	h1 {font-size: 3vw; line-height: 1.2; padding: 120px 0 0; margin: 0;}
+	h1 strong {font-size: 250%; margin: 2rem 0 1.5rem;}
+	p.logo {width: 150px; height: 150px; top: 2rem; left: 15%; margin: 0;}
+	p.baseline {padding: 0; margin-left: 0;}
 	
 	main, #mcOverview {min-height: 800px;}
 	
@@ -775,7 +792,10 @@ div.demo-block {
 	#wrapper {width: 70%;}
 	
 	nav {margin-top: 4rem;}
-	nav button, nav a, nav a:link, nav a:visited {padding: 0.5em 0;}
+	nav button, nav a, nav a:link, nav a:visited {
+		font-size: 1em;
+		padding: 0.5em 0;
+	}
 	
 	footer {width: 98%; text-align: left; padding: 0 1%;}
 	footer ul {width: 60%; margin-top: -4rem;}

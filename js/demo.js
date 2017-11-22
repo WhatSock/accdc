@@ -155,8 +155,8 @@ $A.bind('input.morphBtn', 'click', function(ev){
 									{
 									position: 'absolute',
 									// Copy the current coordinates for the image
-									left: xOffset(sunImg).left,
-									top: xOffset(sunImg).top,
+									left: $A.xOffset(sunImg).left,
+									top: $A.xOffset(sunImg).top,
 									// Set the depth
 									zIndex: 2
 									}
@@ -170,7 +170,7 @@ $A.bind('input.morphBtn', 'click', function(ev){
 
 function dropIntoTheSun(dc){
 	var sun = firstChild($A.reg.sun.containerDiv, 'img'), planet = firstChild(dc.containerDiv, 'img'),
-		additional = sun.offsetHeight / 2, sunOS = xOffset(sun);
+		additional = sun.offsetHeight / 2, sunOS = $A.xOffset(sun);
 	// Move planet to the sun
 	transition(dc.accDCObj,
 					{

@@ -14,7 +14,9 @@ var firstChild = function(e, t){
 		e = e.nextSibling;
 	}
 	return e;
-}, getClosest = function(start, targ){
+},
+
+getClosest = function(start, targ){
 	while (start){
 		start = start.parentNode;
 
@@ -30,12 +32,9 @@ var firstChild = function(e, t){
 	}
 
 	return null;
-}, insertBefore = function(f, s){
-	if (!f)
-		return s;
-	f.parentNode.insertBefore(s, f);
-	return s;
-}, serialize = function(form){
+}, 
+
+serialize = function(form){
 	if (!form || !form.elements)
 		return '';
 	var pairs = [], fields = form.elements;
@@ -45,7 +44,9 @@ var firstChild = function(e, t){
 			pairs.push(fields[i].name + '=' + encodeURIComponent(fields[i].value));
 	}
 	return pairs.join('&');
-}, hds = {}, createHeaderNav = function(){
+},
+
+hds = {}, createHeaderNav = function(){
 	
 	var ph = $A.getEl('ph'), hs = $A.query('div.hd > h3');
 	hds = {};
@@ -73,7 +74,9 @@ var firstChild = function(e, t){
 		}
 	}
 	
-}, elastic = function(obj, maxheight){
+},
+
+elastic = function(obj, maxheight){
 	if (!obj || obj.nodeName.toLowerCase() !== 'textarea')
 		return obj;
 	var mimics =
@@ -155,23 +158,9 @@ var firstChild = function(e, t){
 	exceeded = true;
 	update();
 	return obj;
-}, str2xml = function(data){
-	if (!data)
-		data = '';
-	var doc;
+},
 
-	if (window.DOMParser){
-		var parser = new DOMParser();
-		doc = parser.parseFromString(data, "text/xml");
-	}
-
-	else{
-		doc = new ActiveXObject("Microsoft.XMLDOM");
-		doc.async = "false";
-		doc.loadXML(data);
-	}
-	return doc;
-}, transition = function(ele, targ, config){
+transition = function(ele, targ, config){
 	if (!ele)
 		return;
 	var start = {}, disp = {}, uTotalTime = config.duration || 0;
@@ -232,31 +221,6 @@ var firstChild = function(e, t){
 				config.complete.apply(ele, [targ]);
 		}
 	}, 10);
-}, xOffset = function(c, p){
-	var o =
-					{
-					left: 0,
-					top: 0
-					}, p = p || document.body;
-
-	while (c && c != p){
-		o.left += c.offsetLeft;
-		o.top += c.offsetTop;
-		c = c.offsetParent;
-	}
-	return o;
-}, isCSSEnabled = function(){
-	var testcss = $A.createEl('div'), body = document.getElementsByTagName('body')[0];
-	testcss.style.position = 'absolute';
-	body.appendChild(testcss);
-
-	if (testcss.currentStyle)
-		var currstyle = testcss.currentStyle['position'];
-
-	else if (window.getComputedStyle)
-		var currstyle = document.defaultView.getComputedStyle(testcss, null).getPropertyValue('position');
-	body.removeChild(testcss);
-	return(currstyle == 'static') ? false : true;
 };
 
 if (top != window)

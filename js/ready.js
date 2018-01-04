@@ -35,6 +35,9 @@ $A(
 				forceFocus: false,
 				// Run script only once before the Overview tab is first opened
 				runOnceBefore: function(dc){
+					$A.query('nav button, footer button', function(){
+						$A.setAttr(this, 'aria-expanded', 'false');
+					});
 					$A.bind('nav button, footer button', 'click', function(ev){
 						$A.query('nav button, footer button', function(){
 							$A.setAttr(this, 'aria-expanded', 'false');
@@ -154,6 +157,7 @@ $A(
 							var a = this;
 							a.id = 'subH' + $A.genId();
 							links[a.id] = false;
+							$A.setAttr(a, 'aria-expanded', 'false');
 							$A.bind(a, 'click', function(ev){
 								if (links[this.id]){
 									links[this.id] = false;

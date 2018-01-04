@@ -37,12 +37,12 @@ $A(
 				runOnceBefore: function(dc){
 					$A.bind('nav button, footer button', 'click', function(ev){
 						$A.query('nav button, footer button', function(){
-							$A.setAttr(this, 'aria-pressed', 'false');
+							$A.setAttr(this, 'aria-expanded', 'false');
 						});
-						$A.setAttr(this, 'aria-pressed', 'true');
+						$A.setAttr(this, 'aria-expanded', 'true');
 					});
 
-					$A.setAttr(dc.triggerObj, 'aria-pressed', 'true');
+					$A.setAttr(dc.triggerObj, 'aria-expanded', 'true');
 
 					// Setup Back To Top link functionality
 					$A.bind('p.topLink a', 'click', function(ev){
@@ -158,13 +158,13 @@ $A(
 								if (links[this.id]){
 									links[this.id] = false;
 									$A.addClass($A.query('dd.detail', getClosest(this, 'dl'))[0], 'hidden');
-									$A.setAttr(this, 'aria-pressed', 'false');
+									$A.setAttr(this, 'aria-expanded', 'false');
 								}
 
 								else{
 									links[this.id] = true;
 									$A.remClass($A.query('dd.detail', getClosest(this, 'dl'))[0], 'hidden');
-									$A.setAttr(this, 'aria-pressed', 'true');
+									$A.setAttr(this, 'aria-expanded', 'true');
 								}
 								// For AT users, set focus back to the triggering element
 								this.focus();
@@ -177,7 +177,7 @@ $A(
 							$A.query('dd.detail', function(j, p){
 								$A.remClass(p, 'hidden');
 								$A.query('a.toggle', p.parentNode, function(){
-									$A.setAttr(this, 'aria-pressed', 'true');
+									$A.setAttr(this, 'aria-expanded', 'true');
 								});
 							});
 							// Refocus to the triggering element
@@ -194,7 +194,7 @@ $A(
 							$A.query('dd.detail', function(j, p){
 								$A.addClass(p, 'hidden');
 								$A.query('a.toggle', p.parentNode, function(){
-									$A.setAttr(this, 'aria-pressed', 'false');
+									$A.setAttr(this, 'aria-expanded', 'false');
 								});
 							});
 							// Refocus to the triggering element

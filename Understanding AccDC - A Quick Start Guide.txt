@@ -8,9 +8,6 @@ To be specific, the AccDC API is an extension for jQuery, Dojo, and MooTools.
 
 The AccDC API module interfaces with each of these libraries and frameworks in order to utilize all of the available rendering, AJAX, event handling, and associated processes, and extends them, so that any relevant command that is processed using the $A namespace, is automatically powered by the core processes within jQuery, Dojo, or MooTools.
 
-An example showing the value of this, is described in the LinkedIn article at
-http://lnkd.in/b9VGQxf
-
 This means that, any widget that uses the following AccDC API methods, will automatically normalize equally across jQuery, Dojo, and MooTools, without requiring any coding changes to work correctly.
 
 • $A.getEl // Get the element with the specified ID
@@ -47,16 +44,16 @@ There are many more AccDC API commands and customizable rendering functionalitie
 
 In order to test and verify this functionality, there are three dedicated TSG GitHub projects, all of which use the same component code for each widget type shared between them, which tie into the AccDC API for automatic normalization.
 
-• Powered by jQuery: https://github.com/accdc/tsg
-• Powered by Dojo: https://github.com/accdc/tsg-dojo
-• Powered by MooTools: https://github.com/accdc/tsg-mootools
+• Powered by jQuery: https://github.com/whatsock/tsg
+• Powered by Dojo: https://github.com/whatsock/tsg-dojo
+• Powered by MooTools: https://github.com/whatsock/tsg-mootools
 
 In order to ensure the highest level of accessibility possible for all user types, including non-sighted screen reader users, mobility impaired keyboard only users, voice navigation software users, and low vision screen magnification software users, all of the scalable widgets provided within the TSG archives are programmed specifically to be as accessible as possible using all current standards, with specific adherence to the principles and guidelines documented at:
 
 http://whatsock.com/training
 
 Also available for download at:
-https://github.com/accdc/training
+https://github.com/whatsock/training
 
 For community support, please address any questions to the Accessibility Innovators LinkedIn group, at:
 https://www.linkedin.com/groups/Accessibility-Innovators-4512178

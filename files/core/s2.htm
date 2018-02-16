@@ -10,7 +10,7 @@
 					</div>
 	
 					<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>$A.reg</span></a></span>
 					</dt>
 					<dd>
@@ -19,7 +19,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -57,7 +57,7 @@
 							<br />
 							.css('background', 'url(img/planets/stars.jpg) no-repeat');
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -69,7 +69,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>$A.find()</span></a></span>
 					</dt>
 					<dd>
@@ -78,7 +78,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Parameters:
 						</p>
 						<ol>
@@ -93,7 +93,7 @@
 								<i>(Both "this" and the first argument passed to the callback will be the matched AccDC Object instance.)</i>
 							</li>
 						</ol>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -113,7 +113,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.accDCObj</span></a></span>
 					</dt>
 					<dd>
@@ -129,7 +129,7 @@
 							<br />
 							Use the "source", ".containerDiv", or ".content" properties to add content to an AccDC Object instead.
 						</p>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -154,7 +154,7 @@
 							<br />
 							alert($A.reg.myObj.accDCObj.offsetWidth);
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -177,7 +177,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.containerDiv</span></a></span>
 					</dt>
 					<dd>
@@ -189,7 +189,7 @@
 						<p>
 							All internal DOM node read/write modifications should be confined to the ".containerDiv" property to preserve the Automatic Accessibility Framework.
 						</p>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -213,7 +213,7 @@
 							<br />
 							$A.reg.myObj.containerDiv.innerHTML = 'Error: Form field required.';
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -233,7 +233,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.triggerObj</span></a></span>
 					</dt>
 					<dd>
@@ -248,7 +248,7 @@
 							The "triggerObj" property can optionally be changed to any other focusable DOM node after an AccDC Object is open to ensure that focus control moves appropriately when the AccDC Object is closed.
 							<br />
 						</p>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -294,7 +294,7 @@
 							<br />
 							var triggeringElement = $A.reg.myObj.triggerObj;
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -325,7 +325,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.targetObj</span></a></span>
 					</dt>
 					<dd>
@@ -337,7 +337,7 @@
 						<p>
 							If not set, the "triggerObj" property will automatically be used as the strategic insertion point for an AccDC Object.
 						</p>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -361,7 +361,7 @@
 							<br />
 							$A.reg.myObj.targetObj = document.getElementById('table1');
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -391,7 +391,7 @@
 								NOTE: If the "targetObj" property is used to designate an insertion point that is too far removed from the triggering element within the DOM, it will present an accessibility issue for screen reader and keyboard only users.
 							</li>
 						</ul>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Required: One or the other must be True:
 						</p>
 						<ol>
@@ -406,7 +406,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.setTrigger()</span></a></span>
 					</dt>
 					<dd>
@@ -418,7 +418,7 @@
 						<p>
 							All prior event bindings for the AccDC Object will be removed when "setTrigger()" is invoked.
 						</p>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -442,7 +442,7 @@
 							<br />
 							$A.reg.myObj.setTrigger();
 						</code>
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Important
 						</p>
 						<ul>
@@ -454,7 +454,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.unsetTrigger()</span></a></span>
 					</dt>
 					<dd>
@@ -463,7 +463,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -491,7 +491,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.parent</span></a></span>
 					</dt>
 					<dd>
@@ -500,7 +500,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -528,7 +528,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.children</span></a></span>
 					</dt>
 					<dd>
@@ -537,7 +537,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -565,7 +565,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.siblings</span></a></span>
 					</dt>
 					<dd>
@@ -574,7 +574,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>
@@ -604,7 +604,7 @@
 				</dl>
 
 				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="3">
+					<dt class="heading" role="heading" aria-level="4">
 						<span><a class="toggle" role="button"  href="#"><span>.top</span></a></span>
 					</dt>
 					<dd>
@@ -613,7 +613,7 @@
 						</p>
 					</dd>
 					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="4">
+						<p class="heading" role="heading" aria-level="5">
 							Syntax
 						</p>
 						<code>

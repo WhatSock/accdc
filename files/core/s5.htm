@@ -1,1310 +1,1312 @@
 <html>
-	<body>
-		<div>
 
-			<div class="apiDocumentationContentSection">
-			<article>
-				<div class="hd">
-					<h3><span>Dragging</span></h3>
-				</div>
+<body>
+    <div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.isDraggable</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "isDraggable" property specifies whether an AccDC Object is draggable.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Values: True or False (default)
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							isDraggable: true,
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.isDraggable = false;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								When "isDraggable" is changed programmatically, the change will take affect the next time the AccDC Object opens;
-							</li>
-							<li>
-								The ".setDrag()" or ".unsetDrag()" methods can be used to add or remove "drag" and "drop" event bindings at runtime;
-							</li>
-						</ul>
-					</dd>
-				</dl>
+        <div class="apiDocumentationContentSection">
+            <article>
+                <div class="hd">
+                    <h3><span>Dragging</span></h3>
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.drag</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "drag" property configures the drag functionality for an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Defaults
-						</p>
-						<p>
-							{ handle: null, minDistance: 0, maxX: null, maxY: null, persist: false, confineTo: null, init: null, override: null }
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Definitions
-						</p>
-						<dl>
-							<dt>
-								<span>handle</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								A CSS Selector or DOM node that specifies a drag handle within an AccDC Object.
-							</dd>
-							<dt>
-								<span>minDistance</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								An integer value specifying a minimum range of pixels to move before dragging is activated.
-							</dd>
-							<dt>
-								<span>maxX</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								An integer value specifying the maximum horizontal drag range in pixels.
-							</dd>
-							<dt>
-								<span>maxY</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								An integer value specifying the maximum vertical drag range in pixels.
-							</dd>
-							<dt>
-								<span>persist</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								A boolean value specifying whether current coordinates will be saved/restored when a draggable AccDC Object is closed/opened.
-							</dd>
-							<dt>
-								<span>confineTo</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								A CSS Selector or DOM node that specifies a container element to use as the top/right/bottom/left boundaries where dragging is not permitted to pass.
-							</dd>
-							<dt>
-								<span>init</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								A function declaration that will override the initial event when dragging is first initialized by clicking the draggable AccDC Object.
-								<br />
-								<code>
-									drag: {
-									<br />
-									init: function(ev, dd, dc){
-									<br />
-									// Do something
-									<br />
-									},
-									<br />
-									...
-									<br />
-									}
-								</code>
-							</dd>
-							<dt>
-								<span>override</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								A function declaration that will override the default calculations so that custom dragging functionality is possible.
-								<br />
-								<code>
-									drag: {
-									<br />
-									override: function(ev, dd, dc){
-									<br />
-									// Do something with dd.offsetX and dd.offsetY
-									<br />
-									},
-									<br />
-									...
-									<br />
-									}
-								</code>
-							</dd>
-						</dl>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							drag: {
-							<br />
-							handle: '#dragImg',
-							<br />
-							confineTo: 'div.box',
-							<br />
-							persist: true,
-							<br />
-							init: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							}
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.drag.override = function(ev, dd, dc){
-							<br />
-							// Do something with dd.offsetX and dd.offsetY
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								When "drag" properties/methods are changed programmatically, the change will take affect the next time the AccDC Object opens.
-							</li>
-							<li>
-								The ".setDrag()" or ".unsetDrag()" methods can be used to add or remove "drag" and "drop" event bindings at runtime;
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.isDraggable</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "isDraggable" property specifies whether an AccDC Object is draggable.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Values: True or False (default)
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            isDraggable: true,
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.isDraggable = false;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                When "isDraggable" is changed programmatically, the change will take affect the next time the AccDC Object opens;
+                            </li>
+                            <li>
+                                The ".setDrag()" or ".unsetDrag()" methods can be used to add or remove "drag" and "drop" event bindings at runtime;
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>dd</span></a></span><span>(Drag Data)</span>
-					</dt>
-					<dd>
-						<p>
-							The "dd" object is passed as an argument to all drag event handlers.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Properties
-						</p>
-						<dl>
-							<dt>
-								target (DOM Node)
-							</dt>
-							<dd>
-								The drag element to which the event handler has been bound. (Always the same as "this" within a drag event handler)
-							</dd>
-							<dt>
-								drag (DOM Node)
-							</dt>
-							<dd>
-								The dragged element to which the drag event has been bound.
-							</dd>
-							<dt>
-								proxy (DOM Node)
-							</dt>
-							<dd>
-								The dragged element which determines the drop target tolerance.
-							</dd>
-							<dt>
-								drop (Array)
-							</dt>
-							<dd>
-								An array of all active drop targets for the current drag instance.
-							</dd>
-							<dt>
-								available (Array)
-							</dt>
-							<dd>
-								An array of all available drop targets for the current instance.
-							</dd>
-							<dt>
-								update (Method)
-							</dt>
-							<dd>
-								Helper function that updates the locations of all available drop targets in the current drag instance.
-							</dd>
-							<dt>
-								startX (Number)
-							</dt>
-							<dd>
-								The horizontal location of the "mousedown" event.
-							</dd>
-							<dt>
-								startY (Number)
-							</dt>
-							<dd>
-								The vertical location of the "mousedown" event.
-							</dd>
-							<dt>
-								deltaX (Number)
-							</dt>
-							<dd>
-								The horizontal distance moved from "startX".
-							</dd>
-							<dt>
-								deltaY (Number)
-							</dt>
-							<dd>
-								The vertical distance moved from "startX".
-							</dd>
-							<dt>
-								originalX (Number)
-							</dt>
-							<dd>
-								The starting horizontal position of the dragged element.
-							</dd>
-							<dt>
-								originalY (Number)
-							</dt>
-							<dd>
-								The starting vertical position of the dragged element.
-							</dd>
-							<dt>
-								offsetX (Number)
-							</dt>
-							<dd>
-								The moved horizontal position of the dragged element.
-							</dd>
-							<dt>
-								offsetY (Number)
-							</dt>
-							<dd>
-								The moved vertical position of the dragged element.
-							</dd>
-						</dl>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.drag</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "drag" property configures the drag functionality for an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Defaults
+                        </p>
+                        <p>
+                            { handle: null, minDistance: 0, maxX: null, maxY: null, persist: false, confineTo: null, init: null, override: null }
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Definitions
+                        </p>
+                        <dl>
+                            <dt>
+                                <span>handle</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                A CSS Selector or DOM node that specifies a drag handle within an AccDC Object.
+                            </dd>
+                            <dt>
+                                <span>minDistance</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                An integer value specifying a minimum range of pixels to move before dragging is activated.
+                            </dd>
+                            <dt>
+                                <span>maxX</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                An integer value specifying the maximum horizontal drag range in pixels.
+                            </dd>
+                            <dt>
+                                <span>maxY</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                An integer value specifying the maximum vertical drag range in pixels.
+                            </dd>
+                            <dt>
+                                <span>persist</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                A boolean value specifying whether current coordinates will be saved/restored when a draggable AccDC Object is closed/opened.
+                            </dd>
+                            <dt>
+                                <span>confineTo</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                A CSS Selector or DOM node that specifies a container element to use as the top/right/bottom/left boundaries where dragging is not permitted to pass.
+                            </dd>
+                            <dt>
+                                <span>init</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                A function declaration that will override the initial event when dragging is first initialized by clicking the draggable AccDC Object.
+                                <br />
+                                <code>
+                                    drag: {
+                                    <br />
+                                    init: function(ev, dd, dc){
+                                    <br />
+                                    // Do something
+                                    <br />
+                                    },
+                                    <br />
+                                    ...
+                                    <br />
+                                    }
+                                </code>
+                            </dd>
+                            <dt>
+                                <span>override</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                A function declaration that will override the default calculations so that custom dragging functionality is possible.
+                                <br />
+                                <code>
+                                    drag: {
+                                    <br />
+                                    override: function(ev, dd, dc){
+                                    <br />
+                                    // Do something with dd.offsetX and dd.offsetY
+                                    <br />
+                                    },
+                                    <br />
+                                    ...
+                                    <br />
+                                    }
+                                </code>
+                            </dd>
+                        </dl>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            drag: {
+                            <br />
+                            handle: '#dragImg',
+                            <br />
+                            confineTo: 'div.box',
+                            <br />
+                            persist: true,
+                            <br />
+                            init: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            }
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.drag.override = function(ev, dd, dc){
+                            <br />
+                            // Do something with dd.offsetX and dd.offsetY
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                When "drag" properties/methods are changed programmatically, the change will take affect the next time the AccDC Object opens.
+                            </li>
+                            <li>
+                                The ".setDrag()" or ".unsetDrag()" methods can be used to add or remove "drag" and "drop" event bindings at runtime;
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDragStart()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDragStart()" handler is fired when the mouse moves a minimum distance.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Return false to cancel dragging.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDragStart: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDragStart = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>dd</span></a></span><span>(Drag Data)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "dd" object is passed as an argument to all drag event handlers.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Properties
+                        </p>
+                        <dl>
+                            <dt>
+                                target (DOM Node)
+                            </dt>
+                            <dd>
+                                The drag element to which the event handler has been bound. (Always the same as "this" within a drag event handler)
+                            </dd>
+                            <dt>
+                                drag (DOM Node)
+                            </dt>
+                            <dd>
+                                The dragged element to which the drag event has been bound.
+                            </dd>
+                            <dt>
+                                proxy (DOM Node)
+                            </dt>
+                            <dd>
+                                The dragged element which determines the drop target tolerance.
+                            </dd>
+                            <dt>
+                                drop (Array)
+                            </dt>
+                            <dd>
+                                An array of all active drop targets for the current drag instance.
+                            </dd>
+                            <dt>
+                                available (Array)
+                            </dt>
+                            <dd>
+                                An array of all available drop targets for the current instance.
+                            </dd>
+                            <dt>
+                                update (Method)
+                            </dt>
+                            <dd>
+                                Helper function that updates the locations of all available drop targets in the current drag instance.
+                            </dd>
+                            <dt>
+                                startX (Number)
+                            </dt>
+                            <dd>
+                                The horizontal location of the "mousedown" event.
+                            </dd>
+                            <dt>
+                                startY (Number)
+                            </dt>
+                            <dd>
+                                The vertical location of the "mousedown" event.
+                            </dd>
+                            <dt>
+                                deltaX (Number)
+                            </dt>
+                            <dd>
+                                The horizontal distance moved from "startX".
+                            </dd>
+                            <dt>
+                                deltaY (Number)
+                            </dt>
+                            <dd>
+                                The vertical distance moved from "startX".
+                            </dd>
+                            <dt>
+                                originalX (Number)
+                            </dt>
+                            <dd>
+                                The starting horizontal position of the dragged element.
+                            </dd>
+                            <dt>
+                                originalY (Number)
+                            </dt>
+                            <dd>
+                                The starting vertical position of the dragged element.
+                            </dd>
+                            <dt>
+                                offsetX (Number)
+                            </dt>
+                            <dd>
+                                The moved horizontal position of the dragged element.
+                            </dd>
+                            <dt>
+                                offsetY (Number)
+                            </dt>
+                            <dd>
+                                The moved vertical position of the dragged element.
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDrag()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDrag()" handler is fired every time the mouse moves when dragging.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Return false to instantly fire "onDragEnd()".
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDrag: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDrag = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDragStart()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDragStart()" handler is fired when the mouse moves a minimum distance.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Return false to cancel dragging.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDragStart: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDragStart = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDragEnd()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDragEnd()" handler is fired after all other drag and drop handlers have fired.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDragEnd: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDragEnd = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDrag()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDrag()" handler is fired every time the mouse moves when dragging.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Return false to instantly fire "onDragEnd()".
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDrag: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDrag = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.dropTarget</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".dropTarget" property specifies one or more drop targets.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Values: CSS Selector or DOM node
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							dropTarget: 'div.target',
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.dropTarget = document.getElementById('target');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDragEnd()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDragEnd()" handler is fired after all other drag and drop handlers have fired.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDragEnd: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDragEnd = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>drop</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".drop" object configures the drop functionality for an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Options
-						</p>
-						<dl>
-							<dt>
-								mode (String) Default: "overlap"
-							</dt>
-							<dd>
-								The specified tolerance mode.
-								<br />
-								Accepted values: "fit", "intersect", "middle", "overlap"
-							</dd>
-							<dt>
-								tolerance (Method) Default: null
-							</dt>
-							<dd>
-								An optional override to use as a tolerance checker.
-								<br />
-								Must return True or False
-							</dd>
-							<dt>
-								delay (Number) Default: 20
-							</dt>
-							<dd>
-								The frequency in milliseconds to check for drop target tolerances.
-								<br />
-								(Executes the "tolerance()" method when an override is declared.)
-							</dd>
-						</dl>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							drop: {
-							<br />
-							mode: 'overlap'
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.drop.delay = 30;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.dropTarget</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".dropTarget" property specifies one or more drop targets.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Values: CSS Selector or DOM node
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            dropTarget: 'div.target',
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.dropTarget = document.getElementById('target');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.accDD</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".accDD" property configures drag and drop functionality for screen reader and keyboard only users.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Options
-						</p>
-						<dl>
-							<dt>
-								on (Boolean) Default: false
-							</dt>
-							<dd>
-								Enable or disable drag and drop support for keyboard access.
-							</dd>
-							<dt>
-								dragText (String) Default: 'Move'
-							</dt>
-							<dd>
-								The action text that will be prepended to the AccDC Object's "role" property within a hidden drag link.
-								<br />
-								(The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
-							</dd>
-							<dt>
-								toText (String) Default: 'to'
-							</dt>
-							<dd>
-								The action text that will be appended to the AccDC Object's "role" property within a hidden drag link.
-								<br />
-								(The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
-							</dd>
-							<dt>
-								actionText (String) Default: 'Dragging'
-							</dt>
-							<dd>
-								The active state text that will be announced to screen reader users during a drag and drop action.
-								<br />
-							</dd>
-							<dt>
-								dragClassName (String) Default: ''
-							</dt>
-							<dd>
-								Optional class(s) that will be added to the hidden drag link when rendered for keyboard only users.
-							</dd>
-							<dt>
-								dragLinkStyle (Object) Default: {}
-							</dt>
-							<dd>
-								Optional CSS values to be added to the hidden drag link when rendered for keyboard only users.
-							</dd>
-							<dt>
-								returnFocusTo (String) Default: accDCObj
-							</dt>
-							<dd>
-								CSS Selector or DOM node that specifies an optional strategic focus point where programmatic focus will return after a drop action completes.
-							</dd>
-							<dt>
-								duration (Number) Default: 500
-							</dt>
-							<dd>
-								Time length in milliseconds that will be applied to the drag animation.
-							</dd>
-						</dl>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							accDD: {
-							<br />
-							on: true,
-							<br />
-							returnFocusTo: 'div.dropZone ol.drop'
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.accDD.dragLinkStyle = {
-							<br />
-							backgroundColor: 'black',
-							<br />
-							color: 'white',
-							<br />
-							fontSize: '0.8em'
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-							<li>
-								The data-label attribute must be set on all dropTarget containers that match the "dropTarget" property, in order to set unique textual names for each drop zone for screen reader and keyboard only users.
-								<br />
-								<code>
-									&lt;div data-label="Trash Bin" id="dropZone1"&gt;&lt;/div&gt;
-								</code>
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>drop</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".drop" object configures the drop functionality for an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Options
+                        </p>
+                        <dl>
+                            <dt>
+                                mode (String) Default: "overlap"
+                            </dt>
+                            <dd>
+                                The specified tolerance mode.
+                                <br />
+                                Accepted values: "fit", "intersect", "middle", "overlap"
+                            </dd>
+                            <dt>
+                                tolerance (Method) Default: null
+                            </dt>
+                            <dd>
+                                An optional override to use as a tolerance checker.
+                                <br />
+                                Must return True or False
+                            </dd>
+                            <dt>
+                                delay (Number) Default: 20
+                            </dt>
+                            <dd>
+                                The frequency in milliseconds to check for drop target tolerances.
+                                <br />
+                                (Executes the "tolerance()" method when an override is declared.)
+                            </dd>
+                        </dl>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            drop: {
+                            <br />
+                            mode: 'overlap'
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.drop.delay = 30;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>dd</span></a></span><span>(Drop Data)</span>
-					</dt>
-					<dd>
-						<p>
-							The "dd" object is passed as an argument to all drop event handlers.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Properties
-						</p>
-						<dl>
-							<dt>
-								target (DOM Node)
-							</dt>
-							<dd>
-								The drop element to which the event handler has been bound. (Always the same as "this" within an event handler)
-							</dd>
-							<dt>
-								drag (DOM Node)
-							</dt>
-							<dd>
-								The dragged element to which the drag event has been bound.
-							</dd>
-							<dt>
-								proxy (DOM Node)
-							</dt>
-							<dd>
-								The dragged element, which determines the drop target tolerance.
-							</dd>
-							<dt>
-								drop (Array)
-							</dt>
-							<dd>
-								Array of all active drop targets for the current drag instance.
-							</dd>
-							<dt>
-								available (Array)
-							</dt>
-							<dd>
-								Array of all available drop targets for the current drag instance.
-							</dd>
-							<dt>
-								update (Method)
-							</dt>
-							<dd>
-								Helper function that updates the locations of all available drop targets in the current drag instance.
-							</dd>
-							<dt>
-								startX (Number)
-							</dt>
-							<dd>
-								The horizontal location of the "mousedown" event.
-							</dd>
-							<dt>
-								startY (Number)
-							</dt>
-							<dd>
-								The vertical location of the "mousedown" event.
-							</dd>
-							<dt>
-								deltaX (Number)
-							</dt>
-							<dd>
-								The horizontal distance moved from "startX".
-							</dd>
-							<dt>
-								deltaY (Number)
-							</dt>
-							<dd>
-								The vertical distance moved from "startX".
-							</dd>
-							<dt>
-								originalX (Number)
-							</dt>
-							<dd>
-								The starting horizontal position of the dragged element.
-							</dd>
-							<dt>
-								originalY (Number)
-							</dt>
-							<dd>
-								The starting vertical position of the dragged element.
-							</dd>
-							<dt>
-								offsetX (Number)
-							</dt>
-							<dd>
-								The moved horizontal position of the dragged element.
-							</dd>
-							<dt>
-								offsetY (Number)
-							</dt>
-							<dd>
-								The moved vertical position of the dragged element.
-							</dd>
-						</dl>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.accDD</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".accDD" property configures drag and drop functionality for screen reader and keyboard only users.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Options
+                        </p>
+                        <dl>
+                            <dt>
+                                on (Boolean) Default: false
+                            </dt>
+                            <dd>
+                                Enable or disable drag and drop support for keyboard access.
+                            </dd>
+                            <dt>
+                                dragText (String) Default: 'Move'
+                            </dt>
+                            <dd>
+                                The action text that will be prepended to the AccDC Object's "role" property within a hidden drag link.
+                                <br />
+                                (The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
+                            </dd>
+                            <dt>
+                                toText (String) Default: 'to'
+                            </dt>
+                            <dd>
+                                The action text that will be appended to the AccDC Object's "role" property within a hidden drag link.
+                                <br />
+                                (The hidden drag link becomes temporarily visible to keyboard only users when tabbing through active elements.)
+                            </dd>
+                            <dt>
+                                actionText (String) Default: 'Dragging'
+                            </dt>
+                            <dd>
+                                The active state text that will be announced to screen reader users during a drag and drop action.
+                                <br />
+                            </dd>
+                            <dt>
+                                dragClassName (String) Default: ''
+                            </dt>
+                            <dd>
+                                Optional class(s) that will be added to the hidden drag link when rendered for keyboard only users.
+                            </dd>
+                            <dt>
+                                dragLinkStyle (Object) Default: {}
+                            </dt>
+                            <dd>
+                                Optional CSS values to be added to the hidden drag link when rendered for keyboard only users.
+                            </dd>
+                            <dt>
+                                returnFocusTo (String) Default: accDCObj
+                            </dt>
+                            <dd>
+                                CSS Selector or DOM node that specifies an optional strategic focus point where programmatic focus will return after a drop action completes.
+                            </dd>
+                            <dt>
+                                duration (Number) Default: 500
+                            </dt>
+                            <dd>
+                                Time length in milliseconds that will be applied to the drag animation.
+                            </dd>
+                        </dl>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            accDD: {
+                            <br />
+                            on: true,
+                            <br />
+                            returnFocusTo: 'div.dropZone ol.drop'
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.accDD.dragLinkStyle = {
+                            <br />
+                            backgroundColor: 'black',
+                            <br />
+                            color: 'white',
+                            <br />
+                            fontSize: '0.8em'
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                            <li>
+                                The data-label attribute must be set on all dropTarget containers that match the "dropTarget" property, in order to set unique textual names for each drop zone for screen reader and keyboard only users.
+                                <br />
+                                <code>
+                                    &lt;div data-label="Trash Bin" id="dropZone1"&gt;&lt;/div&gt;
+                                </code>
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.dropInit()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The ".dropInit" handler is fired after "drag.init()" when dragging first initiates.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Return false to make the drop target unavailable for the current drag action.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							dropInit: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.dropInit = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>dd</span></a></span><span>(Drop Data)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "dd" object is passed as an argument to all drop event handlers.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Properties
+                        </p>
+                        <dl>
+                            <dt>
+                                target (DOM Node)
+                            </dt>
+                            <dd>
+                                The drop element to which the event handler has been bound. (Always the same as "this" within an event handler)
+                            </dd>
+                            <dt>
+                                drag (DOM Node)
+                            </dt>
+                            <dd>
+                                The dragged element to which the drag event has been bound.
+                            </dd>
+                            <dt>
+                                proxy (DOM Node)
+                            </dt>
+                            <dd>
+                                The dragged element, which determines the drop target tolerance.
+                            </dd>
+                            <dt>
+                                drop (Array)
+                            </dt>
+                            <dd>
+                                Array of all active drop targets for the current drag instance.
+                            </dd>
+                            <dt>
+                                available (Array)
+                            </dt>
+                            <dd>
+                                Array of all available drop targets for the current drag instance.
+                            </dd>
+                            <dt>
+                                update (Method)
+                            </dt>
+                            <dd>
+                                Helper function that updates the locations of all available drop targets in the current drag instance.
+                            </dd>
+                            <dt>
+                                startX (Number)
+                            </dt>
+                            <dd>
+                                The horizontal location of the "mousedown" event.
+                            </dd>
+                            <dt>
+                                startY (Number)
+                            </dt>
+                            <dd>
+                                The vertical location of the "mousedown" event.
+                            </dd>
+                            <dt>
+                                deltaX (Number)
+                            </dt>
+                            <dd>
+                                The horizontal distance moved from "startX".
+                            </dd>
+                            <dt>
+                                deltaY (Number)
+                            </dt>
+                            <dd>
+                                The vertical distance moved from "startX".
+                            </dd>
+                            <dt>
+                                originalX (Number)
+                            </dt>
+                            <dd>
+                                The starting horizontal position of the dragged element.
+                            </dd>
+                            <dt>
+                                originalY (Number)
+                            </dt>
+                            <dd>
+                                The starting vertical position of the dragged element.
+                            </dd>
+                            <dt>
+                                offsetX (Number)
+                            </dt>
+                            <dd>
+                                The moved horizontal position of the dragged element.
+                            </dd>
+                            <dt>
+                                offsetY (Number)
+                            </dt>
+                            <dd>
+                                The moved vertical position of the dragged element.
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDropStart()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDropStart()" handler is fired when the dragged element moves within the tolerance of a drop target element.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDropStart: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDropStart = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.dropInit()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".dropInit" handler is fired after "drag.init()" when dragging first initiates.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Return false to make the drop target unavailable for the current drag action.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            dropInit: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.dropInit = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDrop()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDrop()" handler is fired when the dragged element is dropped within the tolerance of a drop target element.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDrop: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDrop = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDropStart()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDropStart()" handler is fired when the dragged element moves within the tolerance of a drop target element.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDropStart: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDropStart = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.onDropEnd()</span></a></span><span>(Event)</span>
-					</dt>
-					<dd>
-						<p>
-							The "onDropEnd()" handler is fired when the dragged element moves out of the tolerance of a drop target element.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							onDropEnd: function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.onDropEnd = function(ev, dd, dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True.
-							</li>
-							<li>
-								The "dropTarget" property must specify one or more drop zones.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDrop()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDrop()" handler is fired when the dragged element is dropped within the tolerance of a drop target element.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDrop: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDrop = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.setDrag()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".setDrag()" method manually adds drag/drop bindings for an open AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.setDrag();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.setDrag();
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True;
-							</li>
-							<li>
-								The AccDC Object must be open when "setDrag()" is invoked.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.onDropEnd()</span></a></span><span>(Event)</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "onDropEnd()" handler is fired when the dragged element moves out of the tolerance of a drop target element.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            onDropEnd: function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.onDropEnd = function(ev, dd, dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True.
+                            </li>
+                            <li>
+                                The "dropTarget" property must specify one or more drop zones.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.unsetDrag()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".unsetDrag()" method manually removes drag/drop bindings for an open AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.unsetDrag();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or invoke unsetDrag; including all drop events as well
-							<br />
-							$A.reg.myObj.unsetDrag(true);
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The "isDraggable" property must be set to True;
-							</li>
-							<li>
-								The AccDC Object must be open when "unsetDrag()" is invoked.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.setDrag()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".setDrag()" method manually adds drag/drop bindings for an open AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.setDrag();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.setDrag();
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True;
+                            </li>
+                            <li>
+                                The AccDC Object must be open when "setDrag()" is invoked.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<div class="hd">
-					<h3><span> Flow </span></h3>
-				</div>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.unsetDrag()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".unsetDrag()" method manually removes drag/drop bindings for an open AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.unsetDrag();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or invoke unsetDrag; including all drop events as well
+                            <br />
+                            $A.reg.myObj.unsetDrag(true);
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The "isDraggable" property must be set to True;
+                            </li>
+                            <li>
+                                The AccDC Object must be open when "unsetDrag()" is invoked.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.cancel</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".cancel" property can be used to cancel the opening of an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBefore: function(dc){
-							<br />
-							// If condition
-							<br />
-							dc.cancel = true;
-							<br />
-							},
-							<br />
-							// Or
-							<br />
-							runDuring: function(dc){
-							<br />
-							// If condition
-							<br />
-							dc.cancel = true;
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-						</code>
-					</dd>
-				</dl>
+                <div class="hd">
+                    <h3><span> Flow </span></h3>
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.loading</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".loading" property reflects the opening state of an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBefore: function(dc){
-							<br />
-							alert(dc.loading); // False
-							<br />
-							},
-							<br />
-							runDuring: function(dc){
-							<br />
-							alert(dc.loading); // True
-							<br />
-							},
-							<br />
-							runAfter: function(dc){
-							<br />
-							alert(dc.loading); // False
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							alert($A.reg.myObj.loading);
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.cancel</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".cancel" property can be used to cancel the opening of an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            // If condition
+                            <br />
+                            dc.cancel = true;
+                            <br />
+                            },
+                            <br />
+                            // Or
+                            <br />
+                            runDuring: function(dc){
+                            <br />
+                            // If condition
+                            <br />
+                            dc.cancel = true;
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.loaded</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".loaded" property reflects the open state of an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							alert(dc.loaded);
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							alert($A.reg.myObj.loaded);
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.loading</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".loading" property reflects the opening state of an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            alert(dc.loading); // False
+                            <br />
+                            },
+                            <br />
+                            runDuring: function(dc){
+                            <br />
+                            alert(dc.loading); // True
+                            <br />
+                            },
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            alert(dc.loading); // False
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            alert($A.reg.myObj.loading);
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.closing</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".closing" property reflects the closing state of an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							alert($A.reg.myObj.closing);
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.loaded</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".loaded" property reflects the open state of an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            alert(dc.loaded);
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            alert($A.reg.myObj.loaded);
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.lock</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".lock" property locks an AccDC Object in its current open/closed state.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.lock = true;
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.lock = false;
-						</code>
-					</dd>
-				</dl>
-				</article>
-			</div>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.closing</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".closing" property reflects the closing state of an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            alert($A.reg.myObj.closing);
+                        </code>
+                    </dd>
+                </dl>
 
-		</div>
-	</body>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.lock</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".lock" property locks an AccDC Object in its current open/closed state.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.lock = true;
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.lock = false;
+                        </code>
+                    </dd>
+                </dl>
+            </article>
+        </div>
+
+    </div>
+</body>
+
 </html>

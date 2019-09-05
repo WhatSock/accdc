@@ -1,649 +1,651 @@
 <html>
-	<body>
-		<div>
 
-			<div class="apiDocumentationContentSection">
+<body>
+    <div>
 
-				<article>
-					<div class="hd">
-						<h3><span>Traversal</span></h3>
-					</div>
-	
-					<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.reg</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							"$A.reg" provides direct access to all registered AccDC Objects using their unique "id".
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Access the AccDC Object with the id "myObj"
-							<br />
-							var dc = $A.reg.myObj;
-							<br />
-							// Or
-							<br />
-							var dc = $A.reg['myObj'];
-							<br />
-							// Allowing you to invoke/modify/query methods/properties/data like so
-							<br />
-							dc.open();
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.open();
-							<br />
-							// Or
-							<br />
-							dc.role = 'Menu';
-							<br />
-							// Or using AccDC API method chaining
-							<br />
-							$A.reg.myObj
-							<br />
-							.open()
-							<br />
-							.applyFix(9)
-							<br />
-							.setDrag()
-							<br />
-							.parent
-							<br />
-							.css('background', 'url(img/planets/stars.jpg) no-repeat');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								View the "id" property in the Core API section for additional details regarding the declaration of a unique ID.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+        <div class="apiDocumentationContentSection">
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.find()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							"$A.find()" loops through all registered AccDC Objects and executes a callback on each.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Parameters:
-						</p>
-						<ol>
-							<li>
-								A String value containing one or more AccDC Object "id" values to match, or "*" to select all registered AccDC Objects.
-								<br />
-								<i>(When entering multiple IDs, separate each with a comma)</i>
-							</li>
-							<li>
-								The callback function that will be applied to all matching AccDC Objects.
-								<br />
-								<i>(Both "this" and the first argument passed to the callback will be the matched AccDC Object instance.)</i>
-							</li>
-						</ol>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Execute a callback on a series of AccDC Objects
-							<br />
-							$A.find('myObj1,myObj2', function(dc){
-							<br />
-							alert(dc.role);
-							<br />
-							// Or
-							<br />
-							alert(this.role);
-							<br />
-							});
-						</code>
-					</dd>
-				</dl>
+            <article>
+                <div class="hd">
+                    <h3><span>Traversal</span></h3>
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.accDCObj</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".accDCObj" property is the DOM node for the AccDC Object framework.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Since ".accDCObj" includes the Automatic Accessibility Framework, content should never be added using the ".accDCObj" property;
-							<br />
-							An error will be generated if the Automatic Accessibility Framework is overwritten;
-							<br />
-							Use the "source", ".containerDiv", or ".content" properties to add content to an AccDC Object instead.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Access the accDCObj DOM node
-							<br />
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							alert(dc.accDCObj.offsetHeight);
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							alert($A.reg.myObj.accDCObj.offsetWidth);
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Use the AccDC Object ".css()" method to add/modify/retrieve inline style properties for ".accDCObj", which preserves method chaining.
-							</li>
-							<li>
-								As an alternative, the ".accDCObjId" property can be used to access the dynamically generated ID attribute for ".accDCObj". E.G.
-								<br />
-								<code>
-									var id = dc.accDCObjId;
-									<br />
-									// Or
-									<br />
-									var id = $A.reg.myObj.accDCObjId;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.reg</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            "$A.reg" provides direct access to all registered AccDC Objects using their unique "id".
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Access the AccDC Object with the id "myObj"
+                            <br />
+                            var dc = $A.reg.myObj;
+                            <br />
+                            // Or
+                            <br />
+                            var dc = $A.reg['myObj'];
+                            <br />
+                            // Allowing you to invoke/modify/query methods/properties/data like so
+                            <br />
+                            dc.open();
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.open();
+                            <br />
+                            // Or
+                            <br />
+                            dc.role = 'Menu';
+                            <br />
+                            // Or using AccDC API method chaining
+                            <br />
+                            $A.reg.myObj
+                            <br />
+                            .open()
+                            <br />
+                            .applyFix(9)
+                            <br />
+                            .setDrag()
+                            <br />
+                            .parent
+                            <br />
+                            .css('background', 'url(img/planets/stars.jpg) no-repeat');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                View the "id" property in the Core API section for additional details regarding the declaration of a unique ID.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.containerDiv</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".containerDiv" property is the DOM node where visually rendered content for an AccDC Object is stored.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							All internal DOM node read/write modifications should be confined to the ".containerDiv" property to preserve the Automatic Accessibility Framework.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.containerDiv.appendChild(documentFragment);
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.containerDiv.innerHTML = 'Error: Form field required.';
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								The ".containerDivId" property can be used to access the dynamically generated ID attribute of ".containerDiv". E.G.
-								<br />
-								<code>
-									var id = dc.containerDivId;
-									<br />
-									// Or
-									<br />
-									var id = $A.reg.myObj.containerDivId;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.find()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            "$A.find()" loops through all registered AccDC Objects and executes a callback on each.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Parameters:
+                        </p>
+                        <ol>
+                            <li>
+                                A String value containing one or more AccDC Object "id" values to match, or "*" to select all registered AccDC Objects.
+                                <br />
+                                <i>(When entering multiple IDs, separate each with a comma)</i>
+                            </li>
+                            <li>
+                                The callback function that will be applied to all matching AccDC Objects.
+                                <br />
+                                <i>(Both "this" and the first argument passed to the callback will be the matched AccDC Object instance.)</i>
+                            </li>
+                        </ol>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Execute a callback on a series of AccDC Objects
+                            <br />
+                            $A.find('myObj1,myObj2', function(dc){
+                            <br />
+                            alert(dc.role);
+                            <br />
+                            // Or
+                            <br />
+                            alert(this.role);
+                            <br />
+                            });
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.triggerObj</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "triggerObj" property is the DOM node for the triggering element after an AccDC Object is opened.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							If the "trigger" property is not included during the setup process to automatically specify a particular triggering element, the "triggerObj" property must be manually set at runtime to allow for strategic DOM insertion.
-							<br />
-							The "triggerObj" property can optionally be changed to any other focusable DOM node after an AccDC Object is open to ensure that focus control moves appropriately when the AccDC Object is closed.
-							<br />
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBefore: function(dc){
-							<br />
-							dc.triggerObj = document.getElementById('submitBtn');
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.triggerObj = document.getElementById('submitBtn');
-							<br />
-							// Or to get the triggering element
-							<br />
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							var triggeringElement = dc.triggerObj;
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							var triggeringElement = $A.reg.myObj.triggerObj;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								The "triggerObj" property is not required to be set when the "isStatic" property is used to specify a static insertion point;
-							</li>
-							<li>
-								By default, when an AccDC Object is rendered using the "triggerObj" property as an insertion point, no inline styling is applied.
-								<br />
-								Use the "cssObj" property to assign persistent inline styles, or the "className" property to assign a persistent class.
-							</li>
-							<li>
-								The "autoPosition" and "autoFix" properties can be used to automatically calculate absolute, relative, and fixed positioning coordinates at runtime.
-							</li>
-							<li>
-								Changing the "triggerObj" property will not add the necessary event bindings to activate the AccDC Object at runtime;
-								<br />
-								"setTrigger()" must be used for this purpose.
-							</li>
-							<li>
-								Modifying the "triggerObj" property will directly affect the behavior of the "returnFocus" property;
-							</li>
-							<li>
-								Use the "targetObj" property to set a strategic insertion point that will not affect the behavior of the "returnFocus" property.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.accDCObj</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".accDCObj" property is the DOM node for the AccDC Object framework.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Since ".accDCObj" includes the Automatic Accessibility Framework, content should never be added using the ".accDCObj" property;
+                            <br />
+                            An error will be generated if the Automatic Accessibility Framework is overwritten;
+                            <br />
+                            Use the "source", ".containerDiv", or ".content" properties to add content to an AccDC Object instead.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Access the accDCObj DOM node
+                            <br />
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            alert(dc.accDCObj.offsetHeight);
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            alert($A.reg.myObj.accDCObj.offsetWidth);
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Use the AccDC Object ".css()" method to add/modify/retrieve inline style properties for ".accDCObj", which preserves method chaining.
+                            </li>
+                            <li>
+                                As an alternative, the ".accDCObjId" property can be used to access the dynamically generated ID attribute for ".accDCObj". E.G.
+                                <br />
+                                <code>
+                                    var id = dc.accDCObjId;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    var id = $A.reg.myObj.accDCObjId;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.targetObj</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".targetObj" property is a DOM node that sets a strategic insertion point that will not affect the "triggerObj" or "returnFocus" properties.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							If not set, the "triggerObj" property will automatically be used as the strategic insertion point for an AccDC Object.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBefore: function(dc){
-							<br />
-							dc.targetObj = dc.triggerObj.parentNode;
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.targetObj = document.getElementById('table1');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								The "targetObj" property is ignored when the "isStatic" property is used to specify a static insertion point;
-							</li>
-							<li>
-								By default, when an AccDC Object is rendered using the "targetObj" property as an insertion point, no inline styling is applied.
-								<br />
-								Use the "cssObj" property to assign persistent inline styles, or the "className" property to assign a persistent class.
-							</li>
-							<li>
-								The "autoPosition" and "autoFix" properties can be used to automatically calculate absolute, relative, and fixed positioning coordinates at runtime.
-							</li>
-							<li>
-								Changing the "targetObj" property will not add the necessary event bindings to activate the AccDC Object at runtime;
-								<br />
-								"setTrigger()" must be used for this purpose.
-							</li>
-							<li>
-								Modifying the "targetObj" property will not affect the behavior of the "returnFocus" property;
-							</li>
-							<li>
-								Use the "triggerObj" property to set a strategic insertion point that will also affect the behavior of the "returnFocus" property.
-							</li>
-							<li>
-								NOTE: If the "targetObj" property is used to designate an insertion point that is too far removed from the triggering element within the DOM, it will present an accessibility issue for screen reader and keyboard only users.
-							</li>
-						</ul>
-						<p class="heading" role="heading" aria-level="5">
-							Required: One or the other must be True:
-						</p>
-						<ol>
-							<li>
-								The "triggerObj" property must be set to a focusable DOM node.
-							</li>
-							<li>
-								The "returnFocus" property must be set to False.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.containerDiv</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".containerDiv" property is the DOM node where visually rendered content for an AccDC Object is stored.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            All internal DOM node read/write modifications should be confined to the ".containerDiv" property to preserve the Automatic Accessibility Framework.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.containerDiv.appendChild(documentFragment);
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.containerDiv.innerHTML = 'Error: Form field required.';
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                The ".containerDivId" property can be used to access the dynamically generated ID attribute of ".containerDiv". E.G.
+                                <br />
+                                <code>
+                                    var id = dc.containerDivId;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    var id = $A.reg.myObj.containerDivId;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.setTrigger()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "setTrigger()" method manually adds all triggering event bindings for an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							All prior event bindings for the AccDC Object will be removed when "setTrigger()" is invoked.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.setTrigger();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.setTrigger();
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Both of the properties "trigger" and "bind" must be set before "setTrigger()" is invoked.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.triggerObj</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "triggerObj" property is the DOM node for the triggering element after an AccDC Object is opened.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            If the "trigger" property is not included during the setup process to automatically specify a particular triggering element, the "triggerObj" property must be manually set at runtime to allow for strategic DOM insertion.
+                            <br />
+                            The "triggerObj" property can optionally be changed to any other focusable DOM node after an AccDC Object is open to ensure that focus control moves appropriately when the AccDC Object is closed.
+                            <br />
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            dc.triggerObj = document.getElementById('submitBtn');
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.triggerObj = document.getElementById('submitBtn');
+                            <br />
+                            // Or to get the triggering element
+                            <br />
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            var triggeringElement = dc.triggerObj;
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            var triggeringElement = $A.reg.myObj.triggerObj;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                The "triggerObj" property is not required to be set when the "isStatic" property is used to specify a static insertion point;
+                            </li>
+                            <li>
+                                By default, when an AccDC Object is rendered using the "triggerObj" property as an insertion point, no inline styling is applied.
+                                <br />
+                                Use the "cssObj" property to assign persistent inline styles, or the "className" property to assign a persistent class.
+                            </li>
+                            <li>
+                                The "autoPosition" and "autoFix" properties can be used to automatically calculate absolute, relative, and fixed positioning coordinates at runtime.
+                            </li>
+                            <li>
+                                Changing the "triggerObj" property will not add the necessary event bindings to activate the AccDC Object at runtime;
+                                <br />
+                                "setTrigger()" must be used for this purpose.
+                            </li>
+                            <li>
+                                Modifying the "triggerObj" property will directly affect the behavior of the "returnFocus" property;
+                            </li>
+                            <li>
+                                Use the "targetObj" property to set a strategic insertion point that will not affect the behavior of the "returnFocus" property.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.unsetTrigger()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "unsetTrigger()" method manually removes all triggering event bindings for an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							dc.unsetTrigger();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.unsetTrigger();
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.targetObj</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".targetObj" property is a DOM node that sets a strategic insertion point that will not affect the "triggerObj" or "returnFocus" properties.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            If not set, the "triggerObj" property will automatically be used as the strategic insertion point for an AccDC Object.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            dc.targetObj = dc.triggerObj.parentNode;
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.targetObj = document.getElementById('table1');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                The "targetObj" property is ignored when the "isStatic" property is used to specify a static insertion point;
+                            </li>
+                            <li>
+                                By default, when an AccDC Object is rendered using the "targetObj" property as an insertion point, no inline styling is applied.
+                                <br />
+                                Use the "cssObj" property to assign persistent inline styles, or the "className" property to assign a persistent class.
+                            </li>
+                            <li>
+                                The "autoPosition" and "autoFix" properties can be used to automatically calculate absolute, relative, and fixed positioning coordinates at runtime.
+                            </li>
+                            <li>
+                                Changing the "targetObj" property will not add the necessary event bindings to activate the AccDC Object at runtime;
+                                <br />
+                                "setTrigger()" must be used for this purpose.
+                            </li>
+                            <li>
+                                Modifying the "targetObj" property will not affect the behavior of the "returnFocus" property;
+                            </li>
+                            <li>
+                                Use the "triggerObj" property to set a strategic insertion point that will also affect the behavior of the "returnFocus" property.
+                            </li>
+                            <li>
+                                NOTE: If the "targetObj" property is used to designate an insertion point that is too far removed from the triggering element within the DOM, it will present an accessibility issue for screen reader and keyboard only users.
+                            </li>
+                        </ul>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required: One or the other must be True:
+                        </p>
+                        <ol>
+                            <li>
+                                The "triggerObj" property must be set to a focusable DOM node.
+                            </li>
+                            <li>
+                                The "returnFocus" property must be set to False.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.parent</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "parent" property is the object instance of the parent AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							alert(dc.parent.role); // The role for the parent AccDC Object
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.parent.close(); // Invokes the close method for the parent AccDC Object
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.setTrigger()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "setTrigger()" method manually adds all triggering event bindings for an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            All prior event bindings for the AccDC Object will be removed when "setTrigger()" is invoked.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.setTrigger();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.setTrigger();
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Both of the properties "trigger" and "bind" must be set before "setTrigger()" is invoked.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.children</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "children" property is an array of all child AccDC Object instances.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							alert(dc.children[0].role); // The role for the first child AccDC Object
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.children[0].open(); // Invokes the open method for the first child AccDC Object
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.unsetTrigger()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "unsetTrigger()" method manually removes all triggering event bindings for an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            dc.unsetTrigger();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.unsetTrigger();
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.siblings</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "siblings" property is an array of all AccDC Objects that were registered in the same array.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Open the third AccDC Object at the same logical level
-							<br />
-							dc.siblings[2].open();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.siblings[2].open();
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.parent</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "parent" property is the object instance of the parent AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            alert(dc.parent.role); // The role for the parent AccDC Object
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.parent.close(); // Invokes the close method for the parent AccDC Object
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.top</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "top" property is the top level AccDC Object for all child AccDC Objects.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Close the top level AccDC Object
-							<br />
-							dc.top.close();
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.top.close();
-						</code>
-					</dd>
-				</dl>
-				</article>
-			</div>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.children</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "children" property is an array of all child AccDC Object instances.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            alert(dc.children[0].role); // The role for the first child AccDC Object
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.children[0].open(); // Invokes the open method for the first child AccDC Object
+                        </code>
+                    </dd>
+                </dl>
 
-		</div>
-	</body>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.siblings</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "siblings" property is an array of all AccDC Objects that were registered in the same array.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Open the third AccDC Object at the same logical level
+                            <br />
+                            dc.siblings[2].open();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.siblings[2].open();
+                        </code>
+                    </dd>
+                </dl>
+
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.top</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "top" property is the top level AccDC Object for all child AccDC Objects.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Close the top level AccDC Object
+                            <br />
+                            dc.top.close();
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.top.close();
+                        </code>
+                    </dd>
+                </dl>
+            </article>
+        </div>
+
+    </div>
+</body>
+
 </html>

@@ -1,0 +1,6 @@
+(call prettier --write "./Acc.DC.API.U.js")
+(call prettier --write "./**/{demo.js,helpers.js,ready.js}")
+(call prettier --write "./**/*{.css,.json}")
+(call js-beautify -r --type="html" "./**/*.{htm,html}")
+(call js-beautify -r --type="html" "./AccDC.htm")
+(call .\minify.bat)

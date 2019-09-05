@@ -1,1566 +1,1568 @@
 <html>
-	<body>
-		<div>
 
-			<div class="apiDocumentationContentSection">
-				<article>
+<body>
+    <div>
 
-				<div class="hd">
-					<h3><span>Scripting</span></h3>
-				</div>
+        <div class="apiDocumentationContentSection">
+            <article>
 
-				<div class="intro content">
-					Default Order of Precedence:
-					<br />
-					runJSOnceBefore &gt; runOnceBefore &gt; runJSBefore &gt; runBefore &gt; Mode Handler &gt; runDuring &gt; runJSOnceAfter &gt; runOnceAfter &gt; runJSAfter &gt; runAfter
-				</div>
+                <div class="hd">
+                    <h3><span>Scripting</span></h3>
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>runJSOnceBefore[]</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runJSOnceBefore" array is used to execute one or more external JavaScript files once before an AccDC Object opens.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runJSOnceBefore: [
-							<br />
-							'js/ready.js',
-							<br />
-							'http://whatsock.com/js/demo.js'
-							<br />
-							],
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runJSOnceBefore.push('js/helpers.js');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Set the "ranJSOnceBefore" property to False to reset.
-								<br />
-								<code>
-									dc.ranJSOnceBefore = false;
-									<br />
-									// Or
-									<br />
-									$A.reg.myObj.ranJSOnceBefore = false;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <div class="intro content">
+                    Default Order of Precedence:
+                    <br />
+                    runJSOnceBefore &gt; runOnceBefore &gt; runJSBefore &gt; runBefore &gt; Mode Handler &gt; runDuring &gt; runJSOnceAfter &gt; runOnceAfter &gt; runJSAfter &gt; runAfter
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runOnceBefore()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runOnceBefore()" script is executed once before an AccDC Object opens.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runOnceBefore: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runOnceBefore = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Set the "ranJSOnceBefore" property to False to reset.
-								<br />
-								<code>
-									dc.ranJSOnceBefore = false;
-									<br />
-									// Or
-									<br />
-									$A.reg.myObj.ranJSOnceBefore = false;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>runJSOnceBefore[]</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runJSOnceBefore" array is used to execute one or more external JavaScript files once before an AccDC Object opens.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runJSOnceBefore: [
+                            <br />
+                            'js/ready.js',
+                            <br />
+                            'http://whatsock.com/js/demo.js'
+                            <br />
+                            ],
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runJSOnceBefore.push('js/helpers.js');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Set the "ranJSOnceBefore" property to False to reset.
+                                <br />
+                                <code>
+                                    dc.ranJSOnceBefore = false;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    $A.reg.myObj.ranJSOnceBefore = false;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runJSBefore[]</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runJSBefore" array is used to execute one or more external JavaScript files before an AccDC Object opens. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runJSBefore: [
-							<br />
-							'js/demo/chat/js/init.js'
-							<br />
-							],
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runJSBefore.push('js/demo/chat/js/init.js');
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runOnceBefore()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runOnceBefore()" script is executed once before an AccDC Object opens.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runOnceBefore: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runOnceBefore = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Set the "ranJSOnceBefore" property to False to reset.
+                                <br />
+                                <code>
+                                    dc.ranJSOnceBefore = false;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    $A.reg.myObj.ranJSOnceBefore = false;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runBefore()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runBefore()" script is executed before an AccDC Object opens. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBefore: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runBefore = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runJSBefore[]</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runJSBefore" array is used to execute one or more external JavaScript files before an AccDC Object opens. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runJSBefore: [
+                            <br />
+                            'js/demo/chat/js/init.js'
+                            <br />
+                            ],
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runJSBefore.push('js/demo/chat/js/init.js');
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runDuring()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runDuring()" script is executed while an AccDC Object is opening.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runDuring: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runDuring = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runBefore()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runBefore()" script is executed before an AccDC Object opens. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runBefore = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runJSOnceAfter</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runJSOnceAfter" array is used to execute one or more external JavaScript files once after an AccDC Object opens.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runJSOnceAfter: [
-							<br />
-							'js/helpers.js',
-							<br />
-							'http://whatsock.com/js/ready.js'
-							<br />
-							],
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runJSOnceAfter.push('js/demo.js');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Set the "ranJSOnceAfter" property to False to reset.
-								<br />
-								<code>
-									dc.ranJSOnceAfter = false;
-									<br />
-									// Or
-									<br />
-									$A.reg.myObj.ranJSOnceAfter = false;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runDuring()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runDuring()" script is executed while an AccDC Object is opening.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runDuring: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runDuring = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runOnceAfter()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runOnceAfter()" script is executed once after an AccDC Object opens.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runOnceAfter: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runOnceAfter = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								Set the "ranJSOnceAfter" property to False to reset.
-								<br />
-								<code>
-									dc.ranJSOnceAfter = false;
-									<br />
-									// Or
-									<br />
-									$A.reg.myObj.ranJSOnceAfter = false;
-								</code>
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runJSOnceAfter</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runJSOnceAfter" array is used to execute one or more external JavaScript files once after an AccDC Object opens.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runJSOnceAfter: [
+                            <br />
+                            'js/helpers.js',
+                            <br />
+                            'http://whatsock.com/js/ready.js'
+                            <br />
+                            ],
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runJSOnceAfter.push('js/demo.js');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Set the "ranJSOnceAfter" property to False to reset.
+                                <br />
+                                <code>
+                                    dc.ranJSOnceAfter = false;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    $A.reg.myObj.ranJSOnceAfter = false;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runJSAfter</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runJSAfter" array is used to execute one or more external JavaScript files after an AccDC Object opens. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runJSAfter: [
-							<br />
-							'http://whatsock.com/js/helpers.js',
-							<br />
-							'js/demo.js'
-							<br />
-							],
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runJSAfter.push('files/demo/chat/js/init.js');
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runOnceAfter()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runOnceAfter()" script is executed once after an AccDC Object opens.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runOnceAfter: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runOnceAfter = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                Set the "ranJSOnceAfter" property to False to reset.
+                                <br />
+                                <code>
+                                    dc.ranJSOnceAfter = false;
+                                    <br />
+                                    // Or
+                                    <br />
+                                    $A.reg.myObj.ranJSOnceAfter = false;
+                                </code>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runAfter()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runAfter()" script is executed after an AccDC Object opens. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runAfter = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runJSAfter</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runJSAfter" array is used to execute one or more external JavaScript files after an AccDC Object opens. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runJSAfter: [
+                            <br />
+                            'http://whatsock.com/js/helpers.js',
+                            <br />
+                            'js/demo.js'
+                            <br />
+                            ],
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runJSAfter.push('files/demo/chat/js/init.js');
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.reverseJSOrder</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "reverseJSOrder" property changes the order of precedence for script execution.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							reverseJSOrder: true,
-							<br />
-							// Or
-							<br />
-							runBefore: function(dc){
-							<br />
-							dc.reverseJSOrder = false;
-							<br />
-							},
-							<br />
-							// Or
-							<br />
-							runDuring: function(dc){
-							<br />
-							dc.reverseJSOrder = false;
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.reverseJSOrder = false;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								The following order of precedence is used when "reverseJSOrder" is set to True:
-								<br />
-								runOnceBefore &gt;
-								runJSOnceBefore &gt;
-								runBefore &gt;
-								runJSBefore &gt;
-								Mode Handler &gt;
-								runDuring &gt;
-								runOnceAfter &gt;
-								runJSOnceAfter &gt;
-								runAfter &gt;
-								runJSAfter
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runAfter()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runAfter()" script is executed after an AccDC Object opens. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runAfter = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runBeforeClose()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runBeforeClose()" script is executed before an AccDC Object closes. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runBeforeClose: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runBeforeClose = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.reverseJSOrder</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "reverseJSOrder" property changes the order of precedence for script execution.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            reverseJSOrder: true,
+                            <br />
+                            // Or
+                            <br />
+                            runBefore: function(dc){
+                            <br />
+                            dc.reverseJSOrder = false;
+                            <br />
+                            },
+                            <br />
+                            // Or
+                            <br />
+                            runDuring: function(dc){
+                            <br />
+                            dc.reverseJSOrder = false;
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.reverseJSOrder = false;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                The following order of precedence is used when "reverseJSOrder" is set to True:
+                                <br />
+                                runOnceBefore &gt;
+                                runJSOnceBefore &gt;
+                                runBefore &gt;
+                                runJSBefore &gt;
+                                Mode Handler &gt;
+                                runDuring &gt;
+                                runOnceAfter &gt;
+                                runJSOnceAfter &gt;
+                                runAfter &gt;
+                                runJSAfter
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.runAfterClose()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "runAfterClose()" script is executed after an AccDC Object closes. (Every time)
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfterClose: function(dc){
-							<br />
-							// Do something
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.runAfterClose = function(dc){
-							<br />
-							// Do something
-							<br />
-							};
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runBeforeClose()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runBeforeClose()" script is executed before an AccDC Object closes. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runBeforeClose: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runBeforeClose = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.allowCascade</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "allowCascade" property determines whether stacked script methods will be executed in succession.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							// Enable cascading for one object
-							<br />
-							allowCascade: true,
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Execute the 'runAfter' script after the AccDC Object opens,
-							<br />
-							// including the 'runAfter' script within the overrides object if present,
-							<br />
-							// as well as the 'runAfter' script within the 'globalDC' object if present.
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							], {
-							<br />
-							// Or apply cascading to all sibling AccDC Objects using the overrides object
-							<br />
-							allowCascade: true
-							<br />
-							});
-							<br />
-							<br />
-							// Or enable cascading for all AccDC Objects
-							<br />
-							<br />
-							$A.fn.globalDC.allowCascade = true;
-							<br />
-							<br />
-							// Or turn off cascading for a specific AccDC Object
-							<br />
-							<br />
-							$A.reg.myObj.allowCascade = false;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Applicable Methods
-						</p>
-						<ul>
-							<li>
-								runJSOnceBefore, runOnceBefore, runJSBefore, runBefore, runDuring, runJSOnceAfter, runOnceAfter, runJSAfter, runAfter, runBeforeClose, runAfterClose
-							</li>
-							<li>
-								"allowCascade" is False by default.
-							</li>
-							<li>
-								View the "globalDC" object documented within the Extensions section for additional details regarding prototype declarations.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.runAfterClose()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "runAfterClose()" script is executed after an AccDC Object closes. (Every time)
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfterClose: function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.runAfterClose = function(dc){
+                            <br />
+                            // Do something
+                            <br />
+                            };
+                        </code>
+                    </dd>
+                </dl>
 
-				<div class="hd">
-					<h3><span> CSS </span></h3>
-				</div>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.allowCascade</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "allowCascade" property determines whether stacked script methods will be executed in succession.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            // Enable cascading for one object
+                            <br />
+                            allowCascade: true,
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Execute the 'runAfter' script after the AccDC Object opens,
+                            <br />
+                            // including the 'runAfter' script within the overrides object if present,
+                            <br />
+                            // as well as the 'runAfter' script within the 'globalDC' object if present.
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ], {
+                            <br />
+                            // Or apply cascading to all sibling AccDC Objects using the overrides object
+                            <br />
+                            allowCascade: true
+                            <br />
+                            });
+                            <br />
+                            <br />
+                            // Or enable cascading for all AccDC Objects
+                            <br />
+                            <br />
+                            $A.fn.globalDC.allowCascade = true;
+                            <br />
+                            <br />
+                            // Or turn off cascading for a specific AccDC Object
+                            <br />
+                            <br />
+                            $A.reg.myObj.allowCascade = false;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Applicable Methods
+                        </p>
+                        <ul>
+                            <li>
+                                runJSOnceBefore, runOnceBefore, runJSBefore, runBefore, runDuring, runJSOnceAfter, runOnceAfter, runJSAfter, runAfter, runBeforeClose, runAfterClose
+                            </li>
+                            <li>
+                                "allowCascade" is False by default.
+                            </li>
+                            <li>
+                                View the "globalDC" object documented within the Extensions section for additional details regarding prototype declarations.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.className</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "className" property assigns one or more class names to an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							className: 'dialog',
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.className = 'wizard dialog';
-						</code>
-					</dd>
-				</dl>
+                <div class="hd">
+                    <h3><span> CSS </span></h3>
+                </div>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.closeClassName</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "closeClassName" property binds an AccDC Object's close event handlers with all matching elements in the object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Default: "accDCCloseCls"
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							// Matches an IMG tag within the AccDC Object with class="close"
-							<br />
-							closeClassName: 'close',
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.closeClassName = 'close';
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.className</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "className" property assigns one or more class names to an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            className: 'dialog',
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.className = 'wizard dialog';
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.cssObj</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "cssObj" property assigns inline styles to an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Default: {}
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							cssObj: {
-							<br />
-							width: '500px',
-							<br />
-							height: '300px',
-							<br />
-							fontSize: '1.1em',
-							<br />
-							overflow: 'auto',
-							<br />
-							border: 'solid thin black'
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.cssObj = {
-							<br />
-							color: 'black'
-							<br />
-							};
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.cssObj.position = 'static';
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								When "cssObj" properties are changed programmatically, the new changes will take affect the next time the AccDC Object opens.
-							</li>
-							<li>
-								Use the ".css()" method to programmatically change "cssObj" properties and apply them at runtime.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.closeClassName</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "closeClassName" property binds an AccDC Object's close event handlers with all matching elements in the object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Default: "accDCCloseCls"
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            // Matches an IMG tag within the AccDC Object with class="close"
+                            <br />
+                            closeClassName: 'close',
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.closeClassName = 'close';
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.css()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".css()" method adds/changes/removes/fetches styling properties from an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Format: .css(property, value, persist)
-							<br />
-							$A([
-							<br />
-							{
-							<br />
-							runOnceAfter: function(dc){
-							<br />
-							// Fetch a property value
-							<br />
-							var fs = dc.css('fontSize');
-							<br />
-							// Change/add one property value
-							<br />
-							dc.css('marginTop', '30px');
-							<br />
-							// Change/add one property value and merge the value with "cssObj"
-							<br />
-							dc.css('marginBottom', '30px', true);
-							<br />
-							// Change/add multiple property values
-							<br />
-							dc.css({
-							<br />
-							background: 'url(img/planets/stars.jpg) black no-repeat',
-							<br />
-							color: 'white'
-							<br />
-							});
-							<br />
-							// Change/add multiple property values and merge the values with "cssObj"
-							<br />
-							dc.css({
-							<br />
-							height: '300px',
-							<br />
-							width: '400px'
-							<br />
-							}, true);
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.css('overflow', 'auto', true);
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.cssObj</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "cssObj" property assigns inline styles to an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Default: {}
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            cssObj: {
+                            <br />
+                            width: '500px',
+                            <br />
+                            height: '300px',
+                            <br />
+                            fontSize: '1.1em',
+                            <br />
+                            overflow: 'auto',
+                            <br />
+                            border: 'solid thin black'
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.cssObj = {
+                            <br />
+                            color: 'black'
+                            <br />
+                            };
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.cssObj.position = 'static';
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                When "cssObj" properties are changed programmatically, the new changes will take affect the next time the AccDC Object opens.
+                            </li>
+                            <li>
+                                Use the ".css()" method to programmatically change "cssObj" properties and apply them at runtime.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.css()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "$A.css()" method gets or sets CSS properties on one or more DOM nodes.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Fetch a property value
-							<br />
-							var fs = $A.css(donNode, 'fontSize');
-							<br />
-							// Change/add one property value
-							<br />
-							$A.css(domNode, 'marginTop', '30px');
-							<br />
-							// Change/add one property value within multiple DOM nodes
-							<br />
-							$A.css([domNode1, domNode2], 'marginBottom', '30px');
-							<br />
-							// Change/add multiple property values
-							<br />
-							$A.css(domNode, {
-							<br />
-							background: 'url(img/planets/stars.jpg) black no-repeat',
-							<br />
-							color: 'white'
-							<br />
-							});
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.css()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".css()" method adds/changes/removes/fetches styling properties from an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Format: .css(property, value, persist)
+                            <br />
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runOnceAfter: function(dc){
+                            <br />
+                            // Fetch a property value
+                            <br />
+                            var fs = dc.css('fontSize');
+                            <br />
+                            // Change/add one property value
+                            <br />
+                            dc.css('marginTop', '30px');
+                            <br />
+                            // Change/add one property value and merge the value with "cssObj"
+                            <br />
+                            dc.css('marginBottom', '30px', true);
+                            <br />
+                            // Change/add multiple property values
+                            <br />
+                            dc.css({
+                            <br />
+                            background: 'url(img/planets/stars.jpg) black no-repeat',
+                            <br />
+                            color: 'white'
+                            <br />
+                            });
+                            <br />
+                            // Change/add multiple property values and merge the values with "cssObj"
+                            <br />
+                            dc.css({
+                            <br />
+                            height: '300px',
+                            <br />
+                            width: '400px'
+                            <br />
+                            }, true);
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.css('overflow', 'auto', true);
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.autoPosition</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "autoPosition" property automatically positions an AccDC Object relative to its triggering element or a target object via "posAnchor".
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Default: 0
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Options
-						</p>
-						<ul class="lsn">
-							<li>
-								0: Disabled
-							</li>
-							<li>
-								1: Above/Center/Left Edge Aligned
-							</li>
-							<li>
-								2: Above/Right/Right Edge Aligned
-							</li>
-							<li>
-								3: Level/Right/Right Edge Aligned
-							</li>
-							<li>
-								4: Below/Right/Right Edge Aligned
-							</li>
-							<li>
-								5: Below/Center/Left Edge Aligned
-							</li>
-							<li>
-								6: Below/Left/Left Edge Aligned
-							</li>
-							<li>
-								7: Level/Left/Left Edge Aligned
-							</li>
-							<li>
-								8: Above/Left/Left Edge Aligned
-							</li>
-							<li>
-								9: Level/Center/Left Edge Aligned
-							</li>
-							<li>
-								10: Above/Center/Right Edge Aligned
-							</li>
-							<li>
-								11: Level/Center/Right Edge Aligned
-							</li>
-							<li>
-								12: Below/Center/Right Edge Aligned
-							</li>
-						</ul>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							autoPosition: 5,
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.autoPosition = 3;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								The position for the AccDC Object must be set to either "absolute", "relative", or "fixed"
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.css()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "$A.css()" method gets or sets CSS properties on one or more DOM nodes.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Fetch a property value
+                            <br />
+                            var fs = $A.css(donNode, 'fontSize');
+                            <br />
+                            // Change/add one property value
+                            <br />
+                            $A.css(domNode, 'marginTop', '30px');
+                            <br />
+                            // Change/add one property value within multiple DOM nodes
+                            <br />
+                            $A.css([domNode1, domNode2], 'marginBottom', '30px');
+                            <br />
+                            // Change/add multiple property values
+                            <br />
+                            $A.css(domNode, {
+                            <br />
+                            background: 'url(img/planets/stars.jpg) black no-repeat',
+                            <br />
+                            color: 'white'
+                            <br />
+                            });
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.posAnchor</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "posAnchor" property assigns an anchor object to be used with the "autoPosition" calculation, which overrides the automatic use of the triggering element for this purpose.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Values: CSS Selector or DOM node
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							posAnchor: 'img.helpIcon',
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.posAnchor = document.getElementById('formId');
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required: One or the other must be true:
-						</p>
-						<ol>
-							<li>
-								"autoPosition" must be greater than 0
-							</li>
-							<li>
-								The "setPosition()" method must be invoked.
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.autoPosition</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "autoPosition" property automatically positions an AccDC Object relative to its triggering element or a target object via "posAnchor".
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Default: 0
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Options
+                        </p>
+                        <ul class="lsn">
+                            <li>
+                                0: Disabled
+                            </li>
+                            <li>
+                                1: Above/Center/Left Edge Aligned
+                            </li>
+                            <li>
+                                2: Above/Right/Right Edge Aligned
+                            </li>
+                            <li>
+                                3: Level/Right/Right Edge Aligned
+                            </li>
+                            <li>
+                                4: Below/Right/Right Edge Aligned
+                            </li>
+                            <li>
+                                5: Below/Center/Left Edge Aligned
+                            </li>
+                            <li>
+                                6: Below/Left/Left Edge Aligned
+                            </li>
+                            <li>
+                                7: Level/Left/Left Edge Aligned
+                            </li>
+                            <li>
+                                8: Above/Left/Left Edge Aligned
+                            </li>
+                            <li>
+                                9: Level/Center/Left Edge Aligned
+                            </li>
+                            <li>
+                                10: Above/Center/Right Edge Aligned
+                            </li>
+                            <li>
+                                11: Level/Center/Right Edge Aligned
+                            </li>
+                            <li>
+                                12: Below/Center/Right Edge Aligned
+                            </li>
+                        </ul>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            autoPosition: 5,
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.autoPosition = 3;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                The position for the AccDC Object must be set to either "absolute", "relative", or "fixed"
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.setPosition()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".setPosition()" method manually sets the rendered position of an AccDC Object relative to the location of a specific DOM node.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							All arguments are optional.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							// Format: .setPosition(CSS_Or_DOMNode, autoPositionValue, persist)
-							<br />
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Invoke setPosition using preconfigured values
-							<br />
-							dc.setPosition();
-							<br />
-							// Or setPosition using a custom object and a preconfigured "autoPosition" value
-							<br />
-							dc.setPosition('div.help');
-							<br />
-							// Or setPosition using a custom object and a custom "autoPosition" value
-							<br />
-							dc.setPosition(document.getElementById('helper'), 3);
-							<br />
-							// Or setPosition using a preconfigured object and a custom "autoPosition" value and save the change
-							<br />
-							dc.setPosition(5, true);
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.setPosition('div.helpIcon', 10, true);
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Important
-						</p>
-						<ul>
-							<li>
-								When "persist" is True, related arguments will be saved as "posAnchor" and "autoPosition" values in the current AccDC Object instance.
-							</li>
-						</ul>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.posAnchor</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "posAnchor" property assigns an anchor object to be used with the "autoPosition" calculation, which overrides the automatic use of the triggering element for this purpose.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Values: CSS Selector or DOM node
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            posAnchor: 'img.helpIcon',
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.posAnchor = document.getElementById('formId');
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required: One or the other must be true:
+                        </p>
+                        <ol>
+                            <li>
+                                "autoPosition" must be greater than 0
+                            </li>
+                            <li>
+                                The "setPosition()" method must be invoked.
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.autoFix</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "autoFix" property sets the rendered position of an AccDC Object to a fixed location in the viewport.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Default: 0
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Options
-						</p>
-						<ul class="lsn">
-							<li>
-								0: Disabled
-							</li>
-							<li>
-								1: Top/Center
-							</li>
-							<li>
-								2: Top/Right
-							</li>
-							<li>
-								3: Right/Middle
-							</li>
-							<li>
-								4: Right/Bottom
-							</li>
-							<li>
-								5: Bottom/Center
-							</li>
-							<li>
-								6: Bottom/Left
-							</li>
-							<li>
-								7: Left/Middle
-							</li>
-							<li>
-								8: Left/Top
-							</li>
-							<li>
-								9: Center/Middle
-							</li>
-						</ul>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							autoFix: 5,
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.autoFix = 9;
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.setPosition()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".setPosition()" method manually sets the rendered position of an AccDC Object relative to the location of a specific DOM node.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            All arguments are optional.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            // Format: .setPosition(CSS_Or_DOMNode, autoPositionValue, persist)
+                            <br />
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Invoke setPosition using preconfigured values
+                            <br />
+                            dc.setPosition();
+                            <br />
+                            // Or setPosition using a custom object and a preconfigured "autoPosition" value
+                            <br />
+                            dc.setPosition('div.help');
+                            <br />
+                            // Or setPosition using a custom object and a custom "autoPosition" value
+                            <br />
+                            dc.setPosition(document.getElementById('helper'), 3);
+                            <br />
+                            // Or setPosition using a preconfigured object and a custom "autoPosition" value and save the change
+                            <br />
+                            dc.setPosition(5, true);
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.setPosition('div.helpIcon', 10, true);
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Important
+                        </p>
+                        <ul>
+                            <li>
+                                When "persist" is True, related arguments will be saved as "posAnchor" and "autoPosition" values in the current AccDC Object instance.
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.applyFix()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".applyFix()" method manually calculates a new fixed position using the current "autoFix" property value, or applies a new "autoFix" value.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// Apply a fixed position using the current "autoFix" value
-							<br />
-							dc.applyFix();
-							<br />
-							// Or apply a fixed position using a newly assigned "autoFix" value
-							<br />
-							dc.applyFix(5); // 5 is automatically saved in dc.autoFix
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.applyFix(3);
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.autoFix</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "autoFix" property sets the rendered position of an AccDC Object to a fixed location in the viewport.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Default: 0
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Options
+                        </p>
+                        <ul class="lsn">
+                            <li>
+                                0: Disabled
+                            </li>
+                            <li>
+                                1: Top/Center
+                            </li>
+                            <li>
+                                2: Top/Right
+                            </li>
+                            <li>
+                                3: Right/Middle
+                            </li>
+                            <li>
+                                4: Right/Bottom
+                            </li>
+                            <li>
+                                5: Bottom/Center
+                            </li>
+                            <li>
+                                6: Bottom/Left
+                            </li>
+                            <li>
+                                7: Left/Middle
+                            </li>
+                            <li>
+                                8: Left/Top
+                            </li>
+                            <li>
+                                9: Center/Middle
+                            </li>
+                        </ul>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            autoFix: 5,
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.autoFix = 9;
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.offsetTop / .offsetLeft</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "offsetTop" and "offsetLeft" properties apply a positive or negative offset when "autoPosition" or "autoFix" is calculated.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Defaults: 0
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							offsetTop: 20,
-							<br />
-							offsetLeft: -30,
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.offsetTop = -25;
-						</code>
-						<p class="heading" role="heading" aria-level="5">
-							Required:
-						</p>
-						<ol>
-							<li>
-								"autoPosition" or "autoFix" must be greater than 0
-							</li>
-						</ol>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.applyFix()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".applyFix()" method manually calculates a new fixed position using the current "autoFix" property value, or applies a new "autoFix" value.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // Apply a fixed position using the current "autoFix" value
+                            <br />
+                            dc.applyFix();
+                            <br />
+                            // Or apply a fixed position using a newly assigned "autoFix" value
+                            <br />
+                            dc.applyFix(5); // 5 is automatically saved in dc.autoFix
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.applyFix(3);
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.importCSS</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "importCSS" property dynamically adds an external CSS file to the AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							importCSS: 'css/dialog.css',
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.importCSS = 'http://whatsock.com/css/global.css';
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.offsetTop / .offsetLeft</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "offsetTop" and "offsetLeft" properties apply a positive or negative offset when "autoPosition" or "autoFix" is calculated.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Defaults: 0
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            offsetTop: 20,
+                            <br />
+                            offsetLeft: -30,
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.offsetTop = -25;
+                        </code>
+                        <p class="heading" role="heading" aria-level="5">
+                            Required:
+                        </p>
+                        <ol>
+                            <li>
+                                "autoPosition" or "autoFix" must be greater than 0
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.shadow</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "shadow" property applies a drop-shadow affect on an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							Defaults: {
-							horizontal: '0px', vertical: '0px', blur: '0px', color: ''
-							}
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Options
-						</p>
-						<dl>
-							<dt>
-								<span>horizontal</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								Determines the shadow size on the left or right of an AccDC Object;
-								<br />
-								A negative pixel value will display the shadow on the left,
-								a positive pixel value will display the shadow on the right.
-							</dd>
-							<dt>
-								<span>vertical</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								Determines the shadow size on the top or bottom of an AccDC Object;
-								<br />
-								A negative pixel value will display the shadow on the top,
-								a positive pixel value will display the shadow on the bottom.
-							</dd>
-							<dt>
-								<span>blur</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								Determines the shadow blur size for an AccDC Object;
-								<br />
-								A negative pixel value will decrease the shadow size,
-								a positive pixel value will increase the blur size.
-							</dd>
-							<dt>
-								<span>color</span><span>(Optional)</span>
-							</dt>
-							<dd>
-								Determines the color of the drop-shadow.
-							</dd>
-						</dl>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							shadow: {
-							<br />
-							horizontal: '7px',
-							<br />
-							vertical: '10px',
-							<br />
-							blur: '10px',
-							<br />
-							color: '#000000'
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.shadow = {
-							<br />
-							horizontal: '-7px',
-							<br />
-							vertical: '-7px'
-							<br />
-							};
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.shadow.vertical = '10px';
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.importCSS</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "importCSS" property dynamically adds an external CSS file to the AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            importCSS: 'css/dialog.css',
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.importCSS = 'http://whatsock.com/css/global.css';
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.setShadow()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".setShadow()" method manually applies "shadow" to an AccDC Object.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p>
-							All arguments are optional.
-						</p>
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							runAfter: function(dc){
-							<br />
-							// SetShadow using the current dc.shadow object
-							<br />
-							dc.setShadow();
-							<br />
-							// Or setShadow using custom values that will automatically be saved in dc.shadow
-							<br />
-							dc.setShadow({
-							<br />
-							color: 'black'
-							<br />
-							});
-							<br />
-							},
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.setShadow({
-							<br />
-							horizontal: '-7px',
-							<br />
-							vertical: '5px',
-							<br />
-							blur: '7px',
-							<br />
-							color: '#d3d3d3'
-							<br />
-							});
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.shadow</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "shadow" property applies a drop-shadow affect on an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            Defaults: {
+                            horizontal: '0px', vertical: '0px', blur: '0px', color: ''
+                            }
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Options
+                        </p>
+                        <dl>
+                            <dt>
+                                <span>horizontal</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                Determines the shadow size on the left or right of an AccDC Object;
+                                <br />
+                                A negative pixel value will display the shadow on the left,
+                                a positive pixel value will display the shadow on the right.
+                            </dd>
+                            <dt>
+                                <span>vertical</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                Determines the shadow size on the top or bottom of an AccDC Object;
+                                <br />
+                                A negative pixel value will display the shadow on the top,
+                                a positive pixel value will display the shadow on the bottom.
+                            </dd>
+                            <dt>
+                                <span>blur</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                Determines the shadow blur size for an AccDC Object;
+                                <br />
+                                A negative pixel value will decrease the shadow size,
+                                a positive pixel value will increase the blur size.
+                            </dd>
+                            <dt>
+                                <span>color</span><span>(Optional)</span>
+                            </dt>
+                            <dd>
+                                Determines the color of the drop-shadow.
+                            </dd>
+                        </dl>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            shadow: {
+                            <br />
+                            horizontal: '7px',
+                            <br />
+                            vertical: '10px',
+                            <br />
+                            blur: '10px',
+                            <br />
+                            color: '#000000'
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.shadow = {
+                            <br />
+                            horizontal: '-7px',
+                            <br />
+                            vertical: '-7px'
+                            <br />
+                            };
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.shadow.vertical = '10px';
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.hasClass()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "$A.hasClass()" method returns True if one, or the total of a series of class names are contained within a DOM node.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							var isIncluded = $A.hasClass(domNode, 'myClass');
-							<br />
-							// Or
-							<br />
-							var areAllIncluded = $A.hasClass(domNode, 'myClass1 myClass2 myClass3');
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.setShadow()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".setShadow()" method manually applies "shadow" to an AccDC Object.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p>
+                            All arguments are optional.
+                        </p>
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            runAfter: function(dc){
+                            <br />
+                            // SetShadow using the current dc.shadow object
+                            <br />
+                            dc.setShadow();
+                            <br />
+                            // Or setShadow using custom values that will automatically be saved in dc.shadow
+                            <br />
+                            dc.setShadow({
+                            <br />
+                            color: 'black'
+                            <br />
+                            });
+                            <br />
+                            },
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.setShadow({
+                            <br />
+                            horizontal: '-7px',
+                            <br />
+                            vertical: '5px',
+                            <br />
+                            blur: '7px',
+                            <br />
+                            color: '#d3d3d3'
+                            <br />
+                            });
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.remClass()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "$A.remClass()" method removes one or more class names from a DOM node, or an array of DOM nodes.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A.remClass(domNode, 'myClass');
-							<br />
-							// Or
-							<br />
-							$A.remClass([domNode1, domNode2], 'myClass1 myClass2 myClass3');
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.hasClass()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "$A.hasClass()" method returns True if one, or the total of a series of class names are contained within a DOM node.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            var isIncluded = $A.hasClass(domNode, 'myClass');
+                            <br />
+                            // Or
+                            <br />
+                            var areAllIncluded = $A.hasClass(domNode, 'myClass1 myClass2 myClass3');
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>$A.addClass()</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The "$A.addClass()" method adds one or more class names to a DOM node, or an array of DOM nodes.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A.addClass(domNode, 'myClass');
-							<br />
-							// Or
-							<br />
-							$A.addClass([domNode1, domNode2], 'myClass1 myClass2 myClass3');
-						</code>
-					</dd>
-				</dl>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.remClass()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "$A.remClass()" method removes one or more class names from a DOM node, or an array of DOM nodes.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A.remClass(domNode, 'myClass');
+                            <br />
+                            // Or
+                            <br />
+                            $A.remClass([domNode1, domNode2], 'myClass1 myClass2 myClass3');
+                        </code>
+                    </dd>
+                </dl>
 
-				<dl class="intro content api">
-					<dt class="heading" role="heading" aria-level="4">
-						<span><a class="toggle" role="button"  href="#"><span>.displayInline</span></a></span>
-					</dt>
-					<dd>
-						<p>
-							The ".displayInline" property specifies that an AccDC Object will have it's surrounding Div tags rendered as inline elements in order to suppress block formatting.
-						</p>
-					</dd>
-					<dd class="detail hidden">
-						<p class="heading" role="heading" aria-level="5">
-							Syntax
-						</p>
-						<code>
-							$A([
-							<br />
-							{
-							<br />
-							displayInline: true,
-							<br />
-							...
-							<br />
-							}
-							<br />
-							]);
-							<br />
-							// Or
-							<br />
-							$A.reg.myObj.displayInline = false;
-						</code>
-					</dd>
-				</dl>
-				</article>
-			</div>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>$A.addClass()</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The "$A.addClass()" method adds one or more class names to a DOM node, or an array of DOM nodes.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A.addClass(domNode, 'myClass');
+                            <br />
+                            // Or
+                            <br />
+                            $A.addClass([domNode1, domNode2], 'myClass1 myClass2 myClass3');
+                        </code>
+                    </dd>
+                </dl>
 
-		</div>
-	</body>
+                <dl class="intro content api">
+                    <dt class="heading" role="heading" aria-level="4">
+                        <span><a class="toggle" role="button" href="#"><span>.displayInline</span></a></span>
+                    </dt>
+                    <dd>
+                        <p>
+                            The ".displayInline" property specifies that an AccDC Object will have it's surrounding Div tags rendered as inline elements in order to suppress block formatting.
+                        </p>
+                    </dd>
+                    <dd class="detail hidden">
+                        <p class="heading" role="heading" aria-level="5">
+                            Syntax
+                        </p>
+                        <code>
+                            $A([
+                            <br />
+                            {
+                            <br />
+                            displayInline: true,
+                            <br />
+                            ...
+                            <br />
+                            }
+                            <br />
+                            ]);
+                            <br />
+                            // Or
+                            <br />
+                            $A.reg.myObj.displayInline = false;
+                        </code>
+                    </dd>
+                </dl>
+            </article>
+        </div>
+
+    </div>
+</body>
+
 </html>

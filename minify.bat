@@ -1,0 +1,1 @@
+call uglifyjs Acc.DC.API.U.js --comments /^!/ --compress --mangle --output Acc.DC.API.js

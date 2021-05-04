@@ -1,6 +1,8 @@
 AccDC API - 3.4 Standalone (12/11/2017)
 =====
 
+IMPORTANT: All of the AccDC projects have been deprecated as of May4, 2021. All future development will instead be done through the Apex 4X project, which is much more powerful and feature rich. To learn more, read the Apex 4X release article at:  https://www.linkedin.com/pulse/released-apex-4x-comprehensive-aria-development-suite-bryan-garaventa
+
 AccDC is a scalable, cross-browser and cross-platform compatible Dynamic Content Management System that automates the rendering of dynamic content to ensure accessibility for screen reader and keyboard only users.
 
 Supported by the Royal Society of Arts, AccDC was awarded the "Above and Beyond Accessibility Award" from the United States Department of Labor, and was presented at the Developing with Accessibility Event, hosted by the Federal Communications Commission in Washington DC in 2012.
